@@ -1,0 +1,10 @@
+{
+  "function": {
+    "top3": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  }
+}
