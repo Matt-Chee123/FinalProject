@@ -135,6 +135,31 @@ app.get("/items/bottom3", async function(req, res) {
     }
 });
 
+//Outputs endpoint
+app.get("/items/outputs", async function(req, res) {
+    var params = {
+        TableName: tableName,
+        FilterExpression: "ProfileType = :profileTypeValue",
+        ExpressionAttributeValues: {
+            ":profileTypeValue": "Outputs"
+        }
+    };
+
+    try {
+        // Fetching items from DynamoDB
+        const data = await ddbDocClient.send(new ScanCommand(params));
+        let items = data.Items;
+
+        // Filter items by 'ProfileType' and then sort by 'AverageScore' in descending order
+        const filteredItems = items.filter(item => item.ProfileType === "Outputs");
+        // Sending the top 3 items as the response
+        res.json(filteredItems);
+    } catch (err) {
+        // Error handling
+        res.status(500).json({error: 'Could not load items: ' + err.message});
+    }
+});
+
 /************************************
  * HTTP Get method to query objects *
  ************************************/
