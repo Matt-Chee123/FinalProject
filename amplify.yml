@@ -12,6 +12,7 @@ backend:
       commands:
         - echo "Install dependencies with pipenv"
         - python3 --version  # Check the current Python version
+        - pipenv --python 3.9
         - pipenv install
         - amplifyPush --simple
 frontend:
