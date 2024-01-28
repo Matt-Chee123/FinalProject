@@ -5,6 +5,7 @@ backend:
     build:
       commands:
         - amplifyPush --simple
+        - pyenv global 3.8.x
 frontend:
   phases:
     build:
