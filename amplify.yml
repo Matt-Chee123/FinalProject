@@ -3,6 +3,9 @@ backend:
   phases:
     preBuild:
       commands:
+        - echo "Install pip"
+        - python -m ensurepip --default-pip
+        - python -m pip install --upgrade pip
         - echo "Install pipenv"
         - python -m pip install pipenv
     build:
