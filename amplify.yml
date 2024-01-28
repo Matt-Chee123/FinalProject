@@ -1,18 +1,22 @@
 version: 1
 backend:
   phases:
-    # IMPORTANT - Please verify your build commands
+    preBuild:
+      commands:
+        - echo "Install pipenv"
+        - pip install pipenv
     build:
       commands:
+        - echo "Install dependencies with pipenv"
+        - pipenv install
         - amplifyPush --simple
-        - pyenv global 3.8.x
 frontend:
   phases:
     build:
       commands: []
   artifacts:
     # IMPORTANT - Please verify your build output directory
-    baseDirectory: /web
+    baseDirectory: web
     files:
       - '**/*'
   cache:
