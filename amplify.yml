@@ -6,9 +6,8 @@ backend:
         - echo "Install pip"
         - python -m ensurepip --default-pip
         - python -m pip install --upgrade pip
-        - pyenv global 3.8
         - echo "Install pipenv"
-        - python3 -m pip install pipenv
+        - python -m pip install pipenv
     build:
       commands:
         - echo "Install dependencies with pipenv"
