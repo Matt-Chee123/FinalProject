@@ -1,4 +1,4 @@
-fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/top3')
+fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/bottom3')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -6,21 +6,21 @@ fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/top3')
     return response.json();
   })
   .then(data => {
-    displayTopThreeRecords(data);
+    displayBottomThreeRecords(data);
   })
   .catch(error => {
     console.error('Fetch error:', error);
   });
 
-function displayTopThreeRecords(data) {
-  const topThreeContainer = document.getElementById('top-three-records');
+function displayBottomThreeRecords(data) {
+  const bottomThreeContainer = document.getElementById('bottom-three-records');
   let content = '<ul>';
-  content += '<h3>Top 3 Universities</h3>';
+  content += '<h3>Bottom 3 Universities</h3>';
 
   data.forEach(item => {
     content += `<ul>${item.UniversityName} - ${item.AverageScore}</ul>`;
   });
 
   content += '</ul>';
-  topThreeContainer.innerHTML = content;
+  bottomThreeContainer.innerHTML = content;
 }

@@ -27,14 +27,14 @@ HEADERS = [
 
 # Initialize a DynamoDB client
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('projDB')  # Replace with your actual table name
+table = dynamodb.Table('projDB-main')  # Replace with your actual table name
 
 # Function to create a primary key
 def create_primary_key(institution_id, profile_type):
     return f"{institution_id}#{profile_type}"
 
 # Open the CSV file and read each row
-with open('../../../UniversityWork/3rdYearProj/server/data/outputOverall.csv', 'r', encoding='utf-8') as csvfile:
+with open('../data/outputOverall.csv', 'r', encoding='utf-8') as csvfile:
     reader = csv.reader(csvfile)
     for row in reader:
         # Map the row to the headers
@@ -52,7 +52,7 @@ with open('../../../UniversityWork/3rdYearProj/server/data/outputOverall.csv', '
 
         # Create the item to insert into DynamoDB
         item = {
-            'PrimaryKey': primary_key,
+            'InstitutionID': primary_key,
             'UniversityName': item_data['UniversityName'],
             'InstSortOrder': item_data['InstSortOrder'],
             'MainPanel': item_data['MainPanel'],

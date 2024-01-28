@@ -1,0 +1,14 @@
+{
+  "resourceName": "DynamoData",
+  "tableName": "projDB",
+  "partitionKey": {
+    "fieldName": "InstitutionID",
+    "fieldType": "string"
+  },
+  "sortKey": {
+    "fieldName": "UniversityName",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

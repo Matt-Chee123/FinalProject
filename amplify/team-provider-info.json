@@ -10,6 +10,20 @@
       "StackName": "amplify-finalproject-main-220201",
       "StackId": "arn:aws:cloudformation:eu-north-1:742600926264:stack/amplify-finalproject-main-220201/b30a3f00-bd5f-11ee-b630-067ee48e0fd0",
       "AmplifyAppId": "d1dnk4ja0uni5b"
+    },
+    "categories": {
+      "storage": {
+        "DynamoData": {}
+      },
+      "function": {
+        "testLambda": {
+          "deploymentBucketName": "amplify-finalproject-main-220201-deployment",
+          "s3Key": "amplify-builds/testLambda-36574e70704477536b63-build.zip"
+        }
+      },
+      "api": {
+        "TestAPI": {}
+      }
     }
   }
 }
