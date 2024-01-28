@@ -34,7 +34,7 @@ function displayOutputAverages(data) {
   const avgOneStar = Number((sumOneStar / data.length).toFixed(2));
 
   // Add averages to the list
-  content += '<h3>Average Outputs</h3>';
+  content += '<h3>Average UK Outputs</h3>';
   content += `<ul>World Leading: ${avgFourStar}%</ul>`;
   content += `<ul>Internationally Excellent: ${avgThreeStar}%</ul>`;
   content += `<ul>Internationally Recognized: ${avgTwoStar}%</ul>`;
