@@ -4,11 +4,7 @@ backend:
     # IMPORTANT - Please verify your build commands
     build:
       commands:
-        - echo "Ensure we're using Python 3.8"
-        - pyenv global 3.8.x
         - amplifyPush --simple
-        - pip3 install pipenv
-        - pipenv install
 frontend:
   phases:
     build:
