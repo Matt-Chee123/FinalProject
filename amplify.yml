@@ -3,8 +3,10 @@ backend:
   phases:
     preBuild:
       commands:
+        - echo "Setting Python version to 3.8"
+        - pyenv local 3.8
         - echo "Install pipenv"
-        - pip install pipenv
+        - python -m pip install pipenv
     build:
       commands:
         - echo "Install dependencies with pipenv"
