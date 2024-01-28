@@ -3,8 +3,17 @@ backend:
   phases:
     preBuild:
       commands:
+        - echo "Install pip"
+        - python -m ensurepip --default-pip
+        - python -m pip install --upgrade pip
+        - echo "Install pipenv"
+        - python -m pip install pipenv
     build:
       commands:
+        - echo "Install dependencies with pipenv"
+        - python3 --version  # Check the current Python version
+        - pipenv --python 3.9
+        - pipenv install
         - amplifyPush --simple
 frontend:
   phases:
