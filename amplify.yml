@@ -14,6 +14,7 @@ backend:
         - python3 --version  # Check the current Python version
         - pipenv --python 3.9
         - pipenv install
+        - amplify update function top3 --runtime python3.8
         - amplifyPush --simple
 frontend:
   phases:
