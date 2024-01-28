@@ -13,7 +13,13 @@
     },
     "categories": {
       "function": {
-        "top3": {}
+        "top3": {
+          "deploymentBucketName": "amplify-finalproject-main-220201-deployment",
+          "s3Key": "amplify-builds/top3-71713961337456414271-build.zip"
+        }
+      },
+      "api": {
+        "MyAPI": {}
       }
     }
   }
