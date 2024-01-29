@@ -63,53 +63,52 @@ function displayTopThreeSources(data) {
 
 // Get the top 4 highest figures
   const top4Incomes = incomes.slice(0, 4);
-Highcharts.chart('top-sources-records', {
-    chart: {
-        type: 'column',
-        marginBottom: 20 // Adjust if necessary to fit the chart
-    },
-    title: {
-        text: 'Top 4 Income Sources'
-    },
-    xAxis: {
-        categories: top4Incomes.map(income => income.name),
-        labels: {
-            enabled: false // Disables the labels on the x-axis
-        }
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Income (£)'
-        },
-        tickInterval: 200000000, // Set the tick interval to 200 million
-        labels: {
-            formatter: function() {
-                return (this.value / 1000000) + 'M'; // Convert to M for millions
-            }
-        }
-    },
-    tooltip: {
-        valuePrefix: '£'
-    },
-    plotOptions: {
-        column: {
-            dataLabels: {
-                enabled: false // Disable data labels on the columns
-            },
-            marker: {
-                enabled: false // Disable markers
-            }
-        }
-    },
-    credits: {
-        enabled: false
-    },
-    series: [{
-        name: 'Amount',
-        data: top4Incomes.map(income => income.value),
-        showInLegend: false // Ensure that the series is not shown in the legend
-    }]
-});
-
+  Highcharts.chart('top-sources-records', {
+      chart: {
+          type: 'column',
+          marginBottom: 20 // Adjust if necessary to fit the chart
+      },
+      title: {
+          text: 'Top 4 Income Sources'
+      },
+      xAxis: {
+          categories: top4Incomes.map(income => income.name),
+          labels: {
+              enabled: false // Disables the labels on the x-axis
+          }
+      },
+      yAxis: {
+          min: 0,
+          title: {
+              text: 'Income (£)'
+          },
+          tickInterval: 200000000, // Set the tick interval to 200 million
+          labels: {
+              formatter: function() {
+                  return (this.value / 1000000) + 'M'; // Convert to M for millions
+              }
+          }
+      },
+      tooltip: {
+          valuePrefix: '£'
+      },
+      plotOptions: {
+          column: {
+              dataLabels: {
+                  enabled: false // Disable data labels on the columns
+              },
+              marker: {
+                  enabled: false // Disable markers
+              }
+          }
+      },
+      credits: {
+          enabled: false
+      },
+      series: [{
+          name: 'Amount',
+          data: top4Incomes.map(income => income.value),
+          showInLegend: false // Ensure that the series is not shown in the legend
+      }]
+  });
 }
