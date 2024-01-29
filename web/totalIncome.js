@@ -63,7 +63,7 @@ function displayTopThreeSources(data) {
 
 // Get the top 4 highest figures
   const top4Incomes = incomes.slice(0, 4);
-  Highcharts.chart('top-sources-records', {
+  Highcharts.chart('top-sources-container', {
       chart: {
           type: 'column',
           marginBottom: 20 // Adjust if necessary to fit the chart
