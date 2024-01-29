@@ -29,7 +29,6 @@ function calculateNationalAverageScore(data, profileType) {
 }
 
 function displayNationalAverageScore(data) {
-  const nationalAverageContainer = document.getElementById('national-average-container');
   const averageOverallScore = Number(calculateNationalAverageScore(data, 'Overall').toFixed(2));
   const averageOutputsScore = Number(calculateNationalAverageScore(data, 'Outputs').toFixed(2));
   const averageImpactScore = Number(calculateNationalAverageScore(data, 'Impact').toFixed(2));

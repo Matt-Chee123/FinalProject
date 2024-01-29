@@ -2,18 +2,18 @@
 10007783,University of Aberdeen,1,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,15.50,NULL,100,35.9,53.8,10.3,0,0,3.26
 10007783,University of Aberdeen,1,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,15.50,NULL,100,25,75,0,0,0,3.25
 10007783,University of Aberdeen,1,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,15.50,NULL,100,0,87.5,12.5,0,0,2.88
-10007856,Aberystwyth University / Prifysgol Aberystwyth,3,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,27.82,NULL,100,29,59,12,0,0,3.17
-10007856,Aberystwyth University / Prifysgol Aberystwyth,3,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,27.82,NULL,100,34.3,58.6,7.1,0,0,3.27
-10007856,Aberystwyth University / Prifysgol Aberystwyth,3,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,27.82,NULL,100,33.3,66.7,0,0,0,3.33
-10007856,Aberystwyth University / Prifysgol Aberystwyth,3,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,27.82,NULL,100,0,50,50,0,0,2.50
+10007856,Aberystwyth University,3,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,27.82,NULL,100,29,59,12,0,0,3.17
+10007856,Aberystwyth University,3,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,27.82,NULL,100,34.3,58.6,7.1,0,0,3.27
+10007856,Aberystwyth University,3,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,27.82,NULL,100,33.3,66.7,0,0,0,3.33
+10007856,Aberystwyth University,3,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,27.82,NULL,100,0,50,50,0,0,2.50
 10007759,Aston University,8,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,34.00,NULL,100,16,53,30,1,0,2.84
 10007759,Aston University,8,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,34.00,NULL,100,25.9,58.8,14.1,1.2,0,3.09
 10007759,Aston University,8,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,34.00,NULL,100,0,66.7,33.3,0,0,2.67
 10007759,Aston University,8,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,34.00,NULL,100,0,12.5,87.5,0,0,2.12
-10007850,The University of Bath,10,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,29.00,NULL,100,37,61,2,0,0,3.35
-10007850,The University of Bath,10,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,29.00,NULL,100,45.2,50.7,4.1,0,0,3.41
-10007850,The University of Bath,10,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,29.00,NULL,100,16.7,83.3,0,0,0,3.17
-10007850,The University of Bath,10,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,29.00,NULL,100,37.5,62.5,0,0,0,3.38
+10007850,University of Bath,10,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,29.00,NULL,100,37,61,2,0,0,3.35
+10007850,University of Bath,10,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,29.00,NULL,100,45.2,50.7,4.1,0,0,3.41
+10007850,University of Bath,10,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,29.00,NULL,100,16.7,83.3,0,0,0,3.17
+10007850,University of Bath,10,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,29.00,NULL,100,37.5,62.5,0,0,0,3.38
 10007152,University of Bedfordshire,12,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,10.00,NULL,45,9,25,43,23,0,2.20
 10007152,University of Bedfordshire,12,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,10.00,NULL,45,4,32,48,16,0,2.24
 10007152,University of Bedfordshire,12,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,10.00,NULL,45,25,25,25,25,0,2.50
@@ -22,10 +22,10 @@
 10007760,Birkbeck College,13,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,25.60,NULL,100,55,41.7,3.3,0,0,3.52
 10007760,Birkbeck College,13,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,25.60,NULL,100,66.7,33.3,0,0,0,3.67
 10007760,Birkbeck College,13,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,25.60,NULL,100,0,50,50,0,0,2.50
-10006840,The University of Birmingham,14,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,42.70,NULL,100,77,23,0,0,0,3.77
-10006840,The University of Birmingham,14,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,42.70,NULL,100,65.4,34.6,0,0,0,3.65
-10006840,The University of Birmingham,14,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,42.70,NULL,100,100,0,0,0,0,4.00
-10006840,The University of Birmingham,14,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,42.70,NULL,100,87.5,12.5,0,0,0,3.88
+10006840,University of Birmingham,14,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,42.70,NULL,100,77,23,0,0,0,3.77
+10006840,University of Birmingham,14,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,42.70,NULL,100,65.4,34.6,0,0,0,3.65
+10006840,University of Birmingham,14,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,42.70,NULL,100,100,0,0,0,0,4.00
+10006840,University of Birmingham,14,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,42.70,NULL,100,87.5,12.5,0,0,0,3.88
 10007140,Birmingham City University,15,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,30.00,NULL,35,11,49,28,4,8,2.51
 10007140,Birmingham City University,15,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,30.00,NULL,35,10.7,61.3,28,0,0,2.83
 10007140,Birmingham City University,15,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,30.00,NULL,35,16.7,50,0,0,33.3,2.17
@@ -34,10 +34,10 @@
 10000824,Bournemouth University,18,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,45.75,NULL,80,6.1,48.3,41.2,3.5,0.9,2.55
 10000824,Bournemouth University,18,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,45.75,NULL,80,37.5,25,12.5,25,0,2.75
 10000824,Bournemouth University,18,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,45.75,NULL,80,0,12.5,75,12.5,0,2.00
-10007785,The University of Bradford,19,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,19.00,NULL,65,5,62,30,3,0,2.69
-10007785,The University of Bradford,19,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,19.00,NULL,65,8.3,58.4,31.2,2.1,0,2.73
-10007785,The University of Bradford,19,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,19.00,NULL,65,0,100,0,0,0,3.00
-10007785,The University of Bradford,19,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,19.00,NULL,65,0,12.5,75,12.5,0,2.00
+10007785,University of Bradford,19,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,19.00,NULL,65,5,62,30,3,0,2.69
+10007785,University of Bradford,19,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,19.00,NULL,65,8.3,58.4,31.2,2.1,0,2.73
+10007785,University of Bradford,19,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,19.00,NULL,65,0,100,0,0,0,3.00
+10007785,University of Bradford,19,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,19.00,NULL,65,0,12.5,75,12.5,0,2.00
 10000886,University of Brighton,20,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,15.00,NULL,40,19,54,27,0,0,2.92
 10000886,University of Brighton,20,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,15.00,NULL,40,10.5,60.6,28.9,0,0,2.82
 10000886,University of Brighton,20,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,15.00,NULL,40,50,50,0,0,0,3.50
@@ -54,10 +54,10 @@
 10007788,University of Cambridge,25,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,80.80,NULL,105,60.9,35.6,3.5,0,0,3.57
 10007788,University of Cambridge,25,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,80.80,NULL,105,85.7,0,0,0,14.3,3.43
 10007788,University of Cambridge,25,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,80.80,NULL,105,100,0,0,0,0,4.00
-10007814,Cardiff University / Prifysgol Caerdydd,28,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,45.55,NULL,100,45,51,4,0,0,3.41
-10007814,Cardiff University / Prifysgol Caerdydd,28,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,45.55,NULL,100,42.1,51.8,6.1,0,0,3.36
-10007814,Cardiff University / Prifysgol Caerdydd,28,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,45.55,NULL,100,62.5,37.5,0,0,0,3.62
-10007814,Cardiff University / Prifysgol Caerdydd,28,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,45.55,NULL,100,25,75,0,0,0,3.25
+10007814,Cardiff University,28,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,45.55,NULL,100,45,51,4,0,0,3.41
+10007814,Cardiff University,28,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,45.55,NULL,100,42.1,51.8,6.1,0,0,3.36
+10007814,Cardiff University,28,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,45.55,NULL,100,62.5,37.5,0,0,0,3.62
+10007814,Cardiff University,28,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,45.55,NULL,100,25,75,0,0,0,3.25
 10007141,University of Central Lancashire,29,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,14.00,NULL,55,6,47,38,9,0,2.50
 10007141,University of Central Lancashire,29,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,14.00,NULL,55,10,56.7,30,3.3,0,2.73
 10007141,University of Central Lancashire,29,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,14.00,NULL,55,0,50,50,0,0,2.50
@@ -86,10 +86,10 @@
 10007143,University of Durham,40,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,26.20,NULL,100,45.5,51.5,3,0,0,3.43
 10007143,University of Durham,40,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,26.20,NULL,100,66.7,33.3,0,0,0,3.67
 10007143,University of Durham,40,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,26.20,NULL,100,12.5,87.5,0,0,0,3.12
-10007789,The University of East Anglia,41,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,28.30,NULL,100,25,67,8,0,0,3.17
-10007789,The University of East Anglia,41,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,28.30,NULL,100,25.4,67.6,7,0,0,3.18
-10007789,The University of East Anglia,41,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,28.30,NULL,100,33.3,66.7,0,0,0,3.33
-10007789,The University of East Anglia,41,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,28.30,NULL,100,12.5,62.5,25,0,0,2.88
+10007789,University of East Anglia,41,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,28.30,NULL,100,25,67,8,0,0,3.17
+10007789,University of East Anglia,41,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,28.30,NULL,100,25.4,67.6,7,0,0,3.18
+10007789,University of East Anglia,41,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,28.30,NULL,100,33.3,66.7,0,0,0,3.33
+10007789,University of East Anglia,41,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,28.30,NULL,100,12.5,62.5,25,0,0,2.88
 10007144,University of East London,42,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,12.20,NULL,60,14,59,20,7,0,2.80
 10007144,University of East London,42,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,12.20,NULL,60,12.9,67.7,19.4,0,0,2.94
 10007144,University of East London,42,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,12.20,NULL,60,25,75,0,0,0,3.25
@@ -106,10 +106,10 @@
 10007772,Edinburgh Napier University,45,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,39.40,NULL,75,21.2,52.5,26.3,0,0,2.95
 10007772,Edinburgh Napier University,45,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,39.40,NULL,75,100,0,0,0,0,4.00
 10007772,Edinburgh Napier University,45,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,39.40,NULL,75,0,37.5,62.5,0,0,2.38
-10007791,The University of Essex,46,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,73.00,NULL,100,41,50,9,0,0,3.32
-10007791,The University of Essex,46,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,73.00,NULL,100,33.9,60.6,5.5,0,0,3.28
-10007791,The University of Essex,46,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,73.00,NULL,100,83.3,16.7,0,0,0,3.83
-10007791,The University of Essex,46,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,73.00,NULL,100,0,62.5,37.5,0,0,2.62
+10007791,University of Essex,46,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,73.00,NULL,100,41,50,9,0,0,3.32
+10007791,University of Essex,46,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,73.00,NULL,100,33.9,60.6,5.5,0,0,3.28
+10007791,University of Essex,46,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,73.00,NULL,100,83.3,16.7,0,0,0,3.83
+10007791,University of Essex,46,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,73.00,NULL,100,0,62.5,37.5,0,0,2.62
 10007792,University of Exeter,47,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,27.90,NULL,100,33,50,9,0,8,3.00
 10007792,University of Exeter,47,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,27.90,NULL,100,41.4,52.9,5.7,0,0,3.36
 10007792,University of Exeter,47,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,27.90,NULL,100,33.3,33.4,0,0,33.3,2.33
@@ -122,10 +122,10 @@
 10007762,Glasgow Caledonian University,50,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,14.00,NULL,25,2.9,57.1,37.1,2.9,0,2.60
 10007762,Glasgow Caledonian University,50,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,14.00,NULL,25,0,50,50,0,0,2.50
 10007762,Glasgow Caledonian University,50,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,14.00,NULL,25,0,0,50,50,0,1.50
-10007833,Wrexham Glynd?r University / Prifysgol Glynd?r Wrecsam,53,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,3.50,NULL,30,0,6,59,31,4,1.67
-10007833,Wrexham Glynd?r University / Prifysgol Glynd?r Wrecsam,53,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,3.50,NULL,30,0,0,77.8,22.2,0,1.78
-10007833,Wrexham Glynd?r University / Prifysgol Glynd?r Wrecsam,53,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,3.50,NULL,30,0,25,50,25,0,2.00
-10007833,Wrexham Glynd?r University / Prifysgol Glynd?r Wrecsam,53,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,3.50,NULL,30,0,0,0,75,25,0.75
+10007833,Wrexham University,53,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,3.50,NULL,30,0,6,59,31,4,1.67
+10007833,Wrexham University,53,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,3.50,NULL,30,0,0,77.8,22.2,0,1.78
+10007833,Wrexham University,53,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,3.50,NULL,30,0,25,50,25,0,2.00
+10007833,Wrexham University,53,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,3.50,NULL,30,0,0,0,75,25,0.75
 10002718,Goldsmiths' College,54,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,32.55,NULL,100,13,62,22,3,0,2.85
 10002718,Goldsmiths' College,54,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,32.55,NULL,100,22.2,49.4,25.9,2.5,0,2.91
 10002718,Goldsmiths' College,54,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,32.55,NULL,100,0,100,0,0,0,3.00
@@ -142,26 +142,26 @@
 10007147,University of Hertfordshire,60,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,31.21,NULL,45,20.5,69.2,10.3,0,0,3.10
 10007147,University of Hertfordshire,60,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,31.21,NULL,45,50,50,0,0,0,3.50
 10007147,University of Hertfordshire,60,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,31.21,NULL,45,0,75,25,0,0,2.75
-10007148,The University of Huddersfield,62,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,27.20,NULL,85,13,54,28,4,1,2.74
-10007148,The University of Huddersfield,62,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,27.20,NULL,85,14.7,61.8,20.6,1.4,1.5,2.87
-10007148,The University of Huddersfield,62,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,27.20,NULL,85,16.7,66.6,16.7,0,0,3.00
-10007148,The University of Huddersfield,62,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,27.20,NULL,85,0,0,75,25,0,1.75
-10007149,The University of Hull,63,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,11.00,NULL,100,17,57,24,2,0,2.89
-10007149,The University of Hull,63,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,11.00,NULL,100,7.1,67.9,21.4,3.6,0,2.78
-10007149,The University of Hull,63,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,11.00,NULL,100,50,50,0,0,0,3.50
-10007149,The University of Hull,63,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,11.00,NULL,100,0,25,75,0,0,2.25
-10003270,"Imperial College of Science, Technology and Medicine",64,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,58.45,NULL,100,93,7,0,0,0,3.93
-10003270,"Imperial College of Science, Technology and Medicine",64,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,58.45,NULL,100,88.4,11.6,0,0,0,3.88
-10003270,"Imperial College of Science, Technology and Medicine",64,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,58.45,NULL,100,100,0,0,0,0,4.00
-10003270,"Imperial College of Science, Technology and Medicine",64,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,58.45,NULL,100,100,0,0,0,0,4.00
+10007148,University of Huddersfield,62,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,27.20,NULL,85,13,54,28,4,1,2.74
+10007148,University of Huddersfield,62,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,27.20,NULL,85,14.7,61.8,20.6,1.4,1.5,2.87
+10007148,University of Huddersfield,62,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,27.20,NULL,85,16.7,66.6,16.7,0,0,3.00
+10007148,University of Huddersfield,62,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,27.20,NULL,85,0,0,75,25,0,1.75
+10007149,University of Hull,63,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,11.00,NULL,100,17,57,24,2,0,2.89
+10007149,University of Hull,63,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,11.00,NULL,100,7.1,67.9,21.4,3.6,0,2.78
+10007149,University of Hull,63,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,11.00,NULL,100,50,50,0,0,0,3.50
+10007149,University of Hull,63,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,11.00,NULL,100,0,25,75,0,0,2.25
+10003270,Imperial College London,64,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,58.45,NULL,100,93,7,0,0,0,3.93
+10003270,Imperial College London,64,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,58.45,NULL,100,88.4,11.6,0,0,0,3.88
+10003270,Imperial College London,64,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,58.45,NULL,100,100,0,0,0,0,4.00
+10003270,Imperial College London,64,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,58.45,NULL,100,100,0,0,0,0,4.00
 10007767,University of Keele,67,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,15.00,NULL,85,7,55,36,2,0,2.67
 10007767,University of Keele,67,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,15.00,NULL,85,12.1,60.6,24.3,3,0,2.82
 10007767,University of Keele,67,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,15.00,NULL,85,0,75,25,0,0,2.75
 10007767,University of Keele,67,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,15.00,NULL,85,0,0,100,0,0,2.00
-10007150,The University of Kent,68,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,34.70,NULL,100,45,49,6,0,0,3.39
-10007150,The University of Kent,68,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,34.70,NULL,100,53.8,42.5,3.7,0,0,3.50
-10007150,The University of Kent,68,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,34.70,NULL,100,50,50,0,0,0,3.50
-10007150,The University of Kent,68,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,34.70,NULL,100,0,75,25,0,0,2.75
+10007150,University of Kent,68,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,34.70,NULL,100,45,49,6,0,0,3.39
+10007150,University of Kent,68,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,34.70,NULL,100,53.8,42.5,3.7,0,0,3.50
+10007150,University of Kent,68,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,34.70,NULL,100,50,50,0,0,0,3.50
+10007150,University of Kent,68,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,34.70,NULL,100,0,75,25,0,0,2.75
 10003645,King's College London,69,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,48.50,NULL,100,58,40,2,0,0,3.56
 10003645,King's College London,69,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,48.50,NULL,100,50.5,46.6,2.9,0,0,3.48
 10003645,King's College London,69,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,48.50,NULL,100,75,25,0,0,0,3.75
@@ -170,30 +170,30 @@
 10003678,Kingston University,70,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,22.00,NULL,55,10.9,67.3,21.8,0,0,2.89
 10003678,Kingston University,70,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,22.00,NULL,55,0,66.7,33.3,0,0,2.67
 10003678,Kingston University,70,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,22.00,NULL,55,0,62.5,37.5,0,0,2.62
-10007768,The University of Lancaster,71,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,49.45,NULL,100,55,39,6,0,0,3.49
-10007768,The University of Lancaster,71,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,49.45,NULL,100,42.2,48,9.8,0,0,3.32
-10007768,The University of Lancaster,71,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,49.45,NULL,100,75,25,0,0,0,3.75
-10007768,The University of Lancaster,71,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,49.45,NULL,100,75,25,0,0,0,3.75
-10007795,The University of Leeds,72,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,34.25,NULL,100,63,36,1,0,0,3.62
-10007795,The University of Leeds,72,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,34.25,NULL,100,54.7,44.1,1.2,0,0,3.54
-10007795,The University of Leeds,72,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,34.25,NULL,100,83.3,16.7,0,0,0,3.83
-10007795,The University of Leeds,72,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,34.25,NULL,100,62.5,37.5,0,0,0,3.62
+10007768,University of Lancaster,71,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,49.45,NULL,100,55,39,6,0,0,3.49
+10007768,University of Lancaster,71,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,49.45,NULL,100,42.2,48,9.8,0,0,3.32
+10007768,University of Lancaster,71,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,49.45,NULL,100,75,25,0,0,0,3.75
+10007768,University of Lancaster,71,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,49.45,NULL,100,75,25,0,0,0,3.75
+10007795,University of Leeds,72,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,34.25,NULL,100,63,36,1,0,0,3.62
+10007795,University of Leeds,72,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,34.25,NULL,100,54.7,44.1,1.2,0,0,3.54
+10007795,University of Leeds,72,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,34.25,NULL,100,83.3,16.7,0,0,0,3.83
+10007795,University of Leeds,72,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,34.25,NULL,100,62.5,37.5,0,0,0,3.62
 10003861,Leeds Beckett University,74,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,10.80,NULL,35,7,45,35,13,0,2.46
 10003861,Leeds Beckett University,74,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,10.80,NULL,35,11.1,44.5,44.4,0,0,2.67
 10003861,Leeds Beckett University,74,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,10.80,NULL,35,0,75,25,0,0,2.75
 10003861,Leeds Beckett University,74,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,10.80,NULL,35,0,0,12.5,87.5,0,1.12
-10007796,The University of Leicester,76,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,19.70,NULL,100,28,55,17,0,0,3.11
-10007796,The University of Leicester,76,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,19.70,NULL,100,36.7,57.2,6.1,0,0,3.31
-10007796,The University of Leicester,76,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,19.70,NULL,100,25,50,25,0,0,3.00
-10007796,The University of Leicester,76,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,19.70,NULL,100,0,50,50,0,0,2.50
+10007796,University of Leicester,76,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,19.70,NULL,100,28,55,17,0,0,3.11
+10007796,University of Leicester,76,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,19.70,NULL,100,36.7,57.2,6.1,0,0,3.31
+10007796,University of Leicester,76,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,19.70,NULL,100,25,50,25,0,0,3.00
+10007796,University of Leicester,76,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,19.70,NULL,100,0,50,50,0,0,2.50
 10007151,University of Lincoln,77,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,28.80,NULL,100,30,56,13,1,0,3.15
 10007151,University of Lincoln,77,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,28.80,NULL,100,15.3,68,15.3,1.4,0,2.97
 10007151,University of Lincoln,77,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,28.80,NULL,100,83.3,16.7,0,0,0,3.83
 10007151,University of Lincoln,77,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,28.80,NULL,100,0,75,25,0,0,2.75
-10006842,The University of Liverpool,78,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,40.75,NULL,100,52,36,6,0,6,3.28
-10006842,The University of Liverpool,78,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,40.75,NULL,100,68.2,31.8,0,0,0,3.68
-10006842,The University of Liverpool,78,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,40.75,NULL,100,12.5,37.5,25,0,25,2.12
-10006842,The University of Liverpool,78,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,40.75,NULL,100,50,50,0,0,0,3.50
+10006842,University of Liverpool,78,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,40.75,NULL,100,52,36,6,0,6,3.28
+10006842,University of Liverpool,78,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,40.75,NULL,100,68.2,31.8,0,0,0,3.68
+10006842,University of Liverpool,78,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,40.75,NULL,100,12.5,37.5,25,0,25,2.12
+10006842,University of Liverpool,78,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,40.75,NULL,100,50,50,0,0,0,3.50
 10003956,Liverpool Hope University,79,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,13.50,NULL,100,12,30,41,17,0,2.37
 10003956,Liverpool Hope University,79,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,13.50,NULL,100,20.6,50,26.5,2.9,0,2.88
 10003956,Liverpool Hope University,79,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,13.50,NULL,100,0,0,75,25,0,1.75
@@ -210,10 +210,10 @@
 10004113,Loughborough University,87,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,26.00,NULL,100,21.5,72.3,6.2,0,0,3.15
 10004113,Loughborough University,87,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,26.00,NULL,100,66.7,33.3,0,0,0,3.67
 10004113,Loughborough University,87,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,26.00,NULL,100,12.5,62.5,25,0,0,2.88
-10007798,The University of Manchester,88,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,53.10,NULL,100,62,37,1,0,0,3.61
-10007798,The University of Manchester,88,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,53.10,NULL,100,48.9,48.8,2.3,0,0,3.47
-10007798,The University of Manchester,88,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,53.10,NULL,100,70,30,0,0,0,3.70
-10007798,The University of Manchester,88,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,53.10,NULL,100,100,0,0,0,0,4.00
+10007798,University of Manchester,88,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,53.10,NULL,100,62,37,1,0,0,3.61
+10007798,University of Manchester,88,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,53.10,NULL,100,48.9,48.8,2.3,0,0,3.47
+10007798,University of Manchester,88,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,53.10,NULL,100,70,30,0,0,0,3.70
+10007798,University of Manchester,88,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,53.10,NULL,100,100,0,0,0,0,4.00
 10004180,Manchester Metropolitan University,89,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,23.00,NULL,40,17,49,26,8,0,2.75
 10004180,Manchester Metropolitan University,89,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,23.00,NULL,40,27.6,58.6,13.8,0,0,3.14
 10004180,Manchester Metropolitan University,89,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,23.00,NULL,40,0,50,16.7,33.3,0,2.17
@@ -222,26 +222,26 @@
 10004351,Middlesex University,91,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,64.55,NULL,70,14.9,47.8,34.2,3.1,0,2.75
 10004351,Middlesex University,91,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,64.55,NULL,70,0,50,50,0,0,2.50
 10004351,Middlesex University,91,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,64.55,NULL,70,0,25,75,0,0,2.25
-10007799,University of Newcastle upon Tyne,92,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,49.80,NULL,100,49,46,5,0,0,3.44
-10007799,University of Newcastle upon Tyne,92,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,49.80,NULL,100,37.4,53.9,8.7,0,0,3.29
-10007799,University of Newcastle upon Tyne,92,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,49.80,NULL,100,75,25,0,0,0,3.75
-10007799,University of Newcastle upon Tyne,92,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,49.80,NULL,100,50,50,0,0,0,3.50
-10001282,University of Northumbria at Newcastle,95,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,64.41,NULL,90,11,59,30,0,0,2.81
-10001282,University of Northumbria at Newcastle,95,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,64.41,NULL,90,19.1,61.8,18.4,0.7,0,2.99
-10001282,University of Northumbria at Newcastle,95,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,64.41,NULL,90,0,50,50,0,0,2.50
-10001282,University of Northumbria at Newcastle,95,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,64.41,NULL,90,0,62.5,37.5,0,0,2.62
+10007799,University of Newcastle,92,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,49.80,NULL,100,49,46,5,0,0,3.44
+10007799,University of Newcastle,92,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,49.80,NULL,100,37.4,53.9,8.7,0,0,3.29
+10007799,University of Newcastle,92,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,49.80,NULL,100,75,25,0,0,0,3.75
+10007799,University of Newcastle,92,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,49.80,NULL,100,50,50,0,0,0,3.50
+10001282,University of Northumbria,95,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,64.41,NULL,90,11,59,30,0,0,2.81
+10001282,University of Northumbria,95,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,64.41,NULL,90,19.1,61.8,18.4,0.7,0,2.99
+10001282,University of Northumbria,95,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,64.41,NULL,90,0,50,50,0,0,2.50
+10001282,University of Northumbria,95,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,64.41,NULL,90,0,62.5,37.5,0,0,2.62
 10004797,Nottingham Trent University,97,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,15.40,NULL,70,8,72,20,0,0,2.88
 10004797,Nottingham Trent University,97,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,15.40,NULL,70,12.8,71.8,15.4,0,0,2.97
 10004797,Nottingham Trent University,97,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,15.40,NULL,70,0,100,0,0,0,3.00
 10004797,Nottingham Trent University,97,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,15.40,NULL,70,0,25,75,0,0,2.25
-10007154,"University of Nottingham, The",98,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,46.20,NULL,100,52,46,2,0,0,3.50
-10007154,"University of Nottingham, The",98,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,46.20,NULL,100,41.4,56,2.6,0,0,3.39
-10007154,"University of Nottingham, The",98,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,46.20,NULL,100,50,50,0,0,0,3.50
-10007154,"University of Nottingham, The",98,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,46.20,NULL,100,100,0,0,0,0,4.00
-10007773,The Open University,99,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,44.70,NULL,55,19,49,28,3,1,2.82
-10007773,The Open University,99,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,44.70,NULL,55,14.3,58.9,25.9,0,0.9,2.86
-10007773,The Open University,99,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,44.70,NULL,55,25,12.5,50,12.5,0,2.50
-10007773,The Open University,99,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,44.70,NULL,55,25,75,0,0,0,3.25
+10007154,University of Nottingham,98,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,46.20,NULL,100,52,46,2,0,0,3.50
+10007154,University of Nottingham,98,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,46.20,NULL,100,41.4,56,2.6,0,0,3.39
+10007154,University of Nottingham,98,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,46.20,NULL,100,50,50,0,0,0,3.50
+10007154,University of Nottingham,98,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,46.20,NULL,100,100,0,0,0,0,4.00
+10007773,Open University,99,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,44.70,NULL,55,19,49,28,3,1,2.82
+10007773,Open University,99,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,44.70,NULL,55,14.3,58.9,25.9,0,0.9,2.86
+10007773,Open University,99,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,44.70,NULL,55,25,12.5,50,12.5,0,2.50
+10007773,Open University,99,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,44.70,NULL,55,25,75,0,0,0,3.25
 10007774,University of Oxford,100,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,73.65,NULL,100,81,19,0,0,0,3.81
 10007774,University of Oxford,100,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,73.65,NULL,100,82.6,17.4,0,0,0,3.83
 10007774,University of Oxford,100,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,73.65,NULL,100,66.7,33.3,0,0,0,3.67
@@ -258,38 +258,38 @@
 10007155,University of Portsmouth,103,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,29.80,NULL,45,14.7,60,25.3,0,0,2.89
 10007155,University of Portsmouth,103,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,29.80,NULL,45,50,33.3,16.7,0,0,3.33
 10007155,University of Portsmouth,103,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,29.80,NULL,45,0,12.5,87.5,0,0,2.12
-10007775,Queen Mary University of London,105,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,68.80,NULL,100,66,33,1,0,0,3.65
-10007775,Queen Mary University of London,105,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,68.80,NULL,100,56.4,41.9,1.7,0,0,3.55
-10007775,Queen Mary University of London,105,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,68.80,NULL,100,100,0,0,0,0,4.00
-10007775,Queen Mary University of London,105,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,68.80,NULL,100,50,50,0,0,0,3.50
-10007802,The University of Reading,108,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,10.40,NULL,100,26,55,19,0,0,3.07
-10007802,The University of Reading,108,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,10.40,NULL,100,12.5,58.3,29.2,0,0,2.83
-10007802,The University of Reading,108,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,10.40,NULL,100,75,25,0,0,0,3.75
-10007802,The University of Reading,108,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,10.40,NULL,100,0,87.5,12.5,0,0,2.88
+10007775,Queen Mary University,105,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,68.80,NULL,100,66,33,1,0,0,3.65
+10007775,Queen Mary University,105,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,68.80,NULL,100,56.4,41.9,1.7,0,0,3.55
+10007775,Queen Mary University,105,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,68.80,NULL,100,100,0,0,0,0,4.00
+10007775,Queen Mary University,105,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,68.80,NULL,100,50,50,0,0,0,3.50
+10007802,University of Reading,108,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,10.40,NULL,100,26,55,19,0,0,3.07
+10007802,University of Reading,108,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,10.40,NULL,100,12.5,58.3,29.2,0,0,2.83
+10007802,University of Reading,108,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,10.40,NULL,100,75,25,0,0,0,3.75
+10007802,University of Reading,108,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,10.40,NULL,100,0,87.5,12.5,0,0,2.88
 10005500,Robert Gordon University,109,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,10.00,NULL,30,0,64,36,0,0,2.64
 10005500,Robert Gordon University,109,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,10.00,NULL,30,0,80,20,0,0,2.80
 10005500,Robert Gordon University,109,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,10.00,NULL,30,0,50,50,0,0,2.50
 10005500,Robert Gordon University,109,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,10.00,NULL,30,0,25,75,0,0,2.25
-10005553,Royal Holloway and Bedford New College,118,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,38.10,NULL,100,55,40,5,0,0,3.50
-10005553,Royal Holloway and Bedford New College,118,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,38.10,NULL,100,50,46.4,3.6,0,0,3.46
-10005553,Royal Holloway and Bedford New College,118,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,38.10,NULL,100,62.5,25,12.5,0,0,3.50
-10005553,Royal Holloway and Bedford New College,118,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,38.10,NULL,100,62.5,37.5,0,0,0,3.62
+10005553,Royal Holloway,118,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,38.10,NULL,100,55,40,5,0,0,3.50
+10005553,Royal Holloway,118,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,38.10,NULL,100,50,46.4,3.6,0,0,3.46
+10005553,Royal Holloway,118,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,38.10,NULL,100,62.5,25,12.5,0,0,3.50
+10005553,Royal Holloway,118,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,38.10,NULL,100,62.5,37.5,0,0,0,3.62
 10007156,"University of Salford, The",121,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,16.00,NULL,60,17,45,35,3,0,2.76
 10007156,"University of Salford, The",121,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,16.00,NULL,60,7.5,57.5,30,5,0,2.67
 10007156,"University of Salford, The",121,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,16.00,NULL,60,50,25,25,0,0,3.25
 10007156,"University of Salford, The",121,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,16.00,NULL,60,0,25,75,0,0,2.25
-10007157,The University of Sheffield,123,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,56.75,NULL,100,60,39,1,0,0,3.59
-10007157,The University of Sheffield,123,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,56.75,NULL,100,49.6,48,2.4,0,0,3.47
-10007157,The University of Sheffield,123,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,56.75,NULL,100,70,30,0,0,0,3.70
-10007157,The University of Sheffield,123,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,56.75,NULL,100,87.5,12.5,0,0,0,3.88
+10007157,University of Sheffield,123,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,56.75,NULL,100,60,39,1,0,0,3.59
+10007157,University of Sheffield,123,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,56.75,NULL,100,49.6,48,2.4,0,0,3.47
+10007157,University of Sheffield,123,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,56.75,NULL,100,70,30,0,0,0,3.70
+10007157,University of Sheffield,123,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,56.75,NULL,100,87.5,12.5,0,0,0,3.88
 10005790,Sheffield Hallam University,124,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,25.60,NULL,30,4,52,41,3,0,2.57
 10005790,Sheffield Hallam University,124,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,25.60,NULL,30,6.6,55.7,36.1,1.6,0,2.67
 10005790,Sheffield Hallam University,124,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,25.60,NULL,30,0,66.7,33.3,0,0,2.67
 10005790,Sheffield Hallam University,124,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,25.60,NULL,30,0,12.5,75,12.5,0,2.00
-10007793,University of South Wales / Prifysgol De Cymru,126,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,13.70,NULL,35,8,43,44,5,0,2.54
-10007793,University of South Wales / Prifysgol De Cymru,126,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,13.70,NULL,35,2.9,41.2,53,2.9,0,2.44
-10007793,University of South Wales / Prifysgol De Cymru,126,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,13.70,NULL,35,25,75,0,0,0,3.25
-10007793,University of South Wales / Prifysgol De Cymru,126,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,13.70,NULL,35,0,0,75,25,0,1.75
+10007793,University of South Wales,126,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,13.70,NULL,35,8,43,44,5,0,2.54
+10007793,University of South Wales,126,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,13.70,NULL,35,2.9,41.2,53,2.9,0,2.44
+10007793,University of South Wales,126,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,13.70,NULL,35,25,75,0,0,0,3.25
+10007793,University of South Wales,126,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,13.70,NULL,35,0,0,75,25,0,1.75
 10007158,University of Southampton,127,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,47.26,NULL,100,62,35,3,0,0,3.59
 10007158,University of Southampton,127,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,47.26,NULL,100,37.3,57.6,5.1,0,0,3.32
 10007158,University of Southampton,127,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,47.26,NULL,100,100,0,0,0,0,4.00
@@ -310,18 +310,18 @@
 10007159,University of Sunderland,138,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,6.70,NULL,25,0,76.5,23.5,0,0,2.76
 10007159,University of Sunderland,138,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,6.70,NULL,25,0,50,25,25,0,2.25
 10007159,University of Sunderland,138,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,6.70,NULL,25,0,0,100,0,0,2.00
-10007160,The University of Surrey,139,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,22.50,NULL,100,38,50,12,0,0,3.26
-10007160,The University of Surrey,139,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,22.50,NULL,100,57.1,42.9,0,0,0,3.57
-10007160,The University of Surrey,139,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,22.50,NULL,100,16.7,33.3,50,0,0,2.67
-10007160,The University of Surrey,139,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,22.50,NULL,100,0,100,0,0,0,3.00
+10007160,University of Surrey,139,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,22.50,NULL,100,38,50,12,0,0,3.26
+10007160,University of Surrey,139,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,22.50,NULL,100,57.1,42.9,0,0,0,3.57
+10007160,University of Surrey,139,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,22.50,NULL,100,16.7,33.3,50,0,0,2.67
+10007160,University of Surrey,139,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,22.50,NULL,100,0,100,0,0,0,3.00
 10007806,University of Sussex,140,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,26.90,NULL,100,47,49,4,0,0,3.43
 10007806,University of Sussex,140,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,26.90,NULL,100,53.7,38.8,7.5,0,0,3.46
 10007806,University of Sussex,140,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,26.90,NULL,100,50,50,0,0,0,3.50
 10007806,University of Sussex,140,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,26.90,NULL,100,12.5,87.5,0,0,0,3.12
-10007855,Swansea University / Prifysgol Abertawe,141,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,32.90,NULL,100,32,58,10,0,0,3.22
-10007855,Swansea University / Prifysgol Abertawe,141,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,32.90,NULL,100,36,53.3,10.7,0,0,3.25
-10007855,Swansea University / Prifysgol Abertawe,141,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,32.90,NULL,100,33.3,66.7,0,0,0,3.33
-10007855,Swansea University / Prifysgol Abertawe,141,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,32.90,NULL,100,12.5,62.5,25,0,0,2.88
+10007855,Swansea University,141,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,32.90,NULL,100,32,58,10,0,0,3.22
+10007855,Swansea University,141,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,32.90,NULL,100,36,53.3,10.7,0,0,3.25
+10007855,Swansea University,141,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,32.90,NULL,100,33.3,66.7,0,0,0,3.33
+10007855,Swansea University,141,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,32.90,NULL,100,12.5,62.5,25,0,0,2.88
 10007807,University of Ulster,145,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,69.60,NULL,100,20,72,8,0,0,3.12
 10007807,University of Ulster,145,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,69.60,NULL,100,9.8,76.4,13.8,0,0,2.96
 10007807,University of Ulster,145,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,69.60,NULL,100,41.7,58.3,0,0,0,3.42
@@ -330,26 +330,26 @@
 10007784,University College London,146,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,100.20,NULL,100,72.5,24.3,3.2,0,0,3.69
 10007784,University College London,146,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,100.20,NULL,100,81.3,18.7,0,0,0,3.81
 10007784,University College London,146,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,100.20,NULL,100,87.5,12.5,0,0,0,3.88
-10007163,The University of Warwick,149,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,41.60,NULL,100,76,23,1,0,0,3.75
-10007163,The University of Warwick,149,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,41.60,NULL,100,79.3,19.6,1.1,0,0,3.78
-10007163,The University of Warwick,149,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,41.60,NULL,100,75,25,0,0,0,3.75
-10007163,The University of Warwick,149,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,41.60,NULL,100,62.5,37.5,0,0,0,3.62
-10006566,The University of West London,150,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,9.80,NULL,70,10,40,18,32,0,2.28
-10006566,The University of West London,150,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,9.80,NULL,70,16,68,16,0,0,3.00
-10006566,The University of West London,150,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,9.80,NULL,70,0,0,0,100,0,1.00
-10006566,The University of West London,150,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,9.80,NULL,70,0,0,50,50,0,1.50
-10007164,"University of the West of England, Bristol",151,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,28.60,NULL,35,20,49,28,3,0,2.86
-10007164,"University of the West of England, Bristol",151,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,28.60,NULL,35,12.5,58.3,27.8,1.4,0,2.82
-10007164,"University of the West of England, Bristol",151,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,28.60,NULL,35,50,50,0,0,0,3.50
-10007164,"University of the West of England, Bristol",151,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,28.60,NULL,35,0,12.5,75,12.5,0,2.00
-10007800,University of the West of Scotland,152,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,25.00,NULL,55,4,56,39,1,0,2.63
-10007800,University of the West of Scotland,152,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,25.00,NULL,55,6.3,63.5,28.6,1.6,0,2.75
-10007800,University of the West of Scotland,152,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,25.00,NULL,55,0,50,50,0,0,2.50
-10007800,University of the West of Scotland,152,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,25.00,NULL,55,0,37.5,62.5,0,0,2.38
-10007165,The University of Westminster,153,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,21.40,NULL,40,13,44,43,0,0,2.70
-10007165,The University of Westminster,153,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,21.40,NULL,40,7.4,46.3,46.3,0,0,2.61
-10007165,The University of Westminster,153,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,21.40,NULL,40,33.3,50,16.7,0,0,3.17
-10007165,The University of Westminster,153,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,21.40,NULL,40,0,25,75,0,0,2.25
+10007163,University of Warwick,149,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,41.60,NULL,100,76,23,1,0,0,3.75
+10007163,University of Warwick,149,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,41.60,NULL,100,79.3,19.6,1.1,0,0,3.78
+10007163,University of Warwick,149,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,41.60,NULL,100,75,25,0,0,0,3.75
+10007163,University of Warwick,149,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,41.60,NULL,100,62.5,37.5,0,0,0,3.62
+10006566,University of West London,150,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,9.80,NULL,70,10,40,18,32,0,2.28
+10006566,University of West London,150,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,9.80,NULL,70,16,68,16,0,0,3.00
+10006566,University of West London,150,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,9.80,NULL,70,0,0,0,100,0,1.00
+10006566,University of West London,150,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,9.80,NULL,70,0,0,50,50,0,1.50
+10007164,UWE Bristol,151,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,28.60,NULL,35,20,49,28,3,0,2.86
+10007164,UWE Bristol,151,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,28.60,NULL,35,12.5,58.3,27.8,1.4,0,2.82
+10007164,UWE Bristol,151,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,28.60,NULL,35,50,50,0,0,0,3.50
+10007164,UWE Bristol,151,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,28.60,NULL,35,0,12.5,75,12.5,0,2.00
+10007800,UWS,152,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,25.00,NULL,55,4,56,39,1,0,2.63
+10007800,UWS,152,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,25.00,NULL,55,6.3,63.5,28.6,1.6,0,2.75
+10007800,UWS,152,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,25.00,NULL,55,0,50,50,0,0,2.50
+10007800,UWS,152,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,25.00,NULL,55,0,37.5,62.5,0,0,2.38
+10007165,University of Westminster,153,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,21.40,NULL,40,13,44,43,0,0,2.70
+10007165,University of Westminster,153,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,21.40,NULL,40,7.4,46.3,46.3,0,0,2.61
+10007165,University of Westminster,153,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,21.40,NULL,40,33.3,50,16.7,0,0,3.17
+10007165,University of Westminster,153,B,11,Computer Science and Informatics,NULL,NULL,NULL,Environment,21.40,NULL,40,0,25,75,0,0,2.25
 10007166,University of Wolverhampton,155,B,11,Computer Science and Informatics,NULL,NULL,NULL,Overall,11.00,NULL,35,6,26,35,29,4,2.01
 10007166,University of Wolverhampton,155,B,11,Computer Science and Informatics,NULL,NULL,NULL,Outputs,11.00,NULL,35,10.7,42.9,35.7,3.6,7.1,2.46
 10007166,University of Wolverhampton,155,B,11,Computer Science and Informatics,NULL,NULL,NULL,Impact,11.00,NULL,35,0,0,25,75,0,1.25

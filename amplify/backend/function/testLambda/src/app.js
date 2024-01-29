@@ -160,6 +160,28 @@ app.get("/items/outputs", async function(req, res) {
     }
 });
 
+//income endpoint
+app.get("/items/income", async function(req, res) {
+    try {
+        // Specify the list of profile types to exclude
+        const excludedProfileTypes = ["Overall", "Environment", "Outputs", "Impact"];
+
+        // Fetch all items from the DynamoDB table
+        const data = await ddbDocClient.send(new ScanCommand({ TableName: tableName }));
+        let items = data.Items;
+
+        // Filter out items where the ProfileType is in the excluded list
+        const filteredItems = items.filter(item => {
+            return !excludedProfileTypes.includes(item.ProfileType);
+        });
+
+        // Sending the filtered items as the response
+        res.json(filteredItems);
+    } catch (err) {
+        // Error handling
+        res.status(500).json({ error: 'Could not load items: ' + err.message });
+    }
+});
 /************************************
  * HTTP Get method to query objects *
  ************************************/
