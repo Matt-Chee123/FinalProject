@@ -29,6 +29,9 @@ function displayThreeFte(data) {
           inverted: true,
           polar: true
       },
+      credits: {
+          enabled: false
+      },
       title: {
           text: 'FTE of Submitted Staff'
       },

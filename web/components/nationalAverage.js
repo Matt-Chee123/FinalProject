@@ -42,6 +42,9 @@ function displayNationalAverageScore(data) {
     title: {
       text: 'National Average Scores'
     },
+    credits: {
+        enabled: false
+    },
     xAxis: {
       categories: [
         '<span class="hc-cat-title">Overall</span>',
