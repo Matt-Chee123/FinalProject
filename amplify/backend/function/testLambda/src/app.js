@@ -182,6 +182,33 @@ app.get("/items/income", async function(req, res) {
         res.status(500).json({ error: 'Could not load items: ' + err.message });
     }
 });
+
+//Random3 endpoint
+app.get("/items/random3", async function(req, res) {
+    var params = {
+        TableName: tableName,
+        FilterExpression: "ProfileType = :profileTypeValue",
+        ExpressionAttributeValues: {
+            ":profileTypeValue": "Overall"
+        }
+    };
+
+    try {
+        // Fetching items from DynamoDB
+        const data = await ddbDocClient.send(new ScanCommand(params));
+        let items = data.Items;
+
+        // Filter items by 'ProfileType' and then sort by 'AverageScore' in descending order
+        const filteredItems = items.filter(item => item.ProfileType === "Outputs");
+        const shuffled = items.sort(() => 0.5 - Math.random());
+        let selected = shuffled.slice(0, 3);
+        // Sending the top 3 items as the response
+        res.json(selected);
+    } catch (err) {
+        // Error handling
+        res.status(500).json({error: 'Could not load items: ' + err.message});
+    }
+});
 /************************************
  * HTTP Get method to query objects *
  ************************************/
