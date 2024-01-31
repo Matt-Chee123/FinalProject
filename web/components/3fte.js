@@ -43,7 +43,7 @@ function displayThreeFte(data) {
       pane: {
           size: '85%',
           innerSize: '20%',
-          endAngle: 270
+          endAngle: 300
       },
       xAxis: {
           tickInterval: 1,
@@ -55,7 +55,7 @@ function displayThreeFte(data) {
       },
       yAxis: {
           lineWidth: 0,
-          tickInterval: 25,
+          tickInterval: 20,
           reversedStacks: false,
           endOnTick: true,
           showLastLabel: true,

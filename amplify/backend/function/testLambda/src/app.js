@@ -201,7 +201,7 @@ app.get("/items/random3", async function(req, res) {
         // Filter items by 'ProfileType' and then sort by 'AverageScore' in descending order
         const filteredItems = items.filter(item => item.ProfileType === "Outputs");
         const shuffled = items.sort(() => 0.5 - Math.random());
-        let selected = shuffled.slice(0, 3);
+        let selected = shuffled.slice(0, 4);
         // Sending the top 3 items as the response
         res.json(selected);
     } catch (err) {
