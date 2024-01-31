@@ -65,9 +65,24 @@
 <section class="home-section">
     <div class="home-content">
         <i class='bx bx-menu' ></i>
-        <span class="text">Homepage</span>
+        <span class="text" id="search-title">Homepage</span>
     </div>
     <div class="main-container">
+        <div class="left-components">
+            <div id="search-results" class="component-bubble">
+            </div>
+            <div class="component-bubble">
+                <!-- Top 3 records will be inserted here by JavaScript -->
+            </div>
+            <div class="component-bubble">
+            </div>
+            <div class="component-bubble">
+            </div>
+            <div class="component-bubble">
+            </div>
+            <div class="component-bubble">
+            </div>      <!-- Add more .component-bubble as needed -->
+        </div>
     </div>
 </section>
 
@@ -86,6 +101,8 @@
       sidebar.classList.toggle("close");
     });
 </script>
-
+<script src="instSearchScripts/extractQuery.js"></script>
+<script src="instSearchScripts/basicScores.js"></script>
+<script src="instSearchScripts/title.js"></script>
 </body>
 </html>

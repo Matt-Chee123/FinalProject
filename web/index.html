@@ -30,15 +30,12 @@
       <div class="iocn-link">
         <a href="#">
           <i class='bx bx-collection' ></i>
-          <span class="link_name">Institution</span>
+          <span class="link_name">Institution Search</span>
         </a>
         <i class='bx bxs-chevron-down arrow' ></i>
       </div>
       <ul class="sub-menu">
-        <li><a class="link_name" href="#">Institution</a></li>
-        <li><a href="uniAnalytics.html">University Of Manchester</a></li>
-        <li><a href="#">Univeristy College London</a></li>
-        <li><a href="#">University of Birmingham</a></li>
+        <input type="text" id="searchInstitution" placeholder="Search..">
       </ul>
     </li>
     <li>
@@ -83,7 +80,7 @@
       <div id="bullet-graph-container" class="component-bubble">
       </div>      <!-- Add more .component-bubble as needed -->
     </div>
-    <div class="bubble-container">
+    <div class="right-homepage-container">
       <iframe src="uk_heatmap.html" frameborder="0" class="heatmap-iframe"></iframe>
     </div>
   </div>
@@ -105,12 +102,13 @@
   });
 </script>
 
-<script src="components/top3.js"></script>
-<script src="components/bottom3.js"></script>
-<script src="components/outputs.js"></script>
-<script src="components/nationalAverage.js"></script>
-<script src="components/totalIncome.js"></script>
-<script src="components/3fte.js"></script>
+<script src="homeScripts/top3.js"></script>
+<script src="homeScripts/bottom3.js"></script>
+<script src="homeScripts/outputs.js"></script>
+<script src="homeScripts/nationalAverage.js"></script>
+<script src="homeScripts/totalIncome.js"></script>
+<script src="homeScripts/3fte.js"></script>
+<script src="homeScripts/enterSearch.js"></script>
 
 
 </body>

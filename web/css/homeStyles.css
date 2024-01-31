@@ -101,7 +101,7 @@
   pointer-events: none;
 }
 .sidebar .nav-links li .sub-menu{
-  padding: 6px 6px 14px 20px;
+  padding: 6px 6px 2px 20px;
   margin-top: -10px;
   background: #1d1b31;
   display: none;
@@ -213,6 +213,24 @@
 .sidebar .profile-details .job{
   font-size: 12px;
 }
+
+.sidebar input[type="text"] {
+  width: 80%; /* Adjust width as needed */
+  padding: 10px; /* Padding for better text spacing */
+  margin: 10px 10%; /* Center the input in the sidebar */
+  border: none; /* Removes default border */
+  border-radius: 5px; /* Rounded corners */
+  background: #1d1b31; /* Background color similar to sidebar */
+  color: #fff; /* Text color */
+  font-size: 16px; /* Font size similar to sidebar links */
+  outline: none; /* Removes the default focus outline */
+}
+
+.sidebar input[type="text"]::placeholder {
+  color: #fff; /* Color for the placeholder text */
+  opacity: 0.7; /* Slightly faint color for the placeholder */
+}
+
 .home-section {
   position: relative;
   background: #d3d3d3;
@@ -259,7 +277,7 @@
   overflow: hidden; /* Prevents scrolling within the main-container */
 
 }
-.home-section .main-container .bubble-container {
+.home-section .main-container .right-homepage-container {
   background: #fff; /* Background color of the bubble */
   border-radius: 20px; /* Rounded corners for the bubble effect */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */

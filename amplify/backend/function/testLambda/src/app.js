@@ -209,6 +209,29 @@ app.get("/items/random3", async function(req, res) {
         res.status(500).json({error: 'Could not load items: ' + err.message});
     }
 });
+
+//SearchInst endpoint
+app.get("/items/search", async function(req, res) {
+    const searchTerm = req.query.query; // Get the search term from query parameters
+
+    // Define DynamoDB query parameters
+    var params = {
+        TableName: tableName,
+        // Add your query logic here
+        FilterExpression: "contains(UniversityName, :searchTerm)",
+        ExpressionAttributeValues: {
+            ":searchTerm": searchTerm
+        }
+    };
+
+    try {
+        const data = await ddbDocClient.send(new ScanCommand(params));
+        res.json(data.Items);
+    } catch (err) {
+        res.status(500).json({error: 'Could not search items: ' + err.message});
+    }
+});
+
 /************************************
  * HTTP Get method to query objects *
  ************************************/
