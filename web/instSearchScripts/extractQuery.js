@@ -23,6 +23,7 @@ function fetchSearchResults(searchTerm) {
        console.log('Parsed data:', data); // Log the parsed JSON data
        displaySearchResults(data);
        displayTitle(data);
+       displayHighchartsGraph(data); // Call the function to display the Highcharts graph
      })
      .catch(error => {
        console.error('Fetch error:', error);

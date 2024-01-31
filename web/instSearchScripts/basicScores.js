@@ -18,8 +18,7 @@ function displaySearchResults(data) {
         });
 
         let content = '<ul>';
-        content += '<h3>Search Results</h3>';
-
+        content += '<h3>Scores</h3>';
         data.forEach(item => {
             if (item.ProfileType && order.includes(item.ProfileType)) {
                 content += `<ul>${item.ProfileType} - ${item.AverageScore}</ul>`;
