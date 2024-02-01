@@ -23,7 +23,12 @@ function fetchSearchResults(searchTerm) {
        console.log('Parsed data:', data); // Log the parsed JSON data
        displaySearchResults(data);
        displayTitle(data);
-       displayHighchartsGraph(data); // Call the function to display the Highcharts graph
+       displayIncomeChart(data);
+       displayIncomeDist(data);
+       fetchEnvironmentAverages().then(averages => {
+         // Once the averages data is retrieved, display the doctoral degrees chart
+         displayDoctoralDegreesChart(data, averages);
+       });
      })
      .catch(error => {
        console.error('Fetch error:', error);

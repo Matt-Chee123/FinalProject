@@ -160,6 +160,32 @@ app.get("/items/outputs", async function(req, res) {
     }
 });
 
+//Environment endpoint
+app.get("/items/environment", async function(req, res) {
+    var params = {
+        TableName: tableName,
+        FilterExpression: "ProfileType = :profileTypeValue",
+        ExpressionAttributeValues: {
+            ":profileTypeValue": "Environment"
+        }
+    };
+
+    try {
+        // Fetching items from DynamoDB
+        const data = await ddbDocClient.send(new ScanCommand(params));
+        let items = data.Items;
+
+        // Filter items by 'ProfileType' and then sort by 'AverageScore' in descending order
+        const filteredItems = items.filter(item => item.ProfileType === "Environment");
+        // Sending the top 3 items as the response
+        res.json(filteredItems);
+    } catch (err) {
+        // Error handling
+        res.status(500).json({error: 'Could not load items: ' + err.message});
+    }
+});
+
+
 //income endpoint
 app.get("/items/income", async function(req, res) {
     try {

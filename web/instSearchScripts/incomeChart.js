@@ -1,4 +1,4 @@
-function displayHighchartsGraph(data) {
+function displayIncomeChart(data) {
   // Find the record with InstitutionID containing "Total income"
   const totalIncomeRecord = data.find(item => item.InstitutionID.includes("Total income"));
 
@@ -34,6 +34,9 @@ function displayHighchartsGraph(data) {
     },
     title: {
       text: 'Income Data'
+    },
+    credits: {
+      enabled: false
     },
     xAxis: {
       categories: ['2014', '2015', '2016', '2017', '2018', '2019', '2020']
