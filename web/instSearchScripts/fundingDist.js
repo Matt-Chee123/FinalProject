@@ -22,7 +22,7 @@ function displayIncomeDist(data) {
             type: 'pie'
         },
         title: {
-            text: 'Income Distribution 2013-2020'
+            text: 'Income Distribution'
         },
         credits: {
             enabled: false

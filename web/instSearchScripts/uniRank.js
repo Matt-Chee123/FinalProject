@@ -40,20 +40,65 @@ function displayRankData(specificData) {
         const startIndex = Math.max(0, specificIndex - 1);
         const endIndex = Math.min(overallData.length, specificIndex + 2); // +3 because slice does not include the end index
 
-        // Extract the names and ranks of these universities
-        const neighboringUniversities = overallData.slice(startIndex, endIndex).map(uni => `${uni.UniversityName} - Average Score: ${uni.AverageScore} (Rank: ${uni.Rank})`);
-        console.log('Neighboring universities:', neighboringUniversities);
+        const totalNumOfUniversities = overallData.length;
+        const removePrefixes = (name) => {
+            return name.replace(/^University of /, '').replace(/^University /, '');
+        };
+        const bulletData = overallData.slice(startIndex, endIndex).map((uni, index) => ({
+            y: uni.AverageScore, // Actual value
+            target: 4, // Fixed target for demonstration
+            name: uni.UniversityName, // Used for tooltips
+            rank: startIndex + index + 1 // Calculate rank based on array index and start index
+        }));
 
-        // Display the neighboring university names and the specific university's rank
-        const rankContainer = document.getElementById('rank-container');
-        let content = `<ul><h3>Rank of Selected University: ${specificRank}</h3>`;
-        neighboringUniversities.forEach(name => {
-            content += `<li>${name}</li>`;
+        Highcharts.chart('bullet-chart-container', {
+            chart: {
+                type: 'bullet',
+                inverted: true,
+                height: 150
+            },
+            legend: {
+                enabled: false
+            },
+            title: {
+                text: 'University Overall'
+            },
+            yAxis: {
+                max: 4,
+                gridLineWidth: 0,
+                plotBands: [{
+                    from: 0,
+                    to: 4,
+                    color: '#e8e8e8',
+                    max: 3
+                }],
+                title: null
+            },
+            plotOptions: {
+                series: {
+                    pointPadding: 0.25,
+                    borderWidth: 0,
+                    targetOptions: {
+                        width: '200%'
+                    }
+                }
+            },
+            credits: {
+                enabled: false
+            },
+            exporting: {
+                enabled: false
+            },
+            xAxis: {
+                // Use the names of the universities as categories for the X axis
+                categories: overallData.slice(startIndex, endIndex).map(uni => removePrefixes(uni.UniversityName)),
+            },
+            series: [{
+                data: bulletData
+            }],
+            tooltip: {
+        pointFormat: '<b>{point.y}</b> (Target: {point.target})<br/>Rank: {point.rank} / ' + totalNumOfUniversities + ' universities<br/>'
+            }
         });
-        content += '</ul>';
-        rankContainer.innerHTML = content;
-    }).catch(error => {
-        console.error('Error displaying rank data:', error);
     });
 }
-

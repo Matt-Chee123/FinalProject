@@ -3,7 +3,7 @@ function displaySearchResults(data) {
 
     if (data && data.length > 0) {
         // Define the order of ProfileTypes
-        const order = ['Overall', 'Outputs', 'Impact', 'Environment'];
+        const order = ['Outputs', 'Impact', 'Environment'];
 
         // Sort data based on the defined order
         data.sort((a, b) => {
