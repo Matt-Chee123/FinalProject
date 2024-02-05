@@ -32,6 +32,9 @@ function displayIncomeChart(data) {
     chart: {
       type: 'spline'
     },
+    legend: {
+      enabled: false
+    },
     title: {
       text: 'Income Data'
     },
@@ -43,11 +46,11 @@ function displayIncomeChart(data) {
     },
     yAxis: {
       title: {
-        text: 'Income'
+        text: 'Income (£)'
       }
     },
     series: [{
-      name: 'Income',
+      name: 'Income (£)',
       data: chartData,
       marker: {
         enabled: true,
