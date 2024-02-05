@@ -160,6 +160,30 @@ app.get("/items/outputs", async function(req, res) {
     }
 });
 
+//overall endpoint
+app.get("/items/overall", async function(req, res) {
+    var params = {
+        TableName: tableName,
+        FilterExpression: "ProfileType = :profileTypeValue",
+        ExpressionAttributeValues: {
+            ":profileTypeValue": "Overall"
+        }
+    };
+
+    try {
+        // Fetching items from DynamoDB
+        const data = await ddbDocClient.send(new ScanCommand(params));
+        let items = data.Items;
+
+        // Filter items by 'ProfileType' and then sort by 'AverageScore' in descending order
+        const filteredItems = items.filter(item => item.ProfileType === "Overall");
+        // Sending the top 3 items as the response
+        res.json(filteredItems);
+    } catch (err) {
+        // Error handling
+        res.status(500).json({error: 'Could not load items: ' + err.message});
+    }
+});
 //Environment endpoint
 app.get("/items/environment", async function(req, res) {
     var params = {
@@ -236,6 +260,7 @@ app.get("/items/random3", async function(req, res) {
     }
 });
 
+
 //SearchInst endpoint
 app.get("/items/search", async function(req, res) {
     const searchTerm = req.query.query; // Get the search term from query parameters
@@ -257,6 +282,31 @@ app.get("/items/search", async function(req, res) {
         res.status(500).json({error: 'Could not search items: ' + err.message});
     }
 });
+
+//Overall and total income endpoint
+// New endpoint for Overall ProfileType or Total income IncomeSource
+app.get("/items/overall-and-income", async function(req, res) {
+  var params = {
+    TableName: tableName,
+    FilterExpression: "#profileType = :profileTypeValue OR #incomeSource = :incomeSourceValue",
+    ExpressionAttributeNames: {
+      "#profileType": "ProfileType",
+      "#incomeSource": "IncomeSource"
+    },
+    ExpressionAttributeValues: {
+      ":profileTypeValue": "Overall",
+      ":incomeSourceValue": "Total income"
+    }
+  };
+
+  try {
+    const data = await ddbDocClient.send(new ScanCommand(params));
+    res.json(data.Items);
+  } catch (err) {
+    res.status(500).json({error: 'Could not load items: ' + err.message});
+  }
+});
+
 
 /************************************
  * HTTP Get method to query objects *

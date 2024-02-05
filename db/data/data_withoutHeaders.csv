@@ -118,9 +118,9 @@
 10007849,Abertay University,2,D,32,"Art and Design: History, Practice and Theory",,,,Outputs,19.90,,75,24,48,22,4,2
 10007849,Abertay University,2,D,32,"Art and Design: History, Practice and Theory",,,,Impact,19.90,,75,50,50,0,0,0
 10007849,Abertay University,2,D,32,"Art and Design: History, Practice and Theory",,,,Environment,19.90,,75,22.5,77.5,0,0,0
-10007856,Aberystwyth University / Prifysgol Aberystwyth,3,A,4,"Psychology, Psychiatry and Neuroscience",,,,Overall,18.00,,100,6,26,49,17,2
-10007856,Aberystwyth University / Prifysgol Aberystwyth,3,A,4,"Psychology, Psychiatry and Neuroscience",,,,Outputs,18.00,,100,10.5,39.5,39.5,7.9,2.6
-10007856,Aberystwyth University / Prifysgol Aberystwyth,3,A,4,"Psychology, Psychiatry and Neuroscience",,,,Impact,18.00,,100,0,0,50,50,0
+10007856,Aberystwyth University,3,A,4,"Psychology, Psychiatry and Neuroscience",,,,Overall,18.00,,100,6,26,49,17,2
+10007856,Aberystwyth University,3,A,4,"Psychology, Psychiatry and Neuroscience",,,,Outputs,18.00,,100,10.5,39.5,39.5,7.9,2.6
+10007856,Aberystwyth University,3,A,4,"Psychology, Psychiatry and Neuroscience",,,,Impact,18.00,,100,0,0,50,50,0
 10007856,Aberystwyth University / Prifysgol Aberystwyth,3,A,4,"Psychology, Psychiatry and Neuroscience",,,,Environment,18.00,,100,0,12.5,87.5,0,0
 10007856,Aberystwyth University / Prifysgol Aberystwyth,3,A,6,"Agriculture, Food and Veterinary Sciences",,,,Overall,81.75,,100,37,47,16,0,0
 10007856,Aberystwyth University / Prifysgol Aberystwyth,3,A,6,"Agriculture, Food and Veterinary Sciences",,,,Outputs,81.75,,100,34,47.8,18.2,0,0
@@ -4786,7 +4786,7 @@
 10004797,Nottingham Trent University,97,D,34,"Communication, Cultural and Media Studies, Library and Information Management",,,,Outputs,18.00,,95,26.7,51.1,22.2,0,0
 10004797,Nottingham Trent University,97,D,34,"Communication, Cultural and Media Studies, Library and Information Management",,,,Impact,18.00,,95,50,50,0,0,0
 10004797,Nottingham Trent University,97,D,34,"Communication, Cultural and Media Studies, Library and Information Management",,,,Environment,18.00,,95,0,75,25,0,0
-10007154,"University of Nottingham, The",98,A,1,Clinical Medicine,,,,Overall,138.60,,100,43,44,12,1,0
+10007154,University of Nottingham,98,A,1,Clinical Medicine,,,,Overall,138.60,,100,43,44,12,1,0
 10007154,"University of Nottingham, The",98,A,1,Clinical Medicine,,,,Outputs,138.60,,100,36.5,43.9,18.7,0.3,0.6
 10007154,"University of Nottingham, The",98,A,1,Clinical Medicine,,,,Impact,138.60,,100,38.9,55.5,5.6,0,0
 10007154,"University of Nottingham, The",98,A,1,Clinical Medicine,,,,Environment,138.60,,100,75,25,0,0,0

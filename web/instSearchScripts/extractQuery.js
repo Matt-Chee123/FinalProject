@@ -1,3 +1,4 @@
+
 function extractQuery() {
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get('query');
@@ -20,11 +21,11 @@ function fetchSearchResults(searchTerm) {
        return response.json();
      })
      .then(data => {
-       console.log('Parsed data:', data); // Log the parsed JSON data
        displaySearchResults(data);
        displayTitle(data);
        displayIncomeChart(data);
        displayIncomeDist(data);
+       displayRankData(data);
        fetchEnvironmentAverages().then(averages => {
          // Once the averages data is retrieved, display the doctoral degrees chart
          displayDoctoralDegreesChart(data, averages);

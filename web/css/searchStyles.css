@@ -328,7 +328,18 @@
   height: 220px;
   margin-top: -20px;
 }
-
+.main-container .left-components .component-bubble:nth-of-type(3),
 .main-container .left-components .component-bubble:nth-of-type(4) {
   height: 180px; /* Set to desired height */
 }
+
+.main-container .left-components .component-bubble:nth-of-type(5),
+.main-container .left-components .component-bubble:nth-of-type(6) {
+  grid-column: 1 / -1; /* Make the bubble span all columns */
+  height: 215px;
+}
+.main-container .left-components .component-bubble:nth-of-type(6) {
+  display: none; /* Hide the fifth bubble */
+}
+
+
