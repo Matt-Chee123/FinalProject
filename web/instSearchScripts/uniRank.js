@@ -17,9 +17,7 @@ function displayRankData(specificData) {
             console.log('No data available');
             return;
         }
-        if (specificData){
-            console.log('Specific Data:', specificData);
-        }
+
         // Sort overallData by AverageScore in descending order
         overallData.sort((a, b) => b.AverageScore - a.AverageScore);
 
@@ -28,12 +26,10 @@ function displayRankData(specificData) {
             item.Rank = index + 1; // Assigning rank starting from 1
         });
         const specificUniRecord = specificData.find(item => item.ProfileType === "Overall");
-        console.log('Specific university record:', specificUniRecord);
         // Find the specific university record and its rank
         const specificUniversity = overallData.find(item => item.InstitutionID === specificUniRecord.InstitutionID);
 
         const specificRank = specificUniversity.Rank;
-        console.log('Rank of specific university:', specificRank);
 
         // Calculate indices for two universities above and below the specific one
         const specificIndex = overallData.findIndex(item => item.InstitutionID === specificUniRecord.InstitutionID);

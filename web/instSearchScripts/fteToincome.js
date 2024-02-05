@@ -1,34 +1,61 @@
-// Fetch the combined data for 'Overall' and 'Total income'
-fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/overall-and-income')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    // Process and display the data using Highcharts
-    processAndDisplayData(data);
-  })
-  .catch(error => {
-    console.error('Fetch error:', error);
-  });
+function fetchFTEIncomeData(specificUniRecord) {
+    fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/overall-and-income')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Process and display the data using Highcharts
+        processAndDisplayData(data, specificUniRecord);
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+}
 
-function processAndDisplayData(data) {
-  // Filter the data based on 'IncomeSource' and 'ProfileType'
-  const totalIncomeData = data.filter(item => item.IncomeSource === 'Total income').map(item => parseFloat(item.TotalIncome13_20));
-  const fteData = data.filter(item => item.ProfileType === 'Overall').map(item => parseFloat(item.FTEOfSubmittedStaff));
+function processAndDisplayData(data, specificUniRecord) {
 
-  // Check that we have the same number of 'Total income' and 'FTE' records
-  if (totalIncomeData.length !== fteData.length) {
-    console.error('Mismatch in the number of Total Income and FTE records');
-    return;
-  }
+      const specificUniName = specificUniRecord[0].UniversityName;
+      const incomeMapping = data
+        .filter(item => item.IncomeSource === 'Total income')
+        .reduce((acc, item) => {
+          acc[item.UniversityName] = parseFloat(item.TotalIncome13_20);
+          return acc;
+        }, {});
 
-  // Combine the data into a format suitable for Highcharts
-  const chartData = fteData.map((fte, index) => {
-    return [fte, totalIncomeData[index]];
-  });
+      const fteMapping = data
+        .filter(item => item.ProfileType === 'Overall')
+        .reduce((acc, item) => {
+          acc[item.UniversityName] = parseFloat(item.FTEOfSubmittedStaff);
+          return acc;
+        }, {});
+      const chartData = [];
+
+        // Iterate over the incomeMapping
+      Object.keys(incomeMapping).forEach(uniName => {
+          // Check if the current university in incomeMapping also exists in fteMapping
+        if (fteMapping.hasOwnProperty(uniName)) {
+          const isSpecificUni = uniName === specificUniName;
+          const markerOptions = isSpecificUni ? {
+            fillColor: 'red', // Highlight color
+            lineWidth: 2, // Border width
+            radius: 8 // Marker radius
+          } : {};
+
+          // Create an object with the FTE and income data
+          chartData.push({
+            name: uniName,
+            x: fteMapping[uniName], // FTE value from fteMapping
+            y: incomeMapping[uniName], // Income value from incomeMapping
+            marker: markerOptions // Specific marker options for the specific university
+          });
+        }
+      });
+
+  // If no data points match the specific university, log an error
+
 
   // Display the data using Highcharts
   Highcharts.chart('fte-income-container', {
@@ -82,8 +109,7 @@ function processAndDisplayData(data) {
           radius: 5,
           states: {
             hover: {
-              enabled: true,
-              lineColor: 'rgb(100,100,100)'
+              enabled: true
             }
           }
         },
@@ -96,13 +122,13 @@ function processAndDisplayData(data) {
         },
         tooltip: {
           headerFormat: '<b>{series.name}</b><br>',
-          pointFormat: '{point.x} FTE, {point.y} Total Income'
+          pointFormat: 'University: <b>{point.name}</b><br>FTE: {point.x}, Total Income: £{point.y}'
         }
       }
     },
     series: [{
-      type: 'line',
-      name: 'Best Fit Line',
+      type: 'scatter',
+      name: 'FTE vs Total Income',
       data: chartData,
       marker: {
         enabled: false

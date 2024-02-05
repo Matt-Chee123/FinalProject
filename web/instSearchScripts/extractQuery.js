@@ -26,6 +26,7 @@ function fetchSearchResults(searchTerm) {
        displayIncomeChart(data);
        displayIncomeDist(data);
        displayRankData(data);
+       fetchFTEIncomeData(data);
        fetchEnvironmentAverages().then(averages => {
          // Once the averages data is retrieved, display the doctoral degrees chart
          displayDoctoralDegreesChart(data, averages);
