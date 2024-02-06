@@ -1,4 +1,31 @@
 // Event listener for form submission
+const russellGroupUniversities = new Set([
+  "University of Birmingham",
+  "University of Bristol",
+  "University of Cambridge",
+  "Cardiff University",
+  "Durham University",
+  "University of Edinburgh",
+  "University of Exeter",
+  "University of Glasgow",
+  "Imperial College London",
+  "King's College London",
+  "University of Leeds",
+  "University of Liverpool",
+  "London School of Economics & Political Science",
+  "University of Manchester",
+  "University of Newcastle",
+  "University of Nottingham",
+  "University of Oxford",
+  "Queen Mary University",
+  "Queen's University Belfast",
+  "University of Sheffield",
+  "University of Southampton",
+  "University College London",
+  "University of Warwick",
+  "University of York"
+]);
+
 document.getElementById('dataQueryForm').addEventListener('submit', function(event) {
   event.preventDefault();
 
@@ -8,6 +35,8 @@ document.getElementById('dataQueryForm').addEventListener('submit', function(eve
   var xAxisAttribute = document.getElementById('xAxis').value;
   var yAxisAttribute = document.getElementById('yAxis').value;
   var uniToHighlight = document.getElementById('instHighlight').value.trim();
+  var highlightRussellGroup = document.getElementById('russelHighlight').checked;
+
 
   // Fetch the full dataset
   fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items')
@@ -53,15 +82,19 @@ document.getElementById('dataQueryForm').addEventListener('submit', function(eve
         // Determine the x and y values based on selected attributes
       var xValue = xAxisAttribute === 'totalDoctoralDegrees' ? calculateTotalDoctoralDegrees(item) : item[xAxisAttribute];
       var yValue = yAxisAttribute === 'totalDoctoralDegrees' ? calculateTotalDoctoralDegrees(item) : item[yAxisAttribute];
-      var isHighlighted = item.UniversityName.toLowerCase() === uniToHighlight.toLowerCase();
+      var isRussellGroup = russellGroupUniversities.has(item.UniversityName);
+      var isHighlightedUni = item.UniversityName.toLowerCase() === uniToHighlight.toLowerCase();
 
       return {
-        x: xValue,
-        y: yValue,
+        x: item[xAxisAttribute],
+        y: item[yAxisAttribute],
         name: item.UniversityName,
-        marker: isHighlighted ? {
-          fillColor: 'red'
-        } : {}
+        // Set the marker color based on whether it's a highlighted uni or a Russell Group uni
+        marker: {
+          fillColor: isHighlightedUni ? 'red' : (highlightRussellGroup && isRussellGroup ? 'green' : 'blue'),
+          lineWidth: isHighlightedUni ? 2 : 0,
+          lineColor: isHighlightedUni ? 'yellow' : null
+        }
       };
     });
     // Now use this chartData to plot the graph with Highcharts
