@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/graphBuilder.css">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/bullet.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+<div class="sidebar close">
+  <div class="logo-details">
+    <span class="logo_name">REF2021 Data Dashboard</span>
+  </div>
+  <ul class="nav-links">
+    <li>
+      <a href="index.html">
+        <i class='bx bx-grid-alt' ></i>
+        <span class="link_name">Homepage</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li><a class="link_name" href="#">Homepage</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="iocn-link">
+        <a href="#">
+          <i class='bx bx-collection' ></i>
+          <span class="link_name">Institution Search</span>
+        </a>
+        <i class='bx bxs-chevron-down arrow' ></i>
+      </div>
+      <ul class="sub-menu">
+        <input type="text" id="searchInstitution" placeholder="Search..">
+      </ul>
+    </li>
+    <li>
+      <a href="graphBuilder.html">
+        <i class='bx bx-pie-chart-alt-2' ></i>
+        <span class="link_name">Graph Builder</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li><a class="link_name" href="#">Graph Builder</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<section class="home-section">
+  <div class="home-content">
+    <i class='bx bx-menu' ></i>
+    <span class="text" id="search-title">Graph Builder</span>
+  </div>
+  <div class="main-container">
+    <div class="component-bubble top-bubble" id="graph-container"></div>
+    <div class="component-bubble bottom-bubble">
+      <form id="dataQueryForm">
+
+        <label for="ProfileType">Select Profile type:</label>
+        <select name="ProfileType" id="ProfileType">
+          <option value="Overall">Overall</option>
+          <option value="Outputs">Outputs</option>
+          <option value="Impact">Impact</option>
+          <option value="Environment">Environment</option>
+        </select>
+
+        <label for="IncomeSource">Select Income source:</label>
+        <select name="IncomeSource" id="IncomeSource">
+          <option value="Total income">Total income</option>
+          <option value="UK industry, commerce and public corporations">UK industry</option>
+          <option value="BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh">BEIS Research Councils</option>
+          <option value="UK-based charities (open competitive process)">UK-based charities (open competitive process)</option>
+          <option value="UK-based charities (other)">UK-based charities (other)</option>
+          <option value="UK central government bodies/local authorities, health and hospital authorities">UK central government bodies</option>
+          <option value="UK other sources">UK other sources</option>
+          <option value="EU government bodies">EU government bodies</option>
+          <option value="EU-based charities (open competitive process)">EU-based charities (open competitive process)</option>
+          <option value="EU industry, commerce and public corporations">EU industry, commerce and public corporations</option>
+          <option value="EU (excluding UK) other">EU (excluding UK) other</option>
+          <option value="Non-EU-based charities (open competitive process)">Non-EU-based charities (open competitive process)</option>
+          <option value="Non-EU industry commerce and public corporations">Non-EU industry commerce and public corporations</option>
+          <option value="Non-EU other">Non-EU other</option>
+        </select>
+
+        <label for="xAxis">Select X-axis attribute:</label>
+        <select name="xAxis" id="xAxis">
+          <option value="FTEOfSubmittedStaff">FTEofSubmittedStaff</option>
+          <option value="AverageScore">AverageScore</option>
+          <option value="PercEligibleStaff">% Eligible Staff</option>
+          <option value="TotalIncome13_20">Total income</option>
+          <option value="AverageIncome13_20">Average Income 13-20</option>
+          <option value="totalDoctoralDegrees">Total Doctoral Degrees 2013-2020</option>
+        </select>
+
+        <label for="yAxis">Select Y-axis attribute:</label>
+        <select name="yAxis" id="yAxis">
+          <option value="FTEOfSubmittedStaff">FTEofSubmittedStaff</option>
+          <option value="AverageScore">AverageScore</option>
+          <option value="PercEligibleStaff">% Eligible Staff</option>
+          <option value="TotalIncome13_20">Total income</option>
+          <option value="AverageIncome13_20">Average Income 13-20</option>
+          <option value="totalDoctoralDegrees">Total Doctoral Degrees 2013-2020</option>
+
+        </select>
+        <label for="instHighlight">Select Institution:</label>
+        <input type="text" id="instHighlight" placeholder="Highlight Specific Uni">
+        <button type="submit">Generate Graph</button>
+      </form>
+    </div>
+  </div>
+</section>
+<script>
+  let arrow = document.querySelectorAll(".arrow");
+  for (var i = 0; i < arrow.length; i++) {
+    arrow[i].addEventListener("click", (e)=>{
+   let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+   arrowParent.classList.toggle("showMenu");
+    });
+  }
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".bx-menu");
+  console.log(sidebarBtn);
+  sidebarBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("close");
+  });
+</script>
+<script src="graphBuilderScripts/graphGen.js"></script>
+</body>
+</html>
