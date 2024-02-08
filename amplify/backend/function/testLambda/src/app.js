@@ -259,6 +259,39 @@ app.get("/items/random3", async function(req, res) {
         res.status(500).json({error: 'Could not load items: ' + err.message});
     }
 });
+//autocomplete endpoint
+app.get("/items/autocomplete", async function(req, res) {
+    const searchTerm = req.query.query.toLowerCase(); // Convert search term to lower case
+
+    var params = {
+        TableName: tableName,
+        ProjectionExpression: "UniversityName" // Only get the UniversityName attribute to minimize data transfer
+    };
+
+    try {
+        const data = await ddbDocClient.send(new ScanCommand(params));
+
+        // Use a Set to store unique university names
+        const uniqueNames = new Set();
+        const uniqueItems = data.Items.filter(item => {
+            const nameLower = item.UniversityName.toLowerCase();
+            const isDuplicate = uniqueNames.has(nameLower);
+            const isMatch = nameLower.includes(searchTerm);
+            if (isMatch && !isDuplicate) {
+                uniqueNames.add(nameLower);
+                return true;
+            }
+            return false;
+        });
+
+        // Convert back to original case for display
+        const results = uniqueItems.map(item => item.UniversityName);
+
+        res.json(results);
+    } catch (err) {
+        res.status(500).json({error: 'Could not search items: ' + err.message});
+    }
+});
 
 
 //SearchInst endpoint

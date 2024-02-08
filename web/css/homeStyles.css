@@ -328,3 +328,21 @@
 .main-container .left-components .component-bubble:nth-of-type(4) {
   height: 180px; /* Set to desired height */
 }
+#suggestions-container {
+    position: absolute;
+    background-color: white;
+    z-index: 1000; /* Ensure it's above other content */
+    width: 100%; /* Or the width of your input field */
+    /* Add other styling as needed */
+}
+
+.suggestion {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.suggestion:hover {
+    background-color: #f0f0f0;
+}
+
