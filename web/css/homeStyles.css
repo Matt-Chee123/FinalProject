@@ -101,7 +101,7 @@
   pointer-events: none;
 }
 .sidebar .nav-links li .sub-menu{
-  padding: 6px 6px 2px 20px;
+  padding: 6px 6px 6px 20px;
   margin-top: -10px;
   background: #1d1b31;
   display: none;
@@ -330,9 +330,12 @@
 }
 #suggestions-container {
     position: absolute;
-    background-color: white;
+    background-color: #1d1b31; /* Changed to match the input background */
     z-index: 1000; /* Ensure it's above other content */
-    width: 100%; /* Or the width of your input field */
+    width: 80%; /* Match the width of your input field */
+    top: 100px; /* Adjust this value to position the container right below the input field */
+    left: 10%; /* Align with the input field */
+    border-radius: 0 0 8px 8px; /* Smooth bottom corners */
     /* Add other styling as needed */
 }
 
@@ -340,9 +343,11 @@
     padding: 10px;
     border-bottom: 1px solid #ddd;
     cursor: pointer;
+    color: #fff; /* Match the text color of the input */
 }
 
 .suggestion:hover {
-    background-color: #f0f0f0;
+    background-color: #292841; /* A lighter shade for hover */
 }
+
 

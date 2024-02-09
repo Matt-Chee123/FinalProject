@@ -298,5 +298,25 @@
   flex-grow: 1; /* Takes up 1 part of the available space */
 }
 
+#suggestions-container {
+    position: absolute;
+    background-color: #1d1b31; /* Changed to match the input background */
+    z-index: 1000; /* Ensure it's above other content */
+    width: 80%; /* Match the width of your input field */
+    top: 100px; /* Adjust this value to position the container right below the input field */
+    left: 10%; /* Align with the input field */
+    border-radius: 0 0 8px 8px; /* Smooth bottom corners */
+    /* Add other styling as needed */
+}
 
+.suggestion {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    color: #fff; /* Match the text color of the input */
+}
+
+.suggestion:hover {
+    background-color: #292841; /* A lighter shade for hover */
+}
 
