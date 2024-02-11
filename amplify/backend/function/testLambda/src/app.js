@@ -340,6 +340,29 @@ app.get("/items/overall-and-income", async function(req, res) {
   }
 });
 
+//Outputs and income endpoint
+app.get("/items/outputs-and-income", async function(req, res) {
+  var params = {
+    TableName: tableName,
+    FilterExpression: "#profileType = :profileTypeValue OR #incomeSource = :incomeSourceValue",
+    ExpressionAttributeNames: {
+      "#profileType": "ProfileType",
+      "#incomeSource": "IncomeSource"
+    },
+    ExpressionAttributeValues: {
+      ":profileTypeValue": "Outputs",
+      ":incomeSourceValue": "Total income"
+    }
+  };
+
+  try {
+    const data = await ddbDocClient.send(new ScanCommand(params));
+    res.json(data.Items);
+  } catch (err) {
+    res.status(500).json({error: 'Could not load items: ' + err.message});
+  }
+});
+
 
 /************************************
  * HTTP Get method to query objects *

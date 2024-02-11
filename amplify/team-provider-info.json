@@ -18,7 +18,7 @@
       "function": {
         "testLambda": {
           "deploymentBucketName": "amplify-finalproject-main-220201-deployment",
-          "s3Key": "amplify-builds/testLambda-3876426c4d5a75704d38-build.zip"
+          "s3Key": "amplify-builds/testLambda-37465177673054393065-build.zip"
         }
       },
       "api": {
