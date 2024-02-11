@@ -38,7 +38,8 @@ function processAndDisplayOutputsIncome(data, specificUniRecord) {
         if (record.UniversityName === specificUniversityName) {
             markerOptions = {
                 fillColor: 'red', // or any color that stands out
-                radius: 4
+                radius: 4,
+                zIndex: 90
             };
         }
 
@@ -78,7 +79,7 @@ function processAndDisplayOutputsIncome(data, specificUniRecord) {
         plotOptions: {
             scatter: {
                 marker: {
-                    radius: 3,
+                    radius: 2,
                     states: {
                         hover: {
                             enabled: true,

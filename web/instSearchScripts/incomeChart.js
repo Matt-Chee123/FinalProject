@@ -9,7 +9,7 @@ function displayIncomeChart(data) {
 
   // Calculate the incomes for the years 2016 to 2019 based on the 2015 data and average
   const averageIncome1520 = totalIncomeRecord.AverageIncome15_20 || 0;
-  const income2015 = totalIncomeRecord.IncomeAcademicYear14_15 || 0;
+  const income2015 = totalIncomeRecord.IncomeAcademicYear13_14 + totalIncomeRecord.IncomeAcademicYear14_15 || 0;
   const income2016 = income2015 + averageIncome1520;
   const income2017 = income2015 + 2 * averageIncome1520;
   const income2018 = income2015 + 3 * averageIncome1520;

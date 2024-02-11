@@ -37,6 +37,9 @@ function displayDoctoralDegreesChart(uniData, averages) {
     credits: {
         enabled: false
         },
+    legend: {
+      enabled: false
+    },
 
     xAxis: {
       categories: ['2013', '2014', '2015', '2016', '2017', '2018', '2019'],
