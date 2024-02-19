@@ -1,4 +1,5 @@
-fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/')
+function fetchAndDisplayNationalAverages(uofaName = 'Computer Science and Informatics') {
+  fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/?uofaName=${encodeURIComponent(uofaName)}`)
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -11,6 +12,7 @@ fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/')
   .catch(error => {
     console.error('Fetch error:', error);
   });
+}
 
 function calculateNationalAverageScore(data, profileType) {
   let sumScore = 0;

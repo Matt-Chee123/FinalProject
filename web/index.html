@@ -31,14 +31,17 @@
         <a href="#">
           <i class='bx bx-collection' ></i>
           <span class="link_name">Institution Search</span>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="#">Institution Search</a></li>
+          </ul>
         </a>
         <i class='bx bxs-chevron-down arrow' ></i>
       </div>
       <ul class="sub-menu">
         <input type="text" id="searchInstitution" placeholder="Search...">
         <div id="suggestions-container" style="display:none;"></div>
-
       </ul>
+
     </li>
     <li>
       <a href="graphBuilder.html">
@@ -57,10 +60,8 @@
     <i class='bx bx-menu' ></i>
     <span class="text">Homepage</span>
     <select id="unit-of-assessment-dropdown" class="unit-dropdown">
-      <option value="comp-sci">Computer Science and Informatics</option>
-      <option value="engineering">Engineering</option>
-      <option value="math-sci">Mathematical Sciences</option>
-      <!-- Add more options here for other units of assessment -->
+      <option value="Computer Science and Informatics">Computer Science and Informatics</option>
+      <option value="Clinical Medicine">Clinical Medicine</option>
     </select>
   </div>
   <div class="main-container">
@@ -108,6 +109,7 @@
 <script src="homeScripts/totalIncome.js"></script>
 <script src="homeScripts/3fte.js"></script>
 <script src="homeScripts/enterSearch.js"></script>
+<script src="homeScripts/dropdownHandler.js"></script>
 
 
 </body>

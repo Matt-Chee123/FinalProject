@@ -1,16 +1,19 @@
-fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/income')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    displayTopThreeSources(data);
-  })
-  .catch(error => {
-    console.error('Fetch error:', error);
-  });
+function fetchIncomeData(uofaName = 'Computer Science and Informatics') {
+    fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/income?uofaName=${encodeURIComponent(uofaName)}`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        displayTopThreeSources(data); // Assuming you'll adjust this function to handle the income data
+    })
+    .catch(error => {
+        console.error('Fetch error:', error);
+    });
+}
+
 
 function calculateSumOfIncome(data, source) {
     let sumIncome = 0;

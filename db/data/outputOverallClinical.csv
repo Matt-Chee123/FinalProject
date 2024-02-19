@@ -1,0 +1,124 @@
+10007783,University of Aberdeen,1,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,139.02,NULL,100,15,62,23,0,0,2.92
+10007783,University of Aberdeen,1,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,139.02,NULL,100,21,51.7,26.7,0.3,0.3,2.93
+10007783,University of Aberdeen,1,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,139.02,NULL,100,11.1,61.1,27.8,0,0,2.83
+10007783,University of Aberdeen,1,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,139.02,NULL,100,0,100,0,0,0,3.00
+10006840,The University of Birmingham,14,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,224.00,NULL,90,49,43,7,0,1,3.39
+10006840,The University of Birmingham,14,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,224.00,NULL,90,37.5,52.7,8.4,0.5,0.9,3.25
+10006840,The University of Birmingham,14,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,224.00,NULL,90,68.2,22.7,9.1,0,0,3.59
+10006840,The University of Birmingham,14,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,224.00,NULL,90,62.5,37.5,0,0,0,3.62
+10007786,University of Bristol,21,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,94.63,NULL,100,45,49,6,0,0,3.39
+10007786,University of Bristol,21,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,94.63,NULL,100,41.5,47.7,10.3,0.5,0,3.30
+10007786,University of Bristol,21,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,94.63,NULL,100,71.4,28.6,0,0,0,3.71
+10007786,University of Bristol,21,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,94.63,NULL,100,12.5,87.5,0,0,0,3.12
+10007788,University of Cambridge,25,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,363.43,NULL,100,70,25,4,0,1,3.63
+10007788,University of Cambridge,25,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,363.43,NULL,100,58.4,33.9,6.2,0.3,1.2,3.48
+10007788,University of Cambridge,25,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,363.43,NULL,100,89.3,10.7,0,0,0,3.89
+10007788,University of Cambridge,25,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,363.43,NULL,100,87.5,12.5,0,0,0,3.88
+10007814,Cardiff University / Prifysgol Caerdydd,28,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,86.93,NULL,100,27,65,7,1,0,3.18
+10007814,Cardiff University / Prifysgol Caerdydd,28,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,86.93,NULL,100,32.2,53.9,12.9,0.5,0.5,3.17
+10007814,Cardiff University / Prifysgol Caerdydd,28,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,86.93,NULL,100,21.4,78.6,0,0,0,3.21
+10007814,Cardiff University / Prifysgol Caerdydd,28,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,86.93,NULL,100,12.5,87.5,0,0,0,3.12
+10007852,University of Dundee,39,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,64.45,NULL,100,45,48,7,0,0,3.38
+10007852,University of Dundee,39,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,64.45,NULL,100,39.1,48.5,11.8,0,0.6,3.26
+10007852,University of Dundee,39,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,64.45,NULL,100,50,50,0,0,0,3.50
+10007852,University of Dundee,39,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,64.45,NULL,100,62.5,37.5,0,0,0,3.62
+10007789,The University of East Anglia,41,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,30.60,NULL,100,36,56,7,0,1,3.26
+10007789,The University of East Anglia,41,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,30.60,NULL,100,45.5,44.1,9.1,0,1.3,3.32
+10007789,The University of East Anglia,41,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,30.60,NULL,100,33.3,66.7,0,0,0,3.33
+10007789,The University of East Anglia,41,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,30.60,NULL,100,0,87.5,12.5,0,0,2.88
+10007790,University of Edinburgh,44,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,357.12,NULL,100,54,40,6,0,0,3.48
+10007790,University of Edinburgh,44,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,357.12,NULL,100,37.9,52.9,8.6,0.4,0.2,3.28
+10007790,University of Edinburgh,44,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,357.12,NULL,100,80.8,19.2,0,0,0,3.81
+10007790,University of Edinburgh,44,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,357.12,NULL,100,75,25,0,0,0,3.75
+10007792,University of Exeter,47,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,69.61,NULL,100,45,48,7,0,0,3.38
+10007792,University of Exeter,47,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,69.61,NULL,100,42,45.9,12.1,0,0,3.30
+10007792,University of Exeter,47,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,69.61,NULL,100,58.3,41.7,0,0,0,3.58
+10007792,University of Exeter,47,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,69.61,NULL,100,37.5,62.5,0,0,0,3.38
+10007794,University of Glasgow,49,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,169.98,NULL,100,59,38,3,0,0,3.56
+10007794,University of Glasgow,49,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,169.98,NULL,100,57.9,37.4,4.5,0,0.2,3.53
+10007794,University of Glasgow,49,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,169.98,NULL,100,75,25,0,0,0,3.75
+10007794,University of Glasgow,49,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,169.98,NULL,100,37.5,62.5,0,0,0,3.38
+10003270,"Imperial College of Science, Technology and Medicine",64,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,438.88,NULL,100,60,34,6,0,0,3.54
+10003270,"Imperial College of Science, Technology and Medicine",64,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,438.88,NULL,100,44.7,44.6,10,0.4,0.3,3.33
+10003270,"Imperial College of Science, Technology and Medicine",64,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,438.88,NULL,100,73.3,26.7,0,0,0,3.73
+10003270,"Imperial College of Science, Technology and Medicine",64,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,438.88,NULL,100,100,0,0,0,0,4.00
+10003324,Institute of Cancer Research: Royal Cancer Hospital (The),65,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,70.20,NULL,100,52,45,3,0,0,3.49
+10003324,Institute of Cancer Research: Royal Cancer Hospital (The),65,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,70.20,NULL,100,36.9,57.4,5.1,0.6,0,3.31
+10003324,Institute of Cancer Research: Royal Cancer Hospital (The),65,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,70.20,NULL,100,66.7,33.3,0,0,0,3.67
+10003324,Institute of Cancer Research: Royal Cancer Hospital (The),65,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,70.20,NULL,100,87.5,12.5,0,0,0,3.88
+10003645,King's College London,69,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,181.95,NULL,100,56,38,5,1,0,3.49
+10003645,King's College London,69,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,181.95,NULL,100,42,47.6,9.5,0.2,0.7,3.30
+10003645,King's College London,69,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,181.95,NULL,100,65,35,0,0,0,3.65
+10003645,King's College London,69,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,181.95,NULL,100,100,0,0,0,0,4.00
+10007795,The University of Leeds,72,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,153.80,NULL,100,24,62,13,1,0,3.09
+10007795,The University of Leeds,72,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,153.80,NULL,100,22.3,53.9,22.2,1.6,0,2.97
+10007795,The University of Leeds,72,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,153.80,NULL,100,27.8,72.2,0,0,0,3.28
+10007795,The University of Leeds,72,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,153.80,NULL,100,25,75,0,0,0,3.25
+10007796,The University of Leicester,76,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,45.55,NULL,100,62,33,5,0,0,3.57
+10007796,The University of Leicester,76,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,45.55,NULL,100,62.1,29.2,8.7,0,0,3.53
+10007796,The University of Leicester,76,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,45.55,NULL,100,75,25,0,0,0,3.75
+10007796,The University of Leicester,76,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,45.55,NULL,100,37.5,62.5,0,0,0,3.38
+10006842,The University of Liverpool,78,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,190.15,NULL,100,32,59,8,1,0,3.22
+10006842,The University of Liverpool,78,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,190.15,NULL,100,32.1,55.8,11.2,0.4,0.5,3.19
+10006842,The University of Liverpool,78,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,190.15,NULL,100,50,50,0,0,0,3.50
+10006842,The University of Liverpool,78,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,190.15,NULL,100,0,87.5,12.5,0,0,2.88
+10003958,Liverpool School of Tropical Medicine,81,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,54.10,NULL,100,60,32,8,0,0,3.52
+10003958,Liverpool School of Tropical Medicine,81,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,54.10,NULL,100,47.4,43,8.9,0.7,0,3.37
+10003958,Liverpool School of Tropical Medicine,81,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,54.10,NULL,100,90,10,0,0,0,3.90
+10003958,Liverpool School of Tropical Medicine,81,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,54.10,NULL,100,62.5,25,12.5,0,0,3.50
+10007771,London School of Hygiene and Tropical Medicine,85,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,69.40,NULL,100,44,43,13,0,0,3.31
+10007771,London School of Hygiene and Tropical Medicine,85,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,69.40,NULL,100,23,54.6,22.4,0,0,3.01
+10007771,London School of Hygiene and Tropical Medicine,85,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,69.40,NULL,100,91.7,8.3,0,0,0,3.92
+10007771,London School of Hygiene and Tropical Medicine,85,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,69.40,NULL,100,50,50,0,0,0,3.50
+10007798,The University of Manchester,88,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,221.06,NULL,100,52,37,10,0,1,3.39
+10007798,The University of Manchester,88,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,221.06,NULL,100,37.4,44.5,15.9,1.1,1.1,3.16
+10007798,The University of Manchester,88,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,221.06,NULL,100,72.7,27.3,0,0,0,3.73
+10007798,The University of Manchester,88,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,221.06,NULL,100,75,25,0,0,0,3.75
+10007799,University of Newcastle upon Tyne,92,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,159.83,NULL,100,38,51,11,0,0,3.27
+10007799,University of Newcastle upon Tyne,92,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,159.83,NULL,100,28.3,54,17.5,0.2,0,3.10
+10007799,University of Newcastle upon Tyne,92,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,159.83,NULL,100,55.6,44.4,0,0,0,3.56
+10007799,University of Newcastle upon Tyne,92,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,159.83,NULL,100,50,50,0,0,0,3.50
+10007154,"University of Nottingham, The",98,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,138.60,NULL,100,43,44,12,1,0,3.29
+10007154,"University of Nottingham, The",98,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,138.60,NULL,100,36.5,43.9,18.7,0.3,0.6,3.15
+10007154,"University of Nottingham, The",98,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,138.60,NULL,100,38.9,55.5,5.6,0,0,3.33
+10007154,"University of Nottingham, The",98,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,138.60,NULL,100,75,25,0,0,0,3.75
+10007774,University of Oxford,100,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,498.02,NULL,95,59,34,7,0,0,3.52
+10007774,University of Oxford,100,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,498.02,NULL,95,38.9,50,10.3,0.8,0,3.27
+10007774,University of Oxford,100,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,498.02,NULL,95,84.4,15.6,0,0,0,3.84
+10007774,University of Oxford,100,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,498.02,NULL,95,100,0,0,0,0,4.00
+10007801,University of Plymouth,102,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,24.20,NULL,100,25,53,20,0,2,2.99
+10007801,University of Plymouth,102,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,24.20,NULL,100,21.3,47.6,27.8,0,3.3,2.84
+10007801,University of Plymouth,102,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,24.20,NULL,100,50,50,0,0,0,3.50
+10007801,University of Plymouth,102,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,24.20,NULL,100,0,75,25,0,0,2.75
+10007775,Queen Mary University of London,105,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,222.74,NULL,100,47,44,8,1,0,3.37
+10007775,Queen Mary University of London,105,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,222.74,NULL,100,36.8,50.5,11.8,0.2,0.7,3.23
+10007775,Queen Mary University of London,105,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,222.74,NULL,100,54.5,41,4.5,0,0,3.50
+10007775,Queen Mary University of London,105,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,222.74,NULL,100,75,25,0,0,0,3.75
+10007157,The University of Sheffield,123,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,109.70,NULL,100,39,48,13,0,0,3.26
+10007157,The University of Sheffield,123,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,109.70,NULL,100,28,53.3,17.9,0.8,0,3.08
+10007157,The University of Sheffield,123,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,109.70,NULL,100,81.3,18.7,0,0,0,3.81
+10007157,The University of Sheffield,123,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,109.70,NULL,100,12.5,75,12.5,0,0,3.00
+10007158,University of Southampton,127,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,179.97,NULL,100,37,50,12,1,0,3.23
+10007158,University of Southampton,127,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,179.97,NULL,100,34,46.9,17.8,0.6,0.7,3.13
+10007158,University of Southampton,127,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,179.97,NULL,100,60,40,0,0,0,3.60
+10007158,University of Southampton,127,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,179.97,NULL,100,12.5,75,12.5,0,0,3.00
+10007803,University of St Andrews,129,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,30.70,NULL,100,32,54,13,1,0,3.17
+10007803,University of St Andrews,129,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,30.70,NULL,100,32.5,53.2,13,1.3,0,3.17
+10007803,University of St Andrews,129,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,30.70,NULL,100,50,50,0,0,0,3.50
+10007803,University of St Andrews,129,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,30.70,NULL,100,0,62.5,37.5,0,0,2.62
+10007782,St. George's Hospital Medical School,132,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,93.40,NULL,100,38,50,12,0,0,3.26
+10007782,St. George's Hospital Medical School,132,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,93.40,NULL,100,32.9,53.9,13.2,0,0,3.20
+10007782,St. George's Hospital Medical School,132,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,93.40,NULL,100,71.4,28.6,0,0,0,3.71
+10007782,St. George's Hospital Medical School,132,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,93.40,NULL,100,0,75,25,0,0,2.75
+10007806,University of Sussex,140,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,19.20,NULL,100,16,64,16,3,1,2.91
+10007806,University of Sussex,140,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,19.20,NULL,100,27.1,45.8,20.9,4.1,2.1,2.92
+10007806,University of Sussex,140,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,19.20,NULL,100,0,100,0,0,0,3.00
+10007806,University of Sussex,140,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,19.20,NULL,100,0,75,25,0,0,2.75
+10007784,University College London,146,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,344.18,NULL,100,63,31,6,0,0,3.57
+10007784,University College London,146,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,344.18,NULL,100,41.9,47.9,9.6,0.4,0.2,3.31
+10007784,University College London,146,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,344.18,NULL,100,92.3,7.7,0,0,0,3.92
+10007784,University College London,146,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,344.18,NULL,100,100,0,0,0,0,4.00
+10007163,The University of Warwick,149,A,1,Clinical Medicine,NULL,NULL,NULL,Overall,33.10,NULL,100,7,65,28,0,0,2.79
+10007163,The University of Warwick,149,A,1,Clinical Medicine,NULL,NULL,NULL,Outputs,33.10,NULL,100,12,68.7,19.3,0,0,2.93
+10007163,The University of Warwick,149,A,1,Clinical Medicine,NULL,NULL,NULL,Impact,33.10,NULL,100,0,33.3,66.7,0,0,2.33
+10007163,The University of Warwick,149,A,1,Clinical Medicine,NULL,NULL,NULL,Environment,33.10,NULL,100,0,100,0,0,0,3.00

@@ -1,16 +1,19 @@
-fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/outputs')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    displayOutputAverages(data);
-  })
-  .catch(error => {
-    console.error('Fetch error:', error);
-  });
+function fetchOutputsData(uofaName = 'Computer Science and Informatics') {
+    fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/outputs?uofaName=${encodeURIComponent(uofaName)}`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        displayOutputAverages(data);
+    })
+    .catch(error => {
+        console.error('Fetch error:', error);
+    });
+}
+
 
 function displayOutputAverages(data) {
   const OutputsContainer = document.getElementById('outputs-records');
