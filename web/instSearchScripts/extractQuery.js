@@ -13,7 +13,6 @@ function extractQuery() {
 function fetchSearchResults(searchTerm, unitOfAssessment) {
     fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/search?query=${encodeURIComponent(searchTerm)}&unitOfAssessment=${encodeURIComponent(unitOfAssessment)}`)
      .then(response => {
-       console.log('Response:', response); // Log the response object
 
        if (!response.ok) {
          throw new Error('Network response was not ok');
@@ -26,9 +25,9 @@ function fetchSearchResults(searchTerm, unitOfAssessment) {
        displayIncomeChart(data);
        displayIncomeDist(data);
        displayRankData(data);
-       fetchFTEIncomeData(data);
-       fetchOutputsandIncome(data);
-       fetchEnvironmentAverages().then(averages => {
+       fetchFTEIncomeData(data,unitOfAssessment);
+       fetchOutputsandIncome(data,unitOfAssessment);
+       fetchEnvironmentAverages(unitOfAssessment).then(averages => {
          // Once the averages data is retrieved, display the doctoral degrees chart
          displayDoctoralDegreesChart(data, averages);
        });

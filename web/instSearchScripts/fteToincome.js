@@ -1,4 +1,4 @@
-function fetchFTEIncomeData(specificUniRecord) {
+function fetchFTEIncomeData(specificUniRecord,unitOfAssessmentName) {
     fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/overall-and-income')
       .then(response => {
         if (!response.ok) {
@@ -8,7 +8,8 @@ function fetchFTEIncomeData(specificUniRecord) {
       })
       .then(data => {
         // Process and display the data using Highcharts
-        processAndDisplayData(data, specificUniRecord);
+        const filteredData = data.filter(item => item.UnitOfAssessmentName === unitOfAssessmentName);
+        processAndDisplayData(filteredData, specificUniRecord);
       })
       .catch(error => {
         console.error('Fetch error:', error);
