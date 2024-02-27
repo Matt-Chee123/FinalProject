@@ -1,20 +1,23 @@
-function fetchFTEIncomeData(specificUniRecord,unitOfAssessmentName) {
-    fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/overall-and-income')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        // Process and display the data using Highcharts
-        const filteredData = data.filter(item => item.UnitOfAssessmentName === unitOfAssessmentName);
-        processAndDisplayData(filteredData, specificUniRecord);
-      })
-      .catch(error => {
+function fetchFTEIncomeData(specificUniRecord, unitOfAssessmentName) {
+
+    const overallUrl = `https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/overall?unitOfAssessment=${encodeURIComponent(unitOfAssessmentName)}`;
+    const incomeUrl = `https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/total-income?unitOfAssessment=${encodeURIComponent(unitOfAssessmentName)}`;
+
+    // Fetch data concurrently from both endpoints
+    Promise.all([
+        fetch(overallUrl).then(response => response.json()), // Fetch overall data
+        fetch(incomeUrl).then(response => response.json()) // Fetch income data
+    ])
+    .then(([overallData, incomeData]) => {
+        // Combine data from both endpoints
+        const combinedData = [...overallData, ...incomeData];
+        processAndDisplayData(combinedData, specificUniRecord);
+    })
+    .catch(error => {
         console.error('Fetch error:', error);
-      });
+    });
 }
+
 
 function processAndDisplayData(data, specificUniRecord) {
 
@@ -86,12 +89,7 @@ function processAndDisplayData(data, specificUniRecord) {
         text: 'Total Income'
       },
       min: 0,
-      tickInterval: 50000000,
-      labels: {
-        formatter: function () {
-          return '£' + Highcharts.numberFormat(this.value, 0);
-        }
-      }
+      tickInterval: 50000000
     },
     legend: {
       enabled: false,

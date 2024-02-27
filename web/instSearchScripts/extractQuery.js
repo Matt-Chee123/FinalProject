@@ -24,7 +24,7 @@ function fetchSearchResults(searchTerm, unitOfAssessment) {
        displayTitle(data);
        displayIncomeChart(data);
        displayIncomeDist(data);
-       displayRankData(data);
+       displayRankData(data,unitOfAssessment);
        fetchFTEIncomeData(data,unitOfAssessment);
        fetchOutputsandIncome(data,unitOfAssessment);
        fetchEnvironmentAverages(unitOfAssessment).then(averages => {

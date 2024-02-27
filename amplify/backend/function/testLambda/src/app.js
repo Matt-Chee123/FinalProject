@@ -161,9 +161,9 @@ app.get("/items/outputs", async function(req, res) {
     var params = {
         TableName: tableName,
         // If you're using an index to filter by UnitOfAssessmentName, ensure it's correctly named and includes ProfileType as an attribute
-        IndexName: 'UnitOfAssessmentName-UniversityName-index',
-        KeyConditionExpression: 'UnitOfAssessmentName = :uofaName',
-        FilterExpression: 'ProfileType = :profileTypeValue', // Correct filter for ProfileType "Outputs"
+        IndexName: 'ProfileType-index',
+        KeyConditionExpression: 'ProfileType = :profileTypeValue',
+        FilterExpression: 'UnitOfAssessmentName = :uofaName', // Correct filter for ProfileType "Outputs"
         ExpressionAttributeValues: {
             ":uofaName": selectedUofA,
             ":profileTypeValue": "Outputs"
@@ -188,49 +188,86 @@ app.get("/items/outputs", async function(req, res) {
 
 //overall endpoint
 app.get("/items/overall", async function(req, res) {
+    const unitOfAssessmentName = req.query.unitOfAssessment || "Computer Science and Informatics"; // Default value if not provided
+
     var params = {
         TableName: tableName,
-        FilterExpression: "ProfileType = :profileTypeValue",
+        IndexName: "ProfileType-index", // Name of the GSI
+        KeyConditionExpression: "ProfileType = :profileTypeValue",
+        FilterExpression: 'UnitOfAssessmentName = :uofaName', // Correct filter for ProfileType "Outputs"
         ExpressionAttributeValues: {
-            ":profileTypeValue": "Overall"
+            ":profileTypeValue": "Overall",
+            ":uofaName": unitOfAssessmentName
         }
     };
 
     try {
-        // Fetching items from DynamoDB
-        const data = await ddbDocClient.send(new ScanCommand(params));
+        // Fetching items using Query operation on the GSI
+        const data = await ddbDocClient.send(new QueryCommand(params));
         let items = data.Items;
 
-        // Filter items by 'ProfileType' and then sort by 'AverageScore' in descending order
-        const filteredItems = items.filter(item => item.ProfileType === "Overall");
-        // Sending the top 3 items as the response
-        res.json(filteredItems);
+        // Optionally, you might want to sort or process the items in some way here
+        // For example, sorting by another attribute or filtering further if needed
+
+        // Sending the items as the response
+        res.json(items);
     } catch (err) {
         // Error handling
         res.status(500).json({error: 'Could not load items: ' + err.message});
     }
 });
+
 //Environment endpoint
 app.get("/items/environment", async function(req, res) {
     var params = {
         TableName: tableName,
-        FilterExpression: "ProfileType = :profileTypeValue",
+        IndexName: "ProfileType-index", // Name of the GSI
+        KeyConditionExpression: "ProfileType = :profileTypeValue",
         ExpressionAttributeValues: {
             ":profileTypeValue": "Environment"
         }
     };
 
     try {
-        // Fetching items from DynamoDB
-        const data = await ddbDocClient.send(new ScanCommand(params));
+        // Fetching items using Query operation on the GSI
+        const data = await ddbDocClient.send(new QueryCommand(params));
         let items = data.Items;
 
-        // Filter items by 'ProfileType' and then sort by 'AverageScore' in descending order
-        const filteredItems = items.filter(item => item.ProfileType === "Environment");
-        // Sending the top 3 items as the response
-        res.json(filteredItems);
+        // Sending the items as the response
+        res.json(items);
     } catch (err) {
         // Error handling
+        res.status(500).json({error: 'Could not load items: ' + err.message});
+    }
+});
+
+//total income endpoint
+app.get("/items/total-income", async function(req, res) {
+    const unitOfAssessmentName = req.query.unitOfAssessment || "Computer Science and Informatics"; // Default value if not provided
+
+    var params = {
+        TableName: tableName,
+        IndexName: "IncomeSource-index", // Name of the GSI
+        KeyConditionExpression: "IncomeSource = :incomeSource",
+        ExpressionAttributeValues: {
+            ":incomeSource": "Total income",
+        }
+    };
+
+    let items = [];
+    try {
+        let data;
+        do {
+            data = await ddbDocClient.send(new QueryCommand(params));
+            items = items.concat(data.Items);
+            params.ExclusiveStartKey = data.LastEvaluatedKey;
+        } while (data.LastEvaluatedKey);
+
+        // Filter by UnitOfAssessmentName after retrieving all items
+        const filteredItems = items.filter(item => item.UnitOfAssessmentName === unitOfAssessmentName);
+
+        res.json(filteredItems);
+    } catch (err) {
         res.status(500).json({error: 'Could not load items: ' + err.message});
     }
 });
@@ -243,7 +280,7 @@ app.get("/items/income", async function(req, res) {
         TableName: tableName,
         IndexName: 'UnitOfAssessmentName-UniversityName-index', // Use your index if applicable
         KeyConditionExpression: 'UnitOfAssessmentName = :uofaName',
-        FilterExpression: 'UnitOfAssessmentName = :uofaName AND attribute_not_exists(ProfileType)', // Filter for ProfileType "Overall"
+        FilterExpression: 'attribute_not_exists(ProfileType)', // Filter for ProfileType "Overall"
         ExpressionAttributeValues: {
             ":uofaName": selectedUofA
         }
@@ -252,7 +289,7 @@ app.get("/items/income", async function(req, res) {
         // Specify the list of profile types to exclude
 
         // Depending on your data structure, you may need to use a QueryCommand if you have an appropriate GSI
-        const data = await ddbDocClient.send(new ScanCommand(params));
+        const data = await ddbDocClient.send(new QueryCommand(params));
         let items = data.Items;
 
         // Filter out items where the ProfileType is in the excluded list
@@ -295,38 +332,24 @@ app.get("/items/random3", async function(req, res) {
 });
 
 //autocomplete endpoint
-app.get("/items/autocomplete", async function(req, res) {
-    const searchTerm = req.query.query.toLowerCase(); // Convert search term to lower case
-
+app.get("/items/universities", async function(req, res) {
     var params = {
         TableName: tableName,
-        ProjectionExpression: "UniversityName" // Only get the UniversityName attribute to minimize data transfer
+        ProjectionExpression: "UniversityName" // Only get the UniversityName attribute
     };
 
     try {
         const data = await ddbDocClient.send(new ScanCommand(params));
 
-        // Use a Set to store unique university names
-        const uniqueNames = new Set();
-        const uniqueItems = data.Items.filter(item => {
-            const nameLower = item.UniversityName.toLowerCase();
-            const isDuplicate = uniqueNames.has(nameLower);
-            const isMatch = nameLower.includes(searchTerm);
-            if (isMatch && !isDuplicate) {
-                uniqueNames.add(nameLower);
-                return true;
-            }
-            return false;
-        });
+        // Extract just the university names and ensure they are unique
+        const uniqueNames = [...new Set(data.Items.map(item => item.UniversityName))];
 
-        // Convert back to original case for display
-        const results = uniqueItems.map(item => item.UniversityName);
-
-        res.json(results);
+        res.json(uniqueNames);
     } catch (err) {
-        res.status(500).json({error: 'Could not search items: ' + err.message});
+        res.status(500).json({error: 'Could not fetch university names: ' + err.message});
     }
 });
+
 
 
 //SearchInst endpoint
@@ -336,7 +359,8 @@ app.get("/items/search", async function(req, res) {
 
     var params = {
         TableName: tableName,
-        FilterExpression: "contains(UniversityName, :searchTerm) AND UnitOfAssessmentName = :unitOfAssessment",
+        IndexName: 'UnitOfAssessmentName-UniversityName-index', // Specify the GSI name
+        KeyConditionExpression: 'UniversityName = :searchTerm AND UnitOfAssessmentName = :unitOfAssessment', // Use the partition key of the GSI
         ExpressionAttributeValues: {
             ":searchTerm": searchTerm,
             ":unitOfAssessment": unitOfAssessment
@@ -344,12 +368,13 @@ app.get("/items/search", async function(req, res) {
     };
 
     try {
-        const data = await ddbDocClient.send(new ScanCommand(params));
+        const data = await ddbDocClient.send(new QueryCommand(params));
         res.json(data.Items);
     } catch (err) {
         res.status(500).json({error: 'Could not search items: ' + err.message});
     }
 });
+
 
 //UofA endpoint
 app.get("/items/unitofassessment", async function(req, res) {
@@ -376,28 +401,6 @@ app.get("/items/unitofassessment", async function(req, res) {
 });
 
 
-//Overall and total income endpoint
-app.get("/items/overall-and-income", async function(req, res) {
-  var params = {
-    TableName: tableName,
-    FilterExpression: "#profileType = :profileTypeValue OR #incomeSource = :incomeSourceValue",
-    ExpressionAttributeNames: {
-      "#profileType": "ProfileType",
-      "#incomeSource": "IncomeSource"
-    },
-    ExpressionAttributeValues: {
-      ":profileTypeValue": "Overall",
-      ":incomeSourceValue": "Total income"
-    }
-  };
-
-  try {
-    const data = await ddbDocClient.send(new ScanCommand(params));
-    res.json(data.Items);
-  } catch (err) {
-    res.status(500).json({error: 'Could not load items: ' + err.message});
-  }
-});
 
 //Outputs and income endpoint
 app.get("/items/outputs-and-income", async function(req, res) {

@@ -1,20 +1,25 @@
-function fetchOutputsandIncome(specificUniRecord,unitOfAssessment) {
-    fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/outputs-and-income')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
+function fetchOutputsandIncome(specificUniRecord, unitOfAssessment) {
+    // Encode the UnitOfAssessment for URL parameters
+    const encodedUofA = encodeURIComponent(unitOfAssessment);
+
+    // Fetch Outputs
+    fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/outputs?uofaName=${encodedUofA}`)
+      .then(response => response.json())
+      .then(outputsData => {
+        // Fetch Income after successfully fetching Outputs
+        fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/total-income?uofaName=${encodedUofA}`)
+          .then(response => response.json())
+          .then(incomeData => {
+            // Now you have both outputsData and incomeData
+            // You can process or combine these datasets as required
+            const combinedData = [...outputsData, ...incomeData];
+            processAndDisplayOutputsIncome(combinedData, specificUniRecord);
+          })
+          .catch(error => console.error('Fetch error with income:', error));
       })
-      .then(data => {
-        // Process and display the data using Highcharts
-        const filteredData = data.filter(item => item.UnitOfAssessmentName === unitOfAssessment);
-        processAndDisplayOutputsIncome(filteredData, specificUniRecord);
-      })
-      .catch(error => {
-        console.error('Fetch error:', error);
-      });
+      .catch(error => console.error('Fetch error with outputs:', error));
 }
+
 
 function processAndDisplayOutputsIncome(data, specificUniRecord) {
     // Assume specificUniRecord is an object with a UniversityName property
@@ -97,7 +102,7 @@ function processAndDisplayOutputsIncome(data, specificUniRecord) {
                 },
                 tooltip: {
                     headerFormat: '<br>',
-                    pointFormat: '<b>{point.name}</b><br>£{point.x} income, {point.y} score'
+                    pointFormat: '<b>{point.name}</b><br>£{point.x:,.0f} income, {point.y} score'
                 }
             }
         },

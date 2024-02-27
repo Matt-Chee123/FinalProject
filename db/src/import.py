@@ -34,7 +34,7 @@ def create_primary_key(institution_id, profile_type):
     return f"{institution_id}#{profile_type}"
 
 # Open the CSV file and read each row
-with open('../data/outputOverallClinical.csv', 'r', encoding='utf-8') as csvfile:
+with open('../data/outputOverallLaw.csv', 'r', encoding='utf-8') as csvfile:
     reader = csv.reader(csvfile)
     for row in reader:
         # Map the row to the headers

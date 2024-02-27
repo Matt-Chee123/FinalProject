@@ -1,5 +1,7 @@
-function fetchAllOveralls() {
-    return fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/overall')
+function fetchAllOveralls(unitOfAssessment) {
+    const encodedUofA = encodeURIComponent(unitOfAssessment);
+
+    return fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/overall?unitOfAssessment=${encodedUofA}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -11,20 +13,18 @@ function fetchAllOveralls() {
         });
 }
 
-function displayRankData(specificData) {
-    fetchAllOveralls().then(overallData => {
+function displayRankData(specificData,unitOfAssessment) {
+    fetchAllOveralls(unitOfAssessment).then(overallData => {
         if (!overallData) {
             console.log('No data available');
             return;
         }
-
         // Assuming specificData is an array and we're interested in the first item's UnitOfAssessmentName
         // for demonstration purposes. You might need to adjust this based on your actual data structure.
         const specificUnitOfAssessmentName = specificData[0].UnitOfAssessmentName;
 
         // Filter overallData to only include items with the same UnitOfAssessmentName
         const filteredOverallData = overallData.filter(item => item.UnitOfAssessmentName === specificUnitOfAssessmentName);
-
 
         // Proceed with the rest of your function as before, using filteredOverallData instead of overallData
         filteredOverallData.sort((a, b) => b.AverageScore - a.AverageScore);
