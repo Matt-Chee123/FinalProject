@@ -3,10 +3,10 @@ import csv
 
 # Initialize a DynamoDB resource
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('projDB-main')
+table = dynamodb.Table('dbProj')
 
 # Open your CSV file with the new data
-with open('../data/doctoralDegrees.csv', 'r') as csvfile:
+with open('../data/doctoralClinical.csv', 'r') as csvfile:
     csvreader = csv.DictReader(csvfile)
 
     # Iterate over each row in the CSV
@@ -26,7 +26,7 @@ with open('../data/doctoralDegrees.csv', 'r') as csvfile:
         response = table.update_item(
             Key={
                 'InstitutionID': row['Institution UKPRN code'] + "#Environment",  # Partition key
-                'UniversityName': row['Institution name']  # Sort key
+                'UofANumber': int(row['Unit of assessment number'])  # Sort key
             },
             UpdateExpression=update_expression,
             ExpressionAttributeValues=expression_attribute_values

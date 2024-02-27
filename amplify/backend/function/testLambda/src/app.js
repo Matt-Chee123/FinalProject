@@ -17,10 +17,10 @@ const express = require('express')
 const ddbClient = new DynamoDBClient({ region: process.env.TABLE_REGION });
 const ddbDocClient = DynamoDBDocumentClient.from(ddbClient);
 
-let tableName = "projDB";
-if (process.env.ENV && process.env.ENV !== "NONE") {
-  tableName = tableName + '-' + process.env.ENV;
-}
+let tableName = "dbProj";
+//if (process.env.ENV && process.env.ENV !== "NONE") {
+//  tableName = tableName + '-' + process.env.ENV;
+//}
 
 const userIdPresent = false; // TODO: update in case is required to use that definition
 const partitionKeyName = "InstitutionID";
@@ -331,15 +331,15 @@ app.get("/items/autocomplete", async function(req, res) {
 
 //SearchInst endpoint
 app.get("/items/search", async function(req, res) {
-    const searchTerm = req.query.query; // Get the search term from query parameters
+    const searchTerm = req.query.query;
+    const unitOfAssessment = req.query.unitOfAssessment || "Computer Science and Informatics"; // Default to Computer Science and Informatics
 
-    // Define DynamoDB query parameters
     var params = {
         TableName: tableName,
-        // Add your query logic here
-        FilterExpression: "contains(UniversityName, :searchTerm)",
+        FilterExpression: "contains(UniversityName, :searchTerm) AND UnitOfAssessmentName = :unitOfAssessment",
         ExpressionAttributeValues: {
-            ":searchTerm": searchTerm
+            ":searchTerm": searchTerm,
+            ":unitOfAssessment": unitOfAssessment
         }
     };
 

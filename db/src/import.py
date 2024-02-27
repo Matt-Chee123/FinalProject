@@ -27,7 +27,7 @@ HEADERS = [
 
 # Initialize a DynamoDB client
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('projDB-main')  # Replace with your actual table name
+table = dynamodb.Table('dbProj')  # Replace with your actual table name
 
 # Function to create a primary key
 def create_primary_key(institution_id, profile_type):
@@ -56,7 +56,7 @@ with open('../data/outputOverallClinical.csv', 'r', encoding='utf-8') as csvfile
             'UniversityName': item_data['UniversityName'],
             'InstSortOrder': item_data['InstSortOrder'],
             'MainPanel': item_data['MainPanel'],
-            'UnitOfAssessmentNum': item_data['UnitOfAssessmentNum'],
+            'UofANumber': item_data['UnitOfAssessmentNum'],
             'UnitOfAssessmentName': item_data['UnitOfAssessmentName'],
             'MultiSubLetter': item_data['MultiSubLetter'],
             'MultiSubName': item_data['MultiSubName'],

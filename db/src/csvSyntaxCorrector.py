@@ -1,7 +1,7 @@
 import csv
 
 csv_path = 'C:/Users/Razer/OneDrive/zY3 Uni/3rd year project/ThirdYearProject/db/data/data_withoutHeaders.csv'
-output_csv_file = 'C:/Users/Razer/Dissertation/FinalProject/db/data/outputOverallClinical.csv'
+output_csv_file = 'C:/Users/Razer/Dissertation/FinalProject/db/data/outputOverallLaw.csv'
 
 # Open the CSV file
 with open(csv_path, 'r', newline='') as infile, open(output_csv_file, 'w', newline='') as outfile:
@@ -11,7 +11,7 @@ with open(csv_path, 'r', newline='') as infile, open(output_csv_file, 'w', newli
     # Set to keep track of unique values in column 2
     for row in csv_reader:
         # Check if the record is related to "Computer Science and Informatics"
-        if 'Clinical Medicine' in row[5]:  # Assuming this is the correct column for the Unit of assessment name
+        if 'Law' in row[5]:  # Assuming this is the correct column for the Unit of assessment name
             # Replace empty fields with 'NULL'
             cleaned_row = ['NULL' if field == '' else field for field in row]
 

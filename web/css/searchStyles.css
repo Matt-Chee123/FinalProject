@@ -364,3 +364,13 @@
 .suggestion:hover {
     background-color: #292841; /* A lighter shade for hover */
 }
+
+.unit-dropdown {
+  margin-top: 10px; /* Add some space between the input and dropdown */
+  margin-left: 100px; /* Add some space between the title and dropdown */
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+}

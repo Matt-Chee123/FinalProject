@@ -27,7 +27,7 @@ function processAndDisplayOutputsIncome(data, specificUniRecord) {
         return {
             UniversityName: output.UniversityName,
             AverageScore: output.AverageScore,
-            TotalIncome: incomeRecord ? incomeRecord.TotalIncome13_20 : null
+            TotalIncome: incomeRecord ? incomeRecord.TotalIncome1320 : null
         };
     }).filter(item => item.TotalIncome !== null);
 

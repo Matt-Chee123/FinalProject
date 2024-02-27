@@ -20,7 +20,7 @@ function calculateSumOfIncome(data, source) {
   // Accumulate sum of scores for the specified profile type
     data.forEach(item => {
         if (item.IncomeSource === source) {
-        sumIncome += item.TotalIncome13_20;
+        sumIncome += item.TotalIncome1320;
         }
     });
   // Calculate average score
@@ -29,7 +29,7 @@ function calculateSumOfIncome(data, source) {
 
 function displayTopThreeSources(data) {
   const topSourcesContainer = document.getElementById('top-sources-records');
-  const beisIncome = calculateSumOfIncome(data, 'BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh');
+  const beisIncome = calculateSumOfIncome(data,'BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh');
   const charityOpenIncome = calculateSumOfIncome(data, 'UK-based charities (open competitive process)');
   const charityOtherIncome = calculateSumOfIncome(data, 'UK-based charities (other)');
   const govCentraIncome = calculateSumOfIncome(data, 'UK central government bodies/local authorities, health and hospital authorities');
@@ -60,10 +60,8 @@ function displayTopThreeSources(data) {
   { name: 'Non-EU industry commerce and public corporations', value: nonEuIndIncome },
   { name: 'Non-EU other', value: nonEuOtherIncome }
   ];
-
 // Sort the incomes in descending order based on the value
   incomes.sort((a, b) => b.value - a.value);
-
 // Get the top 4 highest figures
   const top4Incomes = incomes.slice(0, 4);
   Highcharts.chart('top-sources-container', {

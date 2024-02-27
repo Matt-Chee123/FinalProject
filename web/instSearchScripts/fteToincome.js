@@ -21,7 +21,7 @@ function processAndDisplayData(data, specificUniRecord) {
       const incomeMapping = data
         .filter(item => item.IncomeSource === 'Total income')
         .reduce((acc, item) => {
-          acc[item.UniversityName] = parseFloat(item.TotalIncome13_20);
+          acc[item.UniversityName] = parseFloat(item.TotalIncome1320);
           return acc;
         }, {});
 
