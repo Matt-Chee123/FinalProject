@@ -1,13 +1,13 @@
 import folium
 from folium.plugins import HeatMap, MarkerCluster
 import pandas as pd
-from uniCoordsCS import universities_coordinates  # Ensure this is correctly imported
+from uniCoordsLaw import universities_coordinates  # Ensure this is correctly imported
 
 # Read the CSV file directly
-df = pd.read_csv('../../db/data/outputOverallCS.csv')
+df = pd.read_csv('../../db/data/outputOverallLaw.csv')
 df = df[df['Joint submission'] == 'Overall']
-df['Average Score'] = ((df['4*'] * 4) + (df['3*'] * 3) + (df['2*'] * 2) + (df['1*'] * 1)) / 100
-
+df['Average Score'] = ((df['% of eligible staff submitted'] * 4) + (df['4*'] * 3) + (df['3*'] * 2) + (df['2*'] * 1)) / 100
+print(df)
 # Convert universities_coordinates to a DataFrame for easier manipulation
 universities_df = pd.DataFrame(list(universities_coordinates.items()), columns=['University', 'Coordinates'])
 
@@ -39,6 +39,6 @@ for index, row in universities_df.iterrows():
     ).add_to(marker_cluster)
 
 # Save to HTML
-m.save('university_heatmapCS.html')
+m.save('Law_heatmap.html')
 
 print("Heatmap with intensity and clustered markers created and saved.")

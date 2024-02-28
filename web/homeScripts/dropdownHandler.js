@@ -1,11 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     const dropdown = document.getElementById('unit-of-assessment-dropdown');
+    const heatmapIframe = document.querySelector('.heatmap-iframe'); // Select the iframe element
 
     dropdown.addEventListener('change', function() {
-        const selectedUofA = this.options[this.selectedIndex].text;
+        const selectedUofA = this.value; // Use the value of the option
         console.log('Selected unit of assessment:', selectedUofA);
-        // Assuming fetchTopThree and fetchBottomThree are globally accessible
-        // You might need to adjust based on how you've structured your code.
+        // Convert the selected text to a format that matches the heatmap file names
+        const formattedUofA = encodeURIComponent(selectedUofA) + '_heatmap.html';
+        heatmapIframe.src = formattedUofA; // Set the correct path to the heatmap file
+
         fetchTopThree(selectedUofA);
         fetchBottomThree(selectedUofA);
         fetchThreeFte(selectedUofA);
@@ -18,7 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Trigger the initial load for the default selection.
-    const initialUofA = dropdown.options[dropdown.selectedIndex].text;
+    const initialUofA = dropdown.value; // Use the value of the initial option
+    const formattedInitialUofA = encodeURIComponent(initialUofA) + '_heatmap.html';
+    console.log('Initial unit of assessment:', formattedInitialUofA);
+    heatmapIframe.src = formattedInitialUofA;
     fetchTopThree(initialUofA);
     fetchBottomThree(initialUofA);
     fetchThreeFte(initialUofA);
