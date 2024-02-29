@@ -243,7 +243,7 @@ app.get("/items/environment", async function(req, res) {
 
 //total income endpoint
 app.get("/items/total-income", async function(req, res) {
-    const unitOfAssessmentName = req.query.uofaName || "Computer Science and Informatics"; // Default value if not provided
+    const unitOfAssessmentName = req.query.unitOfAssessment || "Computer Science and Informatics"; // Default value if not provided
 
     var params = {
         TableName: tableName,

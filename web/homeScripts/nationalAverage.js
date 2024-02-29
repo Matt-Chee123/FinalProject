@@ -42,7 +42,7 @@ function displayNationalAverageScore(data) {
       inverted: true
     },
     title: {
-      text: 'National Average Scores'
+      text: 'National Average GPA'
     },
     credits: {
         enabled: false

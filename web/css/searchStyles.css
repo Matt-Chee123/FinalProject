@@ -268,6 +268,9 @@
   font-weight: 600;
 }
 
+.home-section .home-content .text:nth-of-type(2) {
+   margin-left: 11%;
+   }
 .home-section .main-container {
   display: flex; /* Use Flexbox */
   flex-direction: row; /* Align children in a row */
@@ -314,7 +317,7 @@
 .main-container .component-bubble {
   background: #fff;
   border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   height: 200px; /* Adjust the height as needed */
   position: relative;
   overflow: hidden;
@@ -324,22 +327,50 @@
   justify-content: space-around; /* Distribute children evenly */
   padding: 10px;
 }
+
+.main-container .left-components .component-bubble {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden; /* Allows scroll if content overflows */
+  display: flex;
+  height: 100%; /* Minimum height, but can grow taller */
+  align-items: center; /* Centers children vertically in the bubble */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: space-around; /* Distribute children evenly in the bubble */
+  flex-basis: calc(33% - 20px); /* Adjust size as necessary */
+  box-sizing: border-box; /* Include padding and border */
+  margin-bottom: 20px; /* Space below each bubble */
+}
+
 .main-container .left-components .component-bubble:nth-of-type(6) {
-  height: 220px;
   margin-top: -20px;
 }
 .main-container .left-components .component-bubble:nth-of-type(3),
 .main-container .left-components .component-bubble:nth-of-type(4) {
-  height: 180px; /* Set to desired height */
 }
 
 .main-container .left-components .component-bubble:nth-of-type(5),
 .main-container .left-components .component-bubble:nth-of-type(6) {
   grid-column: 1 / -1; /* Make the bubble span all columns */
-  height: 215px;
+  min-height: 200px;
+  max-height: 400px;
 }
 .main-container .left-components .component-bubble:nth-of-type(6) {
   display: none; /* Hide the fifth bubble */
+}
+
+.main-container .component-bubble .bubble-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; /* To distribute space vertically */
+  align-items: center; /* To center content horizontally */
+  font-size: clamp(10px, 1vw, 30px);
+  width: 100%; /* Fill the width of the bubble */
+  height: 100%; /* Fill the height of the bubble */
+  padding: 0px; /* Or as much as you need */
+  box-sizing: border-box; /* Include padding in the content size */
 }
 
 
@@ -366,8 +397,7 @@
 }
 
 .unit-dropdown {
-  margin-top: 10px; /* Add some space between the input and dropdown */
-  margin-left: 100px; /* Add some space between the title and dropdown */
+  margin-left: 1%;
   padding: 5px 10px;
   border-radius: 5px;
   border: 1px solid #ccc;

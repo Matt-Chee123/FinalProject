@@ -1,5 +1,4 @@
 function fetchFTEIncomeData(specificUniRecord, unitOfAssessmentName) {
-
     const overallUrl = `https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/overall?unitOfAssessment=${encodeURIComponent(unitOfAssessmentName)}`;
     const incomeUrl = `https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/total-income?unitOfAssessment=${encodeURIComponent(unitOfAssessmentName)}`;
 
@@ -9,7 +8,6 @@ function fetchFTEIncomeData(specificUniRecord, unitOfAssessmentName) {
         fetch(incomeUrl).then(response => response.json()) // Fetch income data
     ])
     .then(([overallData, incomeData]) => {
-        // Combine data from both endpoints
         const combinedData = [...overallData, ...incomeData];
         processAndDisplayData(combinedData, specificUniRecord);
     })

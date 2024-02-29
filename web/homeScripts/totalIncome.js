@@ -67,7 +67,7 @@ function displayTopThreeSources(data) {
   Highcharts.chart('top-sources-container', {
       chart: {
           type: 'column',
-          marginBottom: 20 // Adjust if necessary to fit the chart
+          marginBottom: 5 // Adjust if necessary to fit the chart
       },
       title: {
           text: 'Top 4 Income Sources'
@@ -81,12 +81,12 @@ function displayTopThreeSources(data) {
       yAxis: {
           min: 0,
           title: {
-              text: 'Income (£)'
+              text: 'Income (£M)'
           },
           tickInterval: 200000000, // Set the tick interval to 200 million
           labels: {
               formatter: function() {
-                  return (this.value / 1000000) + 'M'; // Convert to M for millions
+                  return (this.value / 1000000); // Convert to M for millions
               }
           }
       },
@@ -107,7 +107,7 @@ function displayTopThreeSources(data) {
           enabled: false
       },
       series: [{
-          name: 'Amount',
+          name: 'Income',
           data: top4Incomes.map(income => income.value),
           showInLegend: false // Ensure that the series is not shown in the legend
       }]
