@@ -282,7 +282,7 @@
 }
 .home-section .main-container .right-homepage-container {
   border-radius: 20px; /* Rounded corners for the bubble effect */
-  padding: 20px; /* Padding around the iframe */
+  padding: 10px; /* Padding around the iframe */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
   overflow: hidden; /* Hide overflow to maintain the rounded corners */
   position: relative;
@@ -290,13 +290,13 @@
   /* Positioning and sizing */
   position: absolute; /* Position the iframe absolutely within main-container */
   right: 20px; /* Gap from the right */
-  top: 63px; /* Gap from the top */
+  top: 70px; /* Gap from the top */
   bottom: 20px; /* Gap from the bottom */
   left: 48%; /* Start from the middle of the main-container */
 }
 .main-container .right-homepage-container .component-bubble {
   margin-bottom: 30px;
-  height: 300px;
+  height: 48%;
   width: 100%; /* Set to desired width */
   background: #fff; /* Background color of the bubble */
   left: 0%; /* Start from the middle of the main-container */
