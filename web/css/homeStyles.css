@@ -137,16 +137,21 @@
   pointer-events: none;
   transition: 0s;
 }
-.sidebar.close .nav-links li:hover .sub-menu{
+.sidebar.close .nav-links li:hover .sub-menu.blank {
+  position: absolute;
+  left: 100%;
+  margin-top: 28px;
+  padding: 10px 20px;
+  border-radius: 0 6px 6px 0;
+  display: block;
   top: 0;
   opacity: 1;
   pointer-events: auto;
   transition: all 0.4s ease;
 }
 
-.sidebar.close .nav-links li .sub-menu a:hover nth-child(2){
-  color: #fff;
-    }
+
+
 
 .sidebar .nav-links li .sub-menu .link_name{
   display: none;
@@ -353,7 +358,9 @@
   box-sizing: border-box; /* Include padding in the content size */
 }
 
+.main-container .component-bubble:nth-child(5),
 .main-container .component-bubble:nth-child(6) {
+  margin-bottom: 0; /* Remove margin from the last two bubbles */
   min-height: 170px; /* Adjust the minimum height as needed */
   max-height: 250px; /* Adjust the maximum height as needed */
     }

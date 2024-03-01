@@ -132,7 +132,13 @@
   pointer-events: none;
   transition: 0s;
 }
-.sidebar.close .nav-links li:hover .sub-menu{
+.sidebar.close .nav-links li:hover .sub-menu.blank {
+  position: absolute;
+  left: 100%;
+  margin-top: 28px;
+  padding: 10px 20px;
+  border-radius: 0 6px 6px 0;
+  display: block;
   top: 0;
   opacity: 1;
   pointer-events: auto;
@@ -291,16 +297,18 @@
   position: absolute; /* Position the iframe absolutely within main-container */
   right: 20px; /* Gap from the right */
   top: 70px; /* Gap from the top */
-  bottom: 20px; /* Gap from the bottom */
+  bottom: 0px; /* Gap from the bottom */
   left: 48%; /* Start from the middle of the main-container */
 }
 .main-container .right-homepage-container .component-bubble {
   margin-bottom: 30px;
-  height: 48%;
+  height: 47%;
   width: 100%; /* Set to desired width */
   background: #fff; /* Background color of the bubble */
   left: 0%; /* Start from the middle of the main-container */
 }
+
+
 .home-section .main-container .heatmap-iframe {
   height: 100%; /* Full height of the bubble container */
   width: 100%; /* Full width of the bubble container */
