@@ -361,8 +361,8 @@
 .main-container .component-bubble:nth-child(5),
 .main-container .component-bubble:nth-child(6) {
   margin-bottom: 0; /* Remove margin from the last two bubbles */
-  min-height: 170px; /* Adjust the minimum height as needed */
-  max-height: 250px; /* Adjust the maximum height as needed */
+  min-height: 200px; /* Adjust the minimum height as needed */
+  max-height: 220px; /* Adjust the maximum height as needed */
     }
 
 
