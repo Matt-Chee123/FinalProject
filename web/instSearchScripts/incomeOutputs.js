@@ -7,7 +7,7 @@ function fetchOutputsandIncome(specificUniRecord, unitOfAssessment) {
       .then(response => response.json())
       .then(outputsData => {
         // Fetch Income after successfully fetching Outputs
-        fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/total-income?uofaName=${encodedUofA}`)
+        fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/total-income?unitOfAssessment=${encodedUofA}`)
           .then(response => response.json())
           .then(incomeData => {
             // Now you have both outputsData and incomeData

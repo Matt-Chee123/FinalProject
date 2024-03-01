@@ -334,7 +334,7 @@
   /* Add a flex-basis or width to control the size of the bubbles */
   flex-basis: calc(33% - 20px); /* Subtract twice the gap to account for spacing on both sides */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  margin-bottom: 30px; /* Optional: Add margin to the bottom of each bubble if necessary */
+  margin-bottom: 20px; /* Optional: Add margin to the bottom of each bubble if necessary */
 }
 
 .main-container .component-bubble .bubble-content {
@@ -348,6 +348,11 @@
   padding: 10px; /* Or as much as you need */
   box-sizing: border-box; /* Include padding in the content size */
 }
+
+.main-container .component-bubble:nth-child(6) {
+    min-height: 150px;
+}
+
 
 #suggestions-container {
     position: absolute;
