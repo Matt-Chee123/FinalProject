@@ -144,6 +144,10 @@
   transition: all 0.4s ease;
 }
 
+.sidebar.close .nav-links li .sub-menu a:hover nth-child(2){
+  color: #fff;
+    }
+
 .sidebar .nav-links li .sub-menu .link_name{
   display: none;
 }
@@ -350,8 +354,9 @@
 }
 
 .main-container .component-bubble:nth-child(6) {
-    min-height: 150px;
-}
+  min-height: 170px; /* Adjust the minimum height as needed */
+  max-height: 250px; /* Adjust the maximum height as needed */
+    }
 
 
 #suggestions-container {
