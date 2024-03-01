@@ -23,19 +23,23 @@ for item in response['Items']:
 
     # Flag to check if update is needed
     update_needed = False
-
     for field in fields:
         # Check if the field exists
         if field in item:
+            # Check if the value is already a Decimal
+            if isinstance(item[field], Decimal):
+                continue  # Skip conversion if already a Decimal
             try:
-                # Attempt to convert to number and prepare update expression and values
-                converted_value = Decimal(item[field].replace(',', '').replace('$', '').strip())
-                expression_attribute_values[f":val_{field}"] = converted_value
-                update_expression += f"{field} = :val_{field}, "
-                update_needed = True
+                # Only attempt conversion if it's a string
+                if isinstance(item[field], str):
+                    converted_value = Decimal(item[field].replace(',', '').replace('$', '').strip())
+                    expression_attribute_values[f":val_{field}"] = converted_value
+                    update_expression += f"{field} = :val_{field}, "
+                    update_needed = True
             except ValueError as e:
                 # Log the error and skip this field
                 print(f"Error converting {field} for item with ID {item['InstitutionID']}: {e}")
+
 
     # If there are fields to update, proceed with the update_item call
     if update_needed:

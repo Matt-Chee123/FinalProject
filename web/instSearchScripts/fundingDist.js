@@ -8,8 +8,8 @@ function displayIncomeDist(data) {
     let pieChartData = filteredData.map(record => {
         return {
             name: record.IncomeSource,
-            y: parseFloat(record.TotalIncome13_20),
-            totalIncome: record.TotalIncome13_20
+            y: parseFloat(record.TotalIncome1320),
+            totalIncome: record.TotalIncome1320
         };
     });
 

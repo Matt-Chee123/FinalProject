@@ -1,23 +1,26 @@
-fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/income')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    displayTopThreeSources(data);
-  })
-  .catch(error => {
-    console.error('Fetch error:', error);
-  });
+function fetchIncomeData(uofaName = 'Computer Science and Informatics') {
+    fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/income?uofaName=${encodeURIComponent(uofaName)}`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        displayTopThreeSources(data); // Assuming you'll adjust this function to handle the income data
+    })
+    .catch(error => {
+        console.error('Fetch error:', error);
+    });
+}
+
 
 function calculateSumOfIncome(data, source) {
     let sumIncome = 0;
   // Accumulate sum of scores for the specified profile type
     data.forEach(item => {
         if (item.IncomeSource === source) {
-        sumIncome += item.TotalIncome13_20;
+        sumIncome += item.TotalIncome1320;
         }
     });
   // Calculate average score
@@ -26,7 +29,7 @@ function calculateSumOfIncome(data, source) {
 
 function displayTopThreeSources(data) {
   const topSourcesContainer = document.getElementById('top-sources-records');
-  const beisIncome = calculateSumOfIncome(data, 'BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh');
+  const beisIncome = calculateSumOfIncome(data,'BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh');
   const charityOpenIncome = calculateSumOfIncome(data, 'UK-based charities (open competitive process)');
   const charityOtherIncome = calculateSumOfIncome(data, 'UK-based charities (other)');
   const govCentraIncome = calculateSumOfIncome(data, 'UK central government bodies/local authorities, health and hospital authorities');
@@ -57,16 +60,14 @@ function displayTopThreeSources(data) {
   { name: 'Non-EU industry commerce and public corporations', value: nonEuIndIncome },
   { name: 'Non-EU other', value: nonEuOtherIncome }
   ];
-
 // Sort the incomes in descending order based on the value
   incomes.sort((a, b) => b.value - a.value);
-
 // Get the top 4 highest figures
   const top4Incomes = incomes.slice(0, 4);
   Highcharts.chart('top-sources-container', {
       chart: {
           type: 'column',
-          marginBottom: 20 // Adjust if necessary to fit the chart
+          marginBottom: 5 // Adjust if necessary to fit the chart
       },
       title: {
           text: 'Top 4 Income Sources'
@@ -80,12 +81,12 @@ function displayTopThreeSources(data) {
       yAxis: {
           min: 0,
           title: {
-              text: 'Income (£)'
+              text: 'Income (£M)'
           },
           tickInterval: 200000000, // Set the tick interval to 200 million
           labels: {
               formatter: function() {
-                  return (this.value / 1000000) + 'M'; // Convert to M for millions
+                  return (this.value / 1000000); // Convert to M for millions
               }
           }
       },
@@ -106,7 +107,7 @@ function displayTopThreeSources(data) {
           enabled: false
       },
       series: [{
-          name: 'Amount',
+          name: 'Income',
           data: top4Incomes.map(income => income.value),
           showInLegend: false // Ensure that the series is not shown in the legend
       }]

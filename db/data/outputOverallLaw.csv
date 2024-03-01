@@ -1,0 +1,274 @@
+Institution code (UKPRN),Institution name,Institution sort order,Main panel,Unit of assessment number,Unit of assessment name,Multiple submission letter,Multiple submission name,Joint submission,Profile,FTE of submitted staff,Total FTE of submitted staff for joint submission,% of eligible staff submitted,4*,3*,2*,1*,Unclassified
+10007783,University of Aberdeen,1,C,18,Law,NULL,NULL,NULL,Overall,41.00,NULL,100,32,45,22,1,0,3.08
+10007783,University of Aberdeen,1,C,18,Law,NULL,NULL,NULL,Outputs,41.00,NULL,100,30.1,43.7,24.3,1.9,0,3.02
+10007783,University of Aberdeen,1,C,18,Law,NULL,NULL,NULL,Impact,41.00,NULL,100,50,37.5,12.5,0,0,3.38
+10007783,University of Aberdeen,1,C,18,Law,NULL,NULL,NULL,Environment,41.00,NULL,100,12.5,62.5,25,0,0,2.88
+10007849,Abertay University,2,C,18,Law,NULL,NULL,NULL,Overall,7.00,NULL,95,0,20,43,37,0,1.83
+10007849,Abertay University,2,C,18,Law,NULL,NULL,NULL,Outputs,7.00,NULL,95,0,33.3,44.5,22.2,0,2.11
+10007849,Abertay University,2,C,18,Law,NULL,NULL,NULL,Impact,7.00,NULL,95,0,0,50,50,0,1.50
+10007849,Abertay University,2,C,18,Law,NULL,NULL,NULL,Environment,7.00,NULL,95,0,0,25,75,0,1.25
+10007856,Aberystwyth University,3,C,18,Law,NULL,NULL,NULL,Overall,12.60,NULL,100,29,21,37,9,4,2.62
+10007856,Aberystwyth University,3,C,18,Law,NULL,NULL,NULL,Outputs,12.60,NULL,100,17.9,21.4,39.3,14.3,7.1,2.29
+10007856,Aberystwyth University,3,C,18,Law,NULL,NULL,NULL,Impact,12.60,NULL,100,75,25,0,0,0,3.75
+10007856,Aberystwyth University,3,C,18,Law,NULL,NULL,NULL,Environment,12.60,NULL,100,0,12.5,87.5,0,0,2.12
+10000291,Anglia Ruskin University,5,C,18,Law,NULL,NULL,NULL,Overall,8.00,NULL,50,3,27,64,6,0,2.27
+10000291,Anglia Ruskin University,5,C,18,Law,NULL,NULL,NULL,Outputs,8.00,NULL,50,5,35,60,0,0,2.45
+10000291,Anglia Ruskin University,5,C,18,Law,NULL,NULL,NULL,Impact,8.00,NULL,50,0,25,75,0,0,2.25
+10000291,Anglia Ruskin University,5,C,18,Law,NULL,NULL,NULL,Environment,8.00,NULL,50,0,0,62.5,37.5,0,1.62
+10007760,Birkbeck College,13,C,18,Law,NULL,NULL,NULL,Overall,44.10,NULL,100,22,49,27,2,0,2.91
+10007760,Birkbeck College,13,C,18,Law,NULL,NULL,NULL,Outputs,44.10,NULL,100,33.6,37.3,25.5,3.6,0,3.01
+10007760,Birkbeck College,13,C,18,Law,NULL,NULL,NULL,Impact,44.10,NULL,100,0,62.5,37.5,0,0,2.62
+10007760,Birkbeck College,13,C,18,Law,NULL,NULL,NULL,Environment,44.10,NULL,100,12.5,75,12.5,0,0,3.00
+10006840,University of Birmingham,14,C,18,Law,NULL,NULL,NULL,Overall,45.20,NULL,100,53,34,13,0,0,3.40
+10006840,University of Birmingham,14,C,18,Law,NULL,NULL,NULL,Outputs,45.20,NULL,100,52,31.7,16.3,0,0,3.36
+10006840,University of Birmingham,14,C,18,Law,NULL,NULL,NULL,Impact,45.20,NULL,100,50,37.5,12.5,0,0,3.38
+10006840,University of Birmingham,14,C,18,Law,NULL,NULL,NULL,Environment,45.20,NULL,100,62.5,37.5,0,0,0,3.62
+10007140,Birmingham City University,15,C,18,Law,NULL,NULL,NULL,Overall,11.00,NULL,25,2,28,66,4,0,2.28
+10007140,Birmingham City University,15,C,18,Law,NULL,NULL,NULL,Outputs,11.00,NULL,25,3.6,25,71.4,0,0,2.32
+10007140,Birmingham City University,15,C,18,Law,NULL,NULL,NULL,Impact,11.00,NULL,25,0,50,50,0,0,2.50
+10007140,Birmingham City University,15,C,18,Law,NULL,NULL,NULL,Environment,11.00,NULL,25,0,0,75,25,0,1.75
+10000824,Bournemouth University,18,C,18,Law,NULL,NULL,NULL,Overall,14.95,NULL,75,18,32,41,9,0,2.59
+10000824,Bournemouth University,18,C,18,Law,NULL,NULL,NULL,Outputs,14.95,NULL,75,18.9,18.9,54.1,8.1,0,2.49
+10000824,Bournemouth University,18,C,18,Law,NULL,NULL,NULL,Impact,14.95,NULL,75,25,75,0,0,0,3.25
+10000824,Bournemouth University,18,C,18,Law,NULL,NULL,NULL,Environment,14.95,NULL,75,0,12.5,62.5,25,0,1.88
+10007786,University of Bristol,21,C,18,Law,NULL,NULL,NULL,Overall,63.50,NULL,100,59,34,6,1,0,3.51
+10007786,University of Bristol,21,C,18,Law,NULL,NULL,NULL,Outputs,63.50,NULL,100,39.3,48.7,10.7,1.3,0,3.26
+10007786,University of Bristol,21,C,18,Law,NULL,NULL,NULL,Impact,63.50,NULL,100,80,20,0,0,0,3.80
+10007786,University of Bristol,21,C,18,Law,NULL,NULL,NULL,Environment,63.50,NULL,100,100,0,0,0,0,4.00
+10000961,Brunel University London,22,C,18,Law,NULL,NULL,NULL,Overall,38.50,NULL,100,26,34,37,3,0,2.83
+10000961,Brunel University London,22,C,18,Law,NULL,NULL,NULL,Outputs,38.50,NULL,100,21.8,34.5,39.1,4.6,0,2.73
+10000961,Brunel University London,22,C,18,Law,NULL,NULL,NULL,Impact,38.50,NULL,100,50,25,25,0,0,3.25
+10000961,Brunel University London,22,C,18,Law,NULL,NULL,NULL,Environment,38.50,NULL,100,0,50,50,0,0,2.50
+10007788,University of Cambridge,25,C,18,Law,NULL,NULL,NULL,Overall,112.95,NULL,120,50,37,12,1,0,3.36
+10007788,University of Cambridge,25,C,18,Law,NULL,NULL,NULL,Outputs,112.95,NULL,120,41.1,39.6,16.8,2.1,0.4,3.19
+10007788,University of Cambridge,25,C,18,Law,NULL,NULL,NULL,Impact,112.95,NULL,120,55.6,38.8,5.6,0,0,3.50
+10007788,University of Cambridge,25,C,18,Law,NULL,NULL,NULL,Environment,112.95,NULL,120,75,25,0,0,0,3.75
+10001143,Canterbury Christ Church University,26,C,18,Law,NULL,NULL,NULL,Overall,27.70,NULL,60,9,31,51,9,0,2.40
+10001143,Canterbury Christ Church University,26,C,18,Law,NULL,NULL,NULL,Outputs,27.70,NULL,60,8.3,26.7,53.3,11.7,0,2.32
+10001143,Canterbury Christ Church University,26,C,18,Law,NULL,NULL,NULL,Impact,27.70,NULL,60,16.7,50,33.3,0,0,2.83
+10001143,Canterbury Christ Church University,26,C,18,Law,NULL,NULL,NULL,Environment,27.70,NULL,60,0,12.5,75,12.5,0,2.00
+10007814,Cardiff University,28,C,18,Law,NULL,NULL,NULL,Overall,49.20,NULL,100,53,30,15,2,0,3.34
+10007814,Cardiff University,28,C,18,Law,NULL,NULL,NULL,Outputs,49.20,NULL,100,33.6,37.3,26.4,2.7,0,3.02
+10007814,Cardiff University,28,C,18,Law,NULL,NULL,NULL,Impact,49.20,NULL,100,87.5,12.5,0,0,0,3.88
+10007814,Cardiff University,28,C,18,Law,NULL,NULL,NULL,Environment,49.20,NULL,100,75,25,0,0,0,3.75
+10007141,University of Central Lancashire,29,C,18,Law,NULL,NULL,NULL,Overall,12.80,NULL,20,6,29,58,7,0,2.34
+10007141,University of Central Lancashire,29,C,18,Law,NULL,NULL,NULL,Outputs,12.80,NULL,20,0,34.4,59.4,6.2,0,2.28
+10007141,University of Central Lancashire,29,C,18,Law,NULL,NULL,NULL,Impact,12.80,NULL,20,25,25,50,0,0,2.75
+10007141,University of Central Lancashire,29,C,18,Law,NULL,NULL,NULL,Environment,12.80,NULL,20,0,12.5,62.5,25,0,1.88
+10001478,"City, University of London",32,C,18,Law,NULL,NULL,NULL,Overall,30.65,NULL,50,24,43,31,2,0,2.89
+10001478,"City, University of London",32,C,18,Law,NULL,NULL,NULL,Outputs,30.65,NULL,50,40.6,42,14.5,2.9,0,3.20
+10001478,"City, University of London",32,C,18,Law,NULL,NULL,NULL,Impact,30.65,NULL,50,0,16.7,83.3,0,0,2.17
+10001478,"City, University of London",32,C,18,Law,NULL,NULL,NULL,Environment,30.65,NULL,50,0,87.5,12.5,0,0,2.88
+10001883,De Montfort University,37,C,18,Law,NULL,NULL,NULL,Overall,23.40,NULL,45,6,30,44,10,10,2.12
+10001883,De Montfort University,37,C,18,Law,NULL,NULL,NULL,Outputs,23.40,NULL,45,10.2,39,38.9,8.5,3.4,2.44
+10001883,De Montfort University,37,C,18,Law,NULL,NULL,NULL,Impact,23.40,NULL,45,0,16.7,33.3,16.7,33.3,1.33
+10001883,De Montfort University,37,C,18,Law,NULL,NULL,NULL,Environment,23.40,NULL,45,0,12.5,87.5,0,0,2.12
+10007852,University of Dundee,39,C,18,Law,NULL,NULL,NULL,Overall,26.80,NULL,100,21,33,46,0,0,2.75
+10007852,University of Dundee,39,C,18,Law,NULL,NULL,NULL,Outputs,26.80,NULL,100,27.3,36.3,36.4,0,0,2.91
+10007852,University of Dundee,39,C,18,Law,NULL,NULL,NULL,Impact,26.80,NULL,100,16.7,16.6,66.7,0,0,2.50
+10007852,University of Dundee,39,C,18,Law,NULL,NULL,NULL,Environment,26.80,NULL,100,0,50,50,0,0,2.50
+10007143,University of Durham,40,C,18,Law,NULL,NULL,NULL,Overall,53.97,NULL,100,50,38,12,0,0,3.38
+10007143,University of Durham,40,C,18,Law,NULL,NULL,NULL,Outputs,53.97,NULL,100,35.7,44.9,18.6,0.8,0,3.16
+10007143,University of Durham,40,C,18,Law,NULL,NULL,NULL,Impact,53.97,NULL,100,70,30,0,0,0,3.70
+10007143,University of Durham,40,C,18,Law,NULL,NULL,NULL,Environment,53.97,NULL,100,75,25,0,0,0,3.75
+10007789,University of East Anglia,41,C,18,Law,NULL,NULL,NULL,Overall,23.40,NULL,100,22,42,36,0,0,2.86
+10007789,University of East Anglia,41,C,18,Law,NULL,NULL,NULL,Outputs,23.40,NULL,100,30.5,45.8,23.7,0,0,3.07
+10007789,University of East Anglia,41,C,18,Law,NULL,NULL,NULL,Impact,23.40,NULL,100,16.7,33.3,50,0,0,2.67
+10007789,University of East Anglia,41,C,18,Law,NULL,NULL,NULL,Environment,23.40,NULL,100,0,37.5,62.5,0,0,2.38
+10007144,University of East London,42,C,18,Law,NULL,NULL,NULL,Overall,11.70,NULL,45,8,39,49,4,0,2.51
+10007144,University of East London,42,C,18,Law,NULL,NULL,NULL,Outputs,11.70,NULL,45,13.8,37.9,44.9,3.4,0,2.62
+10007144,University of East London,42,C,18,Law,NULL,NULL,NULL,Impact,11.70,NULL,45,0,50,50,0,0,2.50
+10007144,University of East London,42,C,18,Law,NULL,NULL,NULL,Environment,11.70,NULL,45,0,25,62.5,12.5,0,2.12
+10007823,Edge Hill University,43,C,18,Law,NULL,NULL,NULL,Overall,18.00,NULL,65,25,44,31,0,0,2.94
+10007823,Edge Hill University,43,C,18,Law,NULL,NULL,NULL,Outputs,18.00,NULL,65,20,53.3,26.7,0,0,2.93
+10007823,Edge Hill University,43,C,18,Law,NULL,NULL,NULL,Impact,18.00,NULL,65,50,50,0,0,0,3.50
+10007823,Edge Hill University,43,C,18,Law,NULL,NULL,NULL,Environment,18.00,NULL,65,0,0,100,0,0,2.00
+10007790,University of Edinburgh,44,C,18,Law,NULL,NULL,NULL,Overall,74.10,NULL,100,57,29,13,1,0,3.42
+10007790,University of Edinburgh,44,C,18,Law,NULL,NULL,NULL,Outputs,74.10,NULL,100,42.2,37.8,18.4,1.6,0,3.21
+10007790,University of Edinburgh,44,C,18,Law,NULL,NULL,NULL,Impact,74.10,NULL,100,66.7,25,8.3,0,0,3.58
+10007790,University of Edinburgh,44,C,18,Law,NULL,NULL,NULL,Environment,74.10,NULL,100,100,0,0,0,0,4.00
+10007772,Edinburgh Napier University,45,C,18,Law,NULL,NULL,NULL,Overall,5.80,NULL,60,0,22,71,7,0,2.15
+10007772,Edinburgh Napier University,45,C,18,Law,NULL,NULL,NULL,Outputs,5.80,NULL,60,0,26.7,73.3,0,0,2.27
+10007772,Edinburgh Napier University,45,C,18,Law,NULL,NULL,NULL,Impact,5.80,NULL,60,0,25,75,0,0,2.25
+10007772,Edinburgh Napier University,45,C,18,Law,NULL,NULL,NULL,Environment,5.80,NULL,60,0,0,50,50,0,1.50
+10007791,University of Essex,46,C,18,Law,NULL,NULL,NULL,Overall,81.90,NULL,100,46,40,13,1,0,3.31
+10007791,University of Essex,46,C,18,Law,NULL,NULL,NULL,Outputs,81.90,NULL,100,40.2,39.1,19.6,1.1,0,3.18
+10007791,University of Essex,46,C,18,Law,NULL,NULL,NULL,Impact,81.90,NULL,100,71.4,21.5,7.1,0,0,3.64
+10007791,University of Essex,46,C,18,Law,NULL,NULL,NULL,Environment,81.90,NULL,100,25,75,0,0,0,3.25
+10007792,University of Exeter,47,C,18,Law,NULL,NULL,NULL,Overall,52.92,NULL,100,46,35,16,3,0,3.24
+10007792,University of Exeter,47,C,18,Law,NULL,NULL,NULL,Outputs,52.92,NULL,100,35.4,32.7,27.5,4.4,0,2.99
+10007792,University of Exeter,47,C,18,Law,NULL,NULL,NULL,Impact,52.92,NULL,100,90,10,0,0,0,3.90
+10007792,University of Exeter,47,C,18,Law,NULL,NULL,NULL,Environment,52.92,NULL,100,12.5,87.5,0,0,0,3.12
+10007794,University of Glasgow,49,C,18,Law,NULL,NULL,NULL,Overall,58.50,NULL,100,59,31,10,0,0,3.49
+10007794,University of Glasgow,49,C,18,Law,NULL,NULL,NULL,Outputs,58.50,NULL,100,61.3,25.8,12.1,0.8,0,3.48
+10007794,University of Glasgow,49,C,18,Law,NULL,NULL,NULL,Impact,58.50,NULL,100,50,40,10,0,0,3.40
+10007794,University of Glasgow,49,C,18,Law,NULL,NULL,NULL,Environment,58.50,NULL,100,62.5,37.5,0,0,0,3.62
+10007146,University of Greenwich,55,C,18,Law,NULL,NULL,NULL,Overall,17.00,NULL,50,31,24,38,7,0,2.79
+10007146,University of Greenwich,55,C,18,Law,NULL,NULL,NULL,Outputs,17.00,NULL,50,9.3,34.9,44.2,11.6,0,2.42
+10007146,University of Greenwich,55,C,18,Law,NULL,NULL,NULL,Impact,17.00,NULL,50,100,0,0,0,0,4.00
+10007146,University of Greenwich,55,C,18,Law,NULL,NULL,NULL,Environment,17.00,NULL,50,0,25,75,0,0,2.25
+10007148,University of Huddersfield,62,C,18,Law,NULL,NULL,NULL,Overall,12.00,NULL,55,6,37,24,27,6,2.10
+10007148,University of Huddersfield,62,C,18,Law,NULL,NULL,NULL,Outputs,12.00,NULL,55,10,40,40,10,0,2.50
+10007148,University of Huddersfield,62,C,18,Law,NULL,NULL,NULL,Impact,12.00,NULL,55,0,50,0,25,25,1.75
+10007148,University of Huddersfield,62,C,18,Law,NULL,NULL,NULL,Environment,12.00,NULL,55,0,0,0,100,0,1.00
+10007767,University of Keele,67,C,18,Law,NULL,NULL,NULL,Overall,28.20,NULL,100,19,42,35,4,0,2.76
+10007767,University of Keele,67,C,18,Law,NULL,NULL,NULL,Outputs,28.20,NULL,100,17.2,43.7,32.9,6.2,0,2.72
+10007767,University of Keele,67,C,18,Law,NULL,NULL,NULL,Impact,28.20,NULL,100,33.3,33.4,33.3,0,0,3.00
+10007767,University of Keele,67,C,18,Law,NULL,NULL,NULL,Environment,28.20,NULL,100,0,50,50,0,0,2.50
+10007150,University of Kent,68,C,18,Law,NULL,NULL,NULL,Overall,45.20,NULL,100,63,27,10,0,0,3.53
+10007150,University of Kent,68,C,18,Law,NULL,NULL,NULL,Outputs,45.20,NULL,100,46.9,36.8,16.3,0,0,3.31
+10007150,University of Kent,68,C,18,Law,NULL,NULL,NULL,Impact,45.20,NULL,100,87.5,12.5,0,0,0,3.88
+10007150,University of Kent,68,C,18,Law,NULL,NULL,NULL,Environment,45.20,NULL,100,87.5,12.5,0,0,0,3.88
+10003645,King's College London,69,C,18,Law,NULL,NULL,NULL,Overall,74.30,NULL,100,47,37,15,1,0,3.30
+10003645,King's College London,69,C,18,Law,NULL,NULL,NULL,Outputs,74.30,NULL,100,51.2,35.3,11.1,1.8,0.6,3.35
+10003645,King's College London,69,C,18,Law,NULL,NULL,NULL,Impact,74.30,NULL,100,41.7,33.3,25,0,0,3.17
+10003645,King's College London,69,C,18,Law,NULL,NULL,NULL,Environment,74.30,NULL,100,37.5,50,12.5,0,0,3.25
+10007768,University of Lancaster,71,C,18,Law,NULL,NULL,NULL,Overall,37.92,NULL,100,37,44,17,1,1,3.15
+10007768,University of Lancaster,71,C,18,Law,NULL,NULL,NULL,Outputs,37.92,NULL,100,21.6,50,25,2.3,1.1,2.89
+10007768,University of Lancaster,71,C,18,Law,NULL,NULL,NULL,Impact,37.92,NULL,100,87.5,12.5,0,0,0,3.88
+10007768,University of Lancaster,71,C,18,Law,NULL,NULL,NULL,Environment,37.92,NULL,100,12.5,75,12.5,0,0,3.00
+10007795,University of Leeds,72,C,18,Law,NULL,NULL,NULL,Overall,60.30,NULL,100,58,34,8,0,0,3.50
+10007795,University of Leeds,72,C,18,Law,NULL,NULL,NULL,Outputs,60.30,NULL,100,39.4,47.2,13.4,0,0,3.26
+10007795,University of Leeds,72,C,18,Law,NULL,NULL,NULL,Impact,60.30,NULL,100,100,0,0,0,0,4.00
+10007795,University of Leeds,72,C,18,Law,NULL,NULL,NULL,Environment,60.30,NULL,100,62.5,37.5,0,0,0,3.62
+10003861,Leeds Beckett University,74,C,18,Law,NULL,NULL,NULL,Overall,9.50,NULL,30,3,35,43,19,0,2.22
+10003861,Leeds Beckett University,74,C,18,Law,NULL,NULL,NULL,Outputs,9.50,NULL,30,4.2,58.3,25,12.5,0,2.54
+10003861,Leeds Beckett University,74,C,18,Law,NULL,NULL,NULL,Impact,9.50,NULL,30,0,0,75,25,0,1.75
+10003861,Leeds Beckett University,74,C,18,Law,NULL,NULL,NULL,Environment,9.50,NULL,30,0,0,62.5,37.5,0,1.62
+10007796,University of Leicester,76,C,18,Law,NULL,NULL,NULL,Overall,48.60,NULL,100,20,48,31,1,0,2.87
+10007796,University of Leicester,76,C,18,Law,NULL,NULL,NULL,Outputs,48.60,NULL,100,28.8,39.5,30.7,1,0,2.96
+10007796,University of Leicester,76,C,18,Law,NULL,NULL,NULL,Impact,48.60,NULL,100,12.5,37.5,50,0,0,2.62
+10007796,University of Leicester,76,C,18,Law,NULL,NULL,NULL,Environment,48.60,NULL,100,0,100,0,0,0,3.00
+10007151,University of Lincoln,77,C,18,Law,NULL,NULL,NULL,Overall,13.00,NULL,100,23,39,38,0,0,2.85
+10007151,University of Lincoln,77,C,18,Law,NULL,NULL,NULL,Outputs,13.00,NULL,100,16.7,53.3,30,0,0,2.87
+10007151,University of Lincoln,77,C,18,Law,NULL,NULL,NULL,Impact,13.00,NULL,100,50,0,50,0,0,3.00
+10007151,University of Lincoln,77,C,18,Law,NULL,NULL,NULL,Environment,13.00,NULL,100,0,50,50,0,0,2.50
+10006842,University of Liverpool,78,C,18,Law,NULL,NULL,NULL,Overall,57.00,NULL,100,40,46,14,0,0,3.26
+10006842,University of Liverpool,78,C,18,Law,NULL,NULL,NULL,Outputs,57.00,NULL,100,33.3,51.3,14.6,0.8,0,3.17
+10006842,University of Liverpool,78,C,18,Law,NULL,NULL,NULL,Impact,57.00,NULL,100,80,10,10,0,0,3.70
+10006842,University of Liverpool,78,C,18,Law,NULL,NULL,NULL,Environment,57.00,NULL,100,0,87.5,12.5,0,0,2.88
+10003957,Liverpool John Moores University,80,C,18,Law,NULL,NULL,NULL,Overall,19.00,NULL,45,4,20,66,10,0,2.18
+10003957,Liverpool John Moores University,80,C,18,Law,NULL,NULL,NULL,Outputs,19.00,NULL,45,6.3,22.9,60.4,10.4,0,2.25
+10003957,Liverpool John Moores University,80,C,18,Law,NULL,NULL,NULL,Impact,19.00,NULL,45,0,25,75,0,0,2.25
+10003957,Liverpool John Moores University,80,C,18,Law,NULL,NULL,NULL,Environment,19.00,NULL,45,0,0,75,25,0,1.75
+10004063,LSE,84,C,18,Law,NULL,NULL,NULL,Overall,59.20,NULL,100,53,33,14,0,0,3.39
+10004063,LSE,84,C,18,Law,NULL,NULL,NULL,Outputs,59.20,NULL,100,56.8,33.1,10.1,0,0,3.47
+10004063,LSE,84,C,18,Law,NULL,NULL,NULL,Impact,59.20,NULL,100,30,40,30,0,0,3.00
+10004063,LSE,84,C,18,Law,NULL,NULL,NULL,Environment,59.20,NULL,100,75,25,0,0,0,3.75
+10007798,University of Manchester,88,C,18,Law,NULL,NULL,NULL,Overall,52.80,NULL,100,27,55,18,0,0,3.09
+10007798,University of Manchester,88,C,18,Law,NULL,NULL,NULL,Outputs,52.80,NULL,100,28,45.5,25.7,0.8,0,3.01
+10007798,University of Manchester,88,C,18,Law,NULL,NULL,NULL,Impact,52.80,NULL,100,40,60,0,0,0,3.40
+10007798,University of Manchester,88,C,18,Law,NULL,NULL,NULL,Environment,52.80,NULL,100,0,87.5,12.5,0,0,2.88
+10004351,Middlesex University,91,C,18,Law,NULL,NULL,NULL,Overall,31.05,NULL,90,20,24,47,8,1,2.54
+10004351,Middlesex University,91,C,18,Law,NULL,NULL,NULL,Outputs,31.05,NULL,90,12.8,23.1,48.7,14.1,1.3,2.32
+10004351,Middlesex University,91,C,18,Law,NULL,NULL,NULL,Impact,31.05,NULL,90,50,33.3,16.7,0,0,3.33
+10004351,Middlesex University,91,C,18,Law,NULL,NULL,NULL,Environment,31.05,NULL,90,0,12.5,87.5,0,0,2.12
+10007799,University of Newcastle,92,C,18,Law,NULL,NULL,NULL,Overall,34.60,NULL,100,30,47,21,2,0,3.05
+10007799,University of Newcastle,92,C,18,Law,NULL,NULL,NULL,Outputs,34.60,NULL,100,26.3,38.2,31.6,3.9,0,2.87
+10007799,University of Newcastle,92,C,18,Law,NULL,NULL,NULL,Impact,34.60,NULL,100,50,50,0,0,0,3.50
+10007799,University of Newcastle,92,C,18,Law,NULL,NULL,NULL,Environment,34.60,NULL,100,12.5,75,12.5,0,0,3.00
+10001282,University of Northumbria,95,C,18,Law,NULL,NULL,NULL,Overall,77.01,NULL,75,16,59,24,1,0,2.90
+10001282,University of Northumbria,95,C,18,Law,NULL,NULL,NULL,Outputs,77.01,NULL,75,12.3,53.2,32.7,1.8,0,2.76
+10001282,University of Northumbria,95,C,18,Law,NULL,NULL,NULL,Impact,77.01,NULL,75,33.3,58.4,8.3,0,0,3.25
+10001282,University of Northumbria,95,C,18,Law,NULL,NULL,NULL,Environment,77.01,NULL,75,0,87.5,12.5,0,0,2.88
+10004797,Nottingham Trent University,97,C,18,Law,NULL,NULL,NULL,Overall,18.10,NULL,100,39,56,5,0,0,3.34
+10004797,Nottingham Trent University,97,C,18,Law,NULL,NULL,NULL,Outputs,18.10,NULL,100,33.3,57.8,8.9,0,0,3.24
+10004797,Nottingham Trent University,97,C,18,Law,NULL,NULL,NULL,Impact,18.10,NULL,100,75,25,0,0,0,3.75
+10004797,Nottingham Trent University,97,C,18,Law,NULL,NULL,NULL,Environment,18.10,NULL,100,0,100,0,0,0,3.00
+10007154,University of Nottingham,98,C,18,Law,NULL,NULL,NULL,Overall,51.00,NULL,100,43,42,15,0,0,3.28
+10007154,University of Nottingham,98,C,18,Law,NULL,NULL,NULL,Outputs,51.00,NULL,100,36.7,42.2,20.3,0.8,0,3.15
+10007154,University of Nottingham,98,C,18,Law,NULL,NULL,NULL,Impact,51.00,NULL,100,60,30,10,0,0,3.50
+10007154,University of Nottingham,98,C,18,Law,NULL,NULL,NULL,Environment,51.00,NULL,100,37.5,62.5,0,0,0,3.38
+10007773,Open University,99,C,18,Law,NULL,NULL,NULL,Overall,26.81,NULL,75,4,32,47,17,0,2.23
+10007773,Open University,99,C,18,Law,NULL,NULL,NULL,Outputs,26.81,NULL,75,6,26.8,53.8,13.4,0,2.25
+10007773,Open University,99,C,18,Law,NULL,NULL,NULL,Impact,26.81,NULL,75,0,66.7,33.3,0,0,2.67
+10007773,Open University,99,C,18,Law,NULL,NULL,NULL,Environment,26.81,NULL,75,0,0,37.5,62.5,0,1.38
+10007774,University of Oxford,100,C,18,Law,NULL,NULL,NULL,Overall,138.23,NULL,115,55,28,14,3,0,3.35
+10007774,University of Oxford,100,C,18,Law,NULL,NULL,NULL,Outputs,138.23,NULL,115,35.8,35.6,24.3,4,0.3,3.03
+10007774,University of Oxford,100,C,18,Law,NULL,NULL,NULL,Impact,138.23,NULL,115,83.3,16.7,0,0,0,3.83
+10007774,University of Oxford,100,C,18,Law,NULL,NULL,NULL,Environment,138.23,NULL,115,87.5,12.5,0,0,0,3.88
+10004930,Oxford Brookes University,101,C,18,Law,NULL,NULL,NULL,Overall,15.30,NULL,80,21,46,31,2,0,2.86
+10004930,Oxford Brookes University,101,C,18,Law,NULL,NULL,NULL,Outputs,15.30,NULL,80,34.2,39.5,23.7,2.6,0,3.05
+10004930,Oxford Brookes University,101,C,18,Law,NULL,NULL,NULL,Impact,15.30,NULL,80,0,75,25,0,0,2.75
+10004930,Oxford Brookes University,101,C,18,Law,NULL,NULL,NULL,Environment,15.30,NULL,80,0,25,75,0,0,2.25
+10007801,University of Plymouth,102,C,18,Law,NULL,NULL,NULL,Overall,15.00,NULL,100,27,41,27,5,0,2.90
+10007801,University of Plymouth,102,C,18,Law,NULL,NULL,NULL,Outputs,15.00,NULL,100,35.1,43.3,18.9,2.7,0,3.11
+10007801,University of Plymouth,102,C,18,Law,NULL,NULL,NULL,Impact,15.00,NULL,100,25,50,25,0,0,3.00
+10007801,University of Plymouth,102,C,18,Law,NULL,NULL,NULL,Environment,15.00,NULL,100,0,12.5,62.5,25,0,1.88
+10007155,University of Portsmouth,103,C,18,Law,NULL,NULL,NULL,Overall,19.60,NULL,75,21,23,45,11,0,2.54
+10007155,University of Portsmouth,103,C,18,Law,NULL,NULL,NULL,Outputs,19.60,NULL,75,24.5,22.4,44.9,8.2,0,2.63
+10007155,University of Portsmouth,103,C,18,Law,NULL,NULL,NULL,Impact,19.60,NULL,75,25,25,25,25,0,2.50
+10007155,University of Portsmouth,103,C,18,Law,NULL,NULL,NULL,Environment,19.60,NULL,75,0,25,75,0,0,2.25
+10007775,Queen Mary University,105,C,18,Law,NULL,NULL,NULL,Overall,79.40,NULL,100,47,40,13,0,0,3.34
+10007775,Queen Mary University,105,C,18,Law,NULL,NULL,NULL,Outputs,79.40,NULL,100,51.9,35.5,12.6,0,0,3.39
+10007775,Queen Mary University,105,C,18,Law,NULL,NULL,NULL,Impact,79.40,NULL,100,41.7,50,8.3,0,0,3.33
+10007775,Queen Mary University,105,C,18,Law,NULL,NULL,NULL,Environment,79.40,NULL,100,37.5,37.5,25,0,0,3.12
+10005343,Queen's University Belfast,106,C,18,Law,NULL,NULL,NULL,Overall,45.00,NULL,100,54,33,13,0,0,3.41
+10005343,Queen's University Belfast,106,C,18,Law,NULL,NULL,NULL,Outputs,45.00,NULL,100,36.3,42.1,21.6,0,0,3.15
+10005343,Queen's University Belfast,106,C,18,Law,NULL,NULL,NULL,Impact,45.00,NULL,100,100,0,0,0,0,4.00
+10005343,Queen's University Belfast,106,C,18,Law,NULL,NULL,NULL,Environment,45.00,NULL,100,50,50,0,0,0,3.50
+10007802,University of Reading,108,C,18,Law,NULL,NULL,NULL,Overall,27.50,NULL,100,21,51,27,1,0,2.92
+10007802,University of Reading,108,C,18,Law,NULL,NULL,NULL,Outputs,27.50,NULL,100,35.5,33.9,29,1.6,0,3.03
+10007802,University of Reading,108,C,18,Law,NULL,NULL,NULL,Impact,27.50,NULL,100,0,83.3,16.7,0,0,2.83
+10007802,University of Reading,108,C,18,Law,NULL,NULL,NULL,Environment,27.50,NULL,100,0,62.5,37.5,0,0,2.62
+10007780,School of Oriental and African Studies,122,C,18,Law,NULL,NULL,NULL,Overall,23.60,NULL,100,45,55,0,0,0,3.45
+10007780,School of Oriental and African Studies,122,C,18,Law,NULL,NULL,NULL,Outputs,23.60,NULL,100,61.1,38.9,0,0,0,3.61
+10007780,School of Oriental and African Studies,122,C,18,Law,NULL,NULL,NULL,Impact,23.60,NULL,100,16.7,83.3,0,0,0,3.17
+10007780,School of Oriental and African Studies,122,C,18,Law,NULL,NULL,NULL,Environment,23.60,NULL,100,25,75,0,0,0,3.25
+10007157,University of Sheffield,123,C,18,Law,NULL,NULL,NULL,Overall,34.50,NULL,100,43,48,9,0,0,3.34
+10007157,University of Sheffield,123,C,18,Law,NULL,NULL,NULL,Outputs,34.50,NULL,100,58.1,33.8,8.1,0,0,3.50
+10007157,University of Sheffield,123,C,18,Law,NULL,NULL,NULL,Impact,34.50,NULL,100,16.7,66.6,16.7,0,0,3.00
+10007157,University of Sheffield,123,C,18,Law,NULL,NULL,NULL,Environment,34.50,NULL,100,25,75,0,0,0,3.25
+10007158,University of Southampton,127,C,18,Law,NULL,NULL,NULL,Overall,31.80,NULL,100,35,46,18,1,0,3.15
+10007158,University of Southampton,127,C,18,Law,NULL,NULL,NULL,Outputs,31.80,NULL,100,44.6,36.5,17.5,1.4,0,3.24
+10007158,University of Southampton,127,C,18,Law,NULL,NULL,NULL,Impact,31.80,NULL,100,33.3,50,16.7,0,0,3.17
+10007158,University of Southampton,127,C,18,Law,NULL,NULL,NULL,Environment,31.80,NULL,100,0,75,25,0,0,2.75
+10007804,University of Stirling,134,C,18,Law,NULL,NULL,NULL,Overall,13.20,NULL,100,24,58,16,2,0,3.04
+10007804,University of Stirling,134,C,18,Law,NULL,NULL,NULL,Outputs,13.20,NULL,100,30.3,45.5,21.2,3,0,3.03
+10007804,University of Stirling,134,C,18,Law,NULL,NULL,NULL,Impact,13.20,NULL,100,25,75,0,0,0,3.25
+10007804,University of Stirling,134,C,18,Law,NULL,NULL,NULL,Environment,13.20,NULL,100,0,75,25,0,0,2.75
+10007805,University of Strathclyde,136,C,18,Law,NULL,NULL,NULL,Overall,28.00,NULL,100,34,47,17,2,0,3.13
+10007805,University of Strathclyde,136,C,18,Law,NULL,NULL,NULL,Outputs,28.00,NULL,100,32.9,42.8,21.4,2.9,0,3.06
+10007805,University of Strathclyde,136,C,18,Law,NULL,NULL,NULL,Impact,28.00,NULL,100,50,33.3,16.7,0,0,3.33
+10007805,University of Strathclyde,136,C,18,Law,NULL,NULL,NULL,Environment,28.00,NULL,100,12.5,87.5,0,0,0,3.12
+10007160,University of Surrey,139,C,18,Law,NULL,NULL,NULL,Overall,20.00,NULL,100,32,38,22,0,8,2.86
+10007160,University of Surrey,139,C,18,Law,NULL,NULL,NULL,Outputs,20.00,NULL,100,54,36,10,0,0,3.44
+10007160,University of Surrey,139,C,18,Law,NULL,NULL,NULL,Impact,20.00,NULL,100,0,33.3,33.4,0,33.3,1.67
+10007160,University of Surrey,139,C,18,Law,NULL,NULL,NULL,Environment,20.00,NULL,100,0,50,50,0,0,2.50
+10007806,University of Sussex,140,C,18,Law,NULL,NULL,NULL,Overall,55.90,NULL,100,34,43,23,0,0,3.11
+10007806,University of Sussex,140,C,18,Law,NULL,NULL,NULL,Outputs,55.90,NULL,100,33.8,44.6,21.6,0,0,3.12
+10007806,University of Sussex,140,C,18,Law,NULL,NULL,NULL,Impact,55.90,NULL,100,40,20,40,0,0,3.00
+10007806,University of Sussex,140,C,18,Law,NULL,NULL,NULL,Environment,55.90,NULL,100,25,75,0,0,0,3.25
+10007855,Swansea University,141,C,18,Law,NULL,NULL,NULL,Overall,23.55,NULL,100,11,67,20,2,0,2.87
+10007855,Swansea University,141,C,18,Law,NULL,NULL,NULL,Outputs,23.55,NULL,100,18.6,54.3,23.7,3.4,0,2.88
+10007855,Swansea University,141,C,18,Law,NULL,NULL,NULL,Impact,23.55,NULL,100,0,83.3,16.7,0,0,2.83
+10007855,Swansea University,141,C,18,Law,NULL,NULL,NULL,Environment,23.55,NULL,100,0,87.5,12.5,0,0,2.88
+10007807,University of Ulster,145,C,18,Law,NULL,NULL,NULL,Overall,14.70,NULL,95,46,36,18,0,0,3.28
+10007807,University of Ulster,145,C,18,Law,NULL,NULL,NULL,Outputs,14.70,NULL,95,45.9,35.2,18.9,0,0,3.27
+10007807,University of Ulster,145,C,18,Law,NULL,NULL,NULL,Impact,14.70,NULL,95,50,25,25,0,0,3.25
+10007807,University of Ulster,145,C,18,Law,NULL,NULL,NULL,Environment,14.70,NULL,95,37.5,62.5,0,0,0,3.38
+10007784,University College London,146,C,18,Law,NULL,NULL,NULL,Overall,59.10,NULL,100,68,26,6,0,0,3.62
+10007784,University College London,146,C,18,Law,NULL,NULL,NULL,Outputs,59.10,NULL,100,57.5,32.3,10.2,0,0,3.47
+10007784,University College London,146,C,18,Law,NULL,NULL,NULL,Impact,59.10,NULL,100,90,10,0,0,0,3.90
+10007784,University College London,146,C,18,Law,NULL,NULL,NULL,Environment,59.10,NULL,100,75,25,0,0,0,3.75
+10007163,University of Warwick,149,C,18,Law,NULL,NULL,NULL,Overall,47.00,NULL,100,53,36,10,1,0,3.41
+10007163,University of Warwick,149,C,18,Law,NULL,NULL,NULL,Outputs,47.00,NULL,100,52.3,34.6,12.2,0.9,0,3.38
+10007163,University of Warwick,149,C,18,Law,NULL,NULL,NULL,Impact,47.00,NULL,100,50,37.5,12.5,0,0,3.38
+10007163,University of Warwick,149,C,18,Law,NULL,NULL,NULL,Environment,47.00,NULL,100,62.5,37.5,0,0,0,3.62
+10007164,UWE Bristol,151,C,18,Law,NULL,NULL,NULL,Overall,6.00,NULL,10,37,38,25,0,0,3.12
+10007164,UWE Bristol,151,C,18,Law,NULL,NULL,NULL,Outputs,6.00,NULL,10,40,33.3,26.7,0,0,3.13
+10007164,UWE Bristol,151,C,18,Law,NULL,NULL,NULL,Impact,6.00,NULL,10,50,50,0,0,0,3.50
+10007164,UWE Bristol,151,C,18,Law,NULL,NULL,NULL,Environment,6.00,NULL,10,0,37.5,62.5,0,0,2.38
+10007165,University of Westminster,153,C,18,Law,NULL,NULL,NULL,Overall,31.90,NULL,60,19,40,38,3,0,2.75
+10007165,University of Westminster,153,C,18,Law,NULL,NULL,NULL,Outputs,31.90,NULL,60,13.9,44.3,36.7,5.1,0,2.67
+10007165,University of Westminster,153,C,18,Law,NULL,NULL,NULL,Impact,31.90,NULL,60,33.3,16.7,50,0,0,2.83
+10007165,University of Westminster,153,C,18,Law,NULL,NULL,NULL,Environment,31.90,NULL,60,12.5,62.5,25,0,0,2.88
+10003614,University of Winchester,154,C,18,Law,NULL,NULL,NULL,Overall,3.00,NULL,100,6,22,43,29,0,2.05
+10007166,University of Wolverhampton,155,C,18,Law,,,,Overall,12.00,,35,16,47,33,4,0,2.75
+10007166,University of Wolverhampton,155,C,18,Law,,,,Outputs,12.00,,35,16.7,56.6,26.7,0,0,2.90
+10007166,University of Wolverhampton,155,C,18,Law,,,,Impact,12.00,,35,25,50,25,0,0,3.00
+10007166,University of Wolverhampton,155,C,18,Law,,,,Environment,12.00,,35,0,0,75,25,0,1.75
+10007167,University of York,157,C,18,Law,,,,Overall,27.30,,100,38,45,16,1,0,3.20
+10007167,University of York,157,C,18,Law,,,,Outputs,27.30,,100,35.5,50,12.9,1.6,0,3.19
+10007167,University of York,157,C,18,Law,,,,Impact,27.30,,100,66.7,0,33.3,0,0,3.33
+10007167,University of York,157,C,18,Law,,,,Environment,27.30,,100,0,100,0,0,0,3.00

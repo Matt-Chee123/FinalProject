@@ -4,6 +4,6 @@ function displayTitle(data) {
         const item = data[0];
         searchResultsContainer.innerHTML = item.UniversityName;
     } else {
-        searchResultsContainer.innerHTML = "No title found";
+        searchResultsContainer.innerHTML = "No data for this UofA";
     }
 }

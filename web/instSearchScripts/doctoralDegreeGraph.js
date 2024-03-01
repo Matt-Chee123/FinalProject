@@ -69,7 +69,7 @@ function displayDoctoralDegreesChart(uniData, averages) {
   });
 }
 
-function fetchEnvironmentAverages() {
+function fetchEnvironmentAverages(unitOfAssessment) {
   return fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/environment')
     .then(response => {
       if (!response.ok) {
@@ -80,9 +80,10 @@ function fetchEnvironmentAverages() {
     .then(data => {
       let sumDegrees = {};
       let countDegrees = {};
+      const filteredData = data.filter(item => item.UnitOfAssessmentName === unitOfAssessment);
 
       // Calculate the sum and count for each year to find the average later
-      data.forEach(record => {
+      filteredData.forEach(record => {
         for (let year = 2013; year <= 2019; year++) {
           const degrees = parseInt(record[`DoctoralDegrees${year}`], 10) || 0;
           if (degrees > 0) { // Only count years with data
@@ -91,7 +92,6 @@ function fetchEnvironmentAverages() {
           }
         }
       });
-
       // Compute the average for each year
       let averageDegreesPerYear = [];
       for (let year = 2013; year <= 2019; year++) {

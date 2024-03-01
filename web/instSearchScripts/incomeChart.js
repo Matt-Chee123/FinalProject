@@ -8,8 +8,8 @@ function displayIncomeChart(data) {
   }
 
   // Calculate the incomes for the years 2016 to 2019 based on the 2015 data and average
-  const averageIncome1520 = totalIncomeRecord.AverageIncome15_20 || 0;
-  const income2015 = totalIncomeRecord.IncomeAcademicYear13_14 + totalIncomeRecord.IncomeAcademicYear14_15 || 0;
+  const averageIncome1520 = totalIncomeRecord.AverageIncome1520 || 0;
+  const income2015 = totalIncomeRecord.Income201314 + totalIncomeRecord.Income201415 || 0;
   const income2016 = income2015 + averageIncome1520;
   const income2017 = income2015 + 2 * averageIncome1520;
   const income2018 = income2015 + 3 * averageIncome1520;
@@ -18,13 +18,13 @@ function displayIncomeChart(data) {
   // Create the data array for Highcharts, using the actual data for 2014 and 2015,
   // calculated data for 2016 to 2019, and the actual total for 2020
   const chartData = [
-    totalIncomeRecord.IncomeAcademicYear13_14, // Data for 2014
+    totalIncomeRecord.Income201314, // Data for 2014
     income2015, // Data for 2015
     income2016, // Data for 2016
     income2017, // Data for 2017
     income2018, // Data for 2018
     income2019, // Data for 2019
-    totalIncomeRecord.TotalIncome13_20 // Data for 2020
+    totalIncomeRecord.TotalIncome1320 // Data for 2020
   ];
 
   // Initialize Highcharts

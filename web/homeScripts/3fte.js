@@ -1,16 +1,19 @@
-fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/random3')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    displayThreeFte(data);
-  })
-  .catch(error => {
-    console.error('Fetch error:', error);
-  });
+function fetchThreeFte(uofaName = 'Computer Science and Informatics') {
+  fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/random3?uofaName=${encodeURIComponent(uofaName)}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      displayThreeFte(data);
+    })
+    .catch(error => {
+      console.error('Fetch error:', error);
+    });
+}
+
 
 function displayThreeFte(data) {
   // Assuming the data is an array of objects with UniversityName and FTEOfSubmittedStaff

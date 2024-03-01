@@ -31,14 +31,17 @@
         <a href="#">
           <i class='bx bx-collection' ></i>
           <span class="link_name">Institution Search</span>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="#">Institution Search</a></li>
+          </ul>
         </a>
         <i class='bx bxs-chevron-down arrow' ></i>
       </div>
       <ul class="sub-menu">
         <input type="text" id="searchInstitution" placeholder="Search...">
         <div id="suggestions-container" style="display:none;"></div>
-
       </ul>
+
     </li>
     <li>
       <a href="graphBuilder.html">
@@ -56,31 +59,37 @@
   <div class="home-content">
     <i class='bx bx-menu' ></i>
     <span class="text">Homepage</span>
+    <span class ="text">UofA:</span>
     <select id="unit-of-assessment-dropdown" class="unit-dropdown">
-      <option value="comp-sci">Computer Science and Informatics</option>
-      <option value="engineering">Engineering</option>
-      <option value="math-sci">Mathematical Sciences</option>
-      <!-- Add more options here for other units of assessment -->
+      <option value="Computer Science and Informatics">Computer Science and Informatics</option>
+      <option value="Clinical Medicine">Clinical Medicine</option>
+      <option value="Law">Law</option>
     </select>
   </div>
   <div class="main-container">
     <div class="left-components">
-      <div id="top-three-records" class="component-bubble">
+      <div class="component-bubble">
+        <div class="bubble-content" id="top-three-records"></div>
       </div>
-      <div id="bottom-three-records" class="component-bubble">
-        <!-- Top 3 records will be inserted here by JavaScript -->
+      <div class="component-bubble">
+        <div class="bubble-content" id="bottom-three-records"></div>
       </div>
-      <div id="top-sources-container" class="component-bubble">
+      <div class="component-bubble">
+        <div class="bubble-content" id="top-sources-container"></div>
       </div>
-      <div id="random-FTE-records" class="component-bubble">
+      <div class="component-bubble">
+        <div class="bubble-content" id="random-FTE-records"></div>
+
       </div>
-      <div id="outputs-records" class="component-bubble">
+      <div class="component-bubble">
+        <div class="bubble-content" id="outputs-records"></div>
       </div>
-      <div id="bullet-graph-container" class="component-bubble">
-      </div>      <!-- Add more .component-bubble as needed -->
+      <div  class="component-bubble">
+        <div class="bubble-content" id="bullet-graph-container"></div>
+      </div>
     </div>
     <div class="right-homepage-container">
-      <iframe src="uk_heatmap.html" frameborder="0" class="heatmap-iframe"></iframe>
+      <iframe src="ComputerScienceandInformatics_heatmap.html" frameborder="0" class="heatmap-iframe"></iframe>
     </div>
   </div>
 </section>
@@ -108,6 +117,7 @@
 <script src="homeScripts/totalIncome.js"></script>
 <script src="homeScripts/3fte.js"></script>
 <script src="homeScripts/enterSearch.js"></script>
+<script src="homeScripts/dropdownHandler.js"></script>
 
 
 </body>

@@ -6,7 +6,7 @@ dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('projDB-main')
 
 # Open your CSV file with the new data
-with open('../data/incomeData.csv', 'r') as csvfile:
+with open('../data/incomeDataClin.csv', 'r') as csvfile:
     csvreader = csv.DictReader(csvfile)
 
     # Iterate over each row in the CSV
