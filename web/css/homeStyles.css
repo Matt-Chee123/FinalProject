@@ -160,6 +160,7 @@
   font-size: 18px;
   opacity: 1;
   display: block;
+  top: 50px;
 }
 .sidebar .nav-links li .sub-menu.blank{
   opacity: 1;
@@ -167,6 +168,7 @@
   padding: 3px 20px 6px 16px;
   opacity: 0;
   pointer-events: none;
+  alight-items: center;
 }
 .sidebar .nav-links li:hover .sub-menu.blank{
   top: 50%;

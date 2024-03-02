@@ -31,13 +31,17 @@
         <a href="#">
           <i class='bx bx-collection' ></i>
           <span class="link_name">Institution Search</span>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="#">Institution Search</a></li>
+          </ul>
         </a>
         <i class='bx bxs-chevron-down arrow' ></i>
       </div>
       <ul class="sub-menu">
-        <input type="text" id="searchInstitution" placeholder="Search..">
+        <input type="text" id="searchInstitution" placeholder="Search...">
         <div id="suggestions-container" style="display:none;"></div>
       </ul>
+
     </li>
     <li>
       <a href="graphBuilder.html">
@@ -58,60 +62,63 @@
   </div>
   <div class="main-container">
     <div class="component-bubble top-bubble" id="graph-container"></div>
-    <div class="component-bubble bottom-bubble">
-      <form id="dataQueryForm">
-
-        <label for="ProfileType">Select Profile type:</label>
-        <select name="ProfileType" id="ProfileType">
-          <option value="Overall">Overall</option>
-          <option value="Outputs">Outputs</option>
-          <option value="Impact">Impact</option>
-          <option value="Environment">Environment</option>
+    <div class="bottom-bubble">
+      <form id="dataForm" class="bottom-bubble">
+      <div class="bottom-bubble component-bubble">
+        <i class="text">UofA: </i>
+        <select id="UofA">
+          <option value="" disabled selected>Select</option>
+          <option value="Computer Science and Informatics">Computer Science</option>
+          <option value="Clinical Medicine">Clinical Medicine</option>
+          <option value="Law">Law</option>
         </select>
+      </div>
+      <div class="bottom-bubble component-bubble">
+        <i class="text">X axis: </i>
+        <input type="radio" id="profileX" name="specialOptionGroupX" value="profile" onchange="updateBubbleProfIncX('xAxis')">
+        <label for="profileX">Profile</label>
 
-        <label for="IncomeSource">Select Income source:</label>
-        <select name="IncomeSource" id="IncomeSource">
-          <option value="Total income">Total income</option>
-          <option value="UK industry, commerce and public corporations">UK industry</option>
-          <option value="BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh">BEIS Research Councils</option>
-          <option value="UK-based charities (open competitive process)">UK-based charities (open competitive process)</option>
-          <option value="UK-based charities (other)">UK-based charities (other)</option>
-          <option value="UK central government bodies/local authorities, health and hospital authorities">UK central government bodies</option>
-          <option value="UK other sources">UK other sources</option>
-          <option value="EU government bodies">EU government bodies</option>
-          <option value="EU-based charities (open competitive process)">EU-based charities (open competitive process)</option>
-          <option value="EU industry, commerce and public corporations">EU industry, commerce and public corporations</option>
-          <option value="EU (excluding UK) other">EU (excluding UK) other</option>
-          <option value="Non-EU-based charities (open competitive process)">Non-EU-based charities (open competitive process)</option>
-          <option value="Non-EU industry commerce and public corporations">Non-EU industry commerce and public corporations</option>
-          <option value="Non-EU other">Non-EU other</option>
+        <input type="radio" id="incomeX" name="specialOptionGroupX" value="income" onchange="updateBubbleProfIncX('xAxis')">
+        <label for="incomeX">Income</label>
+
+        <select id="xAxis" onchange="updateProfileOptions('xProfOptions','xAxis')">
         </select>
-
-        <label for="xAxis">Select X-axis attribute:</label>
-        <select name="xAxis" id="xAxis">
-          <option value="FTEOfSubmittedStaff">FTEofSubmittedStaff</option>
+        <select id="xProfOptions">
+          <option value="" disabled selected>Profile Options</option>
           <option value="AverageScore">AverageScore</option>
-          <option value="PercEligibleStaff">% Eligible Staff</option>
-          <option value="TotalIncome13_20">Total income</option>
-          <option value="AverageIncome13_20">Average Income 13-20</option>
-          <option value="totalDoctoralDegrees">Total Doctoral Degrees 2013-2020</option>
+          <option value="FTEOfSubmittedStaff">FTEOfSubmittedStaff</option>
+          <option value="PercEligibleStaff">PercEligibleStaff</option>
+          <option value="FourStar">FourStar</option>
+          <option value="ThreeStar">ThreeStar</option>
+          <option value="TwoStar">TwoStar</option>
+          <option value="OneStar">OneStar1</option>
+          <option value="Unclassified">Unclassified</option>
         </select>
+      </div>
+      <div class="bottom-bubble component-bubble">
+        <i class="text">Y axis: </i>
+        <input type="radio" id="profileY" name="specialOptionGroupY" value="profile" onchange="updateBubbleProfIncY('yAxis')">
+        <label for="profileY">Profile</label>
 
-        <label for="yAxis">Select Y-axis attribute:</label>
-        <select name="yAxis" id="yAxis">
-          <option value="FTEOfSubmittedStaff">FTEofSubmittedStaff</option>
+        <input type="radio" id="incomeY" name="specialOptionGroupY" value="income" onchange="updateBubbleProfIncY('yAxis')">
+        <label for="incomeY">Income</label>
+        <select id="yAxis" onchange="updateProfileOptions('yProfOptions','yAxis')">
+        </select>
+        <select id="yProfOptions">
+          <option value="" disabled selected>Profile Options</option>
           <option value="AverageScore">AverageScore</option>
-          <option value="PercEligibleStaff">% Eligible Staff</option>
-          <option value="TotalIncome13_20">Total income</option>
-          <option value="AverageIncome13_20">Average Income 13-20</option>
-          <option value="totalDoctoralDegrees">Total Doctoral Degrees 2013-2020</option>
-
+          <option value="FTEOfSubmittedStaff">FTEOfSubmittedStaff</option>
+          <option value="PercEligibleStaff">PercEligibleStaff</option>
+          <option value="FourStar">FourStar</option>
+          <option value="ThreeStar">ThreeStar</option>
+          <option value="TwoStar">TwoStar</option>
+          <option value="OneStar">OneStar1</option>
+          <option value="Unclassified">Unclassified</option>
         </select>
-        <label for="instHighlight">Select Institution:</label>
-        <input type="text" id="instHighlight" placeholder="Highlight Specific Uni">
-        <label for="russelHighlight">Highlight Russel Group?</label>
-        <input type="checkbox" id="russelHighlight" name="russelHighlight" value="russelHighlight">
-        <button type="submit">Generate Graph</button>
+      </div>
+      <div class="bottom-bubble component-bubble">
+        <input type="submit" value="Submit" id="submitParams">
+      </div>
       </form>
     </div>
   </div>
@@ -133,5 +140,6 @@
 </script>
 <script src="graphBuilderScripts/graphGen.js"></script>
 <script src="homeScripts/enterSearch.js"></script>
+<script src="graphBuilderScripts/fileHandler.js"></script>
 </body>
 </html>

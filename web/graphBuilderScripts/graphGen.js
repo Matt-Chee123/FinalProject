@@ -1,4 +1,3 @@
-// Event listener for form submission
 const russellGroupUniversities = new Set([
   "University of Birmingham",
   "University of Bristol",
@@ -26,35 +25,43 @@ const russellGroupUniversities = new Set([
   "University of York"
 ]);
 
-document.getElementById('dataQueryForm').addEventListener('submit', function(event) {
-  event.preventDefault();
+document.getElementById('dataForm').onsubmit = function(event) {
+  event.preventDefault(); // Prevent the default form submission behavior
 
-  // Get the selected values for ProfileType, X-axis, and Y-axis
-  var profileType = document.getElementById('ProfileType').value;
-  var incomeSource = document.getElementById('IncomeSource').value; // New dropdown value
-  var xAxisAttribute = document.getElementById('xAxis').value;
-  var yAxisAttribute = document.getElementById('yAxis').value;
-  var uniToHighlight = document.getElementById('instHighlight').value.trim();
-  var highlightRussellGroup = document.getElementById('russelHighlight').checked;
+  // Your code to process and use the form data goes here.
+  // You can access form values using document.getElementById('elementId').value
 
+  // For example:
+  var uofA = document.getElementById('UofA').value;
+  var xAxis = document.getElementById('xAxis').value;
+  var xProfOption = document.getElementById('xProfOptions').value;
+  var yAxis = document.getElementById('yAxis').value;
+  var yProfOption = document.getElementById('yProfOptions').value;
+  var xRadioCheck = document.querySelector('input[name="specialOptionGroupX"]:checked').value;
+  var yRadioCheck = document.querySelector('input[name="specialOptionGroupY"]:checked').value;
 
-  // Fetch the full dataset
-  fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items')
+  fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/all?uofaName=${encodeURIComponent(uofA)}`)
   .then(response => response.json())
   .then(data => {
-    // Filter the data based on the selected ProfileType
-    var filteredProfileData = data.filter(item => item.ProfileType === profileType);
-    var filteredIncomeData = data.filter(item => item.IncomeSource === incomeSource);
-    // Create a map to hold the combined data
-    let combinedDataMap = new Map();
 
-    // Add profile data to the map
-    filteredProfileData.forEach(item => {
+    if (xRadioCheck == 'profile') {
+      var xAxisFilter = data.filter(item => item.ProfileType === xAxis);
+    }
+    else if (xRadioCheck == 'income') {
+      var xAxisFilter = data.filter(item => item.IncomeSource === xAxis);
+    }
+    if (yRadioCheck == 'profile') {
+      var yAxisFilter = data.filter(item => item.ProfileType === yAxis);
+    } else if (yRadioCheck == 'income') {
+        var yAxisFilter = data.filter(item => item.IncomeSource === yAxis);
+    }
+    let combinedDataMap = new Map();
+    xAxisFilter.forEach(item => {
       combinedDataMap.set(item.UniversityName, item);
     });
 
     // Merge income data into the map
-    filteredIncomeData.forEach(item => {
+    yAxisFilter.forEach(item => {
       if (combinedDataMap.has(item.UniversityName)) {
         // If the university already exists in the map, merge the data
         Object.assign(combinedDataMap.get(item.UniversityName), item);
@@ -63,12 +70,7 @@ document.getElementById('dataQueryForm').addEventListener('submit', function(eve
         combinedDataMap.set(item.UniversityName, item);
       }
     });
-
-    // Convert the map back to an array if you need to work with array methods or pass to a library
-    let combinedDataArray = Array.from(combinedDataMap.values());
-    console.log(combinedDataArray);
-    // Now combinedDataArray contains combined records from both filteredProfileData and filteredIncomeData
-
+    console.log(combinedDataMap);
     function calculateTotalDoctoralDegrees(record) {
       let total = 0;
       for (let year = 2013; year <= 2019; year++) {
@@ -76,85 +78,66 @@ document.getElementById('dataQueryForm').addEventListener('submit', function(eve
       }
       return total;
     }
+  // Extract the attributes to be plotted
+    var xAttribute = xRadioCheck === 'profile' ? xProfOption : 'TotalIncome1320';
+    var yAttribute = yRadioCheck === 'profile' ? yProfOption : 'TotalIncome1320'
 
-      // Map the filtered data to the format expected by Highcharts
+    let combinedDataArray = Array.from(combinedDataMap.values());
+
     var chartData = combinedDataArray.map(item => {
         // Determine the x and y values based on selected attributes
-      var xValue = xAxisAttribute === 'totalDoctoralDegrees' ? calculateTotalDoctoralDegrees(item) : item[xAxisAttribute];
-      var yValue = yAxisAttribute === 'totalDoctoralDegrees' ? calculateTotalDoctoralDegrees(item) : item[yAxisAttribute];
-      var isRussellGroup = russellGroupUniversities.has(item.UniversityName);
-      var isHighlightedUni = item.UniversityName.toLowerCase() === uniToHighlight.toLowerCase();
-
+      var xValue = xAttribute === 'totalDoctoralDegrees' ? calculateTotalDoctoralDegrees(item) : item[xAttribute];
+      var yValue = yAttribute === 'totalDoctoralDegrees' ? calculateTotalDoctoralDegrees(item) : item[yAttribute];
       return {
-        x: item[xAxisAttribute],
-        y: item[yAxisAttribute],
+        x: item[xAttribute],
+        y: item[yAttribute],
         name: item.UniversityName,
-        // Set the marker color based on whether it's a highlighted uni or a Russell Group uni
-        marker: {
-          fillColor: isHighlightedUni ? 'red' : (highlightRussellGroup && isRussellGroup ? 'green' : 'blue'),
-          lineWidth: isHighlightedUni ? 2 : 0,
-          lineColor: isHighlightedUni ? 'yellow' : null
-        }
       };
     });
-    // Now use this chartData to plot the graph with Highcharts
     Highcharts.chart('graph-container', {
-      chart: {
-        type: 'scatter',
-        zoomType: 'xy',
-        marginBottom: 100 // Adjust this value as needed
-      },
-      credits: {
-        enabled: false
-      },
+        chart: {
+          type: 'scatter',
+          zoomType: 'xy',
+          marginBottom: 100 // Adjust this value as needed
+        },
+        credits: {
+          enabled: false
+        },
 
-      legend: {
-        enabled: false
-      },
-      title: {
-        text: 'Graph based on selected attributes'
-      },
-      xAxis: {
+        legend: {
+          enabled: false
+        },
         title: {
-          text: xAxisAttribute
-        }
-      },
-      yAxis: {
-        title: {
-          text: yAxisAttribute
-        }
-      },
-      tooltip: {
-        formatter: function() {
-          return '<b>' + this.point.name + '</b><br/>' +
-                 xAxisAttribute + ': ' + this.point.x + '<br/>' +
-                 yAxisAttribute + ': ' + this.point.y;
-        }
-      },
-      series: [{
-        name: 'Data',
-        data: chartData.map(point => {
-          // Check if this point should be highlighted
-          if (point.name === uniToHighlight) {
-            // Return the point with a custom marker
-            return {
-              x: point.x,
-              y: point.y,
-              name: point.name,
-              marker: {
-                fillColor: 'red'
-              }
-            };
-          } else {
-            // Return the point with default settings
-            return point;
+          text: 'Graph based on selected attributes'
+        },
+        xAxis: {
+          title: {
+            text: xAttribute
           }
-        })
-      }]
-    });
-
+        },
+        yAxis: {
+          title: {
+            text: yAttribute
+          }
+        },
+        tooltip: {
+          formatter: function() {
+            return '<b>' + this.point.name + '</b><br/>' +
+                   xAttribute + ': ' + this.point.x + '<br/>' +
+                   yAttribute + ': ' + this.point.y;
+          }
+        },
+        series: [{
+          name: 'Data',
+          data: chartData.map(point => {
+            // Check if this point should be highlighted
+            return point;
+          })
+        }]
+      });
   })
   .catch(error => {
     console.error('Error fetching data:', error);
   });
-});
+}
+

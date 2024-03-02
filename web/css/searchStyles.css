@@ -151,6 +151,8 @@
   font-size: 18px;
   opacity: 1;
   display: block;
+  align-items: center;
+  height: 50%;
 }
 .sidebar .nav-links li .sub-menu.blank{
   opacity: 1;

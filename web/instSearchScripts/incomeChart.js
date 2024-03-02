@@ -27,6 +27,12 @@ function displayIncomeChart(data) {
     totalIncomeRecord.TotalIncome1320 // Data for 2020
   ];
 
+  // Calculate income changes for the tooltip
+  const incomeChanges = chartData.map((value, index, array) => {
+    if (index === 0) return null; // No change for the first year
+    return value - array[index - 1];
+  });
+
   // Initialize Highcharts
   Highcharts.chart('income-container', {
     chart: {
@@ -47,6 +53,16 @@ function displayIncomeChart(data) {
     yAxis: {
       title: {
         text: 'Income (£)'
+      }
+    },
+    tooltip: {
+      formatter: function() {
+        const incomeChange = incomeChanges[this.point.index];
+        let tooltipText = `Year: ${this.x}<br>Income: £${this.y.toLocaleString()}`;
+        if (incomeChange !== null) {
+          tooltipText += `<br>Change: £${incomeChange.toLocaleString()}`;
+        }
+        return tooltipText;
       }
     },
     series: [{

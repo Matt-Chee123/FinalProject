@@ -132,12 +132,20 @@
   pointer-events: none;
   transition: 0s;
 }
-.sidebar.close .nav-links li:hover .sub-menu{
+
+.sidebar.close .nav-links li:hover .sub-menu.blank {
+  position: absolute;
+  left: 100%;
+  margin-top: 28px;
+  padding: 10px 20px;
+  border-radius: 0 6px 6px 0;
+  display: block;
   top: 0;
   opacity: 1;
   pointer-events: auto;
   transition: all 0.4s ease;
 }
+
 .sidebar .nav-links li .sub-menu .link_name{
   display: none;
 }
@@ -287,16 +295,30 @@
   background-color: white; /* Your desired background */
   border-radius: 15px; /* Rounded corners */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Soft shadow for the bubble effect */
+  align-items: center; /* Center the content */
 }
-
+.component-bubble select {
+  max-width: 100px; /* Replace 200px with whatever maximum width you prefer */
+  width: 100%; /* This ensures the select box is as wide as its container up to the max-width */
+}
 /* Specific styles for the top and bottom bubbles */
 .home-section .main-container .top-bubble {
-  flex-grow: 3; /* Takes up 3 parts of the available space */
+  flex-grow: 2; /* Takes up 3 parts of the available space */
+  max-height: 70%; /* Limits the height to 50% of the container */
+  margin-bottom: -1vh; /* Adjust the margin as needed */
+}
+.home-section .main-container .bottom-bubble {
+    display: flex; /* Enable Flexbox */
+    flex-direction: row;
+    flex-grow: 1; /* Takes up 2 parts of the available space */
+    max-height: 100%; /* Limits the height to 30% of the container */
+    margin-left: 2vh;
+    }
+
+.home-section .main-container .bottom-bubble > :first-child {
+  margin-left: -1vh;
 }
 
-.home-section .main-container .bottom-bubble {
-  flex-grow: 1; /* Takes up 1 part of the available space */
-}
 
 #suggestions-container {
     position: absolute;
