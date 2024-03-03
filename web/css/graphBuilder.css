@@ -303,10 +303,20 @@
 }
 /* Specific styles for the top and bottom bubbles */
 .home-section .main-container .top-bubble {
-  flex-grow: 2; /* Takes up 3 parts of the available space */
-  max-height: 70%; /* Limits the height to 50% of the container */
+  flex-grow: 3; /* Takes up the available space */
+  max-height: 70%; /* Limits the height to 70% of the container */
   margin-bottom: -1vh; /* Adjust the margin as needed */
+  display: flex; /* Use flexbox to manage children */
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
 }
+
+.home-section .main-container .top-bubble > #graph-container {
+  width: 90%; /* Chart container will take up 90% of the parent's width */
+  height: 90%; /* Chart container will take up 90% of the parent's height */
+  margin: auto; /* Center the chart container if there's extra space */
+}
+
 .home-section .main-container .bottom-bubble {
     display: flex; /* Enable Flexbox */
     flex-direction: row;
