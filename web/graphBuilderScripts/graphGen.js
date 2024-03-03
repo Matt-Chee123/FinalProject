@@ -28,10 +28,6 @@ const russellGroupUniversities = new Set([
 document.getElementById('dataForm').onsubmit = function(event) {
   event.preventDefault(); // Prevent the default form submission behavior
 
-  // Your code to process and use the form data goes here.
-  // You can access form values using document.getElementById('elementId').value
-
-  // For example:
   var uofA = document.getElementById('UofA').value;
   var xAxis = document.getElementById('xAxis').value;
   var xProfOption = document.getElementById('xProfOptions').value;
@@ -40,6 +36,8 @@ document.getElementById('dataForm').onsubmit = function(event) {
   var xRadioCheck = document.querySelector('input[name="specialOptionGroupX"]:checked').value;
   var yRadioCheck = document.querySelector('input[name="specialOptionGroupY"]:checked').value;
 
+  console.log('X axis:', xAxis);
+    console.log('Y axis:', yAxis);
   fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/all?uofaName=${encodeURIComponent(uofA)}`)
   .then(response => response.json())
   .then(data => {
@@ -50,50 +48,69 @@ document.getElementById('dataForm').onsubmit = function(event) {
     else if (xRadioCheck == 'income') {
       var xAxisFilter = data.filter(item => item.IncomeSource === xAxis);
     }
+
     if (yRadioCheck == 'profile') {
       var yAxisFilter = data.filter(item => item.ProfileType === yAxis);
     } else if (yRadioCheck == 'income') {
         var yAxisFilter = data.filter(item => item.IncomeSource === yAxis);
     }
-    let combinedDataMap = new Map();
-    xAxisFilter.forEach(item => {
-      combinedDataMap.set(item.UniversityName, item);
-    });
+    console.log('X axis filter:', xAxisFilter);
+    console.log('Y axis filter:', yAxisFilter);
 
-    // Merge income data into the map
-    yAxisFilter.forEach(item => {
-      if (combinedDataMap.has(item.UniversityName)) {
-        // If the university already exists in the map, merge the data
-        Object.assign(combinedDataMap.get(item.UniversityName), item);
-      } else {
-        // If it doesn't exist, add it as a new entry
-        combinedDataMap.set(item.UniversityName, item);
-      }
-    });
-    console.log(combinedDataMap);
     function calculateTotalDoctoralDegrees(record) {
+
       let total = 0;
       for (let year = 2013; year <= 2019; year++) {
-        total += parseInt(record[`DoctoralDegrees${year}`] || 0, 10);
+        total += parseInt(record['DoctoralDegrees${year}'] || 0, 10);
       }
       return total;
     }
   // Extract the attributes to be plotted
     var xAttribute = xRadioCheck === 'profile' ? xProfOption : 'TotalIncome1320';
     var yAttribute = yRadioCheck === 'profile' ? yProfOption : 'TotalIncome1320'
+    console.log('X attribute:', xAttribute);
+    console.log('Y attribute:', yAttribute);
+    let chartData = [];
 
-    let combinedDataArray = Array.from(combinedDataMap.values());
+    xAxisFilter.forEach((item) => {
+      // Find the corresponding item in yAxisFilter by matching the UniversityName
+      const yItem = yAxisFilter.find(y => y.UniversityName === item.UniversityName);
+      if (yItem) {
+        // Initialize xValue and yValue
+        let xValue, yValue;
 
-    var chartData = combinedDataArray.map(item => {
-        // Determine the x and y values based on selected attributes
-      var xValue = xAttribute === 'totalDoctoralDegrees' ? calculateTotalDoctoralDegrees(item) : item[xAttribute];
-      var yValue = yAttribute === 'totalDoctoralDegrees' ? calculateTotalDoctoralDegrees(item) : item[yAttribute];
-      return {
-        x: item[xAttribute],
-        y: item[yAttribute],
-        name: item.UniversityName,
-      };
+        // Determine xValue based on xRadioCheck
+        if (xRadioCheck === 'profile') {
+          xValue = item[xAttribute]; // For 'profile', use the xProfOption value
+        } else { // 'income'
+          xValue = parseInt(item['TotalIncome1320'], 10); // Use the 'TotalIncome1320' value for 'income'
+        }
+
+        // Determine yValue based on yRadioCheck
+        if (yRadioCheck === 'profile') {
+          yValue = yItem[yAttribute]; // For 'profile', use the yProfOption value
+        } else { // 'income'
+          yValue = parseInt(yItem['TotalIncome1320'], 10); // Use the 'TotalIncome1320' value for 'income'
+        }
+
+        // Add the combined data to chartData
+        chartData.push({
+          x: xValue,
+          y: yValue,
+          name: item.UniversityName // Use the university name as the point name
+        });
+      }
     });
+    if (xAttribute === 'TotalIncome1320') {
+        xAttribute = xAxis;
+    }
+    if (yAttribute === 'TotalIncome1320') {
+        yAttribute = yAxis;
+    }
+
+  // Log chartData to verify
+    console.log('chartData:', chartData);
+
     Highcharts.chart('graph-container', {
         chart: {
           type: 'scatter',

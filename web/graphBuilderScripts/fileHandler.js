@@ -1,15 +1,15 @@
-function updateBubbleProfIncX(axis) {
+function updateBubbleProfIncX() {
   var selectedRadio = document.querySelector('input[name="specialOptionGroupX"]:checked');
   var UofA = document.getElementById('UofA');
-  var axisOptions = document.getElementById(axis);
+  var axisOptions = document.getElementById('xAxis');
   // Clear current options in bubble2
   axisOptions.innerHTML = '';
   // Determine the options based on bubble1's selection
   var optionsBasedOnSelected = []; // You would fill this array based on bubble1's value
   if(selectedRadio.value == 'profile') {
-    optionsBasedOnBubble1 = ['Overall', 'Impact', 'Outputs', 'Environment'];
+    optionsBasedOnSelected = ['Overall', 'Impact', 'Outputs', 'Environment'];
   } else if(UofA.value == 'Computer Science and Informatics') {
-    optionsBasedOnBubble1 = [
+    optionsBasedOnSelected = [
       'Total income',
       'BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh',
       'UK-based charities (open competitive process)',
@@ -27,7 +27,7 @@ function updateBubbleProfIncX(axis) {
       'Non-EU other'
     ];
   } else if(UofA.value == 'Clinical Medicine') {
-    optionsBasedOnBubble1 = [
+    optionsBasedOnSelected = [
       "BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh",
       "UK-based charities (open competitive process)",
       "UK-based charities (other)",
@@ -46,7 +46,7 @@ function updateBubbleProfIncX(axis) {
       "Total income"
     ];
   } else if(UofA.value == 'Law') {
-    optionsBasedOnBubble1 = [
+    optionsBasedOnSelected = [
       "BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh",
       "UK-based charities (open competitive process)",
       "UK-based charities (other)",
@@ -66,7 +66,7 @@ function updateBubbleProfIncX(axis) {
   }
 
   // Add new options to bubble2
-  optionsBasedOnBubble1.forEach(function(optionText) {
+  optionsBasedOnSelected.forEach(function(optionText) {
     var option = document.createElement('option');
     option.value = optionText;
     option.text = optionText;
@@ -74,18 +74,18 @@ function updateBubbleProfIncX(axis) {
   });
 }
 
-function updateBubbleProfIncY(axis) {
+function updateBubbleProfIncY() {
   var selectedRadio = document.querySelector('input[name="specialOptionGroupY"]:checked');
   var UofA = document.getElementById('UofA');
-  var axisOptions = document.getElementById(axis);
+  var axisOptions = document.getElementById('yAxis');
   // Clear current options in bubble2
   axisOptions.innerHTML = '';
   // Determine the options based on bubble1's selection
   var optionsBasedOnSelected = []; // You would fill this array based on bubble1's value
   if(selectedRadio.value == 'profile') {
-    optionsBasedOnBubble1 = ['Overall', 'Impact', 'Outputs', 'Environment'];
+    optionsBasedOnSelected = ['Overall', 'Impact', 'Outputs', 'Environment'];
   } else if(UofA.value == 'Computer Science and Informatics') {
-    optionsBasedOnBubble1 = [
+    optionsBasedOnSelected = [
       'Total income',
       'BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh',
       'UK-based charities (open competitive process)',
@@ -103,7 +103,7 @@ function updateBubbleProfIncY(axis) {
       'Non-EU other'
     ];
   } else if(UofA.value == 'Clinical Medicine') {
-    optionsBasedOnBubble1 = [
+    optionsBasedOnSelected = [
       "BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh",
       "UK-based charities (open competitive process)",
       "UK-based charities (other)",
@@ -122,7 +122,7 @@ function updateBubbleProfIncY(axis) {
       "Total income"
     ];
   } else if(UofA.value == 'Law') {
-    optionsBasedOnBubble1 = [
+    optionsBasedOnSelected = [
       "BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh",
       "UK-based charities (open competitive process)",
       "UK-based charities (other)",
@@ -142,7 +142,7 @@ function updateBubbleProfIncY(axis) {
   }
 
   // Add new options to bubble2
-  optionsBasedOnBubble1.forEach(function(optionText) {
+  optionsBasedOnSelected.forEach(function(optionText) {
     var option = document.createElement('option');
     option.value = optionText;
     option.text = optionText;
@@ -167,7 +167,6 @@ function updateProfileOptions(containerID,axis) {
   'OneStar',
   'Unclassified'
   ];
-  console.log(optionsProfile);
   if(profile.value == 'Environment') {
     optionsProfile = optionsProfile.concat(['Total Doctoral Degrees']);
   }
