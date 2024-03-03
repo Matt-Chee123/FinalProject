@@ -18,14 +18,53 @@ async function fetchAllUniversityNames() {
 
 // Get the search input field and the results dropdown
 const searchInput = document.getElementById("searchInstitution");
+const highlightInput = document.getElementById("uniToHighlight");
 const suggestionsContainer = document.getElementById("suggestions-container");
+const highlightSuggestionsContainer = document.getElementById("highlightSuggestionsContainer");
 
 // Event listener for input
 searchInput.addEventListener('input', function(event) {
     updateSearchResults(event.target.value);
 });
 
-// Function to update the search results based on the fetched university names
+// Correct the reference to the highlightSuggestionsContainer
+
+highlightInput.addEventListener('input', function(event) {
+    updateHighlightUniSearch(event.target.value);
+}); // Missing closing parenthesis fixed
+
+function updateHighlightUniSearch(highlightSearchTerm) {
+    if (highlightSearchTerm.length < 3) {
+        highlightSuggestionsContainer.style.display = 'none';
+        return;
+    }
+    console.log('highlightSearchTerm:', highlightSearchTerm);
+    // Filter matching university names based on the search term
+    const filteredResults = allUniversityNames
+        .filter(name => name && name.toLowerCase().includes(highlightSearchTerm.toLowerCase()))
+        .slice(0, 5);
+    console.log('filteredResults:', filteredResults);
+    highlightSuggestionsContainer.innerHTML = ''; // Clear previous suggestions
+
+    filteredResults.forEach(name => {
+        const div = document.createElement('div');
+        div.textContent = name;
+        div.className = '';
+        div.onclick = function() {
+            highlightInput.value = name; // Set the input's value to the selected name
+            highlightSuggestionsContainer.style.display = 'none'; // Optionally hide suggestions after selection
+        };
+        highlightSuggestionsContainer.appendChild(div);
+    });
+
+    if (filteredResults.length > 0) {
+        highlightSuggestionsContainer.style.display = 'block'; // Show the suggestions
+    } else {
+        highlightSuggestionsContainer.style.display = 'none'; // Hide the suggestions if no match
+    }
+}
+
+
 function updateSearchResults(searchTerm) {
     if (searchTerm.length < 3) {
         suggestionsContainer.style.display = 'none';

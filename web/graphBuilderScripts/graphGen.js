@@ -65,12 +65,22 @@ document.getElementById('dataForm').onsubmit = function(event) {
       }
       return total;
     }
+    function highlightUniversity(uniName) {
+      // Assuming chartData is already prepared and contains all universities
+      chartData = chartData.map(point => {
+        if (point.name.toLowerCase() === uniName.toLowerCase()) {
+          // Highlight this point, e.g., by changing its color or adding a marker
+          return { ...point, color: 'red' }; // Customize as needed
+        }
+        return point;
+      });
+    }
   // Extract the attributes to be plotted
     var xAttribute = xRadioCheck === 'profile' ? xProfOption : 'TotalIncome1320';
     var yAttribute = yRadioCheck === 'profile' ? yProfOption : 'TotalIncome1320'
-    console.log('X attribute:', xAttribute);
-    console.log('Y attribute:', yAttribute);
+
     let chartData = [];
+    var uniNameToHighlight = document.getElementById('uniToHighlight').value;
 
     xAxisFilter.forEach((item) => {
       // Find the corresponding item in yAxisFilter by matching the UniversityName
@@ -101,12 +111,24 @@ document.getElementById('dataForm').onsubmit = function(event) {
         });
       }
     });
+    const highlightRussell = document.getElementById('highlightRussellGroup').checked;
+
+  // Adjust the chartData to include a marker or color change for Russell Group universities
+    chartData = chartData.map(point => {
+      if (russellGroupUniversities.has(point.name)) {
+      // Example of highlighting: change the marker symbol or color
+      // This is just one way to highlight; adjust according to your needs
+        return highlightRussell ? { ...point, color: 'green' } : point;
+      }
+      return point;
+  });
     if (xAttribute === 'TotalIncome1320') {
         xAttribute = xAxis;
     }
     if (yAttribute === 'TotalIncome1320') {
         yAttribute = yAxis;
     }
+    highlightUniversity(uniNameToHighlight);
 
   // Log chartData to verify
     console.log('chartData:', chartData);
