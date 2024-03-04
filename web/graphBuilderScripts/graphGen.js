@@ -75,9 +75,10 @@ document.getElementById('dataForm').onsubmit = function(event) {
         return point;
       });
     }
+    console.log(xProfOption);
   // Extract the attributes to be plotted
-    var xAttribute = xRadioCheck === 'profile' ? xProfOption : 'TotalIncome1320';
-    var yAttribute = yRadioCheck === 'profile' ? yProfOption : 'TotalIncome1320'
+    var xAttribute = xProfOption;
+    var yAttribute = yProfOption;
 
     let chartData = [];
     var uniNameToHighlight = document.getElementById('uniToHighlight').value;
@@ -93,14 +94,14 @@ document.getElementById('dataForm').onsubmit = function(event) {
         if (xRadioCheck === 'profile') {
           xValue = item[xAttribute]; // For 'profile', use the xProfOption value
         } else { // 'income'
-          xValue = parseInt(item['TotalIncome1320'], 10); // Use the 'TotalIncome1320' value for 'income'
+          xValue = parseInt(item[xAttribute], 10); // Use the 'TotalIncome1320' value for 'income'
         }
 
         // Determine yValue based on yRadioCheck
         if (yRadioCheck === 'profile') {
           yValue = yItem[yAttribute]; // For 'profile', use the yProfOption value
         } else { // 'income'
-          yValue = parseInt(yItem['TotalIncome1320'], 10); // Use the 'TotalIncome1320' value for 'income'
+          yValue = parseInt(yItem[yAttribute], 10); // Use the 'TotalIncome1320' value for 'income'
         }
 
         // Add the combined data to chartData
@@ -113,6 +114,16 @@ document.getElementById('dataForm').onsubmit = function(event) {
     });
     const highlightRussell = document.getElementById('highlightRussellGroup').checked;
 
+    let xAxisMax = null;
+    let yAxisMax = null;
+
+    if (xRadioCheck === 'profile' && xProfOption === 'AverageScore') {
+      xAxisMax = 4; // Set the max limit for the xAxis if the condition is met
+    }
+
+    if (yRadioCheck === 'profile' && yProfOption === 'AverageScore') {
+      yAxisMax = 4; // Set the max limit for the yAxis if the condition is met
+    }
   // Adjust the chartData to include a marker or color change for Russell Group universities
     chartData = chartData.map(point => {
       if (russellGroupUniversities.has(point.name)) {
@@ -122,12 +133,6 @@ document.getElementById('dataForm').onsubmit = function(event) {
       }
       return point;
   });
-    if (xAttribute === 'TotalIncome1320') {
-        xAttribute = xAxis;
-    }
-    if (yAttribute === 'TotalIncome1320') {
-        yAttribute = yAxis;
-    }
     highlightUniversity(uniNameToHighlight);
 
   // Log chartData to verify
@@ -142,7 +147,6 @@ document.getElementById('dataForm').onsubmit = function(event) {
         credits: {
           enabled: false
         },
-
         legend: {
           enabled: false
         },
@@ -151,13 +155,15 @@ document.getElementById('dataForm').onsubmit = function(event) {
         },
         xAxis: {
           title: {
-            text: xAttribute
-          }
+            text: xAxis + ': ' + xAttribute,
+          },
+          max: xAxisMax // Dynamically set the max value for the xAxis
         },
         yAxis: {
           title: {
-            text: yAttribute
-          }
+            text: yAxis + ': ' + yAttribute,
+          },
+          max: yAxisMax // Dynamically set the max value for the yAxis
         },
         tooltip: {
           formatter: function() {
@@ -169,12 +175,11 @@ document.getElementById('dataForm').onsubmit = function(event) {
         series: [{
           name: 'Data',
           data: chartData.map(point => {
-            // Check if this point should be highlighted
             return point;
           })
         }]
-      });
-  })
+    });
+})
   .catch(error => {
     console.error('Error fetching data:', error);
   });

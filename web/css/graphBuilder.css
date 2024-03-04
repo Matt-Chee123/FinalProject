@@ -321,8 +321,9 @@
     display: flex; /* Enable Flexbox */
     flex-direction: row;
     flex-grow: 1; /* Takes up 2 parts of the available space */
-    max-height: 100%; /* Limits the height to 30% of the container */
+    max-height: 30vh; /* Limits the height to 30% of the container */
     margin-left: 2vh;
+    justify-content: flex-start; /* Align children to the start vertically */
     }
 
 .home-section .main-container .bottom-bubble > :first-child {
@@ -330,6 +331,141 @@
 }
 
 
+.dropdown-container {
+  display: flex;
+  align-items: center; /* This will vertically center the items in the container */
+  gap: 10px; /* Adjust the gap as needed */
+  width: 100%; /* Take full width to utilize the space */
+  justify-content: center;
+  height: 50%;
+}
+
+.text {
+  margin: 0; /* Remove any default margins if present */
+  font-size: 16px;
+  font-style: normal;
+  /* any other style you have for .text */
+}
+
+/* Adjust the select element if necessary */
+.dropdown-container select {
+  flex-grow: 1; /* Allow the dropdown to take up available space */
+  /* any other style you have for select */
+}
+
+.bottom-bubble.component-bubble {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* This will center the content horizontally */
+  justify-content: flex-start; /* Aligns children to the start of the main axis (top of the container) */
+  flex-wrap: wrap; /* Allows children to wrap onto the next line */
+  gap: 10px; /* Provides space between items */
+}
+
+.step-label {
+  align-self: flex-start; /* This will align the step label to the start of the container (left) */
+  width: 100%; /* This ensures that the label spans the full width of the container */
+  padding: 10px 0; /* Provides some spacing */
+  font-weight: bold;
+}
+
+/* Other children that should be centered */
+.bottom-bubble.component-bubble > *:not(.step-label) {
+  align-self: center; /* Center these items */
+  flex: 1 0 auto; /* Allow items to grow and no shrink */
+  text-align: center; /* Center-align the text for each item */
+  display: flex; /* Apply flex to align inner content, if needed */
+  align-items: center; /* Align inner content of items vertically */
+  justify-content: center; /* Align inner content of items horizontally */
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column; /* Stack the children vertically */
+  flex-grow: 1; /* Allow the group to take up available space */
+  margin-right: 10px; /* Add some space before the submit button */
+}
+
+.checkbox-group {
+  display: flex;
+  justify-content: space-between; /* Spreads the label and the checkbox apart */
+  align-items: center; /* Aligns them vertically */
+  margin-bottom: 5px; /* Space below the checkbox group */
+}
+
+.checkbox-group label {
+  margin-right: 10px; /* Adds space between the label and the checkbox */
+}
+
+.input-group label,
+.input-group input[type="text"] {
+  margin-bottom: 5px; /* Space between the label and text input */
+}
+
+#submitParams {
+  white-space: nowrap; /* Prevent the text inside the button from wrapping */
+  /* Additional styling for the submit button as needed */
+}
+
+#highlightSuggestionsContainer {
+    position: absolute; /* Position the suggestions container absolutely to the input field */
+    background: #FFF; /* Background color for the suggestions */
+    border: 1px solid #ccc; /* Border to separate the suggestions from the rest of the content */
+    border-top: none; /* No border at the top edge */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Box shadow for a "floating" effect */
+    z-index: 1000; /* Ensure it's above other elements */
+    margin-top: 20px; /* Adjust based on the specific layout to connect with the input field */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    bottom: 20vh;
+}
+
+
+
+#highlightSuggestionsContainer div {
+    padding: 8px 10px; /* Padding inside each suggestion for spacing */
+    cursor: pointer; /* Change cursor to indicate clickable items */
+    border-bottom: 1px solid #eee; /* Separate individual suggestions */
+}
+
+#highlightSuggestionsContainer div:last-child {
+    border-bottom: none; /* Remove bottom border for the last suggestion */
+}
+
+#highlightSuggestionsContainer div:hover {
+    background-color: #f2f2f2; /* Darken background on hover */
+}
+
+.radio-buttons-container {
+  display: flex;
+  width: 100%; /* Take full width */
+  gap: 10px; /* Adjust the gap as needed */
+}
+
+.axis-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust the gap as needed */
+  width: 100%; /* Take full width */`
+}
+
+.prof-options-container {
+  display: flex;
+}
+
+/* Additional CSS to make sure labels align properly */
+label {
+  margin-right: 5px; /* Adds space between the radio button and its label */
+}
+
+/* Style the label that changes based on the radio button */
+#xAxisLabel {
+  min-width: 60px; /* Ensure the label does not jump when changing text */
+}
+
+/* Adjust the select element if necessary */
+select {
+  flex-grow: 1; /* Allow the dropdown to take up available space */
+}
 #suggestions-container {
     position: absolute;
     background-color: #1d1b31; /* Changed to match the input background */

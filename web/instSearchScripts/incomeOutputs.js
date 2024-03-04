@@ -68,7 +68,7 @@ function processAndDisplayOutputsIncome(data, specificUniRecord) {
         },
         xAxis: {
             title: {
-                enabled: false // This will remove the label
+                text: 'Total Income (£)'
             },
             startOnTick: true,
             endOnTick: true,
