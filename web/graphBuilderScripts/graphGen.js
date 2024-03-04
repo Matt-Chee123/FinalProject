@@ -46,7 +46,6 @@ document.getElementById('dataForm').onsubmit = function(event) {
   event.preventDefault(); // Prevent the default form submission behavior
   if (window.myChart) {
     window.myChart.destroy(); // If using Highcharts, call the `destroy` method
-    console.log('Chart destroyed');
   }
 
   var errorMessageElement = ensureErrorMessageElement();
