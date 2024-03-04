@@ -113,6 +113,16 @@ document.getElementById('dataForm').onsubmit = function(event) {
     });
     const highlightRussell = document.getElementById('highlightRussellGroup').checked;
 
+    let xAxisMax = null;
+    let yAxisMax = null;
+
+    if (xRadioCheck === 'profile' && xProfOption === 'AverageScore') {
+      xAxisMax = 4; // Set the max limit for the xAxis if the condition is met
+    }
+
+    if (yRadioCheck === 'profile' && yProfOption === 'AverageScore') {
+      yAxisMax = 4; // Set the max limit for the yAxis if the condition is met
+    }
   // Adjust the chartData to include a marker or color change for Russell Group universities
     chartData = chartData.map(point => {
       if (russellGroupUniversities.has(point.name)) {
@@ -142,7 +152,6 @@ document.getElementById('dataForm').onsubmit = function(event) {
         credits: {
           enabled: false
         },
-
         legend: {
           enabled: false
         },
@@ -152,12 +161,14 @@ document.getElementById('dataForm').onsubmit = function(event) {
         xAxis: {
           title: {
             text: xAttribute
-          }
+          },
+          max: xAxisMax // Dynamically set the max value for the xAxis
         },
         yAxis: {
           title: {
             text: yAttribute
-          }
+          },
+          max: yAxisMax // Dynamically set the max value for the yAxis
         },
         tooltip: {
           formatter: function() {
@@ -169,12 +180,11 @@ document.getElementById('dataForm').onsubmit = function(event) {
         series: [{
           name: 'Data',
           data: chartData.map(point => {
-            // Check if this point should be highlighted
             return point;
           })
         }]
-      });
-  })
+    });
+})
   .catch(error => {
     console.error('Error fetching data:', error);
   });
