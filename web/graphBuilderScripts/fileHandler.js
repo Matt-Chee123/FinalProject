@@ -186,13 +186,28 @@ function updateBubbleProfIncY() {
 
 function updateProfileOptions(containerID, axis) {
   var profile = document.getElementById(axis);
-
   var container = document.getElementById(containerID);
+
+  // Identify or create the label element for the dropdown
+  var labelId = containerID + 'Label'; // Construct a label ID based on the container ID
+  var label = document.getElementById(labelId);
+
+  // If the label doesn't exist, create it
+  if (!label) {
+    label = document.createElement('label');
+    label.setAttribute('id', labelId);
+    label.setAttribute('for', containerID); // Ensure the 'for' attribute matches the container's ID for accessibility
+    // Place the label before the container or wherever it fits best in your layout
+    container.parentNode.insertBefore(label, container);
+  }
 
   // Check if a valid profile or income source is selected
   if (profile.value) {
     // Make the container visible if a valid option is selected
     container.style.display = 'block';
+    // Update the label text to "Attribute to Plot:"
+    label.textContent = 'Plot Attribute:';
+    label.style.display = 'block'; // Ensure the label is visible
 
     // Clear current options in the container
     container.innerHTML = '';
@@ -216,19 +231,16 @@ function updateProfileOptions(containerID, axis) {
       'AverageIncome1520',
       'Income201314',
       'Income201415',
-    ]
+    ];
 
-    // Example condition to add additional options for a specific profile
-    if (profile.value == 'Environment') {
-      optionsProfile = optionsProfile.concat(['Total Doctoral Degrees']);
-    }
-
-    if (profile.value == 'Overall' || profile.value == 'Outputs' || profile.value == 'Impact' || profile.value == 'Environment') {
-      var selectedOptions = optionsProfile;
+    var selectedOptions;
+    if (['Overall', 'Outputs', 'Impact', 'Environment'].includes(profile.value)) {
+      selectedOptions = optionsProfile;
     } else {
-      var selectedOptions = optionsIncome;
+      selectedOptions = optionsIncome;
     }
-    // Add a default "Please select" option or similar as the first option
+
+    // Add a default "Please select" option
     var defaultOption = document.createElement('option');
     defaultOption.value = "";
     defaultOption.textContent = "Please select...";
@@ -244,8 +256,8 @@ function updateProfileOptions(containerID, axis) {
       container.appendChild(option);
     });
   } else {
-    // Hide the container if no valid profile or income source is selected
+    // Hide the container and the label if no valid profile or income source is selected
     container.style.display = 'none';
+    label.style.display = 'none'; // Hide the label as well
   }
 }
-
