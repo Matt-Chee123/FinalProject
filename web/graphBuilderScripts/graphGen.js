@@ -69,12 +69,16 @@ document.getElementById('dataForm').onsubmit = function(event) {
       // Assuming chartData is already prepared and contains all universities
       chartData = chartData.map(point => {
         if (point.name.toLowerCase() === uniName.toLowerCase()) {
-          // Highlight this point, e.g., by changing its color or adding a marker
-          return { ...point, color: 'red' }; // Customize as needed
+          // Highlight this point by changing its color and setting its zIndex
+          // Setting color to 'red' and zIndex to a high value to ensure it appears in front
+          return { ...point, color: 'red', zIndex: 100 }; // Adjust zIndex value as needed
         }
-        return point;
+        // Optionally, adjust other points to ensure they do not overlap the highlighted one
+        // by setting their zIndex to a lower value than the highlighted point's zIndex.
+        return point; // Ensure other points have a lower zIndex
       });
     }
+
     console.log(xProfOption);
   // Extract the attributes to be plotted
     var xAttribute = xProfOption;
@@ -129,11 +133,12 @@ document.getElementById('dataForm').onsubmit = function(event) {
       if (russellGroupUniversities.has(point.name)) {
       // Example of highlighting: change the marker symbol or color
       // This is just one way to highlight; adjust according to your needs
-        return highlightRussell ? { ...point, color: 'green' } : point;
+        return highlightRussell ? { ...point, color: 'green', zIndex: 10 } : point;
       }
       return point;
   });
     highlightUniversity(uniNameToHighlight);
+    chartData.sort((a, b) => (a.zIndex || 0) - (b.zIndex || 0));
 
   // Log chartData to verify
     console.log('chartData:', chartData);
