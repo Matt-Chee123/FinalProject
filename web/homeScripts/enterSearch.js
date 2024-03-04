@@ -82,7 +82,7 @@ function updateSearchResults(searchTerm) {
     filteredResults.forEach(name => {
         const div = document.createElement('div');
         div.textContent = name;
-        div.className = 'suggestion';
+        div.className = 'highlight-suggestion';
         div.onclick = function() {
             // Redirect to uniAnalytics.html with the selected university name
             window.location.href = `uniAnalytics.html?query=${encodeURIComponent(name)}`;
@@ -92,8 +92,12 @@ function updateSearchResults(searchTerm) {
 
 
     if (filteredResults.length > 0) {
-        suggestionsContainer.style.display = 'block'; // Show the suggestions
+        highlightSuggestionsContainer.style.display = 'block'; // Show the suggestions
+        // Now the container has a height, position it above the input field
+        const height = highlightSuggestionsContainer.offsetHeight;
+        console.log('height:', height);
+        highlightSuggestionsContainer.style.top = `-${height}px`; // Shift it up by its own height
     } else {
-        suggestionsContainer.style.display = 'none'; // Hide the suggestions if no match
+        highlightSuggestionsContainer.style.display = 'none'; // Hide the suggestions if no match
     }
 }
