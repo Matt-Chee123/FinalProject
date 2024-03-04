@@ -27,15 +27,34 @@ const russellGroupUniversities = new Set([
 
 document.getElementById('dataForm').onsubmit = function(event) {
   event.preventDefault(); // Prevent the default form submission behavior
+  document.getElementById('error-message').style.display = 'none';
+  document.getElementById('error-message').textContent = '';
 
   var uofA = document.getElementById('UofA').value;
   var xAxis = document.getElementById('xAxis').value;
   var xProfOption = document.getElementById('xProfOptions').value;
   var yAxis = document.getElementById('yAxis').value;
   var yProfOption = document.getElementById('yProfOptions').value;
-  var xRadioCheck = document.querySelector('input[name="specialOptionGroupX"]:checked').value;
-  var yRadioCheck = document.querySelector('input[name="specialOptionGroupY"]:checked').value;
+  var xRadioCheckElement = document.querySelector('input[name="specialOptionGroupX"]:checked');
+  var yRadioCheckElement = document.querySelector('input[name="specialOptionGroupY"]:checked');
+  var xRadioCheck = xRadioCheckElement ? xRadioCheckElement.value : '';
+  var yRadioCheck = yRadioCheckElement ? yRadioCheckElement.value : '';
 
+  var errorMessage = '';
+  if (!uofA) {
+    errorMessage = 'Please select a Unit of Assessment.';
+  } else if (!xAxis || !xProfOption) {
+    errorMessage = 'Please complete the X axis selections.';
+  } else if (!yAxis || !yProfOption) {
+    errorMessage = 'Please complete the Y axis selections.';
+  }
+
+  // If there's an error message, display it and exit the function
+  if (errorMessage) {
+    document.getElementById('error-message').textContent = errorMessage;
+    document.getElementById('error-message').style.display = 'block'; // Show the error message
+    return; // Exit the function to prevent further execution
+  }
   console.log('X axis:', xAxis);
     console.log('Y axis:', yAxis);
   fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/all?uofaName=${encodeURIComponent(uofA)}`)
