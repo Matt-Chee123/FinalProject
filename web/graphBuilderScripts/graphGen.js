@@ -25,10 +25,33 @@ const russellGroupUniversities = new Set([
   "University of York"
 ]);
 
+function ensureErrorMessageElement() {
+  var graphContainer = document.getElementById('graph-container');
+  var errorMessageElement = document.getElementById('error-message');
+
+  // If the error message element does not exist, create and append it
+  if (!errorMessageElement) {
+    errorMessageElement = document.createElement('div');
+    errorMessageElement.setAttribute('id', 'error-message');
+    errorMessageElement.setAttribute('class', 'hidden');
+    errorMessageElement.style.color = 'red';
+    errorMessageElement.style.display = 'none';
+    graphContainer.appendChild(errorMessageElement);
+  }
+
+  return errorMessageElement;
+}
+
 document.getElementById('dataForm').onsubmit = function(event) {
   event.preventDefault(); // Prevent the default form submission behavior
-  document.getElementById('error-message').style.display = 'none';
-  document.getElementById('error-message').textContent = '';
+  if (window.myChart) {
+    window.myChart.destroy(); // If using Highcharts, call the `destroy` method
+    console.log('Chart destroyed');
+  }
+
+  var errorMessageElement = ensureErrorMessageElement();
+  errorMessageElement.style.display = 'none';
+  errorMessageElement.textContent = '';
 
   var uofA = document.getElementById('UofA').value;
   var xAxis = document.getElementById('xAxis').value;
@@ -55,8 +78,7 @@ document.getElementById('dataForm').onsubmit = function(event) {
     document.getElementById('error-message').style.display = 'block'; // Show the error message
     return; // Exit the function to prevent further execution
   }
-  console.log('X axis:', xAxis);
-    console.log('Y axis:', yAxis);
+
   fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/all?uofaName=${encodeURIComponent(uofA)}`)
   .then(response => response.json())
   .then(data => {
@@ -98,7 +120,6 @@ document.getElementById('dataForm').onsubmit = function(event) {
       });
     }
 
-    console.log(xProfOption);
   // Extract the attributes to be plotted
     var xAttribute = xProfOption;
     var yAttribute = yProfOption;
@@ -162,7 +183,7 @@ document.getElementById('dataForm').onsubmit = function(event) {
   // Log chartData to verify
     console.log('chartData:', chartData);
 
-    Highcharts.chart('graph-container', {
+    window.myChart = Highcharts.chart('graph-container', {
         chart: {
           type: 'scatter',
           zoomType: 'xy',
