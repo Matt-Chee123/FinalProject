@@ -322,6 +322,26 @@
   width: 100%; /* Full width of the bubble container */
   border: none; /* Remove the border */
 }
+.uni-record {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  margin-bottom: 5px; /* Adds some space between records */
+}
+
+.uni-name {
+  flex: 0 0 auto; /* Do not grow or shrink */
+  width: 40vh; /* Adjust the width as needed to fit the longest university name */
+  margin-left: 2vw; /* Space between the name and score */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* This will add "..." at the end if the name is too long */
+}
+
+.uni-score {
+  flex: 0 0 auto; /* Do not grow or shrink */
+}
+
+
 .main-container .left-components {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Two columns */

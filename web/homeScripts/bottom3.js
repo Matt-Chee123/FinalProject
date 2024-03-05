@@ -19,9 +19,11 @@ function displayBottomThreeRecords(data) {
   let content = '<h3>Bottom 3 Universities</h3><ul>';
   data.forEach(item => {
     const formattedAverageScore = Number(item.AverageScore).toFixed(2);
-    content += `<li>${item.UniversityName} - ${formattedAverageScore}</li>`;
+    content += `
+      <div class="uni-record">
+        <span class="uni-name">${item.UniversityName}: ${formattedAverageScore}</span>
+      </div>`;
   });
-  content += '</ul>';
   bottomThreeContainer.innerHTML = content;
 }
 

@@ -31,10 +31,10 @@ function displayOutputAverages(data) {
   });
 
   // Calculate averages
-  const avgFourStar = Number((sumFourStar / data.length).toFixed(2));
-  const avgThreeStar = Number((sumThreeStar / data.length).toFixed(2));
-  const avgTwoStar = Number((sumTwoStar / data.length).toFixed(2));
-  const avgOneStar = Number((sumOneStar / data.length).toFixed(2));
+  const avgFourStar = Number((sumFourStar / data.length).toFixed(1));
+  const avgThreeStar = Number((sumThreeStar / data.length).toFixed(1));
+  const avgTwoStar = Number((sumTwoStar / data.length).toFixed(1));
+  const avgOneStar = Number((sumOneStar / data.length).toFixed(1));
 
   // Add averages to the list
   content += '<h3>National Output Profile</h3>';

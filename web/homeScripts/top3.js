@@ -16,14 +16,18 @@ function fetchTopThree(uofaName = 'Computer Science and Informatics') {
 
 function displayTopThreeRecords(data) {
   const topThreeContainer = document.getElementById('top-three-records');
-  let content = '<h3>Top 3 Universities</h3><ul>';
+  let content = '<h3>Top 3 Universities</h3>';
   data.forEach(item => {
     const formattedAverageScore = Number(item.AverageScore).toFixed(2);
-    content += `<li>${item.UniversityName} - ${formattedAverageScore}</li>`;
+    content += `
+      <div class="uni-record">
+        <span class="uni-name">${item.UniversityName}: ${formattedAverageScore}</span>
+      </div>`;
   });
-  content += '</ul>';
   topThreeContainer.innerHTML = content;
 }
+
+
 
 
 

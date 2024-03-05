@@ -115,7 +115,14 @@ function displayTopFourSources(data) {
       }
     },
     tooltip: {
-      valuePrefix: '£'
+      formatter: function() {
+        // Access the name of the income source from the point's category (x-axis category)
+        const incomeSourceName = this.point.category;
+        // Format the income value with Highcharts' numberFormat function, including thousands separator
+        const incomeValueFormatted = Highcharts.numberFormat(this.y, 0, '.', ',');
+        // Construct the tooltip content, using <b> tags for bold text and including "Income:" text
+        return '<b>' + incomeSourceName + '</b><br/>Income: £' + incomeValueFormatted;
+      }
     },
     plotOptions: {
       column: {
