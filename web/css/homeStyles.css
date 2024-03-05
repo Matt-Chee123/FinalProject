@@ -368,6 +368,14 @@
     }
 
 
+.main-container .component-bubble:nth-child(3),
+.main-container .component-bubble:nth-child(4) {
+  margin-bottom: 0; /* Remove margin from the last two bubbles *//* Adjust the minimum height as needed */
+  max-height: 35vh;
+  min-height: 28vh;
+    }
+
+
 #suggestions-container {
     position: absolute;
     background-color: #1d1b31; /* Changed to match the input background */
