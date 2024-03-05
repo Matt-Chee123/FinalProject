@@ -412,11 +412,12 @@
     background: #FFF; /* Background color for the suggestions */
     border: 1px solid #ccc; /* Border to separate the suggestions from the rest of the content */
     border-top: none; /* No border at the top edge */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Box shadow for a "floating" effect */
     z-index: 1000; /* Ensure it's above other elements */
     margin-top: 20px; /* Adjust based on the specific layout to connect with the input field */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
     bottom: 20vh;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Soft shadow for the bubble effect */
 }
 
 
@@ -433,6 +434,7 @@
 
 #highlightSuggestionsContainer div:hover {
     background-color: #f2f2f2; /* Darken background on hover */
+    border-radius : 15px; /* Rounded corners */
 }
 
 .radio-buttons-container {

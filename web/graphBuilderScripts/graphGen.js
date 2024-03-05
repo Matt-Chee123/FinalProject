@@ -25,19 +25,59 @@ const russellGroupUniversities = new Set([
   "University of York"
 ]);
 
+function ensureErrorMessageElement() {
+  var graphContainer = document.getElementById('graph-container');
+  var errorMessageElement = document.getElementById('error-message');
+
+  // If the error message element does not exist, create and append it
+  if (!errorMessageElement) {
+    errorMessageElement = document.createElement('div');
+    errorMessageElement.setAttribute('id', 'error-message');
+    errorMessageElement.setAttribute('class', 'hidden');
+    errorMessageElement.style.color = 'red';
+    errorMessageElement.style.display = 'none';
+    graphContainer.appendChild(errorMessageElement);
+  }
+
+  return errorMessageElement;
+}
+
 document.getElementById('dataForm').onsubmit = function(event) {
   event.preventDefault(); // Prevent the default form submission behavior
+  if (window.myChart) {
+    window.myChart.destroy(); // If using Highcharts, call the `destroy` method
+  }
+
+  var errorMessageElement = ensureErrorMessageElement();
+  errorMessageElement.style.display = 'none';
+  errorMessageElement.textContent = '';
 
   var uofA = document.getElementById('UofA').value;
   var xAxis = document.getElementById('xAxis').value;
   var xProfOption = document.getElementById('xProfOptions').value;
   var yAxis = document.getElementById('yAxis').value;
   var yProfOption = document.getElementById('yProfOptions').value;
-  var xRadioCheck = document.querySelector('input[name="specialOptionGroupX"]:checked').value;
-  var yRadioCheck = document.querySelector('input[name="specialOptionGroupY"]:checked').value;
+  var xRadioCheckElement = document.querySelector('input[name="specialOptionGroupX"]:checked');
+  var yRadioCheckElement = document.querySelector('input[name="specialOptionGroupY"]:checked');
+  var xRadioCheck = xRadioCheckElement ? xRadioCheckElement.value : '';
+  var yRadioCheck = yRadioCheckElement ? yRadioCheckElement.value : '';
 
-  console.log('X axis:', xAxis);
-    console.log('Y axis:', yAxis);
+  var errorMessage = '';
+  if (!uofA) {
+    errorMessage = 'Please select a Unit of Assessment.';
+  } else if (!xAxis || !xProfOption) {
+    errorMessage = 'Please complete the X axis selections.';
+  } else if (!yAxis || !yProfOption) {
+    errorMessage = 'Please complete the Y axis selections.';
+  }
+
+  // If there's an error message, display it and exit the function
+  if (errorMessage) {
+    document.getElementById('error-message').textContent = errorMessage;
+    document.getElementById('error-message').style.display = 'block'; // Show the error message
+    return; // Exit the function to prevent further execution
+  }
+
   fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/all?uofaName=${encodeURIComponent(uofA)}`)
   .then(response => response.json())
   .then(data => {
@@ -79,7 +119,6 @@ document.getElementById('dataForm').onsubmit = function(event) {
       });
     }
 
-    console.log(xProfOption);
   // Extract the attributes to be plotted
     var xAttribute = xProfOption;
     var yAttribute = yProfOption;
@@ -143,7 +182,7 @@ document.getElementById('dataForm').onsubmit = function(event) {
   // Log chartData to verify
     console.log('chartData:', chartData);
 
-    Highcharts.chart('graph-container', {
+    window.myChart = Highcharts.chart('graph-container', {
         chart: {
           type: 'scatter',
           zoomType: 'xy',

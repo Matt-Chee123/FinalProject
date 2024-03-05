@@ -61,7 +61,10 @@
     <span class="text" id="search-title">Graph Builder</span>
   </div>
   <div class="main-container">
-    <div class="component-bubble top-bubble" id="graph-container"></div>
+    <div class="component-bubble top-bubble" id="graph-container">
+      <div id="error-message" class="hidden" style="color: red; display: none;">
+      </div>
+    </div>
     <div class="bottom-bubble">
       <form id="dataForm" class="bottom-bubble">
       <div class="bottom-bubble component-bubble">
@@ -140,7 +143,7 @@
           <input type="checkbox" id="highlightRussellGroup" name="highlightRussellGroup">
         </div>
           <label for="uniToHighlight">Highlight Specific Uni:</label>
-          <input type="text" id="uniToHighlight" name="uniToHighlight" value="">
+          <input type="text" id="uniToHighlight" name="uniToHighlight" placeholder="Enter Name" value="">
           <div id="highlightSuggestionsContainer" style="display:none;"></div>
         </div>
         <input type="submit" value="Create Graph" id="submitParams">
