@@ -341,6 +341,22 @@
   flex: 0 0 auto; /* Do not grow or shrink */
 }
 
+.output-profile {
+  text-align: center;  /* Center the content */
+}
+
+.output-title {
+  margin-bottom: 4vh;  /* Adjust the space between the title and the list */
+  margin-top: -6vh;
+}
+
+ul {
+  list-style-type: none;  /* Remove bullet points */
+  padding: 0;  /* Remove padding */
+  text-align: left;  /* Align text to the left */
+  display: inline-block;  /* Align the block of text to the center of the container */
+  margin: 0 auto;  /* Center the block */
+}
 
 .main-container .left-components {
   display: grid;

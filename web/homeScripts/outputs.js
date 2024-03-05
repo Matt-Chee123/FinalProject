@@ -17,7 +17,6 @@ function fetchOutputsData(uofaName = 'Computer Science and Informatics') {
 
 function displayOutputAverages(data) {
   const OutputsContainer = document.getElementById('outputs-records');
-  let content = '<ul>';
 
   // Initialize sums
   let sumFourStar = 0, sumThreeStar = 0, sumTwoStar = 0, sumOneStar = 0;
@@ -37,12 +36,12 @@ function displayOutputAverages(data) {
   const avgOneStar = Number((sumOneStar / data.length).toFixed(1));
 
   // Add averages to the list
-  content += '<h3>National Output Profile</h3>';
-  content += `<ul>World Leading: ${avgFourStar}%</ul>`;
-  content += `<ul>Internationally Excellent: ${avgThreeStar}%</ul>`;
-  content += `<ul>Internationally Recognized: ${avgTwoStar}%</ul>`;
-  content += `<ul>Nationally Recognized: ${avgOneStar}%</ul>`;
-
-  content += '</ul>';
+  let content = '<div class="output-profile">';  // Start a wrapper div for styling
+  content += '<h3 class="output-title">National Output Profile</h3>';  // Apply a class for the title
+  content += `<ul><li>World Leading: ${avgFourStar}%</li>`;  // Use list items for each line
+  content += `<li>Internationally Excellent: ${avgThreeStar}%</li>`;
+  content += `<li>Internationally Recognized: ${avgTwoStar}%</li>`;
+  content += `<li>Nationally Recognized: ${avgOneStar}%</li></ul>`;
+  content += '</div>';  // Close the wrapper div
   OutputsContainer.innerHTML = content;
 }
