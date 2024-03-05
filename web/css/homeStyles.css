@@ -341,16 +341,16 @@
   flex: 0 0 auto; /* Do not grow or shrink */
 }
 
-.output-profile {
+.main-container .component-bubble .output-profile {
   text-align: center;  /* Center the content */
 }
 
-.output-title {
+.main-container .component-bubble .output-title {
   margin-bottom: 4vh;  /* Adjust the space between the title and the list */
   margin-top: -6vh;
 }
 
-ul {
+.main-container .component-bubble ul {
   list-style-type: none;  /* Remove bullet points */
   padding: 0;  /* Remove padding */
   text-align: left;  /* Align text to the left */
@@ -410,7 +410,6 @@ ul {
   max-height: 35vh;
   min-height: 28vh;
     }
-
 
 #suggestions-container {
     position: absolute;

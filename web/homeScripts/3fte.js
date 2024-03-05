@@ -40,7 +40,7 @@ function displayThreeFte(data) {
       },
       tooltip: {
           formatter: function () {
-            return `<b>${this.point.name}</b><br>FTE of Submitted Staff: ${this.y.toFixed(1)}<br>Percentage of Eligible Staff: ${this.point.percEligible.toFixed(1)}%`;
+            return `<b>${this.point.name}</b><br>FTE of Submitted Staff: ${this.y.toFixed(1)}<br>Percentage of Eligible Staff: ${this.point.percEligible.toFixed(0)}%`;
           }
       },
       pane: {

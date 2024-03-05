@@ -31,10 +31,10 @@ function calculateNationalAverageScore(data, profileType) {
 }
 
 function displayNationalAverageScore(data) {
-  const averageOverallScore = Number(calculateNationalAverageScore(data, 'Overall').toFixed(2));
-  const averageOutputsScore = Number(calculateNationalAverageScore(data, 'Outputs').toFixed(2));
-  const averageImpactScore = Number(calculateNationalAverageScore(data, 'Impact').toFixed(2));
-  const averageEnvironmentScore = Number(calculateNationalAverageScore(data, 'Environment').toFixed(2));
+  const averageOverallScore = Number(calculateNationalAverageScore(data, 'Overall'));
+  const averageOutputsScore = Number(calculateNationalAverageScore(data, 'Outputs'));
+  const averageImpactScore = Number(calculateNationalAverageScore(data, 'Impact'));
+  const averageEnvironmentScore = Number(calculateNationalAverageScore(data, 'Environment'));
 
   Highcharts.chart('bullet-graph-container', {
     chart: {
@@ -85,7 +85,7 @@ function displayNationalAverageScore(data) {
       ]
     }],
     tooltip: {
-      pointFormat: '<b>{point.y}</b> (with target at {point.target})'
+      pointFormat: '<b>{point.y:.2f}</b> (with target at {point.target})'
     }
   });
 }
