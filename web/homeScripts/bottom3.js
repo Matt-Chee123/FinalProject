@@ -18,7 +18,8 @@ function displayBottomThreeRecords(data) {
   const bottomThreeContainer = document.getElementById('bottom-three-records');
   let content = '<h3>Bottom 3 Universities</h3><ul>';
   data.forEach(item => {
-    content += `<li>${item.UniversityName} - ${item.AverageScore}</li>`;
+    const formattedAverageScore = Number(item.AverageScore).toFixed(2);
+    content += `<li>${item.UniversityName} - ${formattedAverageScore}</li>`;
   });
   content += '</ul>';
   bottomThreeContainer.innerHTML = content;
