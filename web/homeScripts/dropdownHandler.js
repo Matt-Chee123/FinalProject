@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Trigger the initial load for the default selection.
     const initialUofA = dropdown.value; // Use the value of the initial option
     const formattedInitialUofA = encodeURIComponent(initialUofA.replace(/\s+/g, '')) + '_heatmap.html';
-    console.log('Initial unit of assessment:', formattedInitialUofA);
+    console.log('Initial unit of assessment:', initialUofA);
     heatmapIframe.src = formattedInitialUofA;
     fetchTopThree(initialUofA);
     fetchBottomThree(initialUofA);

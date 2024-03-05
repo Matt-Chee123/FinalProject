@@ -20,7 +20,7 @@ function displayThreeFte(data) {
   const chartData = data.map(item => {
     return {
       name: item.UniversityName,
-      y: parseFloat(item.FTEOfSubmittedStaff), // Convert the FTE to a float if it's a string
+      y: parseFloat(item.FTEOfSubmittedStaff.toFixed(1)), // Ensures y has one digit after the decimal
       percEligible: parseFloat(item.PercEligibleStaff) // Assuming 'PercEligibleStaff' is a string that needs to be converted to a float
     };
   });
@@ -40,7 +40,7 @@ function displayThreeFte(data) {
       },
       tooltip: {
           formatter: function () {
-            return `<b>${this.point.name}</b><br>FTE of Submitted Staff: ${this.y}<br>Percentage of Eligible Staff: ${this.point.percEligible.toFixed(1)}%`;
+            return `<b>${this.point.name}</b><br>FTE of Submitted Staff: ${this.y.toFixed(1)}<br>Percentage of Eligible Staff: ${this.point.percEligible.toFixed(1)}%`;
           }
       },
       pane: {
