@@ -16,7 +16,7 @@ function fetchBottomThree(uofaName = 'Computer Science and Informatics') {
 
 function displayBottomThreeRecords(data) {
   const bottomThreeContainer = document.getElementById('bottom-three-records');
-  let content = '<h3>Bottom 3 Universities</h3><ul>';
+  let content = '<h3>Bottom 3 Universities</h3>';
   data.forEach(item => {
     const formattedAverageScore = Number(item.AverageScore).toFixed(2);
     content += `
