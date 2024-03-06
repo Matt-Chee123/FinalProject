@@ -1,10 +1,11 @@
 import folium
 from folium.plugins import HeatMap, MarkerCluster
 import pandas as pd
-from uniCoordsLaw import universities_coordinates  # Ensure this is correctly imported
+from uniCoordsClin import universities_coordinates  # Ensure this is correctly imported
+import urllib.parse
 
 # Read the CSV file directly
-df = pd.read_csv('../../db/data/outputOverallLaw.csv')
+df = pd.read_csv('../../db/data/outputOverallClinical.csv')
 df = df[df['Joint submission'] == 'Overall']
 df['Average Score'] = ((df['% of eligible staff submitted'] * 4) + (df['4*'] * 3) + (df['3*'] * 2) + (df['2*'] * 1)) / 100
 print(df)
@@ -32,13 +33,33 @@ marker_cluster = MarkerCluster().add_to(m)
 
 # Add markers to the cluster instead of the map
 for index, row in universities_df.iterrows():
-    popup_content = folium.Popup(f'<div style="width:150px;"><strong>{row["University"]}</strong><br>Overall Score: {row["Average Score"]:.2f}</div>', max_width=265)
+    # Encode the university name for use in a URL
+    encoded_name = urllib.parse.quote(row['University'])
+
+    # Define the URL to redirect to, using the encoded university name as a query parameter
+    target_url = f"uniAnalytics.html?query={encoded_name}"
+
+    # Add a button to the popup content that redirects to the target URL when clicked
+    popup_content = folium.Popup(f'''
+    <div style="width:150px;">
+        <strong>{row["University"]}</strong><br>
+        Overall Score: {row["Average Score"]:.2f}
+        <br><br>
+        <a href="{target_url}" target="_blank" style="text-decoration:none;">
+            <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">
+                Visit Analytics Page
+            </button>
+        </a>
+    </div>''', max_width=265)
+
     folium.Marker(
         [row['Latitude'], row['Longitude']],
         popup=popup_content
     ).add_to(marker_cluster)
 
+
+
 # Save to HTML
-m.save('Law_heatmap.html')
+m.save('ClinicalMedicine_heatmap.html')
 
 print("Heatmap with intensity and clustered markers created and saved.")

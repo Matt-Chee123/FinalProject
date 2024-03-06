@@ -24,7 +24,14 @@ function displayThreeFte(data) {
       percEligible: parseFloat(item.PercEligibleStaff) // Assuming 'PercEligibleStaff' is a string that needs to be converted to a float
     };
   });
+  const maxFTE = Math.max(...chartData.map(item => item.y));
+  const minFTE = Math.min(...chartData.map(item => item.y));
 
+// Calculate the range of FTE values
+  const range = maxFTE - minFTE;
+
+// Calculate the tick interval rounded to the nearest 10
+  const tickInterval = Math.ceil(range / 50) * 10;
   // Create the Highcharts radial chart
   Highcharts.chart('random-FTE-records', {
       chart: {
@@ -58,7 +65,7 @@ function displayThreeFte(data) {
       },
       yAxis: {
           lineWidth: 0,
-          tickInterval: 20,
+          tickInterval: tickInterval,
           reversedStacks: false,
           endOnTick: true,
           showLastLabel: true,
