@@ -354,12 +354,13 @@
   margin-bottom: 20px; /* Space below each bubble */
 }
 
+
+
+
 .main-container .left-components .component-bubble:nth-of-type(6) {
   margin-top: -20px;
 }
-.main-container .left-components .component-bubble:nth-of-type(3),
-.main-container .left-components .component-bubble:nth-of-type(4) {
-}
+
 
 .main-container .left-components .component-bubble:nth-of-type(5),
 .main-container .left-components .component-bubble:nth-of-type(6) {
@@ -420,7 +421,7 @@
     padding-top: 10px;
     text-align: center;
     font-size: clamp(10px, 1.4vw, 40px);
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 .component-bubble .bubble-content .score-card .score-list ul ul{
@@ -430,7 +431,7 @@
 }
 
 .score-list ul {
-    font-size: 14px;
+    font-size: clamp(10px, 1vw, 30px);
     margin-bottom: 10px;
     gap: 10px;
 }
