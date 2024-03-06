@@ -35,29 +35,30 @@ function processAndDisplayData(data, specificUniRecord) {
         }, {});
       const chartData = [];
 
-        // Iterate over the incomeMapping
+    // Iterate over the incomeMapping
       Object.keys(incomeMapping).forEach(uniName => {
           // Check if the current university in incomeMapping also exists in fteMapping
-        if (fteMapping.hasOwnProperty(uniName)) {
-          const isSpecificUni = uniName === specificUniName;
-          const markerOptions = isSpecificUni ? {
-            fillColor: 'red', // Highlight color
-            lineWidth: 2, // Border width
-            radius: 8 // Marker radius
-          } : {};
+          if (fteMapping.hasOwnProperty(uniName)) {
+              const isSpecificUni = uniName === specificUniName;
+              const markerOptions = isSpecificUni ? {
+                  fillColor: 'red', // Highlight color
+                  lineWidth: 2, // Border width
+                  radius: 8 // Marker radius
+              } : {};
 
-          // Create an object with the FTE and income data
-          chartData.push({
-            name: uniName,
-            x: fteMapping[uniName], // FTE value from fteMapping
-            y: incomeMapping[uniName], // Income value from incomeMapping
-            marker: markerOptions // Specific marker options for the specific university
-          });
-        }
+            // Format the income value with commas
+              const formattedIncome = incomeMapping[uniName].toLocaleString();
+
+            // Create an object with the FTE, formatted income, and original income data
+              chartData.push({
+                  name: uniName,
+                  x: fteMapping[uniName], // FTE value from fteMapping
+                  y: incomeMapping[uniName], // Original income value from incomeMapping
+                  formattedIncome: formattedIncome, // Formatted income value with commas
+                  marker: markerOptions // Specific marker options for the specific university
+              });
+          }
       });
-
-  // If no data points match the specific university, log an error
-
 
   // Display the data using Highcharts
   Highcharts.chart('fte-income-container', {
@@ -118,8 +119,8 @@ function processAndDisplayData(data, specificUniRecord) {
           }
         },
         tooltip: {
-          headerFormat: '<b>{series.name}</b><br>',
-          pointFormat: 'University: <b>{point.name}</b><br>FTE: {point.x}, Total Income: £{point.y}'
+            headerFormat: '<b>{series.name}</b><br>',
+            pointFormat: 'University: <b>{point.name}</b><br>FTE: {point.x:.1f}, Total Income: £{point.formattedIncome}'
         }
       }
     },

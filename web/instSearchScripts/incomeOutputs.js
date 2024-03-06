@@ -49,9 +49,13 @@ function processAndDisplayOutputsIncome(data, specificUniRecord) {
             };
         }
 
+        // Format TotalIncome with commas as thousands separators
+        const formattedIncome = record.TotalIncome !== null ? record.TotalIncome.toLocaleString() : null;
+
         return {
-            x: record.TotalIncome,
+            x: record.TotalIncome, // Keep this numeric for accurate chart plotting
             y: record.AverageScore,
+            formattedIncome: formattedIncome, // Add formattedIncome as a separate property
             name: record.UniversityName,
             marker: markerOptions
         };
@@ -102,7 +106,7 @@ function processAndDisplayOutputsIncome(data, specificUniRecord) {
                 },
                 tooltip: {
                     headerFormat: '<br>',
-                    pointFormat: '<b>{point.name}</b><br>£{point.x:,.0f} income, {point.y} score'
+                    pointFormat: '<b>{point.name}</b><br>Income: £{point.formattedIncome}, Score: {point.y:.2f}'
                 }
             }
         },

@@ -326,7 +326,7 @@
 .main-container .component-bubble .uni-record {
   display: flex;
   align-items: center; /* Align items vertically */
-  margin-bottom: 5px; /* Adds some space between records */
+  margin-bottom: 1vh; /* Adds some space between records */
 }
 
 .main-container .component-bubble .uni-name {
@@ -342,10 +342,16 @@
 .main-container .component-bubble .output-profile {
   text-align: center;  /* Center the content */
 }
+.main-container .component-bubble .output-profile li{
+  margin-bottom: 1vh;  /* Adjust the space between the list items */
+}
 
+.main-container .component-bubble .output-profile li:nth-child(4) {
+  margin-bottom: -10vh
+}
 .main-container .component-bubble .output-title {
-  margin-bottom: 4vh;  /* Adjust the space between the title and the list */
-  margin-top: -6vh;
+  margin-bottom: 2vh;  /* Adjust the space between the title and the list */
+  margin-top: -4vh;
 }
 
 .main-container .component-bubble ul {
@@ -390,9 +396,10 @@
   font-size: clamp(10px, 1vw, 30px);
   width: 100%; /* Fill the width of the bubble */
   height: 100%; /* Fill the height of the bubble */
-  padding: 10px; /* Or as much as you need */
+  padding: 15px; /* Or as much as you need */
   box-sizing: border-box; /* Include padding in the content size */
 }
+
 
 .main-container .component-bubble:nth-child(5),
 .main-container .component-bubble:nth-child(6) {
@@ -405,8 +412,8 @@
 .main-container .component-bubble:nth-child(3),
 .main-container .component-bubble:nth-child(4) {
   margin-bottom: 0; /* Remove margin from the last two bubbles *//* Adjust the minimum height as needed */
-  max-height: 35vh;
-  min-height: 28vh;
+  max-height: 33vh;
+  min-height: 30vh;
     }
 
 #suggestions-container {

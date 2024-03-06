@@ -21,7 +21,7 @@ function displaySearchResults(data) {
         content += '<h3>Scores</h3>';
         data.forEach(item => {
             if (item.ProfileType && order.includes(item.ProfileType)) {
-                content += `<ul>${item.ProfileType} - ${item.AverageScore}</ul>`;
+                content += `<ul>${item.ProfileType} - ${item.AverageScore.toFixed(2)}</ul>`;
             }
         });
 

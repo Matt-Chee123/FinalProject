@@ -44,9 +44,11 @@ function ensureErrorMessageElement() {
 
 document.getElementById('dataForm').onsubmit = function(event) {
   event.preventDefault(); // Prevent the default form submission behavior
-  if (window.myChart) {
-    window.myChart.destroy(); // If using Highcharts, call the `destroy` method
+  if (window.myChart && window.myChart.destroy) {
+      window.myChart.destroy();
+      window.myChart = undefined; // Or null
   }
+
 
   var errorMessageElement = ensureErrorMessageElement();
   errorMessageElement.style.display = 'none';
@@ -186,7 +188,7 @@ document.getElementById('dataForm').onsubmit = function(event) {
         chart: {
           type: 'scatter',
           zoomType: 'xy',
-          marginBottom: 100 // Adjust this value as needed
+          marginBottom: 75 // Adjust this value as needed
         },
         credits: {
           enabled: false
@@ -220,9 +222,13 @@ document.getElementById('dataForm').onsubmit = function(event) {
           name: 'Data',
           data: chartData.map(point => {
             return point;
-          })
+          }),
+          marker: {
+            radius: 3 // Adjust this value to make the points smaller or larger
+          }
         }]
     });
+
 })
   .catch(error => {
     console.error('Error fetching data:', error);

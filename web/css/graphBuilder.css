@@ -333,12 +333,18 @@
 
 .dropdown-container {
   display: flex;
-  align-items: center; /* This will vertically center the items in the container */
-  gap: 10px; /* Adjust the gap as needed */
+  align-items: flex-start; /* Align items to the top of the container */
   width: 100%; /* Take full width to utilize the space */
-  justify-content: center;
-  height: 50%;
+  gap: 1vh;
+  height: 80%; /* Set the height of the container */
+  flex-direction: row;
 }
+
+.dropdown-container .text,
+.dropdown-container select {
+  margin-bottom: 10vh; /* Align to the top of the container */
+}
+
 
 .text {
   margin: 0; /* Remove any default margins if present */
@@ -361,6 +367,12 @@
   flex-wrap: wrap; /* Allows children to wrap onto the next line */
   gap: 10px; /* Provides space between items */
 }
+.bottom-bubble.component-bubble label {
+  text-align: left;
+  display: block; /* Makes the label take up the full width, pushing any adjacent elements below */
+}
+
+
 
 .step-label {
   align-self: flex-start; /* This will align the step label to the start of the container (left) */
@@ -381,11 +393,13 @@
 
 .input-group {
   display: flex;
-  flex-direction: column; /* Stack the children vertically */
-  flex-grow: 1; /* Allow the group to take up available space */
-  margin-right: 10px; /* Add some space before the submit button */
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: left;
 }
-
+.input-group label:nth-child(2) {
+  margin-left: -4vh;
+  }
 .checkbox-group {
   display: flex;
   justify-content: space-between; /* Spreads the label and the checkbox apart */
