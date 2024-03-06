@@ -10,25 +10,23 @@ function displaySearchResults(data) {
             let indexA = order.indexOf(a.ProfileType);
             let indexB = order.indexOf(b.ProfileType);
 
-            // If ProfileType is not found in the order array, it gets lowest priority
             indexA = indexA === -1 ? order.length : indexA;
             indexB = indexB === -1 ? order.length : indexB;
 
             return indexA - indexB;
         });
 
-        let content = '<ul>';
+        let content = '<div class="score-card">';
         content += '<h3>Scores</h3>';
+        content += '<ul class="score-list">';
         data.forEach(item => {
             if (item.ProfileType && order.includes(item.ProfileType)) {
-                content += `<ul>${item.ProfileType} - ${item.AverageScore.toFixed(2)}</ul>`;
+                content += `<ul>${item.ProfileType}: ${item.AverageScore.toFixed(2)}</ul>`;
             }
         });
-
-        content += '</ul>';
+        content += '</ul></div>';
         searchResultsContainer.innerHTML = content;
     } else {
         searchResultsContainer.innerHTML = "<p>No results found.</p>";
     }
 }
-

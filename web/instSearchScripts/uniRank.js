@@ -113,7 +113,7 @@ function displayRankData(specificData,unitOfAssessment) {
                         const labelHtml = `${rankHtml} ${isMiddle ? '<b>' + name + '</b>' : name}`;
 
                         return labelHtml;
-                    }
+                    },
                 }
             },
             series: [{
