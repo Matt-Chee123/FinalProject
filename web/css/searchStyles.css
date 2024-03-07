@@ -303,7 +303,7 @@
   left: 48%; /* Start from the middle of the main-container */
 }
 .main-container .right-homepage-container .component-bubble {
-  margin-bottom: 20px;
+  margin-bottom: 3.5vh;
   height: 47%;
   width: 100%; /* Set to desired width */
   background: #fff; /* Background color of the bubble */
