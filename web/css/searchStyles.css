@@ -431,7 +431,7 @@
 }
 
 .score-list ul {
-    font-size: clamp(10px, 1vw, 30px);
+    font-size: clamp(10px, 1vw, 25px);
     margin-bottom: 10px;
     gap: 10px;
 }
