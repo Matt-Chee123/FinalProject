@@ -120,7 +120,7 @@ function displayRankData(specificData,unitOfAssessment) {
                 data: bulletData
             }],
             tooltip: {
-                pointFormat: '<b>{point.y}</b> (Target: {point.target})<br/>Rank: {point.rank} / ' + totalNumOfUniversities + ' universities<br/>',
+                pointFormat: '<b>{point.y:.2f}</b> (Target: {point.target})<br/>Rank: {point.rank} / ' + totalNumOfUniversities + ' universities<br/>',
                 positioner: function (labelWidth, labelHeight, point) {
                     return { x: point.plotX - 50, y: 0 }; // Adjust x and y to place the tooltip where it doesn't overlap
                 }
