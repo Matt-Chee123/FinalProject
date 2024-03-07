@@ -333,7 +333,6 @@
 .main-container .component-bubble .uni-name {
   flex: 0 0 auto; /* Do not grow or shrink */
   width: 40vh; /* Adjust the width as needed to fit the longest university name */
-  margin-left: 2vw; /* Space between the name and score */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; /* This will add "..." at the end if the name is too long */
