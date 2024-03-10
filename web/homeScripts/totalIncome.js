@@ -68,7 +68,6 @@ function displayTopFourSources(data) {
   const maxValue = Math.max(...top4Incomes.map(income => income.value));
   const tickTarget = 5; // Target number of ticks
   let tickInterval = Math.ceil(maxValue / tickTarget); // Base tick interval
-
 // Adjust to a more human-readable value
   tickInterval = adjustToReadableInterval(tickInterval);
 

@@ -17,7 +17,7 @@ const express = require('express')
 const ddbClient = new DynamoDBClient({ region: process.env.TABLE_REGION });
 const ddbDocClient = DynamoDBDocumentClient.from(ddbClient);
 
-let tableName = "dbProj";
+let tableName = "projDbNew";
 //if (process.env.ENV && process.env.ENV !== "NONE") {
 //  tableName = tableName + '-' + process.env.ENV;
 //}
@@ -93,7 +93,8 @@ app.get("/items/all", async function(req, res) {
         KeyConditionExpression: 'UnitOfAssessmentName = :uofaName',
         ExpressionAttributeValues: {
             ":uofaName": selectedUofA
-        }
+        },
+        FilterExpression: 'attribute_exists(ProfileType)' // Filter to include only items with ProfileType
     };
 
     try {
@@ -107,6 +108,7 @@ app.get("/items/all", async function(req, res) {
         res.status(500).json({error: 'Could not load items: ' + err.message});
     }
 });
+
 
 //Top 3 items endpoint
 app.get("/items/top3", async function(req, res) {
@@ -358,14 +360,21 @@ app.get("/items/random3", async function(req, res) {
 });
 
 //autocomplete endpoint
-app.get("/items/universities", async function(req, res) {
+app.get("/items/uniNames", async function(req, res) {
+
     var params = {
         TableName: tableName,
+        IndexName: 'ProfileType-index', // Use the GSI
+        KeyConditionExpression: "ProfileType = :profileTypeVal",
+        ExpressionAttributeValues: {
+            ":profileTypeVal": "Overall",
+        },
         ProjectionExpression: "UniversityName" // Only get the UniversityName attribute
     };
 
     try {
-        const data = await ddbDocClient.send(new ScanCommand(params));
+        // Use QueryCommand to fetch items
+        const data = await ddbDocClient.send(new QueryCommand(params));
 
         // Extract just the university names and ensure they are unique
         const uniqueNames = [...new Set(data.Items.map(item => item.UniversityName))];
@@ -375,6 +384,38 @@ app.get("/items/universities", async function(req, res) {
         res.status(500).json({error: 'Could not fetch university names: ' + err.message});
     }
 });
+//Uni data
+app.get("/items/university", async function(req, res) {
+    const universityName = req.query.UniversityName;
+
+    var params = {
+        TableName: tableName,
+        IndexName: 'ProfileType-index', // Assuming 'ProfileType' is a key attribute in this index
+        KeyConditionExpression: "ProfileType = :profileTypeVal",
+        ExpressionAttributeValues: {
+            ":profileTypeVal": "Overall",
+        }
+    };
+
+    // Add a filter expression for 'UniversityName' if it's not 'Nation'
+    if (universityName !== "Nation") {
+        params.FilterExpression = "UniversityName = :universityName";
+        params.ExpressionAttributeValues[":universityName"] = universityName;
+    }
+
+    try {
+        const data = await ddbDocClient.send(new QueryCommand(params));
+
+        // Extracting and sorting unit of assessment names. Note that filtering by 'UniversityName' happens after fetching the data.
+        const uniqueUnitOfAssessmentNames = [...new Set(data.Items.map(item => item.UnitOfAssessmentName))].sort();
+
+        res.json(uniqueUnitOfAssessmentNames);
+    } catch (err) {
+        res.status(500).json({error: 'Could not fetch unit of assessment names: ' + err.message});
+    }
+});
+
+
 
 
 

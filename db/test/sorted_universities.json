@@ -1,0 +1,1406 @@
+[
+    {
+        "UniversityName": "Aberystwyth University",
+        "InstitutionID": "10007856#Outputs"
+    },
+    {
+        "UniversityName": "Aberystwyth University",
+        "InstitutionID": "10007856#Overall"
+    },
+    {
+        "UniversityName": "Aberystwyth University",
+        "InstitutionID": "10007856#Impact"
+    },
+    {
+        "UniversityName": "Aberystwyth University",
+        "InstitutionID": "10007856#Environment"
+    },
+    {
+        "UniversityName": "Aston University",
+        "InstitutionID": "10007759#Impact"
+    },
+    {
+        "UniversityName": "Aston University",
+        "InstitutionID": "10007759#Outputs"
+    },
+    {
+        "UniversityName": "Aston University",
+        "InstitutionID": "10007759#Overall"
+    },
+    {
+        "UniversityName": "Aston University",
+        "InstitutionID": "10007759#Environment"
+    },
+    {
+        "UniversityName": "Birkbeck College",
+        "InstitutionID": "10007760#Impact"
+    },
+    {
+        "UniversityName": "Birkbeck College",
+        "InstitutionID": "10007760#Environment"
+    },
+    {
+        "UniversityName": "Birkbeck College",
+        "InstitutionID": "10007760#Outputs"
+    },
+    {
+        "UniversityName": "Birkbeck College",
+        "InstitutionID": "10007760#Overall"
+    },
+    {
+        "UniversityName": "Birmingham City University",
+        "InstitutionID": "10007140#Overall"
+    },
+    {
+        "UniversityName": "Birmingham City University",
+        "InstitutionID": "10007140#Outputs"
+    },
+    {
+        "UniversityName": "Birmingham City University",
+        "InstitutionID": "10007140#Environment"
+    },
+    {
+        "UniversityName": "Birmingham City University",
+        "InstitutionID": "10007140#Impact"
+    },
+    {
+        "UniversityName": "Bournemouth University",
+        "InstitutionID": "10000824#Impact"
+    },
+    {
+        "UniversityName": "Bournemouth University",
+        "InstitutionID": "10000824#Overall"
+    },
+    {
+        "UniversityName": "Bournemouth University",
+        "InstitutionID": "10000824#Environment"
+    },
+    {
+        "UniversityName": "Brunel University",
+        "InstitutionID": "10000961#Environment"
+    },
+    {
+        "UniversityName": "Brunel University",
+        "InstitutionID": "10000961#Outputs"
+    },
+    {
+        "UniversityName": "Brunel University",
+        "InstitutionID": "10000961#Overall"
+    },
+    {
+        "UniversityName": "Brunel University",
+        "InstitutionID": "10000961#Impact"
+    },
+    {
+        "UniversityName": "Cardiff University",
+        "InstitutionID": "10007814#Overall"
+    },
+    {
+        "UniversityName": "Cardiff University",
+        "InstitutionID": "10007814#Environment"
+    },
+    {
+        "UniversityName": "Cardiff University",
+        "InstitutionID": "10007814#Outputs"
+    },
+    {
+        "UniversityName": "Cardiff University",
+        "InstitutionID": "10007814#Impact"
+    },
+    {
+        "UniversityName": "City, University of London",
+        "InstitutionID": "10001478#Environment"
+    },
+    {
+        "UniversityName": "City, University of London",
+        "InstitutionID": "10001478#Outputs"
+    },
+    {
+        "UniversityName": "City, University of London",
+        "InstitutionID": "10001478#Impact"
+    },
+    {
+        "UniversityName": "City, University of London",
+        "InstitutionID": "10001478#Overall"
+    },
+    {
+        "UniversityName": "De Montfort University",
+        "InstitutionID": "10001883#Environment"
+    },
+    {
+        "UniversityName": "De Montfort University",
+        "InstitutionID": "10001883#Overall"
+    },
+    {
+        "UniversityName": "De Montfort University",
+        "InstitutionID": "10001883#Impact"
+    },
+    {
+        "UniversityName": "De Montfort University",
+        "InstitutionID": "10001883#Outputs"
+    },
+    {
+        "UniversityName": "Edge Hill University",
+        "InstitutionID": "10007823#Outputs"
+    },
+    {
+        "UniversityName": "Edge Hill University",
+        "InstitutionID": "10007823#Overall"
+    },
+    {
+        "UniversityName": "Edge Hill University",
+        "InstitutionID": "10007823#Environment"
+    },
+    {
+        "UniversityName": "Edge Hill University",
+        "InstitutionID": "10007823#Impact"
+    },
+    {
+        "UniversityName": "Edinburgh Napier University",
+        "InstitutionID": "10007772#Outputs"
+    },
+    {
+        "UniversityName": "Edinburgh Napier University",
+        "InstitutionID": "10007772#Impact"
+    },
+    {
+        "UniversityName": "Edinburgh Napier University",
+        "InstitutionID": "10007772#Overall"
+    },
+    {
+        "UniversityName": "Edinburgh Napier University",
+        "InstitutionID": "10007772#Environment"
+    },
+    {
+        "UniversityName": "Glasgow Caledonian University",
+        "InstitutionID": "10007762#Impact"
+    },
+    {
+        "UniversityName": "Glasgow Caledonian University",
+        "InstitutionID": "10007762#Outputs"
+    },
+    {
+        "UniversityName": "Glasgow Caledonian University",
+        "InstitutionID": "10007762#Environment"
+    },
+    {
+        "UniversityName": "Glasgow Caledonian University",
+        "InstitutionID": "10007762#Overall"
+    },
+    {
+        "UniversityName": "Goldsmiths' College",
+        "InstitutionID": "10002718#Outputs"
+    },
+    {
+        "UniversityName": "Goldsmiths' College",
+        "InstitutionID": "10002718#Environment"
+    },
+    {
+        "UniversityName": "Goldsmiths' College",
+        "InstitutionID": "10002718#Impact"
+    },
+    {
+        "UniversityName": "Goldsmiths' College",
+        "InstitutionID": "10002718#Overall"
+    },
+    {
+        "UniversityName": "Heriot-Watt University",
+        "InstitutionID": "10007764#Outputs"
+    },
+    {
+        "UniversityName": "Heriot-Watt University",
+        "InstitutionID": "10007764#Impact"
+    },
+    {
+        "UniversityName": "Heriot-Watt University",
+        "InstitutionID": "10007764#Overall"
+    },
+    {
+        "UniversityName": "Imperial College London",
+        "InstitutionID": "10003270#Overall"
+    },
+    {
+        "UniversityName": "Imperial College London",
+        "InstitutionID": "10003270#Environment"
+    },
+    {
+        "UniversityName": "Imperial College London",
+        "InstitutionID": "10003270#Impact"
+    },
+    {
+        "UniversityName": "Imperial College London",
+        "InstitutionID": "10003270#Outputs"
+    },
+    {
+        "UniversityName": "King's College London",
+        "InstitutionID": "10003645#Environment"
+    },
+    {
+        "UniversityName": "King's College London",
+        "InstitutionID": "10003645#Overall"
+    },
+    {
+        "UniversityName": "King's College London",
+        "InstitutionID": "10003645#Outputs"
+    },
+    {
+        "UniversityName": "King's College London",
+        "InstitutionID": "10003645#Impact"
+    },
+    {
+        "UniversityName": "Kingston University",
+        "InstitutionID": "10003678#Impact"
+    },
+    {
+        "UniversityName": "Kingston University",
+        "InstitutionID": "10003678#Outputs"
+    },
+    {
+        "UniversityName": "Kingston University",
+        "InstitutionID": "10003678#Overall"
+    },
+    {
+        "UniversityName": "Kingston University",
+        "InstitutionID": "10003678#Environment"
+    },
+    {
+        "UniversityName": "Leeds Beckett University",
+        "InstitutionID": "10003861#Overall"
+    },
+    {
+        "UniversityName": "Leeds Beckett University",
+        "InstitutionID": "10003861#Outputs"
+    },
+    {
+        "UniversityName": "Leeds Beckett University",
+        "InstitutionID": "10003861#Environment"
+    },
+    {
+        "UniversityName": "Leeds Beckett University",
+        "InstitutionID": "10003861#Impact"
+    },
+    {
+        "UniversityName": "Liverpool Hope University",
+        "InstitutionID": "10003956#Impact"
+    },
+    {
+        "UniversityName": "Liverpool Hope University",
+        "InstitutionID": "10003956#Environment"
+    },
+    {
+        "UniversityName": "Liverpool Hope University",
+        "InstitutionID": "10003956#Outputs"
+    },
+    {
+        "UniversityName": "Liverpool Hope University",
+        "InstitutionID": "10003956#Overall"
+    },
+    {
+        "UniversityName": "Liverpool John Moores University",
+        "InstitutionID": "10003957#Outputs"
+    },
+    {
+        "UniversityName": "Liverpool John Moores University",
+        "InstitutionID": "10003957#Overall"
+    },
+    {
+        "UniversityName": "Liverpool John Moores University",
+        "InstitutionID": "10003957#Environment"
+    },
+    {
+        "UniversityName": "Liverpool John Moores University",
+        "InstitutionID": "10003957#Impact"
+    },
+    {
+        "UniversityName": "London Metropolitan University",
+        "InstitutionID": "10004048#Environment"
+    },
+    {
+        "UniversityName": "London Metropolitan University",
+        "InstitutionID": "10004048#Overall"
+    },
+    {
+        "UniversityName": "London Metropolitan University",
+        "InstitutionID": "10004048#Outputs"
+    },
+    {
+        "UniversityName": "London Metropolitan University",
+        "InstitutionID": "10004048#Impact"
+    },
+    {
+        "UniversityName": "Loughborough University",
+        "InstitutionID": "10004113#Outputs"
+    },
+    {
+        "UniversityName": "Loughborough University",
+        "InstitutionID": "10004113#Overall"
+    },
+    {
+        "UniversityName": "Loughborough University",
+        "InstitutionID": "10004113#Impact"
+    },
+    {
+        "UniversityName": "Loughborough University",
+        "InstitutionID": "10004113#Environment"
+    },
+    {
+        "UniversityName": "Manchester Metropolitan University",
+        "InstitutionID": "10004180#Overall"
+    },
+    {
+        "UniversityName": "Manchester Metropolitan University",
+        "InstitutionID": "10004180#Outputs"
+    },
+    {
+        "UniversityName": "Manchester Metropolitan University",
+        "InstitutionID": "10004180#Environment"
+    },
+    {
+        "UniversityName": "Manchester Metropolitan University",
+        "InstitutionID": "10004180#Impact"
+    },
+    {
+        "UniversityName": "Middlesex University",
+        "InstitutionID": "10004351#Environment"
+    },
+    {
+        "UniversityName": "Middlesex University",
+        "InstitutionID": "10004351#Impact"
+    },
+    {
+        "UniversityName": "Middlesex University",
+        "InstitutionID": "10004351#Outputs"
+    },
+    {
+        "UniversityName": "Middlesex University",
+        "InstitutionID": "10004351#Overall"
+    },
+    {
+        "UniversityName": "Nottingham Trent University",
+        "InstitutionID": "10004797#Overall"
+    },
+    {
+        "UniversityName": "Nottingham Trent University",
+        "InstitutionID": "10004797#Outputs"
+    },
+    {
+        "UniversityName": "Nottingham Trent University",
+        "InstitutionID": "10004797#Impact"
+    },
+    {
+        "UniversityName": "Nottingham Trent University",
+        "InstitutionID": "10004797#Environment"
+    },
+    {
+        "UniversityName": "Open University",
+        "InstitutionID": "10007773#Overall"
+    },
+    {
+        "UniversityName": "Open University",
+        "InstitutionID": "10007773#Outputs"
+    },
+    {
+        "UniversityName": "Open University",
+        "InstitutionID": "10007773#Impact"
+    },
+    {
+        "UniversityName": "Open University",
+        "InstitutionID": "10007773#Environment"
+    },
+    {
+        "UniversityName": "Oxford Brookes University",
+        "InstitutionID": "10004930#Environment"
+    },
+    {
+        "UniversityName": "Oxford Brookes University",
+        "InstitutionID": "10004930#Impact"
+    },
+    {
+        "UniversityName": "Oxford Brookes University",
+        "InstitutionID": "10004930#Outputs"
+    },
+    {
+        "UniversityName": "Oxford Brookes University",
+        "InstitutionID": "10004930#Overall"
+    },
+    {
+        "UniversityName": "Queen Mary University",
+        "InstitutionID": "10007775#Impact"
+    },
+    {
+        "UniversityName": "Queen Mary University",
+        "InstitutionID": "10007775#Outputs"
+    },
+    {
+        "UniversityName": "Queen Mary University",
+        "InstitutionID": "10007775#Overall"
+    },
+    {
+        "UniversityName": "Queen Mary University",
+        "InstitutionID": "10007775#Environment"
+    },
+    {
+        "UniversityName": "Robert Gordon University",
+        "InstitutionID": "10005500#Outputs"
+    },
+    {
+        "UniversityName": "Robert Gordon University",
+        "InstitutionID": "10005500#Overall"
+    },
+    {
+        "UniversityName": "Robert Gordon University",
+        "InstitutionID": "10005500#Impact"
+    },
+    {
+        "UniversityName": "Robert Gordon University",
+        "InstitutionID": "10005500#Environment"
+    },
+    {
+        "UniversityName": "Royal Holloway",
+        "InstitutionID": "10005553#Outputs"
+    },
+    {
+        "UniversityName": "Royal Holloway",
+        "InstitutionID": "10005553#Environment"
+    },
+    {
+        "UniversityName": "Royal Holloway",
+        "InstitutionID": "10005553#Overall"
+    },
+    {
+        "UniversityName": "Royal Holloway",
+        "InstitutionID": "10005553#Impact"
+    },
+    {
+        "UniversityName": "Sheffield Hallam University",
+        "InstitutionID": "10005790#Overall"
+    },
+    {
+        "UniversityName": "Sheffield Hallam University",
+        "InstitutionID": "10005790#Impact"
+    },
+    {
+        "UniversityName": "Sheffield Hallam University",
+        "InstitutionID": "10005790#Outputs"
+    },
+    {
+        "UniversityName": "Sheffield Hallam University",
+        "InstitutionID": "10005790#Environment"
+    },
+    {
+        "UniversityName": "Swansea University",
+        "InstitutionID": "10007855#Environment"
+    },
+    {
+        "UniversityName": "Swansea University",
+        "InstitutionID": "10007855#Overall"
+    },
+    {
+        "UniversityName": "Swansea University",
+        "InstitutionID": "10007855#Outputs"
+    },
+    {
+        "UniversityName": "Swansea University",
+        "InstitutionID": "10007855#Impact"
+    },
+    {
+        "UniversityName": "UWE Bristol",
+        "InstitutionID": "10007164#Environment"
+    },
+    {
+        "UniversityName": "UWE Bristol",
+        "InstitutionID": "10007164#Outputs"
+    },
+    {
+        "UniversityName": "UWE Bristol",
+        "InstitutionID": "10007164#Overall"
+    },
+    {
+        "UniversityName": "UWE Bristol",
+        "InstitutionID": "10007164#Impact"
+    },
+    {
+        "UniversityName": "UWS",
+        "InstitutionID": "10007800#Outputs"
+    },
+    {
+        "UniversityName": "UWS",
+        "InstitutionID": "10007800#Impact"
+    },
+    {
+        "UniversityName": "UWS",
+        "InstitutionID": "10007800#Environment"
+    },
+    {
+        "UniversityName": "UWS",
+        "InstitutionID": "10007800#Overall"
+    },
+    {
+        "UniversityName": "University College London",
+        "InstitutionID": "10007784#Outputs"
+    },
+    {
+        "UniversityName": "University College London",
+        "InstitutionID": "10007784#Environment"
+    },
+    {
+        "UniversityName": "University College London",
+        "InstitutionID": "10007784#Impact"
+    },
+    {
+        "UniversityName": "University College London",
+        "InstitutionID": "10007784#Overall"
+    },
+    {
+        "UniversityName": "University of Aberdeen",
+        "InstitutionID": "10007783#Environment"
+    },
+    {
+        "UniversityName": "University of Aberdeen",
+        "InstitutionID": "10007783#Impact"
+    },
+    {
+        "UniversityName": "University of Aberdeen",
+        "InstitutionID": "10007783#Overall"
+    },
+    {
+        "UniversityName": "University of Aberdeen",
+        "InstitutionID": "10007783#Outputs"
+    },
+    {
+        "UniversityName": "University of Bath",
+        "InstitutionID": "10007850#Overall"
+    },
+    {
+        "UniversityName": "University of Bath",
+        "InstitutionID": "10007850#Outputs"
+    },
+    {
+        "UniversityName": "University of Bath",
+        "InstitutionID": "10007850#Impact"
+    },
+    {
+        "UniversityName": "University of Bedfordshire",
+        "InstitutionID": "10007152#Outputs"
+    },
+    {
+        "UniversityName": "University of Bedfordshire",
+        "InstitutionID": "10007152#Overall"
+    },
+    {
+        "UniversityName": "University of Bedfordshire",
+        "InstitutionID": "10007152#Environment"
+    },
+    {
+        "UniversityName": "University of Bedfordshire",
+        "InstitutionID": "10007152#Impact"
+    },
+    {
+        "UniversityName": "University of Birmingham",
+        "InstitutionID": "10006840#Impact"
+    },
+    {
+        "UniversityName": "University of Birmingham",
+        "InstitutionID": "10006840#Overall"
+    },
+    {
+        "UniversityName": "University of Birmingham",
+        "InstitutionID": "10006840#Outputs"
+    },
+    {
+        "UniversityName": "University of Birmingham",
+        "InstitutionID": "10006840#Environment"
+    },
+    {
+        "UniversityName": "University of Bradford",
+        "InstitutionID": "10007785#Environment"
+    },
+    {
+        "UniversityName": "University of Bradford",
+        "InstitutionID": "10007785#Overall"
+    },
+    {
+        "UniversityName": "University of Bradford",
+        "InstitutionID": "10007785#Impact"
+    },
+    {
+        "UniversityName": "University of Brighton",
+        "InstitutionID": "10000886#Impact"
+    },
+    {
+        "UniversityName": "University of Brighton",
+        "InstitutionID": "10000886#Outputs"
+    },
+    {
+        "UniversityName": "University of Brighton",
+        "InstitutionID": "10000886#Overall"
+    },
+    {
+        "UniversityName": "University of Bristol",
+        "InstitutionID": "10007786#Overall"
+    },
+    {
+        "UniversityName": "University of Bristol",
+        "InstitutionID": "10007786#Outputs"
+    },
+    {
+        "UniversityName": "University of Bristol",
+        "InstitutionID": "10007786#Environment"
+    },
+    {
+        "UniversityName": "University of Bristol",
+        "InstitutionID": "10007786#Impact"
+    },
+    {
+        "UniversityName": "University of Cambridge",
+        "InstitutionID": "10007788#Impact"
+    },
+    {
+        "UniversityName": "University of Cambridge",
+        "InstitutionID": "10007788#Outputs"
+    },
+    {
+        "UniversityName": "University of Cambridge",
+        "InstitutionID": "10007788#Environment"
+    },
+    {
+        "UniversityName": "University of Cambridge",
+        "InstitutionID": "10007788#Overall"
+    },
+    {
+        "UniversityName": "University of Central Lancashire",
+        "InstitutionID": "10007141#Environment"
+    },
+    {
+        "UniversityName": "University of Central Lancashire",
+        "InstitutionID": "10007141#Outputs"
+    },
+    {
+        "UniversityName": "University of Central Lancashire",
+        "InstitutionID": "10007141#Overall"
+    },
+    {
+        "UniversityName": "University of Central Lancashire",
+        "InstitutionID": "10007141#Impact"
+    },
+    {
+        "UniversityName": "University of Chester",
+        "InstitutionID": "10007848#Outputs"
+    },
+    {
+        "UniversityName": "University of Chester",
+        "InstitutionID": "10007848#Overall"
+    },
+    {
+        "UniversityName": "University of Chester",
+        "InstitutionID": "10007848#Impact"
+    },
+    {
+        "UniversityName": "University of Chester",
+        "InstitutionID": "10007848#Environment"
+    },
+    {
+        "UniversityName": "University of Derby",
+        "InstitutionID": "10007851#Impact"
+    },
+    {
+        "UniversityName": "University of Derby",
+        "InstitutionID": "10007851#Overall"
+    },
+    {
+        "UniversityName": "University of Derby",
+        "InstitutionID": "10007851#Environment"
+    },
+    {
+        "UniversityName": "University of Derby",
+        "InstitutionID": "10007851#Outputs"
+    },
+    {
+        "UniversityName": "University of Dundee",
+        "InstitutionID": "10007852#Outputs"
+    },
+    {
+        "UniversityName": "University of Dundee",
+        "InstitutionID": "10007852#Impact"
+    },
+    {
+        "UniversityName": "University of Dundee",
+        "InstitutionID": "10007852#Environment"
+    },
+    {
+        "UniversityName": "University of Dundee",
+        "InstitutionID": "10007852#Overall"
+    },
+    {
+        "UniversityName": "University of Durham",
+        "InstitutionID": "10007143#Impact"
+    },
+    {
+        "UniversityName": "University of Durham",
+        "InstitutionID": "10007143#Overall"
+    },
+    {
+        "UniversityName": "University of Durham",
+        "InstitutionID": "10007143#Environment"
+    },
+    {
+        "UniversityName": "University of Durham",
+        "InstitutionID": "10007143#Outputs"
+    },
+    {
+        "UniversityName": "University of East Anglia",
+        "InstitutionID": "10007789#Impact"
+    },
+    {
+        "UniversityName": "University of East Anglia",
+        "InstitutionID": "10007789#Environment"
+    },
+    {
+        "UniversityName": "University of East Anglia",
+        "InstitutionID": "10007789#Overall"
+    },
+    {
+        "UniversityName": "University of East Anglia",
+        "InstitutionID": "10007789#Outputs"
+    },
+    {
+        "UniversityName": "University of East London",
+        "InstitutionID": "10007144#Overall"
+    },
+    {
+        "UniversityName": "University of East London",
+        "InstitutionID": "10007144#Impact"
+    },
+    {
+        "UniversityName": "University of East London",
+        "InstitutionID": "10007144#Environment"
+    },
+    {
+        "UniversityName": "University of East London",
+        "InstitutionID": "10007144#Outputs"
+    },
+    {
+        "UniversityName": "University of Edinburgh",
+        "InstitutionID": "10007790#Environment"
+    },
+    {
+        "UniversityName": "University of Edinburgh",
+        "InstitutionID": "10007790#Impact"
+    },
+    {
+        "UniversityName": "University of Edinburgh",
+        "InstitutionID": "10007790#Overall"
+    },
+    {
+        "UniversityName": "University of Edinburgh",
+        "InstitutionID": "10007790#Outputs"
+    },
+    {
+        "UniversityName": "University of Essex",
+        "InstitutionID": "10007791#Outputs"
+    },
+    {
+        "UniversityName": "University of Essex",
+        "InstitutionID": "10007791#Overall"
+    },
+    {
+        "UniversityName": "University of Essex",
+        "InstitutionID": "10007791#Environment"
+    },
+    {
+        "UniversityName": "University of Essex",
+        "InstitutionID": "10007791#Impact"
+    },
+    {
+        "UniversityName": "University of Exeter",
+        "InstitutionID": "10007792#Impact"
+    },
+    {
+        "UniversityName": "University of Exeter",
+        "InstitutionID": "10007792#Environment"
+    },
+    {
+        "UniversityName": "University of Exeter",
+        "InstitutionID": "10007792#Overall"
+    },
+    {
+        "UniversityName": "University of Exeter",
+        "InstitutionID": "10007792#Outputs"
+    },
+    {
+        "UniversityName": "University of Glasgow",
+        "InstitutionID": "10007794#Overall"
+    },
+    {
+        "UniversityName": "University of Glasgow",
+        "InstitutionID": "10007794#Environment"
+    },
+    {
+        "UniversityName": "University of Glasgow",
+        "InstitutionID": "10007794#Outputs"
+    },
+    {
+        "UniversityName": "University of Glasgow",
+        "InstitutionID": "10007794#Impact"
+    },
+    {
+        "UniversityName": "University of Greenwich",
+        "InstitutionID": "10007146#Outputs"
+    },
+    {
+        "UniversityName": "University of Greenwich",
+        "InstitutionID": "10007146#Impact"
+    },
+    {
+        "UniversityName": "University of Greenwich",
+        "InstitutionID": "10007146#Overall"
+    },
+    {
+        "UniversityName": "University of Greenwich",
+        "InstitutionID": "10007146#Environment"
+    },
+    {
+        "UniversityName": "University of Hertfordshire",
+        "InstitutionID": "10007147#Outputs"
+    },
+    {
+        "UniversityName": "University of Hertfordshire",
+        "InstitutionID": "10007147#Environment"
+    },
+    {
+        "UniversityName": "University of Hertfordshire",
+        "InstitutionID": "10007147#Overall"
+    },
+    {
+        "UniversityName": "University of Hertfordshire",
+        "InstitutionID": "10007147#Impact"
+    },
+    {
+        "UniversityName": "University of Huddersfield",
+        "InstitutionID": "10007148#Environment"
+    },
+    {
+        "UniversityName": "University of Huddersfield",
+        "InstitutionID": "10007148#Outputs"
+    },
+    {
+        "UniversityName": "University of Huddersfield",
+        "InstitutionID": "10007148#Overall"
+    },
+    {
+        "UniversityName": "University of Hull",
+        "InstitutionID": "10007149#Impact"
+    },
+    {
+        "UniversityName": "University of Hull",
+        "InstitutionID": "10007149#Outputs"
+    },
+    {
+        "UniversityName": "University of Hull",
+        "InstitutionID": "10007149#Overall"
+    },
+    {
+        "UniversityName": "University of Hull",
+        "InstitutionID": "10007149#Environment"
+    },
+    {
+        "UniversityName": "University of Keele",
+        "InstitutionID": "10007767#Environment"
+    },
+    {
+        "UniversityName": "University of Keele",
+        "InstitutionID": "10007767#Overall"
+    },
+    {
+        "UniversityName": "University of Keele",
+        "InstitutionID": "10007767#Outputs"
+    },
+    {
+        "UniversityName": "University of Keele",
+        "InstitutionID": "10007767#Impact"
+    },
+    {
+        "UniversityName": "University of Kent",
+        "InstitutionID": "10007150#Environment"
+    },
+    {
+        "UniversityName": "University of Kent",
+        "InstitutionID": "10007150#Impact"
+    },
+    {
+        "UniversityName": "University of Kent",
+        "InstitutionID": "10007150#Overall"
+    },
+    {
+        "UniversityName": "University of Kent",
+        "InstitutionID": "10007150#Outputs"
+    },
+    {
+        "UniversityName": "University of Lancaster",
+        "InstitutionID": "10007768#Environment"
+    },
+    {
+        "UniversityName": "University of Lancaster",
+        "InstitutionID": "10007768#Overall"
+    },
+    {
+        "UniversityName": "University of Lancaster",
+        "InstitutionID": "10007768#Impact"
+    },
+    {
+        "UniversityName": "University of Lancaster",
+        "InstitutionID": "10007768#Outputs"
+    },
+    {
+        "UniversityName": "University of Leeds",
+        "InstitutionID": "10007795#Impact"
+    },
+    {
+        "UniversityName": "University of Leeds",
+        "InstitutionID": "10007795#Overall"
+    },
+    {
+        "UniversityName": "University of Leeds",
+        "InstitutionID": "10007795#Environment"
+    },
+    {
+        "UniversityName": "University of Leeds",
+        "InstitutionID": "10007795#Outputs"
+    },
+    {
+        "UniversityName": "University of Leicester",
+        "InstitutionID": "10007796#Outputs"
+    },
+    {
+        "UniversityName": "University of Leicester",
+        "InstitutionID": "10007796#Impact"
+    },
+    {
+        "UniversityName": "University of Leicester",
+        "InstitutionID": "10007796#Overall"
+    },
+    {
+        "UniversityName": "University of Lincoln",
+        "InstitutionID": "10007151#Overall"
+    },
+    {
+        "UniversityName": "University of Lincoln",
+        "InstitutionID": "10007151#Outputs"
+    },
+    {
+        "UniversityName": "University of Lincoln",
+        "InstitutionID": "10007151#Impact"
+    },
+    {
+        "UniversityName": "University of Liverpool",
+        "InstitutionID": "10006842#Outputs"
+    },
+    {
+        "UniversityName": "University of Liverpool",
+        "InstitutionID": "10006842#Overall"
+    },
+    {
+        "UniversityName": "University of Liverpool",
+        "InstitutionID": "10006842#Environment"
+    },
+    {
+        "UniversityName": "University of Liverpool",
+        "InstitutionID": "10006842#Impact"
+    },
+    {
+        "UniversityName": "University of Manchester",
+        "InstitutionID": "10007798#Overall"
+    },
+    {
+        "UniversityName": "University of Manchester",
+        "InstitutionID": "10007798#Impact"
+    },
+    {
+        "UniversityName": "University of Manchester",
+        "InstitutionID": "10007798#Environment"
+    },
+    {
+        "UniversityName": "University of Manchester",
+        "InstitutionID": "10007798#Outputs"
+    },
+    {
+        "UniversityName": "University of Newcastle",
+        "InstitutionID": "10007799#Environment"
+    },
+    {
+        "UniversityName": "University of Newcastle",
+        "InstitutionID": "10007799#Impact"
+    },
+    {
+        "UniversityName": "University of Newcastle",
+        "InstitutionID": "10007799#Overall"
+    },
+    {
+        "UniversityName": "University of Northumbria",
+        "InstitutionID": "10001282#Overall"
+    },
+    {
+        "UniversityName": "University of Northumbria",
+        "InstitutionID": "10001282#Environment"
+    },
+    {
+        "UniversityName": "University of Northumbria",
+        "InstitutionID": "10001282#Impact"
+    },
+    {
+        "UniversityName": "University of Northumbria",
+        "InstitutionID": "10001282#Outputs"
+    },
+    {
+        "UniversityName": "University of Nottingham",
+        "InstitutionID": "10007154#Overall"
+    },
+    {
+        "UniversityName": "University of Nottingham",
+        "InstitutionID": "10007154#Environment"
+    },
+    {
+        "UniversityName": "University of Nottingham",
+        "InstitutionID": "10007154#Outputs"
+    },
+    {
+        "UniversityName": "University of Nottingham",
+        "InstitutionID": "10007154#Impact"
+    },
+    {
+        "UniversityName": "University of Oxford",
+        "InstitutionID": "10007774#Environment"
+    },
+    {
+        "UniversityName": "University of Oxford",
+        "InstitutionID": "10007774#Outputs"
+    },
+    {
+        "UniversityName": "University of Oxford",
+        "InstitutionID": "10007774#Impact"
+    },
+    {
+        "UniversityName": "University of Oxford",
+        "InstitutionID": "10007774#Overall"
+    },
+    {
+        "UniversityName": "University of Plymouth",
+        "InstitutionID": "10007801#Environment"
+    },
+    {
+        "UniversityName": "University of Plymouth",
+        "InstitutionID": "10007801#Outputs"
+    },
+    {
+        "UniversityName": "University of Plymouth",
+        "InstitutionID": "10007801#Overall"
+    },
+    {
+        "UniversityName": "University of Plymouth",
+        "InstitutionID": "10007801#Impact"
+    },
+    {
+        "UniversityName": "University of Portsmouth",
+        "InstitutionID": "10007155#Impact"
+    },
+    {
+        "UniversityName": "University of Portsmouth",
+        "InstitutionID": "10007155#Environment"
+    },
+    {
+        "UniversityName": "University of Portsmouth",
+        "InstitutionID": "10007155#Overall"
+    },
+    {
+        "UniversityName": "University of Portsmouth",
+        "InstitutionID": "10007155#Outputs"
+    },
+    {
+        "UniversityName": "University of Reading",
+        "InstitutionID": "10007802#Environment"
+    },
+    {
+        "UniversityName": "University of Reading",
+        "InstitutionID": "10007802#Impact"
+    },
+    {
+        "UniversityName": "University of Reading",
+        "InstitutionID": "10007802#Overall"
+    },
+    {
+        "UniversityName": "University of Reading",
+        "InstitutionID": "10007802#Outputs"
+    },
+    {
+        "UniversityName": "University of Salford",
+        "InstitutionID": "10007156#Overall"
+    },
+    {
+        "UniversityName": "University of Salford",
+        "InstitutionID": "10007156#Outputs"
+    },
+    {
+        "UniversityName": "University of Salford",
+        "InstitutionID": "10007156#Impact"
+    },
+    {
+        "UniversityName": "University of Salford",
+        "InstitutionID": "10007156#Environment"
+    },
+    {
+        "UniversityName": "University of Sheffield",
+        "InstitutionID": "10007157#Outputs"
+    },
+    {
+        "UniversityName": "University of Sheffield",
+        "InstitutionID": "10007157#Impact"
+    },
+    {
+        "UniversityName": "University of Sheffield",
+        "InstitutionID": "10007157#Environment"
+    },
+    {
+        "UniversityName": "University of Sheffield",
+        "InstitutionID": "10007157#Overall"
+    },
+    {
+        "UniversityName": "University of South Wales",
+        "InstitutionID": "10007793#Outputs"
+    },
+    {
+        "UniversityName": "University of South Wales",
+        "InstitutionID": "10007793#Overall"
+    },
+    {
+        "UniversityName": "University of South Wales",
+        "InstitutionID": "10007793#Impact"
+    },
+    {
+        "UniversityName": "University of South Wales",
+        "InstitutionID": "10007793#Environment"
+    },
+    {
+        "UniversityName": "University of Southampton",
+        "InstitutionID": "10007158#Impact"
+    },
+    {
+        "UniversityName": "University of Southampton",
+        "InstitutionID": "10007158#Outputs"
+    },
+    {
+        "UniversityName": "University of Southampton",
+        "InstitutionID": "10007158#Overall"
+    },
+    {
+        "UniversityName": "University of Southampton",
+        "InstitutionID": "10007158#Environment"
+    },
+    {
+        "UniversityName": "University of St Andrews",
+        "InstitutionID": "10007803#Outputs"
+    },
+    {
+        "UniversityName": "University of St Andrews",
+        "InstitutionID": "10007803#Impact"
+    },
+    {
+        "UniversityName": "University of St Andrews",
+        "InstitutionID": "10007803#Environment"
+    },
+    {
+        "UniversityName": "University of St Andrews",
+        "InstitutionID": "10007803#Overall"
+    },
+    {
+        "UniversityName": "University of Stirling",
+        "InstitutionID": "10007804#Outputs"
+    },
+    {
+        "UniversityName": "University of Stirling",
+        "InstitutionID": "10007804#Environment"
+    },
+    {
+        "UniversityName": "University of Stirling",
+        "InstitutionID": "10007804#Overall"
+    },
+    {
+        "UniversityName": "University of Stirling",
+        "InstitutionID": "10007804#Impact"
+    },
+    {
+        "UniversityName": "University of Strathclyde",
+        "InstitutionID": "10007805#Environment"
+    },
+    {
+        "UniversityName": "University of Strathclyde",
+        "InstitutionID": "10007805#Outputs"
+    },
+    {
+        "UniversityName": "University of Strathclyde",
+        "InstitutionID": "10007805#Overall"
+    },
+    {
+        "UniversityName": "University of Strathclyde",
+        "InstitutionID": "10007805#Impact"
+    },
+    {
+        "UniversityName": "University of Sunderland",
+        "InstitutionID": "10007159#Environment"
+    },
+    {
+        "UniversityName": "University of Sunderland",
+        "InstitutionID": "10007159#Impact"
+    },
+    {
+        "UniversityName": "University of Sunderland",
+        "InstitutionID": "10007159#Overall"
+    },
+    {
+        "UniversityName": "University of Sunderland",
+        "InstitutionID": "10007159#Outputs"
+    },
+    {
+        "UniversityName": "University of Surrey",
+        "InstitutionID": "10007160#Impact"
+    },
+    {
+        "UniversityName": "University of Surrey",
+        "InstitutionID": "10007160#Overall"
+    },
+    {
+        "UniversityName": "University of Surrey",
+        "InstitutionID": "10007160#Outputs"
+    },
+    {
+        "UniversityName": "University of Surrey",
+        "InstitutionID": "10007160#Environment"
+    },
+    {
+        "UniversityName": "University of Sussex",
+        "InstitutionID": "10007806#Impact"
+    },
+    {
+        "UniversityName": "University of Sussex",
+        "InstitutionID": "10007806#Outputs"
+    },
+    {
+        "UniversityName": "University of Sussex",
+        "InstitutionID": "10007806#Overall"
+    },
+    {
+        "UniversityName": "University of Sussex",
+        "InstitutionID": "10007806#Environment"
+    },
+    {
+        "UniversityName": "University of Ulster",
+        "InstitutionID": "10007807#Overall"
+    },
+    {
+        "UniversityName": "University of Ulster",
+        "InstitutionID": "10007807#Environment"
+    },
+    {
+        "UniversityName": "University of Ulster",
+        "InstitutionID": "10007807#Outputs"
+    },
+    {
+        "UniversityName": "University of Ulster",
+        "InstitutionID": "10007807#Impact"
+    },
+    {
+        "UniversityName": "University of Warwick",
+        "InstitutionID": "10007163#Environment"
+    },
+    {
+        "UniversityName": "University of Warwick",
+        "InstitutionID": "10007163#Overall"
+    },
+    {
+        "UniversityName": "University of Warwick",
+        "InstitutionID": "10007163#Outputs"
+    },
+    {
+        "UniversityName": "University of Warwick",
+        "InstitutionID": "10007163#Impact"
+    },
+    {
+        "UniversityName": "University of West London",
+        "InstitutionID": "10006566#Impact"
+    },
+    {
+        "UniversityName": "University of West London",
+        "InstitutionID": "10006566#Outputs"
+    },
+    {
+        "UniversityName": "University of West London",
+        "InstitutionID": "10006566#Environment"
+    },
+    {
+        "UniversityName": "University of West London",
+        "InstitutionID": "10006566#Overall"
+    },
+    {
+        "UniversityName": "University of Westminster",
+        "InstitutionID": "10007165#Overall"
+    },
+    {
+        "UniversityName": "University of Westminster",
+        "InstitutionID": "10007165#Outputs"
+    },
+    {
+        "UniversityName": "University of Westminster",
+        "InstitutionID": "10007165#Impact"
+    },
+    {
+        "UniversityName": "University of Westminster",
+        "InstitutionID": "10007165#Environment"
+    },
+    {
+        "UniversityName": "University of Wolverhampton",
+        "InstitutionID": "10007166#Environment"
+    },
+    {
+        "UniversityName": "University of Wolverhampton",
+        "InstitutionID": "10007166#Outputs"
+    },
+    {
+        "UniversityName": "University of Wolverhampton",
+        "InstitutionID": "10007166#Overall"
+    },
+    {
+        "UniversityName": "University of Wolverhampton",
+        "InstitutionID": "10007166#Impact"
+    },
+    {
+        "UniversityName": "University of York",
+        "InstitutionID": "10007167#Overall"
+    },
+    {
+        "UniversityName": "University of York",
+        "InstitutionID": "10007167#Impact"
+    },
+    {
+        "UniversityName": "University of York",
+        "InstitutionID": "10007167#Environment"
+    },
+    {
+        "UniversityName": "University of York",
+        "InstitutionID": "10007167#Outputs"
+    },
+    {
+        "UniversityName": "Wrexham University",
+        "InstitutionID": "10007833#Environment"
+    },
+    {
+        "UniversityName": "Wrexham University",
+        "InstitutionID": "10007833#Outputs"
+    },
+    {
+        "UniversityName": "Wrexham University",
+        "InstitutionID": "10007833#Overall"
+    },
+    {
+        "UniversityName": "Wrexham University",
+        "InstitutionID": "10007833#Impact"
+    }
+]

@@ -1,9 +1,20 @@
-function displayTitle(data) {
-    const searchResultsContainer = document.getElementById('search-title');
-    if(data && data.length > 0) {
-        const item = data[0];
-        searchResultsContainer.innerHTML = item.UniversityName;
-    } else {
-        searchResultsContainer.innerHTML = "No data for this UofA";
-    }
+function displayTitle(institutionName) {
+    const titleElement = document.getElementById('title-text');
+
+    // If an institution is selected, show its name; otherwise, show 'REF2021'
+    titleElement.textContent = institutionName !== 'Nation' ? institutionName : 'REF2021';
 }
+document.addEventListener('DOMContentLoaded', () => {
+    const institutionDropdown = document.getElementById('institution-dropdown');
+
+    institutionDropdown.addEventListener('change', () => {
+        // Get the selected value from the dropdown
+        const selectedInstitution = institutionDropdown.value;
+
+        // Update the title
+        displayTitle(selectedInstitution);
+    });
+
+    // Call it once to set the initial state correctly
+    displayTitle("Ref2021");
+});

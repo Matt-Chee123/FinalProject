@@ -1,5 +1,5 @@
 function fetchAndDisplayNationalAverages(uofaName = 'Computer Science and Informatics') {
-  fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/?uofaName=${encodeURIComponent(uofaName)}`)
+  fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/all?uofaName=${encodeURIComponent(uofaName)}`)
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');

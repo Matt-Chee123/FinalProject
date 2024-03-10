@@ -1,11 +1,11 @@
 import folium
 from folium.plugins import HeatMap, MarkerCluster
 import pandas as pd
-from uniCoordsClin import universities_coordinates  # Ensure this is correctly imported
+from uniCoordsCS import universities_coordinates  # Ensure this is correctly imported
 import urllib.parse
 
 # Read the CSV file directly
-df = pd.read_csv('../../db/data/outputOverallClinical.csv')
+df = pd.read_csv('../../db/data/outputOverallCS.csv')
 df = df[df['Joint submission'] == 'Overall']
 df['Average Score'] = ((df['% of eligible staff submitted'] * 4) + (df['4*'] * 3) + (df['3*'] * 2) + (df['2*'] * 1)) / 100
 print(df)
@@ -60,6 +60,6 @@ for index, row in universities_df.iterrows():
 
 
 # Save to HTML
-m.save('ClinicalMedicine_heatmap.html')
+m.save('ComputerScienceandInformatics_heatmap.html')
 
 print("Heatmap with intensity and clustered markers created and saved.")

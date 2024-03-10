@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_08cd2033981e37f3f5e684be88eee172 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_08cd2033981e37f3f5e684be88eee172" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_08cd2033981e37f3f5e684be88eee172 = L.map(
+                "map_08cd2033981e37f3f5e684be88eee172",
+                {
+                    center: [52.91581283333333, -1.6892794333333332],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 5,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5d00cde8d8163af39f6069e98d13abd7 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_5d00cde8d8163af39f6069e98d13abd7.addTo(map_08cd2033981e37f3f5e684be88eee172);
+        
+    
+            var heat_map_739f61a882eabbc2943f2c8b7fa645b0 = L.heatLayer(
+                [[57.1648, -2.1015, 3.2], [52.4183, -4.0639, 3.17], [52.4867, -1.8882, 2.84], [51.3782, -2.3264, 3.35], [51.8779, -0.4093, 2.2], [51.5219, -0.1303, 3.41], [52.4508, -1.9305, 3.77], [52.4832, -1.8828, 2.51], [50.7435, -1.8983, 2.51], [53.7915, -1.7661, 2.69], [50.8459, -0.1188, 2.92], [51.4575, -2.60235, 3.68], [51.5321, -0.4727, 2.82], [52.2054, 0.1132, 3.59], [51.4866, -3.1789, 3.41], [53.7645, -2.7083, 2.5], [53.2003, -2.8998, 2.23], [51.528, -0.1025, 3.26], [52.6298, -1.1399, 2.57], [52.9379, -1.4972, 2.48], [56.4582, -2.9821, 3.38], [54.765, -1.5782, 3.44], [52.6221, 1.2411, 3.17], [51.5076, 0.0651, 2.8], [53.5588, -2.8703, 2.5], [55.9445, -3.1892, 3.73], [55.9362, -3.2286, 3.13], [51.8777, 0.9472, 3.32], [50.7371, -3.5351, 3.0], [55.8724, -4.29, 3.61], [55.8668, -4.25, 2.42], [53.0526, -3.0062, 1.67], [51.4743, -0.0354, 2.85], [51.483, 0.0064, 2.68], [55.9095, -3.3206, 3.14], [51.7517, -0.24, 3.15], [53.6428, -1.7781, 2.74], [53.7724, -0.3668, 2.89], [51.4988, -0.1749, 3.93], [53.003, -2.2721, 2.67], [51.2967, 1.063, 3.39], [51.5115, -0.1164, 3.56], [51.4032, -0.3035, 2.8], [54.0104, -2.7877, 3.49], [53.8067, -1.555, 3.62], [53.8035, -1.548, 2.46], [52.6211, -1.1246, 3.11], [53.2285, -0.5478, 3.15], [53.4048, -2.9653, 3.28], [53.3908, -2.8923, 2.37], [53.4065, -2.9752, 2.82], [51.5526, -0.1113, 1.9], [52.765, -1.2321, 3.24], [53.4668, -2.2339, 3.61], [53.4703, -2.2393, 2.75], [51.589755, -0.228299, 2.61], [54.9792, -1.6147, 3.44], [54.9769, -1.6077, 2.81], [52.9581, -1.1542, 2.88], [52.9388, -1.1981, 3.5], [52.0249, -0.7082, 2.82], [51.7548, -1.2544, 3.81], [51.755, -1.2242, 2.72], [50.3759, -4.1396, 2.74], [50.7953, -1.0939, 2.89], [51.5241, -0.0404, 3.65], [51.4403, -0.9421, 3.07], [57.1189, -2.1379, 2.64], [51.4232, -0.5593, 3.5], [53.4872, -2.2737, 2.76], [53.3814, -1.4884, 3.0082022471910115], [53.3784, -1.4663, 2.57], [51.4816, -3.1791, 2.54], [50.9357, -1.3966, 3.59], [56.3417, -2.7943, 3.15], [56.1461, -3.9178, 2.8], [55.8621, -4.2424, 3.21], [54.9112, -1.3831, 2.52], [51.2431, -0.5895, 3.26], [50.8677, -0.0875, 3.43], [51.6092, -3.98, 3.22], [54.6041, -5.929, 3.12], [51.5246, -0.134, 3.75], [52.3793, -1.5615, 3.75], [51.5069, -0.3032, 2.28], [51.5006, -2.5474, 2.86], [55.7782, -4.1041, 2.63], [51.517, -0.1432, 2.7], [52.5881, -2.1275, 2.01], [53.9461, -1.0518, 3.62]],
+                {"blur": 15, "maxZoom": 18, "minOpacity": 0.5, "radius": 25}
+            );
+        
+    
+            heat_map_739f61a882eabbc2943f2c8b7fa645b0.addTo(map_08cd2033981e37f3f5e684be88eee172);
+        
+    
+            var marker_cluster_a6b0bcb0a2b270beecbfabf570452a87 = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            var marker_a994b0f8a82301e841cd15bdb499e9a5 = L.marker(
+                [57.1648, -2.1015],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_e2f21e956d4c1b3b06e75e87e90cee34 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_c731a3acfdac7cd0f9a110a9c1b04a9e = $(`<div id="html_c731a3acfdac7cd0f9a110a9c1b04a9e" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Aberdeen</strong><br>         Overall Score: 3.20         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Aberdeen" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_e2f21e956d4c1b3b06e75e87e90cee34.setContent(html_c731a3acfdac7cd0f9a110a9c1b04a9e);
+            
+        
+
+        marker_a994b0f8a82301e841cd15bdb499e9a5.bindPopup(popup_e2f21e956d4c1b3b06e75e87e90cee34)
+        ;
+
+        
+    
+    
+            var marker_5c0fff50c5675fa910be50f697097b28 = L.marker(
+                [52.4183, -4.0639],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_ef44223be85355f84ab0f66951841f73 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_ef38bfc2239f829eb0e9b2cf8876dfd5 = $(`<div id="html_ef38bfc2239f829eb0e9b2cf8876dfd5" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Aberystwyth University</strong><br>         Overall Score: 3.17         <br><br>         <a href="uniAnalytics.html?query=Aberystwyth%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_ef44223be85355f84ab0f66951841f73.setContent(html_ef38bfc2239f829eb0e9b2cf8876dfd5);
+            
+        
+
+        marker_5c0fff50c5675fa910be50f697097b28.bindPopup(popup_ef44223be85355f84ab0f66951841f73)
+        ;
+
+        
+    
+    
+            var marker_c1782e198c6e2652c28da7edbd1be911 = L.marker(
+                [52.4867, -1.8882],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_868bb9adcb8ac8baeb8e85754f800839 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_1ebbf5d496d87a138e8e1a0d8c46a8fe = $(`<div id="html_1ebbf5d496d87a138e8e1a0d8c46a8fe" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Aston University</strong><br>         Overall Score: 2.84         <br><br>         <a href="uniAnalytics.html?query=Aston%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_868bb9adcb8ac8baeb8e85754f800839.setContent(html_1ebbf5d496d87a138e8e1a0d8c46a8fe);
+            
+        
+
+        marker_c1782e198c6e2652c28da7edbd1be911.bindPopup(popup_868bb9adcb8ac8baeb8e85754f800839)
+        ;
+
+        
+    
+    
+            var marker_7e1e0ee32d89fa9dc2fc9248872122fa = L.marker(
+                [51.3782, -2.3264],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_2c5ff1611c68e75f873e78511b739667 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_8088425ea5d398113a0c85d0d6b256c4 = $(`<div id="html_8088425ea5d398113a0c85d0d6b256c4" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Bath</strong><br>         Overall Score: 3.35         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Bath" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_2c5ff1611c68e75f873e78511b739667.setContent(html_8088425ea5d398113a0c85d0d6b256c4);
+            
+        
+
+        marker_7e1e0ee32d89fa9dc2fc9248872122fa.bindPopup(popup_2c5ff1611c68e75f873e78511b739667)
+        ;
+
+        
+    
+    
+            var marker_de6b740c52ecf5f73e0eb481e72154af = L.marker(
+                [51.8779, -0.4093],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_9d0fa610f1ba50c746429b25816d0e5b = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_7f9a6675347b5aafeca3587becfbcd74 = $(`<div id="html_7f9a6675347b5aafeca3587becfbcd74" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Bedfordshire</strong><br>         Overall Score: 2.20         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Bedfordshire" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_9d0fa610f1ba50c746429b25816d0e5b.setContent(html_7f9a6675347b5aafeca3587becfbcd74);
+            
+        
+
+        marker_de6b740c52ecf5f73e0eb481e72154af.bindPopup(popup_9d0fa610f1ba50c746429b25816d0e5b)
+        ;
+
+        
+    
+    
+            var marker_ac8186b81344a78f9a85efb6202f0cf2 = L.marker(
+                [51.5219, -0.1303],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_41999d7f389a8116bca94f033cbc3d56 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_535f38e831dcd986b3cda8cca0373ddb = $(`<div id="html_535f38e831dcd986b3cda8cca0373ddb" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Birkbeck College</strong><br>         Overall Score: 3.41         <br><br>         <a href="uniAnalytics.html?query=Birkbeck%20College" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_41999d7f389a8116bca94f033cbc3d56.setContent(html_535f38e831dcd986b3cda8cca0373ddb);
+            
+        
+
+        marker_ac8186b81344a78f9a85efb6202f0cf2.bindPopup(popup_41999d7f389a8116bca94f033cbc3d56)
+        ;
+
+        
+    
+    
+            var marker_b613f9ac2f9e1fb2a46cec4d18b45ece = L.marker(
+                [52.4508, -1.9305],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_a099fccb40c10b1a25df34aa49caef04 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_a3feea1918f7ecbb1ae8e272e739a157 = $(`<div id="html_a3feea1918f7ecbb1ae8e272e739a157" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Birmingham</strong><br>         Overall Score: 3.77         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Birmingham" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_a099fccb40c10b1a25df34aa49caef04.setContent(html_a3feea1918f7ecbb1ae8e272e739a157);
+            
+        
+
+        marker_b613f9ac2f9e1fb2a46cec4d18b45ece.bindPopup(popup_a099fccb40c10b1a25df34aa49caef04)
+        ;
+
+        
+    
+    
+            var marker_b9d9be0194e4e5d9f74b919691ec301f = L.marker(
+                [52.4832, -1.8828],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_62a71c2e2592ab9bfc207c7893743115 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_35c8912b044a7482dc8dbafbb49fb3c6 = $(`<div id="html_35c8912b044a7482dc8dbafbb49fb3c6" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Birmingham City University</strong><br>         Overall Score: 2.51         <br><br>         <a href="uniAnalytics.html?query=Birmingham%20City%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_62a71c2e2592ab9bfc207c7893743115.setContent(html_35c8912b044a7482dc8dbafbb49fb3c6);
+            
+        
+
+        marker_b9d9be0194e4e5d9f74b919691ec301f.bindPopup(popup_62a71c2e2592ab9bfc207c7893743115)
+        ;
+
+        
+    
+    
+            var marker_bd15af09f57e63ff3a4004d2a00b0e7c = L.marker(
+                [50.7435, -1.8983],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_b5f051d29e9eb90aec37fd7fd4d3917d = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_64889ecf83a56d9e4d340d09a0fddddd = $(`<div id="html_64889ecf83a56d9e4d340d09a0fddddd" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Bournemouth University</strong><br>         Overall Score: 2.51         <br><br>         <a href="uniAnalytics.html?query=Bournemouth%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_b5f051d29e9eb90aec37fd7fd4d3917d.setContent(html_64889ecf83a56d9e4d340d09a0fddddd);
+            
+        
+
+        marker_bd15af09f57e63ff3a4004d2a00b0e7c.bindPopup(popup_b5f051d29e9eb90aec37fd7fd4d3917d)
+        ;
+
+        
+    
+    
+            var marker_cb6cb7b06c345fa3cd8d04fadc642840 = L.marker(
+                [53.7915, -1.7661],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_541974a2d47ee3c770f72a4d40ee6041 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_3e01b9fac22f9546208df2aeea0d5514 = $(`<div id="html_3e01b9fac22f9546208df2aeea0d5514" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Bradford</strong><br>         Overall Score: 2.69         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Bradford" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_541974a2d47ee3c770f72a4d40ee6041.setContent(html_3e01b9fac22f9546208df2aeea0d5514);
+            
+        
+
+        marker_cb6cb7b06c345fa3cd8d04fadc642840.bindPopup(popup_541974a2d47ee3c770f72a4d40ee6041)
+        ;
+
+        
+    
+    
+            var marker_6c22b6600c1c4f5e7dcbb1649bbb936c = L.marker(
+                [50.8459, -0.1188],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_4b99a06ae3933f8cc394932fecadbac1 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_8281f7d33d0a25828a540b9c16af99fa = $(`<div id="html_8281f7d33d0a25828a540b9c16af99fa" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Brighton</strong><br>         Overall Score: 2.92         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Brighton" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_4b99a06ae3933f8cc394932fecadbac1.setContent(html_8281f7d33d0a25828a540b9c16af99fa);
+            
+        
+
+        marker_6c22b6600c1c4f5e7dcbb1649bbb936c.bindPopup(popup_4b99a06ae3933f8cc394932fecadbac1)
+        ;
+
+        
+    
+    
+            var marker_ba677e3ab11d6b72eb8c64c52e39769f = L.marker(
+                [51.4575, -2.60235],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_dd150a6e6bc83924aa55f45a905834b1 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_c6d25c3c835c13b625c2912e7b323b53 = $(`<div id="html_c6d25c3c835c13b625c2912e7b323b53" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Bristol</strong><br>         Overall Score: 3.68         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Bristol" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_dd150a6e6bc83924aa55f45a905834b1.setContent(html_c6d25c3c835c13b625c2912e7b323b53);
+            
+        
+
+        marker_ba677e3ab11d6b72eb8c64c52e39769f.bindPopup(popup_dd150a6e6bc83924aa55f45a905834b1)
+        ;
+
+        
+    
+    
+            var marker_62b746620ac98eab343da61f090a7d37 = L.marker(
+                [51.5321, -0.4727],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_e33e639d444b24f107d49ca464144709 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_dd0d7010a7c7ac365d8c1985556e62db = $(`<div id="html_dd0d7010a7c7ac365d8c1985556e62db" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Brunel University London</strong><br>         Overall Score: 2.82         <br><br>         <a href="uniAnalytics.html?query=Brunel%20University%20London" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_e33e639d444b24f107d49ca464144709.setContent(html_dd0d7010a7c7ac365d8c1985556e62db);
+            
+        
+
+        marker_62b746620ac98eab343da61f090a7d37.bindPopup(popup_e33e639d444b24f107d49ca464144709)
+        ;
+
+        
+    
+    
+            var marker_bbbdf4b3fa129b9441534da1f1d97343 = L.marker(
+                [52.2054, 0.1132],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_f6b517765cbf202a4efd9d7b08cd7da2 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_cc320a98dc700e0c14523116c1430412 = $(`<div id="html_cc320a98dc700e0c14523116c1430412" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Cambridge</strong><br>         Overall Score: 3.59         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Cambridge" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_f6b517765cbf202a4efd9d7b08cd7da2.setContent(html_cc320a98dc700e0c14523116c1430412);
+            
+        
+
+        marker_bbbdf4b3fa129b9441534da1f1d97343.bindPopup(popup_f6b517765cbf202a4efd9d7b08cd7da2)
+        ;
+
+        
+    
+    
+            var marker_0c592d83bdab150bf641eac9dd1a60df = L.marker(
+                [51.4866, -3.1789],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_dc249d58b9ccc8e4e8acc311a13f5ce7 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_5a10270b45bfe22198914ca92e41dfc2 = $(`<div id="html_5a10270b45bfe22198914ca92e41dfc2" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Cardiff University</strong><br>         Overall Score: 3.41         <br><br>         <a href="uniAnalytics.html?query=Cardiff%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_dc249d58b9ccc8e4e8acc311a13f5ce7.setContent(html_5a10270b45bfe22198914ca92e41dfc2);
+            
+        
+
+        marker_0c592d83bdab150bf641eac9dd1a60df.bindPopup(popup_dc249d58b9ccc8e4e8acc311a13f5ce7)
+        ;
+
+        
+    
+    
+            var marker_a49c2069cbd93b5ff42f416eaf5255ec = L.marker(
+                [53.7645, -2.7083],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_ba1201d5a0b3ec7c526b830f25a9e220 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_4cc4f6af5447dd56b81f232b5df33246 = $(`<div id="html_4cc4f6af5447dd56b81f232b5df33246" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Central Lancashire</strong><br>         Overall Score: 2.50         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Central%20Lancashire" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_ba1201d5a0b3ec7c526b830f25a9e220.setContent(html_4cc4f6af5447dd56b81f232b5df33246);
+            
+        
+
+        marker_a49c2069cbd93b5ff42f416eaf5255ec.bindPopup(popup_ba1201d5a0b3ec7c526b830f25a9e220)
+        ;
+
+        
+    
+    
+            var marker_39b1fb3621ad3cc3439e3652b052e248 = L.marker(
+                [53.2003, -2.8998],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_1de1b529b34eb98ab9ae3ae186b8a1c7 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_4a3aeee4132887b797948db7361de02b = $(`<div id="html_4a3aeee4132887b797948db7361de02b" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Chester</strong><br>         Overall Score: 2.23         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Chester" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_1de1b529b34eb98ab9ae3ae186b8a1c7.setContent(html_4a3aeee4132887b797948db7361de02b);
+            
+        
+
+        marker_39b1fb3621ad3cc3439e3652b052e248.bindPopup(popup_1de1b529b34eb98ab9ae3ae186b8a1c7)
+        ;
+
+        
+    
+    
+            var marker_6fc18e242a32bf04e59f4ee019639de3 = L.marker(
+                [51.528, -0.1025],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_14bca5511cb64cd66342e0b06a8730f9 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_e295fc14df5cc57ab1167dc64fc2b7f6 = $(`<div id="html_e295fc14df5cc57ab1167dc64fc2b7f6" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>City, University of London</strong><br>         Overall Score: 3.26         <br><br>         <a href="uniAnalytics.html?query=City%2C%20University%20of%20London" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_14bca5511cb64cd66342e0b06a8730f9.setContent(html_e295fc14df5cc57ab1167dc64fc2b7f6);
+            
+        
+
+        marker_6fc18e242a32bf04e59f4ee019639de3.bindPopup(popup_14bca5511cb64cd66342e0b06a8730f9)
+        ;
+
+        
+    
+    
+            var marker_c7afa8e599ad5ed4a8903973b9ac3c0c = L.marker(
+                [52.6298, -1.1399],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_52ed0cc8accfc2a027f9ba43e1cf2ed0 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_2c45270147f1041efce97c374f45eeb6 = $(`<div id="html_2c45270147f1041efce97c374f45eeb6" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>De Montfort University</strong><br>         Overall Score: 2.57         <br><br>         <a href="uniAnalytics.html?query=De%20Montfort%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_52ed0cc8accfc2a027f9ba43e1cf2ed0.setContent(html_2c45270147f1041efce97c374f45eeb6);
+            
+        
+
+        marker_c7afa8e599ad5ed4a8903973b9ac3c0c.bindPopup(popup_52ed0cc8accfc2a027f9ba43e1cf2ed0)
+        ;
+
+        
+    
+    
+            var marker_e73ead7073a8087337e77e77f9825147 = L.marker(
+                [52.9379, -1.4972],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_193cdccd9852b2f8d083c8900ac0c860 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_8cb9fb0170ec977b8431173b7fab9a62 = $(`<div id="html_8cb9fb0170ec977b8431173b7fab9a62" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Derby</strong><br>         Overall Score: 2.48         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Derby" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_193cdccd9852b2f8d083c8900ac0c860.setContent(html_8cb9fb0170ec977b8431173b7fab9a62);
+            
+        
+
+        marker_e73ead7073a8087337e77e77f9825147.bindPopup(popup_193cdccd9852b2f8d083c8900ac0c860)
+        ;
+
+        
+    
+    
+            var marker_11711cec624e193930b650988bc6e27d = L.marker(
+                [56.4582, -2.9821],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_09473ceddb0c226e6624e7221741483a = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_612d34f0211e2696958e9d7d91725028 = $(`<div id="html_612d34f0211e2696958e9d7d91725028" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Dundee</strong><br>         Overall Score: 3.38         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Dundee" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_09473ceddb0c226e6624e7221741483a.setContent(html_612d34f0211e2696958e9d7d91725028);
+            
+        
+
+        marker_11711cec624e193930b650988bc6e27d.bindPopup(popup_09473ceddb0c226e6624e7221741483a)
+        ;
+
+        
+    
+    
+            var marker_8d2510da82506d2600f90c2ad9ab9cc3 = L.marker(
+                [54.765, -1.5782],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_817ea69fec6bb7f019f30df10d323acb = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_aa464da355ded810bca7fe1eb73a4192 = $(`<div id="html_aa464da355ded810bca7fe1eb73a4192" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Durham</strong><br>         Overall Score: 3.44         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Durham" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_817ea69fec6bb7f019f30df10d323acb.setContent(html_aa464da355ded810bca7fe1eb73a4192);
+            
+        
+
+        marker_8d2510da82506d2600f90c2ad9ab9cc3.bindPopup(popup_817ea69fec6bb7f019f30df10d323acb)
+        ;
+
+        
+    
+    
+            var marker_dcff89d36b182607fdaca7db3d937736 = L.marker(
+                [52.6221, 1.2411],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_6cc3ea32f07f1bfedb313be2abf910ac = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_29aaca3a6491a1b9125ba51b4cb45a71 = $(`<div id="html_29aaca3a6491a1b9125ba51b4cb45a71" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of East Anglia</strong><br>         Overall Score: 3.17         <br><br>         <a href="uniAnalytics.html?query=University%20of%20East%20Anglia" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_6cc3ea32f07f1bfedb313be2abf910ac.setContent(html_29aaca3a6491a1b9125ba51b4cb45a71);
+            
+        
+
+        marker_dcff89d36b182607fdaca7db3d937736.bindPopup(popup_6cc3ea32f07f1bfedb313be2abf910ac)
+        ;
+
+        
+    
+    
+            var marker_ef2ee35e3723c7a8a7341311a7f8bd27 = L.marker(
+                [51.5076, 0.0651],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_8fe8ab74754408f9a7c0bf3fa83c27a8 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_f0796a4dcb7f23d018e76d4bad9cc4ac = $(`<div id="html_f0796a4dcb7f23d018e76d4bad9cc4ac" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of East London</strong><br>         Overall Score: 2.80         <br><br>         <a href="uniAnalytics.html?query=University%20of%20East%20London" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_8fe8ab74754408f9a7c0bf3fa83c27a8.setContent(html_f0796a4dcb7f23d018e76d4bad9cc4ac);
+            
+        
+
+        marker_ef2ee35e3723c7a8a7341311a7f8bd27.bindPopup(popup_8fe8ab74754408f9a7c0bf3fa83c27a8)
+        ;
+
+        
+    
+    
+            var marker_c1f37283009ea62c35f8d611feb2b21f = L.marker(
+                [53.5588, -2.8703],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_b95b4862798b3e1baba167ff187d6a14 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_fbb1157053dff3e5a81acd6107096a31 = $(`<div id="html_fbb1157053dff3e5a81acd6107096a31" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Edge Hill University</strong><br>         Overall Score: 2.50         <br><br>         <a href="uniAnalytics.html?query=Edge%20Hill%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_b95b4862798b3e1baba167ff187d6a14.setContent(html_fbb1157053dff3e5a81acd6107096a31);
+            
+        
+
+        marker_c1f37283009ea62c35f8d611feb2b21f.bindPopup(popup_b95b4862798b3e1baba167ff187d6a14)
+        ;
+
+        
+    
+    
+            var marker_796f2a6f266e84a4bd9e1bd30d0b54ce = L.marker(
+                [55.9445, -3.1892],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_bfa8869a4f59f5239d24bd2d39f3f198 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_0db0c7316b34d692568332df0f5dc8fe = $(`<div id="html_0db0c7316b34d692568332df0f5dc8fe" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Edinburgh</strong><br>         Overall Score: 3.73         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Edinburgh" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_bfa8869a4f59f5239d24bd2d39f3f198.setContent(html_0db0c7316b34d692568332df0f5dc8fe);
+            
+        
+
+        marker_796f2a6f266e84a4bd9e1bd30d0b54ce.bindPopup(popup_bfa8869a4f59f5239d24bd2d39f3f198)
+        ;
+
+        
+    
+    
+            var marker_605ee4b259654d2b8d9e7192b394eddf = L.marker(
+                [55.9362, -3.2286],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_649133dd46756dddde3285a7e7c27d44 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_2dfc75edbfecb9487a5123b5a5ae0ef1 = $(`<div id="html_2dfc75edbfecb9487a5123b5a5ae0ef1" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Edinburgh Napier University</strong><br>         Overall Score: 3.13         <br><br>         <a href="uniAnalytics.html?query=Edinburgh%20Napier%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_649133dd46756dddde3285a7e7c27d44.setContent(html_2dfc75edbfecb9487a5123b5a5ae0ef1);
+            
+        
+
+        marker_605ee4b259654d2b8d9e7192b394eddf.bindPopup(popup_649133dd46756dddde3285a7e7c27d44)
+        ;
+
+        
+    
+    
+            var marker_9f597265469e5f9ab17850f891943d7b = L.marker(
+                [51.8777, 0.9472],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_201fa6db8eb9e09cbbbc2d1e751719db = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_657c68607d74c3df20d197a17d209694 = $(`<div id="html_657c68607d74c3df20d197a17d209694" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Essex</strong><br>         Overall Score: 3.32         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Essex" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_201fa6db8eb9e09cbbbc2d1e751719db.setContent(html_657c68607d74c3df20d197a17d209694);
+            
+        
+
+        marker_9f597265469e5f9ab17850f891943d7b.bindPopup(popup_201fa6db8eb9e09cbbbc2d1e751719db)
+        ;
+
+        
+    
+    
+            var marker_c860de2f896d81d5c162a1e4cb3afb63 = L.marker(
+                [50.7371, -3.5351],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_9abd48a25abba3fb78524a4287317feb = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_621554192dbd85dc3f4660f913938ec2 = $(`<div id="html_621554192dbd85dc3f4660f913938ec2" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Exeter</strong><br>         Overall Score: 3.00         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Exeter" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_9abd48a25abba3fb78524a4287317feb.setContent(html_621554192dbd85dc3f4660f913938ec2);
+            
+        
+
+        marker_c860de2f896d81d5c162a1e4cb3afb63.bindPopup(popup_9abd48a25abba3fb78524a4287317feb)
+        ;
+
+        
+    
+    
+            var marker_7e8718753f7337108af43d0c60e5ffe7 = L.marker(
+                [55.8724, -4.29],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_5ac04b47e8af662616b1742cd17f75e2 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_bc5c83e58eb9da232c6276754cb67a6f = $(`<div id="html_bc5c83e58eb9da232c6276754cb67a6f" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Glasgow</strong><br>         Overall Score: 3.61         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Glasgow" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_5ac04b47e8af662616b1742cd17f75e2.setContent(html_bc5c83e58eb9da232c6276754cb67a6f);
+            
+        
+
+        marker_7e8718753f7337108af43d0c60e5ffe7.bindPopup(popup_5ac04b47e8af662616b1742cd17f75e2)
+        ;
+
+        
+    
+    
+            var marker_fa93dd17b43c1bdad7ee17fdc59b8823 = L.marker(
+                [55.8668, -4.25],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_863b5e026ac934663630f349c4ee9391 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_56f5a0f4c058e366136aa312c0f0bf50 = $(`<div id="html_56f5a0f4c058e366136aa312c0f0bf50" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Glasgow Caledonian University</strong><br>         Overall Score: 2.42         <br><br>         <a href="uniAnalytics.html?query=Glasgow%20Caledonian%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_863b5e026ac934663630f349c4ee9391.setContent(html_56f5a0f4c058e366136aa312c0f0bf50);
+            
+        
+
+        marker_fa93dd17b43c1bdad7ee17fdc59b8823.bindPopup(popup_863b5e026ac934663630f349c4ee9391)
+        ;
+
+        
+    
+    
+            var marker_df09cfa7b8d2ef97d459b066573d9b12 = L.marker(
+                [53.0526, -3.0062],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_eb4221867eea34044b0778d30f1b0bec = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_adca20d6abb04cca835f525feaec2b8a = $(`<div id="html_adca20d6abb04cca835f525feaec2b8a" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Wrexham University</strong><br>         Overall Score: 1.67         <br><br>         <a href="uniAnalytics.html?query=Wrexham%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_eb4221867eea34044b0778d30f1b0bec.setContent(html_adca20d6abb04cca835f525feaec2b8a);
+            
+        
+
+        marker_df09cfa7b8d2ef97d459b066573d9b12.bindPopup(popup_eb4221867eea34044b0778d30f1b0bec)
+        ;
+
+        
+    
+    
+            var marker_2bbd44ec0209513a0920635c9dcb2b2e = L.marker(
+                [51.4743, -0.0354],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_7bb1556d0c09f237b9637af09086837f = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_1a899bd9a82c611abe6bd3c1b98cc363 = $(`<div id="html_1a899bd9a82c611abe6bd3c1b98cc363" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Goldsmiths' College</strong><br>         Overall Score: 2.85         <br><br>         <a href="uniAnalytics.html?query=Goldsmiths%27%20College" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_7bb1556d0c09f237b9637af09086837f.setContent(html_1a899bd9a82c611abe6bd3c1b98cc363);
+            
+        
+
+        marker_2bbd44ec0209513a0920635c9dcb2b2e.bindPopup(popup_7bb1556d0c09f237b9637af09086837f)
+        ;
+
+        
+    
+    
+            var marker_6a1ff9bb7abbeb33b21aa3f52069ebcf = L.marker(
+                [51.483, 0.0064],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_6383012b19694366472f06d3348852fb = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_acc093afe0d3203fff38e6cc92f1a29c = $(`<div id="html_acc093afe0d3203fff38e6cc92f1a29c" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Greenwich</strong><br>         Overall Score: 2.68         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Greenwich" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_6383012b19694366472f06d3348852fb.setContent(html_acc093afe0d3203fff38e6cc92f1a29c);
+            
+        
+
+        marker_6a1ff9bb7abbeb33b21aa3f52069ebcf.bindPopup(popup_6383012b19694366472f06d3348852fb)
+        ;
+
+        
+    
+    
+            var marker_85a2a45dc8c356b6f31de61359d09aea = L.marker(
+                [55.9095, -3.3206],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_1e03981908da23ed3fc6417e7e787dcf = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_ffd4fe530d569892632edff7bdb0a170 = $(`<div id="html_ffd4fe530d569892632edff7bdb0a170" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Heriot-Watt University</strong><br>         Overall Score: 3.14         <br><br>         <a href="uniAnalytics.html?query=Heriot-Watt%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_1e03981908da23ed3fc6417e7e787dcf.setContent(html_ffd4fe530d569892632edff7bdb0a170);
+            
+        
+
+        marker_85a2a45dc8c356b6f31de61359d09aea.bindPopup(popup_1e03981908da23ed3fc6417e7e787dcf)
+        ;
+
+        
+    
+    
+            var marker_c7f9b85ffeedceea9d95ff7e104c2139 = L.marker(
+                [51.7517, -0.24],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_2f9cd37f39539b42f99006c239503406 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_dfb1f1e398916b365a4ec98212465004 = $(`<div id="html_dfb1f1e398916b365a4ec98212465004" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Hertfordshire</strong><br>         Overall Score: 3.15         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Hertfordshire" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_2f9cd37f39539b42f99006c239503406.setContent(html_dfb1f1e398916b365a4ec98212465004);
+            
+        
+
+        marker_c7f9b85ffeedceea9d95ff7e104c2139.bindPopup(popup_2f9cd37f39539b42f99006c239503406)
+        ;
+
+        
+    
+    
+            var marker_d5f6cb6029abc6866de6cbafb0bc64b3 = L.marker(
+                [53.6428, -1.7781],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_be145fd3033d1922aa36b195d33be155 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_5e53fe2d2108e451a08efeb4bc4f05bb = $(`<div id="html_5e53fe2d2108e451a08efeb4bc4f05bb" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Huddersfield</strong><br>         Overall Score: 2.74         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Huddersfield" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_be145fd3033d1922aa36b195d33be155.setContent(html_5e53fe2d2108e451a08efeb4bc4f05bb);
+            
+        
+
+        marker_d5f6cb6029abc6866de6cbafb0bc64b3.bindPopup(popup_be145fd3033d1922aa36b195d33be155)
+        ;
+
+        
+    
+    
+            var marker_f2c7a6c3088617a4b571205c03acc9d2 = L.marker(
+                [53.7724, -0.3668],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_86f63aeb2a4f35789ad8ad113a3d8607 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_190d84ee6238df6a32140f41948a81da = $(`<div id="html_190d84ee6238df6a32140f41948a81da" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Hull</strong><br>         Overall Score: 2.89         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Hull" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_86f63aeb2a4f35789ad8ad113a3d8607.setContent(html_190d84ee6238df6a32140f41948a81da);
+            
+        
+
+        marker_f2c7a6c3088617a4b571205c03acc9d2.bindPopup(popup_86f63aeb2a4f35789ad8ad113a3d8607)
+        ;
+
+        
+    
+    
+            var marker_ebea8db26e8acfcf4efb4af87e935c62 = L.marker(
+                [51.4988, -0.1749],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_85fb0a3febdb8a38801f5e40a256b976 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_d0f6059420b39fea2f1a3df8384c434e = $(`<div id="html_d0f6059420b39fea2f1a3df8384c434e" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Imperial College London</strong><br>         Overall Score: 3.93         <br><br>         <a href="uniAnalytics.html?query=Imperial%20College%20London" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_85fb0a3febdb8a38801f5e40a256b976.setContent(html_d0f6059420b39fea2f1a3df8384c434e);
+            
+        
+
+        marker_ebea8db26e8acfcf4efb4af87e935c62.bindPopup(popup_85fb0a3febdb8a38801f5e40a256b976)
+        ;
+
+        
+    
+    
+            var marker_1712f0f31d8a6aa9695fe267fe414ed9 = L.marker(
+                [53.003, -2.2721],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_2017daf6a10730e18111516576df2a19 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_245ad7dedf01c70ba7cd54935a09cdc5 = $(`<div id="html_245ad7dedf01c70ba7cd54935a09cdc5" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Keele</strong><br>         Overall Score: 2.67         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Keele" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_2017daf6a10730e18111516576df2a19.setContent(html_245ad7dedf01c70ba7cd54935a09cdc5);
+            
+        
+
+        marker_1712f0f31d8a6aa9695fe267fe414ed9.bindPopup(popup_2017daf6a10730e18111516576df2a19)
+        ;
+
+        
+    
+    
+            var marker_a7324b2f9e968c0dda09918cc151e44b = L.marker(
+                [51.2967, 1.063],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_81c1d6e2c0c947b3f6e1ebf2fd851c82 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_800f912c49cf122b1b451c469ad72402 = $(`<div id="html_800f912c49cf122b1b451c469ad72402" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Kent</strong><br>         Overall Score: 3.39         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Kent" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_81c1d6e2c0c947b3f6e1ebf2fd851c82.setContent(html_800f912c49cf122b1b451c469ad72402);
+            
+        
+
+        marker_a7324b2f9e968c0dda09918cc151e44b.bindPopup(popup_81c1d6e2c0c947b3f6e1ebf2fd851c82)
+        ;
+
+        
+    
+    
+            var marker_2a542437ea8cc851e8bbd5bbf7ff7e40 = L.marker(
+                [51.5115, -0.1164],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_2ed8630d61f2c42b30bfd4f009d3c2b6 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_ca40c1c72fbca460f3b6e08bc79eb8e0 = $(`<div id="html_ca40c1c72fbca460f3b6e08bc79eb8e0" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>King's College London</strong><br>         Overall Score: 3.56         <br><br>         <a href="uniAnalytics.html?query=King%27s%20College%20London" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_2ed8630d61f2c42b30bfd4f009d3c2b6.setContent(html_ca40c1c72fbca460f3b6e08bc79eb8e0);
+            
+        
+
+        marker_2a542437ea8cc851e8bbd5bbf7ff7e40.bindPopup(popup_2ed8630d61f2c42b30bfd4f009d3c2b6)
+        ;
+
+        
+    
+    
+            var marker_fa6c4083a3d0025360d51675d19f0ab8 = L.marker(
+                [51.4032, -0.3035],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_1da1194cc3d9614064cd96a538dfa964 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_f697d1435681a7982e692ecc8515c1d1 = $(`<div id="html_f697d1435681a7982e692ecc8515c1d1" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Kingston University</strong><br>         Overall Score: 2.80         <br><br>         <a href="uniAnalytics.html?query=Kingston%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_1da1194cc3d9614064cd96a538dfa964.setContent(html_f697d1435681a7982e692ecc8515c1d1);
+            
+        
+
+        marker_fa6c4083a3d0025360d51675d19f0ab8.bindPopup(popup_1da1194cc3d9614064cd96a538dfa964)
+        ;
+
+        
+    
+    
+            var marker_ead8b9f25509095a38ce495eded47209 = L.marker(
+                [54.0104, -2.7877],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_7cfdac97347e223cc46c2e11ebb7254d = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_40cf1d44421bc37c6cd4388103e5a58f = $(`<div id="html_40cf1d44421bc37c6cd4388103e5a58f" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Lancaster</strong><br>         Overall Score: 3.49         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Lancaster" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_7cfdac97347e223cc46c2e11ebb7254d.setContent(html_40cf1d44421bc37c6cd4388103e5a58f);
+            
+        
+
+        marker_ead8b9f25509095a38ce495eded47209.bindPopup(popup_7cfdac97347e223cc46c2e11ebb7254d)
+        ;
+
+        
+    
+    
+            var marker_bd7e1efe142828c3906c5de7772c2825 = L.marker(
+                [53.8067, -1.555],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_8bd095f22762d00c8067e3c8c92e85d4 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_1f382950a773e0a9fd7133dffdadb208 = $(`<div id="html_1f382950a773e0a9fd7133dffdadb208" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Leeds</strong><br>         Overall Score: 3.62         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Leeds" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_8bd095f22762d00c8067e3c8c92e85d4.setContent(html_1f382950a773e0a9fd7133dffdadb208);
+            
+        
+
+        marker_bd7e1efe142828c3906c5de7772c2825.bindPopup(popup_8bd095f22762d00c8067e3c8c92e85d4)
+        ;
+
+        
+    
+    
+            var marker_545f284fe971853492e07dc3a31550d0 = L.marker(
+                [53.8035, -1.548],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_a00d79e8c60746dacc5b2b935f919bc7 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_0cbbc6ecc0f6fef74efcca3f50838f1c = $(`<div id="html_0cbbc6ecc0f6fef74efcca3f50838f1c" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Leeds Beckett University</strong><br>         Overall Score: 2.46         <br><br>         <a href="uniAnalytics.html?query=Leeds%20Beckett%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_a00d79e8c60746dacc5b2b935f919bc7.setContent(html_0cbbc6ecc0f6fef74efcca3f50838f1c);
+            
+        
+
+        marker_545f284fe971853492e07dc3a31550d0.bindPopup(popup_a00d79e8c60746dacc5b2b935f919bc7)
+        ;
+
+        
+    
+    
+            var marker_bc4c1a6167ae03805278259deffbbf00 = L.marker(
+                [52.6211, -1.1246],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_1bb8d351b8277151aee789e6823d9e1a = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_2c1a748d3f330746f08f06fadee3e718 = $(`<div id="html_2c1a748d3f330746f08f06fadee3e718" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Leicester</strong><br>         Overall Score: 3.11         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Leicester" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_1bb8d351b8277151aee789e6823d9e1a.setContent(html_2c1a748d3f330746f08f06fadee3e718);
+            
+        
+
+        marker_bc4c1a6167ae03805278259deffbbf00.bindPopup(popup_1bb8d351b8277151aee789e6823d9e1a)
+        ;
+
+        
+    
+    
+            var marker_c076f43b1665339eb984209172d1bbee = L.marker(
+                [53.2285, -0.5478],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_f55eef61c5852a34be4b5381b6455022 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_e9038c9a29da3bf1800e585ea433f217 = $(`<div id="html_e9038c9a29da3bf1800e585ea433f217" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Lincoln</strong><br>         Overall Score: 3.15         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Lincoln" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_f55eef61c5852a34be4b5381b6455022.setContent(html_e9038c9a29da3bf1800e585ea433f217);
+            
+        
+
+        marker_c076f43b1665339eb984209172d1bbee.bindPopup(popup_f55eef61c5852a34be4b5381b6455022)
+        ;
+
+        
+    
+    
+            var marker_6890324845385b6f00e551ec4bfe1a47 = L.marker(
+                [53.4048, -2.9653],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_87a8183f0a69af097d69b3c464a5a7b1 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_015b59d0f5a9b550169365d495687dd2 = $(`<div id="html_015b59d0f5a9b550169365d495687dd2" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Liverpool</strong><br>         Overall Score: 3.28         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Liverpool" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_87a8183f0a69af097d69b3c464a5a7b1.setContent(html_015b59d0f5a9b550169365d495687dd2);
+            
+        
+
+        marker_6890324845385b6f00e551ec4bfe1a47.bindPopup(popup_87a8183f0a69af097d69b3c464a5a7b1)
+        ;
+
+        
+    
+    
+            var marker_9f4db8669457c1f3a218bfd342a945b7 = L.marker(
+                [53.3908, -2.8923],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_3d0bd0949d88a5106f18606f04012916 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_95b6962f12995fc047a480b14ac74d7a = $(`<div id="html_95b6962f12995fc047a480b14ac74d7a" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Liverpool Hope University</strong><br>         Overall Score: 2.37         <br><br>         <a href="uniAnalytics.html?query=Liverpool%20Hope%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_3d0bd0949d88a5106f18606f04012916.setContent(html_95b6962f12995fc047a480b14ac74d7a);
+            
+        
+
+        marker_9f4db8669457c1f3a218bfd342a945b7.bindPopup(popup_3d0bd0949d88a5106f18606f04012916)
+        ;
+
+        
+    
+    
+            var marker_34f53db17e5815edd6c284cdabadca91 = L.marker(
+                [53.4065, -2.9752],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_3071db19821657ddd150bf3dc093faa7 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_6d00c0af1bee8ad93ab5262aee680e22 = $(`<div id="html_6d00c0af1bee8ad93ab5262aee680e22" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Liverpool John Moores University</strong><br>         Overall Score: 2.82         <br><br>         <a href="uniAnalytics.html?query=Liverpool%20John%20Moores%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_3071db19821657ddd150bf3dc093faa7.setContent(html_6d00c0af1bee8ad93ab5262aee680e22);
+            
+        
+
+        marker_34f53db17e5815edd6c284cdabadca91.bindPopup(popup_3071db19821657ddd150bf3dc093faa7)
+        ;
+
+        
+    
+    
+            var marker_f1d9a28addb19c41aeaec8abc3dcdcc7 = L.marker(
+                [51.5526, -0.1113],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_4734371c71a904bd85a5b63a86885249 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_33347d826537d84d4908f56286f1f394 = $(`<div id="html_33347d826537d84d4908f56286f1f394" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>London Metropolitan University</strong><br>         Overall Score: 1.90         <br><br>         <a href="uniAnalytics.html?query=London%20Metropolitan%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_4734371c71a904bd85a5b63a86885249.setContent(html_33347d826537d84d4908f56286f1f394);
+            
+        
+
+        marker_f1d9a28addb19c41aeaec8abc3dcdcc7.bindPopup(popup_4734371c71a904bd85a5b63a86885249)
+        ;
+
+        
+    
+    
+            var marker_c7a28952b2346ff6601538e20c579eb0 = L.marker(
+                [52.765, -1.2321],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_13c9fb6747363055fbc90fbf3d088990 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_7a9aaf69bae956dfc6a08f3fc81fc8a2 = $(`<div id="html_7a9aaf69bae956dfc6a08f3fc81fc8a2" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Loughborough University</strong><br>         Overall Score: 3.24         <br><br>         <a href="uniAnalytics.html?query=Loughborough%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_13c9fb6747363055fbc90fbf3d088990.setContent(html_7a9aaf69bae956dfc6a08f3fc81fc8a2);
+            
+        
+
+        marker_c7a28952b2346ff6601538e20c579eb0.bindPopup(popup_13c9fb6747363055fbc90fbf3d088990)
+        ;
+
+        
+    
+    
+            var marker_2ac899126ece8c3484420ea62f038206 = L.marker(
+                [53.4668, -2.2339],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_f7c7a2c81b76cd6746fb580a33c0e888 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_a0b013109ae70b586e7dff9ce2246a39 = $(`<div id="html_a0b013109ae70b586e7dff9ce2246a39" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Manchester</strong><br>         Overall Score: 3.61         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Manchester" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_f7c7a2c81b76cd6746fb580a33c0e888.setContent(html_a0b013109ae70b586e7dff9ce2246a39);
+            
+        
+
+        marker_2ac899126ece8c3484420ea62f038206.bindPopup(popup_f7c7a2c81b76cd6746fb580a33c0e888)
+        ;
+
+        
+    
+    
+            var marker_19385acd2810e78f57b920bcf1de12fa = L.marker(
+                [53.4703, -2.2393],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_cf6f41733976554a5a29e35abba51bb4 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_8099c47ed127172340c54a235debc4b9 = $(`<div id="html_8099c47ed127172340c54a235debc4b9" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Manchester Metropolitan University</strong><br>         Overall Score: 2.75         <br><br>         <a href="uniAnalytics.html?query=Manchester%20Metropolitan%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_cf6f41733976554a5a29e35abba51bb4.setContent(html_8099c47ed127172340c54a235debc4b9);
+            
+        
+
+        marker_19385acd2810e78f57b920bcf1de12fa.bindPopup(popup_cf6f41733976554a5a29e35abba51bb4)
+        ;
+
+        
+    
+    
+            var marker_4e9671545e890be2f4ac289b48ba5112 = L.marker(
+                [51.589755, -0.228299],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_2358a4ecc5a1b3d4b587fd2341cb908c = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_c91cfe58957194a4cad42d4c015c35b2 = $(`<div id="html_c91cfe58957194a4cad42d4c015c35b2" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Middlesex University</strong><br>         Overall Score: 2.61         <br><br>         <a href="uniAnalytics.html?query=Middlesex%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_2358a4ecc5a1b3d4b587fd2341cb908c.setContent(html_c91cfe58957194a4cad42d4c015c35b2);
+            
+        
+
+        marker_4e9671545e890be2f4ac289b48ba5112.bindPopup(popup_2358a4ecc5a1b3d4b587fd2341cb908c)
+        ;
+
+        
+    
+    
+            var marker_2636cf289dbbca1658feebfc742266a7 = L.marker(
+                [54.9792, -1.6147],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_54484726fc85869ba14d67299c6118d7 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_d35860affc32c1f23474217c10c5fc0c = $(`<div id="html_d35860affc32c1f23474217c10c5fc0c" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Newcastle</strong><br>         Overall Score: 3.44         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Newcastle" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_54484726fc85869ba14d67299c6118d7.setContent(html_d35860affc32c1f23474217c10c5fc0c);
+            
+        
+
+        marker_2636cf289dbbca1658feebfc742266a7.bindPopup(popup_54484726fc85869ba14d67299c6118d7)
+        ;
+
+        
+    
+    
+            var marker_656abc603393c61978ba3c9eb693e7a7 = L.marker(
+                [54.9769, -1.6077],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_fc30edab60508c0b02e55053ef946134 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_e422a0ffaf3d0f8df4cb95dbaebba011 = $(`<div id="html_e422a0ffaf3d0f8df4cb95dbaebba011" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Northumbria</strong><br>         Overall Score: 2.81         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Northumbria" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_fc30edab60508c0b02e55053ef946134.setContent(html_e422a0ffaf3d0f8df4cb95dbaebba011);
+            
+        
+
+        marker_656abc603393c61978ba3c9eb693e7a7.bindPopup(popup_fc30edab60508c0b02e55053ef946134)
+        ;
+
+        
+    
+    
+            var marker_8a3eb0909ce901729146df4479c0f8b7 = L.marker(
+                [52.9581, -1.1542],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_71b5971b259fd2bd01004da6efaa62e8 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_9dd06f0c42cf1d62aad8aaefa7303b77 = $(`<div id="html_9dd06f0c42cf1d62aad8aaefa7303b77" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Nottingham Trent University</strong><br>         Overall Score: 2.88         <br><br>         <a href="uniAnalytics.html?query=Nottingham%20Trent%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_71b5971b259fd2bd01004da6efaa62e8.setContent(html_9dd06f0c42cf1d62aad8aaefa7303b77);
+            
+        
+
+        marker_8a3eb0909ce901729146df4479c0f8b7.bindPopup(popup_71b5971b259fd2bd01004da6efaa62e8)
+        ;
+
+        
+    
+    
+            var marker_3e372cc1898eb012828f0683b410848b = L.marker(
+                [52.9388, -1.1981],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_55e48548fce885119be28169aa7b9d79 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_c5313d4207421064e53a45697512626f = $(`<div id="html_c5313d4207421064e53a45697512626f" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Nottingham</strong><br>         Overall Score: 3.50         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Nottingham" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_55e48548fce885119be28169aa7b9d79.setContent(html_c5313d4207421064e53a45697512626f);
+            
+        
+
+        marker_3e372cc1898eb012828f0683b410848b.bindPopup(popup_55e48548fce885119be28169aa7b9d79)
+        ;
+
+        
+    
+    
+            var marker_7a90c5064cf77730e75b35e77290aad5 = L.marker(
+                [52.0249, -0.7082],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_66ecb5b7e83ad6f6f80a145a56b393fd = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_4ae70f04d8139350f9c1cfa980faea57 = $(`<div id="html_4ae70f04d8139350f9c1cfa980faea57" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Open University</strong><br>         Overall Score: 2.82         <br><br>         <a href="uniAnalytics.html?query=Open%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_66ecb5b7e83ad6f6f80a145a56b393fd.setContent(html_4ae70f04d8139350f9c1cfa980faea57);
+            
+        
+
+        marker_7a90c5064cf77730e75b35e77290aad5.bindPopup(popup_66ecb5b7e83ad6f6f80a145a56b393fd)
+        ;
+
+        
+    
+    
+            var marker_d3e0c6fdd62a3b9ed3117729e665e7b5 = L.marker(
+                [51.7548, -1.2544],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_a8499796872ef38fe0494624261fd919 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_280731c9b0522a8f4997fff6e017abe7 = $(`<div id="html_280731c9b0522a8f4997fff6e017abe7" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Oxford</strong><br>         Overall Score: 3.81         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Oxford" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_a8499796872ef38fe0494624261fd919.setContent(html_280731c9b0522a8f4997fff6e017abe7);
+            
+        
+
+        marker_d3e0c6fdd62a3b9ed3117729e665e7b5.bindPopup(popup_a8499796872ef38fe0494624261fd919)
+        ;
+
+        
+    
+    
+            var marker_64e6b842b9d29cd879cae9a46006f374 = L.marker(
+                [51.755, -1.2242],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_fd3d741fc1ed2d3eea56682ca4bc9555 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_701883bbcffb5894c72401bd4f197ac6 = $(`<div id="html_701883bbcffb5894c72401bd4f197ac6" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Oxford Brookes University</strong><br>         Overall Score: 2.72         <br><br>         <a href="uniAnalytics.html?query=Oxford%20Brookes%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_fd3d741fc1ed2d3eea56682ca4bc9555.setContent(html_701883bbcffb5894c72401bd4f197ac6);
+            
+        
+
+        marker_64e6b842b9d29cd879cae9a46006f374.bindPopup(popup_fd3d741fc1ed2d3eea56682ca4bc9555)
+        ;
+
+        
+    
+    
+            var marker_5d75c5d69573e64896f1390d68974af6 = L.marker(
+                [50.3759, -4.1396],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_8c91dffc480c595ac376fb0335e8efd2 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_68c54c419132ef2ca2b4e77b57e8a7b0 = $(`<div id="html_68c54c419132ef2ca2b4e77b57e8a7b0" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Plymouth</strong><br>         Overall Score: 2.74         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Plymouth" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_8c91dffc480c595ac376fb0335e8efd2.setContent(html_68c54c419132ef2ca2b4e77b57e8a7b0);
+            
+        
+
+        marker_5d75c5d69573e64896f1390d68974af6.bindPopup(popup_8c91dffc480c595ac376fb0335e8efd2)
+        ;
+
+        
+    
+    
+            var marker_5da9e4b33be81e33f6b3d988e3a9e39a = L.marker(
+                [50.7953, -1.0939],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_d90efd6a3a2fd7db812d30cb47b5ddfb = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_22c1d31b7fd9a15e3f8e43d7450f4a1e = $(`<div id="html_22c1d31b7fd9a15e3f8e43d7450f4a1e" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Portsmouth</strong><br>         Overall Score: 2.89         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Portsmouth" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_d90efd6a3a2fd7db812d30cb47b5ddfb.setContent(html_22c1d31b7fd9a15e3f8e43d7450f4a1e);
+            
+        
+
+        marker_5da9e4b33be81e33f6b3d988e3a9e39a.bindPopup(popup_d90efd6a3a2fd7db812d30cb47b5ddfb)
+        ;
+
+        
+    
+    
+            var marker_31e7be3b21fb79643feb21ba94444fa4 = L.marker(
+                [51.5241, -0.0404],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_bfa3f2fc90c83be5449a985b5cfd16f8 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_932890b7af1576f7815ba68ccc690408 = $(`<div id="html_932890b7af1576f7815ba68ccc690408" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Queen Mary University</strong><br>         Overall Score: 3.65         <br><br>         <a href="uniAnalytics.html?query=Queen%20Mary%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_bfa3f2fc90c83be5449a985b5cfd16f8.setContent(html_932890b7af1576f7815ba68ccc690408);
+            
+        
+
+        marker_31e7be3b21fb79643feb21ba94444fa4.bindPopup(popup_bfa3f2fc90c83be5449a985b5cfd16f8)
+        ;
+
+        
+    
+    
+            var marker_ffefbead3eb6c6cbefcdea4c4eaf7f68 = L.marker(
+                [51.4403, -0.9421],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_0da47eb09560f2687e50e05d2cd5e9a0 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_3e588e8498355f50ffa93e7baeb2c5c3 = $(`<div id="html_3e588e8498355f50ffa93e7baeb2c5c3" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Reading</strong><br>         Overall Score: 3.07         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Reading" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_0da47eb09560f2687e50e05d2cd5e9a0.setContent(html_3e588e8498355f50ffa93e7baeb2c5c3);
+            
+        
+
+        marker_ffefbead3eb6c6cbefcdea4c4eaf7f68.bindPopup(popup_0da47eb09560f2687e50e05d2cd5e9a0)
+        ;
+
+        
+    
+    
+            var marker_e62bd37156b40781c0b6b1b03defa74c = L.marker(
+                [57.1189, -2.1379],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_c24537a6d44f4fc836686426f6d0e1f9 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_a9a825dc8e9c88c1d9706fae2351630a = $(`<div id="html_a9a825dc8e9c88c1d9706fae2351630a" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Robert Gordon University</strong><br>         Overall Score: 2.64         <br><br>         <a href="uniAnalytics.html?query=Robert%20Gordon%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_c24537a6d44f4fc836686426f6d0e1f9.setContent(html_a9a825dc8e9c88c1d9706fae2351630a);
+            
+        
+
+        marker_e62bd37156b40781c0b6b1b03defa74c.bindPopup(popup_c24537a6d44f4fc836686426f6d0e1f9)
+        ;
+
+        
+    
+    
+            var marker_965ea00db90a8a30f6fe994b79275f32 = L.marker(
+                [51.4232, -0.5593],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_8b0c20e15b12d6a0996ba933c22e279a = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_d939e40c7deb88f3762210839fd41e4b = $(`<div id="html_d939e40c7deb88f3762210839fd41e4b" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Royal Holloway</strong><br>         Overall Score: 3.50         <br><br>         <a href="uniAnalytics.html?query=Royal%20Holloway" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_8b0c20e15b12d6a0996ba933c22e279a.setContent(html_d939e40c7deb88f3762210839fd41e4b);
+            
+        
+
+        marker_965ea00db90a8a30f6fe994b79275f32.bindPopup(popup_8b0c20e15b12d6a0996ba933c22e279a)
+        ;
+
+        
+    
+    
+            var marker_9ff4f3cbbc3cc0a5dcf9a79182db94ab = L.marker(
+                [53.4872, -2.2737],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_97fa26de35509db2e8b2c80835ad9c06 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_325c0a10525b74f9228f5735f9c94341 = $(`<div id="html_325c0a10525b74f9228f5735f9c94341" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Salford</strong><br>         Overall Score: 2.76         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Salford" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_97fa26de35509db2e8b2c80835ad9c06.setContent(html_325c0a10525b74f9228f5735f9c94341);
+            
+        
+
+        marker_9ff4f3cbbc3cc0a5dcf9a79182db94ab.bindPopup(popup_97fa26de35509db2e8b2c80835ad9c06)
+        ;
+
+        
+    
+    
+            var marker_177cb0f4fbccdcce45f03d48391202f9 = L.marker(
+                [53.3814, -1.4884],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_19fa8430076b23f9b28af91579285291 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_bf67e8b4e5ca8435c7be21e12cfa0708 = $(`<div id="html_bf67e8b4e5ca8435c7be21e12cfa0708" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>The University of Sheffield</strong><br>         Overall Score: 3.01         <br><br>         <a href="uniAnalytics.html?query=The%20University%20of%20Sheffield" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_19fa8430076b23f9b28af91579285291.setContent(html_bf67e8b4e5ca8435c7be21e12cfa0708);
+            
+        
+
+        marker_177cb0f4fbccdcce45f03d48391202f9.bindPopup(popup_19fa8430076b23f9b28af91579285291)
+        ;
+
+        
+    
+    
+            var marker_41c3131d5f2a821d1ce90d2adc8455b8 = L.marker(
+                [53.3784, -1.4663],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_ff0dfa14191ae488979f1cbe22913230 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_3eff6de1be5f97d8689e1fec697ba55c = $(`<div id="html_3eff6de1be5f97d8689e1fec697ba55c" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Sheffield Hallam University</strong><br>         Overall Score: 2.57         <br><br>         <a href="uniAnalytics.html?query=Sheffield%20Hallam%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_ff0dfa14191ae488979f1cbe22913230.setContent(html_3eff6de1be5f97d8689e1fec697ba55c);
+            
+        
+
+        marker_41c3131d5f2a821d1ce90d2adc8455b8.bindPopup(popup_ff0dfa14191ae488979f1cbe22913230)
+        ;
+
+        
+    
+    
+            var marker_c3bd4455d020f5e53e30af6d2f9c76fa = L.marker(
+                [51.4816, -3.1791],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_efd19a636e549e5a5a797fb3ee3f6814 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_271cf0a922f24edc4c9adf15f7a71cc4 = $(`<div id="html_271cf0a922f24edc4c9adf15f7a71cc4" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of South Wales</strong><br>         Overall Score: 2.54         <br><br>         <a href="uniAnalytics.html?query=University%20of%20South%20Wales" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_efd19a636e549e5a5a797fb3ee3f6814.setContent(html_271cf0a922f24edc4c9adf15f7a71cc4);
+            
+        
+
+        marker_c3bd4455d020f5e53e30af6d2f9c76fa.bindPopup(popup_efd19a636e549e5a5a797fb3ee3f6814)
+        ;
+
+        
+    
+    
+            var marker_aaaa72c1803f3368fa0d5999a3cc9008 = L.marker(
+                [50.9357, -1.3966],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_d5c0980b7bef813ffcaa6e37039b0480 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_9ec75cb701f1894d3ca9a0790cea1bbb = $(`<div id="html_9ec75cb701f1894d3ca9a0790cea1bbb" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Southampton</strong><br>         Overall Score: 3.59         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Southampton" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_d5c0980b7bef813ffcaa6e37039b0480.setContent(html_9ec75cb701f1894d3ca9a0790cea1bbb);
+            
+        
+
+        marker_aaaa72c1803f3368fa0d5999a3cc9008.bindPopup(popup_d5c0980b7bef813ffcaa6e37039b0480)
+        ;
+
+        
+    
+    
+            var marker_677b59ba8f5ed7b371632156507d4565 = L.marker(
+                [56.3417, -2.7943],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_3f9eaad5ac270d784375e596090354a9 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_0635f2ed3dafcb3ca10fd95d751eeba8 = $(`<div id="html_0635f2ed3dafcb3ca10fd95d751eeba8" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of St Andrews</strong><br>         Overall Score: 3.15         <br><br>         <a href="uniAnalytics.html?query=University%20of%20St%20Andrews" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_3f9eaad5ac270d784375e596090354a9.setContent(html_0635f2ed3dafcb3ca10fd95d751eeba8);
+            
+        
+
+        marker_677b59ba8f5ed7b371632156507d4565.bindPopup(popup_3f9eaad5ac270d784375e596090354a9)
+        ;
+
+        
+    
+    
+            var marker_51d6d267c7c2aea89f1cae93f1fbf501 = L.marker(
+                [56.1461, -3.9178],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_9362a82d441522281dd602b051158688 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_dedb4dae8cd8eba7b29d89151f72ca63 = $(`<div id="html_dedb4dae8cd8eba7b29d89151f72ca63" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Stirling</strong><br>         Overall Score: 2.80         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Stirling" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_9362a82d441522281dd602b051158688.setContent(html_dedb4dae8cd8eba7b29d89151f72ca63);
+            
+        
+
+        marker_51d6d267c7c2aea89f1cae93f1fbf501.bindPopup(popup_9362a82d441522281dd602b051158688)
+        ;
+
+        
+    
+    
+            var marker_1d70819e6ec9a3b81b53d742f467df10 = L.marker(
+                [55.8621, -4.2424],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_d9c63f4686262ed963425e1017e817d2 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_e90a5129ff33cbe66fba53017e3c3dd0 = $(`<div id="html_e90a5129ff33cbe66fba53017e3c3dd0" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Strathclyde</strong><br>         Overall Score: 3.21         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Strathclyde" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_d9c63f4686262ed963425e1017e817d2.setContent(html_e90a5129ff33cbe66fba53017e3c3dd0);
+            
+        
+
+        marker_1d70819e6ec9a3b81b53d742f467df10.bindPopup(popup_d9c63f4686262ed963425e1017e817d2)
+        ;
+
+        
+    
+    
+            var marker_582f252337e08f07f9a0c06e8ce0e680 = L.marker(
+                [54.9112, -1.3831],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_98dbd0e4ced92f5521ba563c7e1e25f8 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_3bf8518c47809a4fdaa82831007fa2be = $(`<div id="html_3bf8518c47809a4fdaa82831007fa2be" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Sunderland</strong><br>         Overall Score: 2.52         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Sunderland" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_98dbd0e4ced92f5521ba563c7e1e25f8.setContent(html_3bf8518c47809a4fdaa82831007fa2be);
+            
+        
+
+        marker_582f252337e08f07f9a0c06e8ce0e680.bindPopup(popup_98dbd0e4ced92f5521ba563c7e1e25f8)
+        ;
+
+        
+    
+    
+            var marker_66af8f6d5e061eeb19fc9d42036a4e03 = L.marker(
+                [51.2431, -0.5895],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_132126c06f9ceb23f80ab72c63e04af4 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_58ca9611fdf7acb219cc770c6398384d = $(`<div id="html_58ca9611fdf7acb219cc770c6398384d" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Surrey</strong><br>         Overall Score: 3.26         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Surrey" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_132126c06f9ceb23f80ab72c63e04af4.setContent(html_58ca9611fdf7acb219cc770c6398384d);
+            
+        
+
+        marker_66af8f6d5e061eeb19fc9d42036a4e03.bindPopup(popup_132126c06f9ceb23f80ab72c63e04af4)
+        ;
+
+        
+    
+    
+            var marker_bb40ea0beb8bf1bce53ff59f7a8dccdd = L.marker(
+                [50.8677, -0.0875],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_51e9f61b01565504bf0e83523eeb5873 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_43dc051d27dd9d048048f0772a1eb1b7 = $(`<div id="html_43dc051d27dd9d048048f0772a1eb1b7" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Sussex</strong><br>         Overall Score: 3.43         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Sussex" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_51e9f61b01565504bf0e83523eeb5873.setContent(html_43dc051d27dd9d048048f0772a1eb1b7);
+            
+        
+
+        marker_bb40ea0beb8bf1bce53ff59f7a8dccdd.bindPopup(popup_51e9f61b01565504bf0e83523eeb5873)
+        ;
+
+        
+    
+    
+            var marker_a5ef6fee4d1bc99d372686dcc8f665dc = L.marker(
+                [51.6092, -3.98],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_41365bb910ae4738d1bdfeb1804cff3a = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_84d202ff3416488a2e2694e1e7fee0ce = $(`<div id="html_84d202ff3416488a2e2694e1e7fee0ce" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>Swansea University</strong><br>         Overall Score: 3.22         <br><br>         <a href="uniAnalytics.html?query=Swansea%20University" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_41365bb910ae4738d1bdfeb1804cff3a.setContent(html_84d202ff3416488a2e2694e1e7fee0ce);
+            
+        
+
+        marker_a5ef6fee4d1bc99d372686dcc8f665dc.bindPopup(popup_41365bb910ae4738d1bdfeb1804cff3a)
+        ;
+
+        
+    
+    
+            var marker_43b6c95c9f657b723db5bb1cee9dbd91 = L.marker(
+                [54.6041, -5.929],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_40dd6d3ba7de266efdf9a0d87ec03c96 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_34f8670fb2591f63e9a4e57ede46831c = $(`<div id="html_34f8670fb2591f63e9a4e57ede46831c" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Ulster</strong><br>         Overall Score: 3.12         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Ulster" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_40dd6d3ba7de266efdf9a0d87ec03c96.setContent(html_34f8670fb2591f63e9a4e57ede46831c);
+            
+        
+
+        marker_43b6c95c9f657b723db5bb1cee9dbd91.bindPopup(popup_40dd6d3ba7de266efdf9a0d87ec03c96)
+        ;
+
+        
+    
+    
+            var marker_6ba64f2c6e032749594915e117301668 = L.marker(
+                [51.5246, -0.134],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_602cb2154df4dca76503357abe14579d = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_e8bf6214660dcf8af7a844c16398532d = $(`<div id="html_e8bf6214660dcf8af7a844c16398532d" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University College London</strong><br>         Overall Score: 3.75         <br><br>         <a href="uniAnalytics.html?query=University%20College%20London" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_602cb2154df4dca76503357abe14579d.setContent(html_e8bf6214660dcf8af7a844c16398532d);
+            
+        
+
+        marker_6ba64f2c6e032749594915e117301668.bindPopup(popup_602cb2154df4dca76503357abe14579d)
+        ;
+
+        
+    
+    
+            var marker_c957fea8b06371eb7303f63af4dd20d4 = L.marker(
+                [52.3793, -1.5615],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_2cb4796514e3018d2db1c449f561388d = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_cca08054d7372738978e516a6369b013 = $(`<div id="html_cca08054d7372738978e516a6369b013" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Warwick</strong><br>         Overall Score: 3.75         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Warwick" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_2cb4796514e3018d2db1c449f561388d.setContent(html_cca08054d7372738978e516a6369b013);
+            
+        
+
+        marker_c957fea8b06371eb7303f63af4dd20d4.bindPopup(popup_2cb4796514e3018d2db1c449f561388d)
+        ;
+
+        
+    
+    
+            var marker_2f3c04919b5ae8c9a21c18d6e8c8c80a = L.marker(
+                [51.5069, -0.3032],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_ccbf46b7babc0b537be62517b7001fe5 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_eb66134ba75700c30d22e4a1e0e221d9 = $(`<div id="html_eb66134ba75700c30d22e4a1e0e221d9" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of West London</strong><br>         Overall Score: 2.28         <br><br>         <a href="uniAnalytics.html?query=University%20of%20West%20London" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_ccbf46b7babc0b537be62517b7001fe5.setContent(html_eb66134ba75700c30d22e4a1e0e221d9);
+            
+        
+
+        marker_2f3c04919b5ae8c9a21c18d6e8c8c80a.bindPopup(popup_ccbf46b7babc0b537be62517b7001fe5)
+        ;
+
+        
+    
+    
+            var marker_ed021e8a181763171e5a8e31d16f4f7b = L.marker(
+                [51.5006, -2.5474],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_a574411dd9a9bd4f389dafb645820a7f = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_59125d27f3a9b7f843b6c078c62dd174 = $(`<div id="html_59125d27f3a9b7f843b6c078c62dd174" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>UWE Bristol</strong><br>         Overall Score: 2.86         <br><br>         <a href="uniAnalytics.html?query=UWE%20Bristol" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_a574411dd9a9bd4f389dafb645820a7f.setContent(html_59125d27f3a9b7f843b6c078c62dd174);
+            
+        
+
+        marker_ed021e8a181763171e5a8e31d16f4f7b.bindPopup(popup_a574411dd9a9bd4f389dafb645820a7f)
+        ;
+
+        
+    
+    
+            var marker_9999da58633f96a264515a77558fa30f = L.marker(
+                [55.7782, -4.1041],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_ba2abc09ceb7ff55d74c43ced3049316 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_ead6259a8ea49b102d2a437300e12b29 = $(`<div id="html_ead6259a8ea49b102d2a437300e12b29" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>UWS</strong><br>         Overall Score: 2.63         <br><br>         <a href="uniAnalytics.html?query=UWS" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_ba2abc09ceb7ff55d74c43ced3049316.setContent(html_ead6259a8ea49b102d2a437300e12b29);
+            
+        
+
+        marker_9999da58633f96a264515a77558fa30f.bindPopup(popup_ba2abc09ceb7ff55d74c43ced3049316)
+        ;
+
+        
+    
+    
+            var marker_29e9efc2c86f983420c26a1560ac413b = L.marker(
+                [51.517, -0.1432],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_41a285d14dc60264d043c7308ccf0d41 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_8378f0042c342ffc0a9b86b9667b25f3 = $(`<div id="html_8378f0042c342ffc0a9b86b9667b25f3" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Westminster</strong><br>         Overall Score: 2.70         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Westminster" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_41a285d14dc60264d043c7308ccf0d41.setContent(html_8378f0042c342ffc0a9b86b9667b25f3);
+            
+        
+
+        marker_29e9efc2c86f983420c26a1560ac413b.bindPopup(popup_41a285d14dc60264d043c7308ccf0d41)
+        ;
+
+        
+    
+    
+            var marker_7471a4e775cf0c7d7885ab6e0b593bd7 = L.marker(
+                [52.5881, -2.1275],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_e389c38aa85d4c354c3552cd13d6f130 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_a00d384f558ed1c6d11955b990310ee8 = $(`<div id="html_a00d384f558ed1c6d11955b990310ee8" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of Wolverhampton</strong><br>         Overall Score: 2.01         <br><br>         <a href="uniAnalytics.html?query=University%20of%20Wolverhampton" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_e389c38aa85d4c354c3552cd13d6f130.setContent(html_a00d384f558ed1c6d11955b990310ee8);
+            
+        
+
+        marker_7471a4e775cf0c7d7885ab6e0b593bd7.bindPopup(popup_e389c38aa85d4c354c3552cd13d6f130)
+        ;
+
+        
+    
+    
+            var marker_c77c082ab3cf9539814751eec68a631f = L.marker(
+                [53.9461, -1.0518],
+                {}
+            ).addTo(marker_cluster_a6b0bcb0a2b270beecbfabf570452a87);
+        
+    
+        var popup_069cc3cdbc16c34ee58cf77afec64eb7 = L.popup({"maxWidth": 265});
+
+        
+            
+                var html_3e3dbf98bb78139f3bc64a62e38bc09e = $(`<div id="html_3e3dbf98bb78139f3bc64a62e38bc09e" style="width: 100.0%; height: 100.0%;">     <div style="width:150px;">         <strong>University of York</strong><br>         Overall Score: 3.62         <br><br>         <a href="uniAnalytics.html?query=University%20of%20York" target="_blank" style="text-decoration:none;">             <button style="width:100%; background-color:#4CAF50; color:white; padding:10px; border:none; cursor:pointer;">                 Visit Analytics Page             </button>         </a>     </div></div>`)[0];
+                popup_069cc3cdbc16c34ee58cf77afec64eb7.setContent(html_3e3dbf98bb78139f3bc64a62e38bc09e);
+            
+        
+
+        marker_c77c082ab3cf9539814751eec68a631f.bindPopup(popup_069cc3cdbc16c34ee58cf77afec64eb7)
+        ;
+
+        
+    
+    
+            marker_cluster_a6b0bcb0a2b270beecbfabf570452a87.addTo(map_08cd2033981e37f3f5e684be88eee172);
+        
+</script>
+</html>

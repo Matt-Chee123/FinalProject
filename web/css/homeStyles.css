@@ -1,4 +1,3 @@
-/* Google Fonts Import Link */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 *{
   margin: 0;
@@ -291,130 +290,126 @@
    margin-left: 11%;
    }
 
-.home-section .main-container {
-  display: flex; /* Use Flexbox */
-  flex-direction: row; /* Align children in a row */
-  background: #d3d3d3;
-  height: calc(100vh - 60px); /* Adjust 60px if the header is taller or shorter */
-  padding: 20px; /* Adjust padding as needed */
-  overflow: hidden; /* Prevents scrolling within the main-container */
-
-}
-.home-section .main-container .right-homepage-container {
-  background: #fff; /* Background color of the bubble */
-  border-radius: 20px; /* Rounded corners for the bubble effect */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-  padding: 20px; /* Padding around the iframe */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  overflow: hidden; /* Hide overflow to maintain the rounded corners */
-  position: relative;
-  margin-top: 60px; /* Space between the bubbles and the heatmap */
-
-  /* Positioning and sizing */
-  position: absolute; /* Position the iframe absolutely within main-container */
-  right: 20px; /* Gap from the right */
-  top: 20px; /* Gap from the top */
-  bottom: 20px; /* Gap from the bottom */
-  left: 50%; /* Start from the middle of the main-container */
-}
-
-.home-section .main-container .heatmap-iframe {
-  height: 100%; /* Full height of the bubble container */
-  width: 100%; /* Full width of the bubble container */
-  border: none; /* Remove the border */
-}
-.main-container .component-bubble .uni-record {
+#homepage-section {
   display: flex;
-  align-items: center; /* Align items vertically */
-  margin-bottom: 1vh; /* Adds some space between records */
-  text-align: center; /* Center the content */
-}
-
-.main-container .component-bubble .uni-name {
-  flex: 0 0 auto; /* Do not grow or shrink */
-  width: 40vh; /* Adjust the width as needed to fit the longest university name */
-  white-space: nowrap;
+  flex-direction: row;
+  background: #d3d3d3;
+  height: calc(100vh - 60px);
+  padding: 20px;
   overflow: hidden;
-  text-overflow: ellipsis; /* This will add "..." at the end if the name is too long */
 }
 
-
-.main-container .component-bubble .output-profile {
-  text-align: center;  /* Center the content */
-}
-.main-container .component-bubble .output-profile li{
-  margin-bottom: 1vh;  /* Adjust the space between the list items */
-}
-
-.main-container .component-bubble .output-profile li:nth-child(4) {
-  margin-bottom: -10vh
-}
-.main-container .component-bubble .output-title {
-  margin-bottom: 2vh;  /* Adjust the space between the title and the list */
-  margin-top: -4vh;
-}
-
-.main-container .component-bubble ul {
-  list-style-type: none;  /* Remove bullet points */
-  padding: 0;  /* Remove padding */
-  text-align: left;  /* Align text to the left */
-  display: inline-block;  /* Align the block of text to the center of the container */
-  margin: 0 auto;  /* Center the block */
-}
-
-.main-container .left-components {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
-  grid-gap: 20px; /* Space between bubbles */
-  margin-right: 20px; /* Space between the left components and the heatmap */
-  width: calc(50% - 40px); /* Adjust the width as needed */
-}
-
-.main-container .component-bubble {
+#homepage-section .right-homepage-container {
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  /* Remove height: 100% to allow flexibility based on content */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  margin-top: 60px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  bottom: 20px;
+  left: 50%;
+}
+
+#homepage-section .heatmap-iframe {
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+
+#homepage-section .component-bubble .uni-record {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1vh;
+  text-align: center;
+}
+
+#homepage-section .component-bubble .uni-name {
+  flex: 0 0 auto;
+  width: 40vh;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#homepage-section .component-bubble .output-profile {
+  text-align: center;
+}
+
+#homepage-section  .component-bubble .output-profile li {
+  margin-bottom: 1vh;
+}
+
+#homepage-section  .component-bubble .output-profile li:nth-child(4) {
+  margin-bottom: -10vh;
+}
+
+#homepage-section  .component-bubble .output-title {
+  margin-bottom: 2vh;
+  margin-top: -4vh;
+}
+
+#homepage-section  .component-bubble ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+#homepage-section .left-components {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin-right: 20px;
+  width: calc(50% - 40px);
+}
+
+#homepage-section .component-bubble {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
   display: flex;
   height: 100%;
-  align-items: center; /* Centers children vertically in the bubble */
-  flex-direction: column; /* Stack children vertically */
-  justify-content: space-around; /* Distribute children evenly in the bubble */
-  /* Add a flex-basis or width to control the size of the bubbles */
-  flex-basis: calc(33% - 20px); /* Subtract twice the gap to account for spacing on both sides */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  margin-bottom: 20px; /* Optional: Add margin to the bottom of each bubble if necessary */
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-basis: calc(33% - 20px);
+  box-sizing: border-box;
+  margin-bottom: 20px;
 }
 
-.main-container .component-bubble .bubble-content {
+#homepage-section  .component-bubble .bubble-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-around; /* To distribute space vertically */
-  align-items: center; /* To center content horizontally */
+  justify-content: space-around;
+  align-items: center;
   font-size: clamp(10px, 1vw, 30px);
-  width: 100%; /* Fill the width of the bubble */
-  height: 100%; /* Fill the height of the bubble */
-  padding: 15px; /* Or as much as you need */
-  box-sizing: border-box; /* Include padding in the content size */
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
+#homepage-section  .component-bubble:nth-child(5),
+#homepage-section  .component-bubble:nth-child(6) {
+  margin-bottom: 0;
+  min-height: 30vh;
+  max-height: 32vh;
+}
 
-.main-container .component-bubble:nth-child(5),
-.main-container .component-bubble:nth-child(6) {
-  margin-bottom: 0; /* Remove margin from the last two bubbles */
-  min-height: 30vh; /* Adjust the minimum height as needed */
-  max-height: 32vh;  /* Adjust the maximum height as needed */
-    }
-
-
-.main-container .component-bubble:nth-child(3),
-.main-container .component-bubble:nth-child(4) {
-  margin-bottom: 0; /* Remove margin from the last two bubbles *//* Adjust the minimum height as needed */
+#homepage-section  .component-bubble:nth-child(3),
+#homepage-section  .component-bubble:nth-child(4) {
+  margin-bottom: 0;
   max-height: 33vh;
   min-height: 30vh;
-    }
+}
 
 #suggestions-container {
     position: absolute;
@@ -445,6 +440,7 @@
   border: 1px solid #ccc;
   background-color: white;
   cursor: pointer;
+  width: 20vw;
 }
 
 

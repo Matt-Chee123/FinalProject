@@ -188,7 +188,7 @@ document.getElementById('dataForm').onsubmit = function(event) {
         chart: {
           type: 'scatter',
           zoomType: 'xy',
-          marginBottom: 75 // Adjust this value as needed
+          marginBottom: 5 // Adjust this value as needed
         },
         credits: {
           enabled: false

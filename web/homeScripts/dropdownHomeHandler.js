@@ -1,33 +1,52 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const dropdown = document.getElementById('unit-of-assessment-dropdown');
+    const institutionDropdown = document.getElementById('institution-dropdown'); // Assuming you have this dropdown
+    const unitOfAssessmentDropdown = document.getElementById('unit-of-assessment-dropdown');
     const heatmapIframe = document.querySelector('.heatmap-iframe'); // Select the iframe element
 
-    dropdown.addEventListener('change', function() {
-        const selectedUofA = this.value; // Use the value of the option
-        console.log('Selected unit of assessment:', selectedUofA);
-        // Convert the selected text to a format that matches the heatmap file names
-       const formattedUofA = encodeURIComponent(selectedUofA.replace(/\s+/g, '')) + '_heatmap.html';
-  //      heatmapIframe.src = formattedUofA; // Set the correct path to the heatmap file
+    // Function to execute when "Nation" is selected
+    function executeForNation() {
+        // Check if "Nation" is the selected option
+        if (institutionDropdown.value === 'Nation') {
+            const selectedUofA = unitOfAssessmentDropdown.value;
+            console.log('Nation selected, executing operations for unit of assessment:', selectedUofA);
+            const formattedUofA = encodeURIComponent(selectedUofA.replace(/\s+/g, '')) + '_heatmap.html';
+            // Set the iframe src here if needed, uncomment the next line if the heatmap should change based on UofA
+            // heatmapIframe.src = 'path/to/heatmap/directory/' + formattedUofA;
 
-        fetchTopThree(selectedUofA);
-        fetchBottomThree(selectedUofA);
-        fetchThreeFte(selectedUofA);
-        fetchIncomeData(selectedUofA);
-        fetchOutputsData(selectedUofA);
-        fetchAndDisplayNationalAverages(selectedUofA);
+            // Call your functions here
+            fetchTopThree(selectedUofA);
+            fetchBottomThree(selectedUofA);
+            fetchThreeFte(selectedUofA);
+            fetchIncomeData(selectedUofA);
+            fetchOutputsData(selectedUofA);
+            fetchAndDisplayNationalAverages(selectedUofA);
+        }
+    }
+    function handleUoAChange() {
+        const selectedUofA = unitOfAssessmentDropdown.value; // Use the value of the option
+        if (institutionDropdown.value === 'Nation') {
+            console.log('Selected unit of assessment:', selectedUofA);
+            const formattedUofA = encodeURIComponent(selectedUofA.replace(/\s+/g, '')) + '_heatmap.html';
+            // Set the iframe src here if needed
+            // heatmapIframe.src = 'path/to/heatmap/directory/' + formattedUofA;
+
+            // Call your functions here
+            fetchTopThree(selectedUofA);
+            fetchBottomThree(selectedUofA);
+            fetchThreeFte(selectedUofA);
+            fetchIncomeData(selectedUofA);
+            fetchOutputsData(selectedUofA);
+            fetchAndDisplayNationalAverages(selectedUofA);
+        }
+    }
 
 
-    });
+    // Listen for changes in the UoA dropdown
+    unitOfAssessmentDropdown.addEventListener('change', handleUoAChange);
 
-    // Trigger the initial load for the default selection.
-    const initialUofA = dropdown.value; // Use the value of the initial option
-    const formattedInitialUofA = encodeURIComponent(initialUofA.replace(/\s+/g, '')) + '_heatmap.html';
-//    heatmapIframe.src = formattedInitialUofA;
-    fetchTopThree(initialUofA);
-    fetchBottomThree(initialUofA);
-    fetchThreeFte(initialUofA);
-    fetchIncomeData(initialUofA);
-    fetchOutputsData(initialUofA);
-    fetchAndDisplayNationalAverages(initialUofA);
-    // Initialize other components as needed.
+    // Listen for changes in the institution dropdown to re-execute operations if "Nation" is selected again
+    institutionDropdown.addEventListener('change', executeForNation);
+
+    // Since "Nation" is the default, execute operations on page load
+    executeForNation();
 });

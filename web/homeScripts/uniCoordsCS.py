@@ -77,7 +77,7 @@ universities_coordinates = {
     "University of Stirling": (56.1461, -3.9178),
     "University of Strathclyde": (55.8621, -4.2424),
     "University of Sunderland": (54.9112, -1.3831),
-    "The University of Surrey": (51.2431, -0.5895),
+    "University of Surrey": (51.2431, -0.5895),
     "University of Sussex": (50.8677, -0.0875),
     "Swansea University": (51.6092, -3.9800),
     "University of Ulster": (54.6041, -5.9290),

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="css/homeStyles.css">
+    <link rel="stylesheet" href="css/searchStyles.css">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/highcharts-more.js"></script>
@@ -58,15 +59,21 @@
 <section class="home-section">
   <div class="home-content">
     <i class='bx bx-menu' ></i>
-    <span class="text">REF2021 Data Dashboard</span>
-    <span class="text">UofA:</span>
+    <span class="text" id="title-text">REF2021</span>
+    <span class="text">Institution:</span>
+    <select id="institution-dropdown" class="unit-dropdown">
+      <option value="Nation" selected>Nation</option>
+      <!-- Additional institution options -->
+    </select>
+    <span class="text">UoA:</span>
     <select id="unit-of-assessment-dropdown" class="unit-dropdown">
-      <option value="Computer Science and Informatics">Computer Science and Informatics</option>
-      <option value="Clinical Medicine">Clinical Medicine</option>
-      <option value="Law">Law</option>
+
     </select>
   </div>
-  <div class="main-container">
+
+
+  <!-- home page html -->
+  <div class="main-container" id="homepage-section">
     <div class="left-components">
       <div class="component-bubble">
         <div class="bubble-content" id="top-three-records"></div>
@@ -92,6 +99,36 @@
       <iframe src="ComputerScienceandInformatics_heatmap.html" frameborder="0" class="heatmap-iframe"></iframe>
     </div>
   </div>
+
+
+<!-- inst search html -->
+
+
+<div class="main-container" id="institution-section" style="display: none;">
+  <div class="left-components">
+    <div class="component-bubble">
+      <div class="bubble-content" id="bullet-chart-container"></div>
+    </div>
+    <div class="component-bubble">
+      <div class="bubble-content" id="search-results"></div>
+    </div>
+    <div class="component-bubble">
+      <div class="bubble-content" id="income-chart-dist"></div>
+    </div>
+    <div class="component-bubble">
+      <div class="bubble-content" id="income-container"></div>
+    </div>
+    <div class ="component-bubble">
+      <div class="bubble-content" id="doctoral-degrees-container"></div>
+    </div>
+
+
+  </div>
+  <div class="right-homepage-container">
+    <div class="component-bubble" id="fte-income-container"></div>
+    <div class="component-bubble" id="income-outputs"></div>
+  </div>
+</div>
 </section>
 
 <script>
@@ -130,15 +167,30 @@
 
 </script>
 
+<!-- home page bubble scripts -->
 <script src="homeScripts/top3.js"></script>
 <script src="homeScripts/bottom3.js"></script>
 <script src="homeScripts/outputs.js"></script>
 <script src="homeScripts/nationalAverage.js"></script>
 <script src="homeScripts/totalIncome.js"></script>
 <script src="homeScripts/3fte.js"></script>
-<script src="homeScripts/enterSearch.js"></script>
-<script src="homeScripts/dropdownHandler.js"></script>
 
+<!-- inst search bubble scripts -->
+<script src="instSearchScripts/basicScores.js"></script>
+<script src="instSearchScripts/title.js"></script>
+<script src="instSearchScripts/incomeChart.js"></script>
+<script src="instSearchScripts/fundingDist.js"></script>
+<script src="instSearchScripts/doctoralDegreeGraph.js"></script>
+<script src="instSearchScripts/fteToincome.js"></script>
+<script src="instSearchScripts/uniRank.js"></script>
+<script src="instSearchScripts/incomeOutputs.js"></script>
+
+<!-- Handlers for the dropdowns -->
+<script src="homeScripts/enterSearch.js"></script>
+<script src="homeScripts/dropdownHomeHandler.js"></script>
+<script src="homeScripts/uniDropdown.js"></script>
+<script src="homeScripts/uoADropdown.js"></script>
+<script src="instSearchScripts/insDropdownHandler.js"></script>
 
 </body>
 </html>
