@@ -14,12 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // heatmapIframe.src = 'path/to/heatmap/directory/' + formattedUofA;
 
             // Call your functions here
-            fetchTopThree(selectedUofA);
-            fetchBottomThree(selectedUofA);
-            fetchThreeFte(selectedUofA);
+            fetchTopAndBottomThree(selectedUofA);
+            fetchTopThreeFte(selectedUofA);
             fetchIncomeData(selectedUofA);
             fetchOutputsData(selectedUofA);
             fetchAndDisplayNationalAverages(selectedUofA);
+            display10v10Data(selectedUofA);
         }
     }
     function handleUoAChange() {
@@ -31,12 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // heatmapIframe.src = 'path/to/heatmap/directory/' + formattedUofA;
 
             // Call your functions here
-            fetchTopThree(selectedUofA);
-            fetchBottomThree(selectedUofA);
-            fetchThreeFte(selectedUofA);
+            fetchTopAndBottomThree(selectedUofA);
+            fetchTopThreeFte(selectedUofA);
             fetchIncomeData(selectedUofA);
             fetchOutputsData(selectedUofA);
             fetchAndDisplayNationalAverages(selectedUofA);
+            display10v10Data(selectedUofA);
         }
     }
 

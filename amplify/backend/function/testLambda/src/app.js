@@ -109,7 +109,31 @@ app.get("/items/all", async function(req, res) {
     }
 });
 
+//all data of a uoa endpoint
+app.get("/items/UoA", async function(req, res) {
+    // Retrieve the selected UnitOfAssessmentName from query parameters
+    const selectedUofA = req.query.uofaName || "Computer Science and Informatics"; // Default value if not provided
 
+    var params = {
+        TableName: tableName,
+        IndexName: 'UnitOfAssessmentName-UniversityName-index', // Use your index if applicable
+        KeyConditionExpression: 'UnitOfAssessmentName = :uofaName',
+        ExpressionAttributeValues: {
+            ":uofaName": selectedUofA
+        },
+    };
+
+    try {
+        // Fetching items from DynamoDB using the GSI
+        const data = await ddbDocClient.send(new QueryCommand(params));
+        let items = data.Items;
+
+        res.json(items);
+    } catch (err) {
+        // Error handling
+        res.status(500).json({error: 'Could not load items: ' + err.message});
+    }
+});
 //Top 3 items endpoint
 app.get("/items/top3", async function(req, res) {
     // Retrieve the selected UnitOfAssessmentName from query parameters

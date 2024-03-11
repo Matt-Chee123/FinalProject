@@ -1,21 +1,48 @@
 function updateBubbleProfIncX() {
+  // Making xAxisLabel and xAxis visible
+  document.getElementById('graphStep3').style.display = 'none';
+  document.getElementById('graphStep4').style.display = 'none';
+  document.getElementById('xAxisLabel').style.display = 'block';
+  document.getElementById('xAxis').style.display = 'block';
+  document.getElementById('xProfOptions').style.display = 'none';
+  if (document.getElementById('xProfOptionsLabel')) {
+      document.getElementById('xProfOptionsLabel').style.display = 'none';
+  }
+  document.getElementById('profileY').checked = false;
+  document.getElementById('incomeY').checked = false;
+  document.getElementById('yAxisLabel').style.display = 'none';
+  document.getElementById('yAxis').selectedIndex = 0; // Resets to the first option
+  document.getElementById('yAxis').style.display = 'none'; // Hides the dropdown (if you want to hide it initially)
+  // Assuming the first option is your placeholder or default option
+  document.getElementById('yProfOptions').selectedIndex = 0; // Resets to "Profile Options"
+  if (document.getElementById('yProfOptionsLabel')) { // Checks if an option is selected
+     document.getElementById('yProfOptionsLabel').style.display = 'none'; // Makes Step 3 visible
+  }
+  document.getElementById('yProfOptions').style.display = 'none';
+
   var selectedRadio = document.querySelector('input[name="specialOptionGroupX"]:checked');
-  var selectedValue = document.querySelector('input[name="specialOptionGroupX"]:checked').value;
+  var selectedValue = selectedRadio.value;
   var label = document.getElementById('xAxisLabel');
+
   if (selectedValue == 'profile') {
     label.textContent = 'Profile:';
-    } else if (selectedValue == 'income') {
-    label.textContent = 'Income Source:';
-    }
-  var UofA = document.getElementById('UofA');
+  } else if (selectedValue == 'income') {
+    label.textContent = 'Income:';
+  }
+
+  var UofA = document.getElementById('UofA').value; // Assuming you have a select element with id 'UofA'
+  console.log(UofA);
   var axisOptions = document.getElementById('xAxis');
-  // Clear current options in bubble2
+
+  // Clear current options in xAxis
   axisOptions.innerHTML = '';
-  // Determine the options based on bubble1's selection
-  var optionsBasedOnSelected = []; // You would fill this array based on bubble1's value
+
+  // Determine the options based on the selection
+  var optionsBasedOnSelected = [];
+  console.log(selectedRadio.value);
   if(selectedRadio.value == 'profile') {
     optionsBasedOnSelected = ['Overall', 'Impact', 'Outputs', 'Environment'];
-  } else if(UofA.value == 'Computer Science and Informatics') {
+  } else if(UofA == 'Computer Science and Informatics') {
     optionsBasedOnSelected = [
       'Total income',
       'BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh',
@@ -33,7 +60,7 @@ function updateBubbleProfIncX() {
       'Non-EU industry commerce and public corporations',
       'Non-EU other'
     ];
-  } else if(UofA.value == 'Clinical Medicine') {
+  } else if(UofA == 'Clinical Medicine') {
     optionsBasedOnSelected = [
       "BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh",
       "UK-based charities (open competitive process)",
@@ -52,7 +79,7 @@ function updateBubbleProfIncX() {
       "Non-EU other",
       "Total income"
     ];
-  } else if(UofA.value == 'Law') {
+  } else if(UofA == 'Law') {
     optionsBasedOnSelected = [
       "BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh",
       "UK-based charities (open competitive process)",
@@ -77,8 +104,8 @@ function updateBubbleProfIncX() {
   placeholderOption.disabled = true;
   placeholderOption.selected = true;
   axisOptions.appendChild(placeholderOption);
-
-  // Add new options to bubble2
+  console.log(optionsBasedOnSelected);
+  // Add new options
   optionsBasedOnSelected.forEach(function(optionText) {
     var option = document.createElement('option');
     option.value = optionText;
@@ -96,23 +123,36 @@ function updateVisibilityY() {
 
 
 function updateBubbleProfIncY() {
+  // Make yAxisLabel and yAxis visible upon selection
+  document.getElementById('graphStep4').style.display = 'none';
+  document.getElementById('yAxisLabel').style.display = 'block';
+  document.getElementById('yAxis').style.display = 'block';
+  document.getElementById('yProfOptions').style.display = 'none'; // Assuming there's a yProfOptions similar to xProfOptions
+  if (document.getElementById('yProfOptionsLabel')) {
+      document.getElementById('yProfOptionsLabel').style.display = 'none';
+  }
+
   var selectedRadio = document.querySelector('input[name="specialOptionGroupY"]:checked');
-  var selectedValue = document.querySelector('input[name="specialOptionGroupY"]:checked').value;
+  var selectedValue = selectedRadio.value;
   var label = document.getElementById('yAxisLabel');
+
+  // Update label text based on the selected radio button
   if (selectedValue == 'profile') {
     label.textContent = 'Profile:';
-    } else if (selectedValue == 'income') {
-    label.textContent = 'Income Source:';
-    }
-  var UofA = document.getElementById('UofA');
+  } else if (selectedValue == 'income') {
+    label.textContent = 'Income:';
+  }
+
+  var UofA = document.getElementById('UofA').value; // Use the value of UofA selection
   var axisOptions = document.getElementById('yAxis');
-  // Clear current options in bubble2
+
+  // Clear current options in yAxis dropdown
   axisOptions.innerHTML = '';
   // Determine the options based on bubble1's selection
   var optionsBasedOnSelected = []; // You would fill this array based on bubble1's value
   if(selectedRadio.value == 'profile') {
     optionsBasedOnSelected = ['Overall', 'Impact', 'Outputs', 'Environment'];
-  } else if(UofA.value == 'Computer Science and Informatics') {
+  } else if(UofA == 'Computer Science and Informatics') {
     optionsBasedOnSelected = [
       'Total income',
       'BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh',
@@ -130,7 +170,7 @@ function updateBubbleProfIncY() {
       'Non-EU industry commerce and public corporations',
       'Non-EU other'
     ];
-  } else if(UofA.value == 'Clinical Medicine') {
+  } else if(UofA == 'Clinical Medicine') {
     optionsBasedOnSelected = [
       "BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh",
       "UK-based charities (open competitive process)",
@@ -149,7 +189,7 @@ function updateBubbleProfIncY() {
       "Non-EU other",
       "Total income"
     ];
-  } else if(UofA.value == 'Law') {
+  } else if(UofA == 'Law') {
     optionsBasedOnSelected = [
       "BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh",
       "UK-based charities (open competitive process)",
@@ -175,7 +215,7 @@ function updateBubbleProfIncY() {
   placeholderOption.selected = true;
   axisOptions.appendChild(placeholderOption);
 
-  // Add new options to bubble2
+  // Populate dropdown with new options
   optionsBasedOnSelected.forEach(function(optionText) {
     var option = document.createElement('option');
     option.value = optionText;
@@ -184,12 +224,18 @@ function updateBubbleProfIncY() {
   });
 }
 
+// Assuming you have radio buttons similar to those for X axis, with 'specialOptionGroupY' as their name
+document.querySelectorAll('input[name="specialOptionGroupY"]').forEach(radio => {
+  radio.addEventListener('change', updateBubbleProfIncY);
+});
+
 function updateProfileOptions(containerID, axis) {
   var profile = document.getElementById(axis);
   var container = document.getElementById(containerID);
 
   // Identify or create the label element for the dropdown
   var labelId = containerID + 'Label'; // Construct a label ID based on the container ID
+  console.log(labelId);
   var label = document.getElementById(labelId);
 
   // If the label doesn't exist, create it
@@ -206,7 +252,7 @@ function updateProfileOptions(containerID, axis) {
     // Make the container visible if a valid option is selected
     container.style.display = 'block';
     // Update the label text to "Attribute to Plot:"
-    label.textContent = 'Plot Attribute:';
+    label.textContent = 'Attribute:';
     label.style.display = 'block'; // Ensure the label is visible
 
     // Clear current options in the container

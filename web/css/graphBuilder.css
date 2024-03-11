@@ -239,14 +239,7 @@
   opacity: 0.7; /* Slightly faint color for the placeholder */
 }
 
-.home-section {
-  position: relative;
-  background: #d3d3d3;
-  height: 100vh;
-  left: 260px;
-  width: calc(100% - 260px);
-  transition: all 0.5s ease;
-}
+
 
 .sidebar.close ~ .home-section {
   left: 78px;
@@ -272,23 +265,36 @@
 }
 
 .home-section .home-content .text {
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 600;
 }
 
+.home-section .home-content .text:nth-of-type(1) {
+   margin-left: 2vw;
+   }
+.institution-label, .uoa-label{
+  position: absolute;
+}
+.institution-label{
+  right: 51%;
+}
+.uoa-label{
+  right: 26%;
+}
+
 /* Assuming .home-section .main-container already exists in your CSS and has flex-direction set to column */
-.home-section .main-container {
+#graph-section {
   display: flex; /* Enable Flexbox */
   flex-direction: column; /* Stack children vertically */
   background: #d3d3d3;
-  height: calc(100vh - 60px); /* Adjust the height based on your header's height */
+  height: 92vh; /* Adjust the height based on your header's height */
   padding: 20px; /* Adjust padding as needed */
   overflow: hidden; /* Prevents scrolling within the main-container */
   gap: 20px; /* Adds space between flex items */
 }
 
 /* Adjust .component-bubble styles */
-.home-section .main-container .component-bubble {
+#graph-section .component-bubble {
   flex-grow: 0; /* Do not allow the bubbles to grow by default */
   margin: 0; /* Set margin to 0 to span the entire width */
   padding: 20px; /* Adjust the padding as needed */
@@ -298,38 +304,45 @@
   align-items: center; /* Center the content */
 }
 .component-bubble select {
-  max-width: 100px; /* Replace 200px with whatever maximum width you prefer */
+  max-width: 15vw; /* Replace 200px with whatever maximum width you prefer */
   width: 100%; /* This ensures the select box is as wide as its container up to the max-width */
 }
 /* Specific styles for the top and bottom bubbles */
-.home-section .main-container .top-bubble {
-  flex-grow: 3; /* Takes up the available space */
-  max-height: 70%; /* Limits the height to 70% of the container */
+#graph-section .top-bubble {
+  height: 60vh; /* Limits the height to 70% of the container */
   margin-bottom: -1vh; /* Adjust the margin as needed */
   display: flex; /* Use flexbox to manage children */
   justify-content: center; /* Center children horizontally */
   align-items: center; /* Center children vertically */
 }
 
-.home-section .main-container .top-bubble > #graph-container {
+#graph-section .top-bubble > #graph-container {
   width: 90%; /* Chart container will take up 90% of the parent's width */
-  height: 90%; /* Chart container will take up 90% of the parent's height */
+  height: 100%; /* Chart container will take up 90% of the parent's height */
   margin: auto; /* Center the chart container if there's extra space */
 }
 
-.home-section .main-container .bottom-bubble {
+#graph-section .bottom-bubble {
     display: flex; /* Enable Flexbox */
     flex-direction: row;
     flex-grow: 1; /* Takes up 2 parts of the available space */
     max-height: 30vh; /* Limits the height to 30% of the container */
+    margin-top: 1vh; /* Adjust the margin as needed */
     margin-left: 2vh;
     justify-content: flex-start; /* Align children to the start vertically */
+    width: 100%; /* Take full width to utilize the space */
     }
 
-.home-section .main-container .bottom-bubble > :first-child {
+#graph-section .bottom-bubble > :first-child {
   margin-left: -1vh;
 }
 
+#graph-section .bottom-bubble > * {
+  width: 23.6vw; /* Example fixed width */
+  flex-shrink: 1; /* Prevents the element from shrinking */
+  flex-grow: 0; /* Prevents the element from growing */
+
+}
 
 .dropdown-container {
   display: flex;
@@ -355,7 +368,7 @@
 
 /* Adjust the select element if necessary */
 .dropdown-container select {
-  flex-grow: 1; /* Allow the dropdown to take up available space */
+  flex-grow: 0; /* Allow the dropdown to take up available space */
   /* any other style you have for select */
 }
 
@@ -366,6 +379,7 @@
   justify-content: flex-start; /* Aligns children to the start of the main axis (top of the container) */
   flex-wrap: wrap; /* Allows children to wrap onto the next line */
   gap: 10px; /* Provides space between items */
+  color: black;
 }
 .bottom-bubble.component-bubble label {
   text-align: left;
@@ -418,6 +432,8 @@
 
 #submitParams {
   white-space: nowrap; /* Prevent the text inside the button from wrapping */
+  justify-content: center; /* Center the button horizontally */
+  max-width: 21vw;
   /* Additional styling for the submit button as needed */
 }
 

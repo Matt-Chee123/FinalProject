@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // Function to fetch all university names
 async function fetchAllUniversityNames() {
     try {
-        const response = await fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/universities');
+        const response = await fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/uniNames');
         const data = await response.json();
         allUniversityNames = data; // Assuming the API returns an array of names
     } catch (error) {

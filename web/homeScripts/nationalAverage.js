@@ -85,7 +85,7 @@ function displayNationalAverageScore(data) {
       ]
     }],
     tooltip: {
-      pointFormat: '<b>{point.y:.2f}</b> (with target at {point.target})'
+      pointFormat: 'GPA: <b>{point.y:.2f}</b>'
     }
   });
 }

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="css/homeStyles.css">
-    <link rel="stylesheet" href="css/searchStyles.css">
+  <link rel="stylesheet" href="css/searchStyles.css">
+  <link rel="stylesheet" href="css/graphBuilder.css">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/highcharts-more.js"></script>
@@ -13,62 +14,22 @@
 
 </head>
 <body>
-<div class="sidebar close">
-  <div class="logo-details">
-    <span class="logo_name"></span>
-  </div>
-  <ul class="nav-links">
-    <li>
-      <a href="index.html">
-        <i class='bx bx-grid-alt' ></i>
-        <span class="link_name">Homepage</span>
-      </a>
-      <ul class="sub-menu blank">
-        <li><a class="link_name" href="#">Homepage</a></li>
-      </ul>
-    </li>
-    <li>
-      <div class="iocn-link">
-        <a href="#">
-          <i class='bx bx-collection' ></i>
-          <span class="link_name">Institution Search</span>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Institution Search</a></li>
-          </ul>
-        </a>
-        <i class='bx bxs-chevron-down arrow' ></i>
-      </div>
-      <ul class="sub-menu">
-        <input type="text" id="searchInstitution" placeholder="Search...">
-        <div id="suggestions-container" style="display:none;"></div>
-      </ul>
-
-    </li>
-    <li>
-      <a href="graphBuilder.html">
-        <i class='bx bx-pie-chart-alt-2' ></i>
-        <span class="link_name">Graph Builder</span>
-      </a>
-      <ul class="sub-menu blank">
-        <li><a class="link_name" href="#">Graph Builder</a></li>
-      </ul>
-    </li>
-  </ul>
-</div>
-
 <section class="home-section">
   <div class="home-content">
-    <i class='bx bx-menu' ></i>
+    <i class='bx bx-menu' style="display: none;"></i>
     <span class="text" id="title-text">REF2021</span>
-    <span class="text">Institution:</span>
-    <select id="institution-dropdown" class="unit-dropdown">
+    <span class="text institution-label">Institution:</span>
+    <select id="institution-dropdown" class="inst-dropdown">
       <option value="Nation" selected>Nation</option>
       <!-- Additional institution options -->
     </select>
-    <span class="text">UoA:</span>
-    <select id="unit-of-assessment-dropdown" class="unit-dropdown">
+    <span class="text uoa-label">UoA:</span>
+    <select id="unit-of-assessment-dropdown" class="uoa-dropdown">
 
     </select>
+    <button id="create-graph-button" class="create-graph-btn">Create Graph</button>
+    <button id="back-button" class="create-graph-btn" style="display: none;">Back</button>
+
   </div>
 
 
@@ -76,23 +37,23 @@
   <div class="main-container" id="homepage-section">
     <div class="left-components">
       <div class="component-bubble">
-        <div class="bubble-content" id="top-three-records"></div>
+        <div class="bubble-content" id="records-container"></div>
       </div>
       <div class="component-bubble">
-        <div class="bubble-content" id="bottom-three-records"></div>
+        <div class="bubble-content" id="bullet-graph-container"></div>
       </div>
       <div class="component-bubble">
-        <div class="bubble-content" id="top-sources-container"></div>
-      </div>
-      <div class="component-bubble">
-        <div class="bubble-content" id="random-FTE-records"></div>
-
+        <div class="bubble-content" id="top-FTE-records"></div>
       </div>
       <div class="component-bubble">
         <div class="bubble-content" id="outputs-records"></div>
+
+      </div>
+      <div class="component-bubble">
+        <div class="bubble-content" id="10v10container"></div>
       </div>
       <div  class="component-bubble">
-        <div class="bubble-content" id="bullet-graph-container"></div>
+        <div class="bubble-content" id="top-sources-container"></div>
       </div>
     </div>
     <div class="right-homepage-container">
@@ -102,7 +63,6 @@
 
 
 <!-- inst search html -->
-
 
 <div class="main-container" id="institution-section" style="display: none;">
   <div class="left-components">
@@ -129,6 +89,99 @@
     <div class="component-bubble" id="income-outputs"></div>
   </div>
 </div>
+
+  <!-- Graph builder html -->
+  <div class="main-container" id="graph-section" style="display: none;">
+    <div class="component-bubble top-bubble" id="graph-container">
+      <div id="error-message" class="hidden" style="color: red; display: none;">
+      </div>
+    </div>
+    <div class="bottom-bubble">
+      <form id="dataForm" class="bottom-bubble">
+        <div id="graphStep1" class="bottom-bubble component-bubble">
+          <div class="step-label">Step 1:</div>
+          <div class="dropdown-container">
+            <i class="text">UofA:</i>
+            <select id="UofA">
+              <option value="" disabled selected>Select</option>
+              <option value="Computer Science and Informatics">Computer Science</option>
+              <option value="Clinical Medicine">Clinical Medicine</option>
+              <option value="Law">Law</option>
+            </select>
+          </div>
+        </div>
+        <div id="graphStep2" style="display:none;" class="bottom-bubble component-bubble">
+          <div class="step-label">Step 2: X axis</div>
+          <div class="radio-buttons-container">
+            <input type="radio" id="profileX" name="specialOptionGroupX" value="profile" onchange="updateBubbleProfIncX()">
+            <label for="profileX">Profile</label>
+
+            <input type="radio" id="incomeX" name="specialOptionGroupX" value="income" onchange="updateBubbleProfIncX()">
+            <label for="incomeX">Income</label>
+          </div>
+          <div class="axis-container">
+            <span id="xAxisLabel" style="display:none;"></span> <!-- This text will change based on JS -->
+            <select id="xAxis" style="display:none;" onchange="updateProfileOptions('xProfOptions','xAxis')">
+            </select>
+          </div>
+          <div class="prof-options-container">
+            <select id="xProfOptions" style="display: none;">
+              <option value="" disabled selected>Profile Options</option>
+              <option value="AverageScore">AverageScore</option>
+              <option value="FTEOfSubmittedStaff">FTEOfSubmittedStaff</option>
+              <option value="PercEligibleStaff">PercEligibleStaff</option>
+              <option value="FourStar">FourStar</option>
+              <option value="ThreeStar">ThreeStar</option>
+              <option value="TwoStar">TwoStar</option>
+              <option value="OneStar">OneStar1</option>
+              <option value="Unclassified">Unclassified</option>
+            </select>
+          </div>
+        </div>
+        <div id="graphStep3" style="display: none;" class="bottom-bubble component-bubble">
+          <div class="step-label">Step 3: Y axis</div>
+          <div class="radio-buttons-container">
+
+            <input type="radio" id="profileY" name="specialOptionGroupY" value="profile" onchange="updateBubbleProfIncY()">
+            <label for="profileY">Profile</label>
+
+            <input type="radio" id="incomeY" name="specialOptionGroupY" value="income" onchange="updateBubbleProfIncY()">
+            <label for="incomeY">Income</label>
+          </div>
+          <div class="axis-container">
+            <span id="yAxisLabel">Profile</span> <!-- This text will change based on JS -->
+            <select id="yAxis" onchange="updateProfileOptions('yProfOptions','yAxis')">
+            </select>
+          </div>
+          <div class="prof-options-container">
+            <select id="yProfOptions" style="display: none;">
+              <option value="" disabled selected>Profile Options</option>
+              <option value="AverageScore">AverageScore</option>
+              <option value="FTEOfSubmittedStaff">FTEOfSubmittedStaff</option>
+              <option value="PercEligibleStaff">PercEligibleStaff</option>
+              <option value="FourStar">FourStar</option>
+              <option value="ThreeStar">ThreeStar</option>
+              <option value="TwoStar">TwoStar</option>
+              <option value="OneStar">OneStar1</option>
+              <option value="Unclassified">Unclassified</option>
+            </select>
+          </div>
+        </div>
+        <div id="graphStep4" style="display:none;" class="bottom-bubble component-bubble">
+          <div class="input-group">
+            <div class="checkbox-group">
+              <label for="highlightRussellGroup">Highlight Russell Group:</label>
+              <input type="checkbox" id="highlightRussellGroup" name="highlightRussellGroup">
+            </div>
+            <label for="uniToHighlight">Highlight Specific Uni:</label>
+            <input type="text" id="uniToHighlight" name="uniToHighlight" placeholder="Enter Name" value="">
+            <div id="highlightSuggestionsContainer" style="display:none;"></div>
+          </div>
+          <input type="submit" value="Create Graph" id="submitParams">
+        </div>
+      </form>
+    </div>
+  </div>
 </section>
 
 <script>
@@ -168,13 +221,12 @@
 </script>
 
 <!-- home page bubble scripts -->
-<script src="homeScripts/top3.js"></script>
-<script src="homeScripts/bottom3.js"></script>
+<script src="homeScripts/topbottom3.js"></script>
 <script src="homeScripts/outputs.js"></script>
 <script src="homeScripts/nationalAverage.js"></script>
 <script src="homeScripts/totalIncome.js"></script>
-<script src="homeScripts/3fte.js"></script>
-
+<script src="homeScripts/Top3fte.js"></script>
+<script src="homeScripts/top10vsnext10.js"></script>
 <!-- inst search bubble scripts -->
 <script src="instSearchScripts/basicScores.js"></script>
 <script src="instSearchScripts/title.js"></script>
@@ -184,6 +236,13 @@
 <script src="instSearchScripts/fteToincome.js"></script>
 <script src="instSearchScripts/uniRank.js"></script>
 <script src="instSearchScripts/incomeOutputs.js"></script>
+
+<!-- graph builder scripts -->
+<script src="graphBuilderScripts/graphButtonHandler.js"></script>
+<script src="graphBuilderScripts/graphGen.js"></script>
+<script src="homeScripts/enterSearch.js"></script>
+<script src="graphBuilderScripts/fileHandler.js"></script>
+<script src="graphBuilderScripts/bubbleVisibility.js"></script>
 
 <!-- Handlers for the dropdowns -->
 <script src="homeScripts/enterSearch.js"></script>

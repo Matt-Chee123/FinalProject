@@ -80,10 +80,10 @@ document.getElementById('dataForm').onsubmit = function(event) {
     return; // Exit the function to prevent further execution
   }
 
-  fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/all?uofaName=${encodeURIComponent(uofA)}`)
+  fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/UoA?uofaName=${encodeURIComponent(uofA)}`)
   .then(response => response.json())
   .then(data => {
-
+    console.log('Data:', data);
     if (xRadioCheck == 'profile') {
       var xAxisFilter = data.filter(item => item.ProfileType === xAxis);
     }
@@ -145,7 +145,8 @@ document.getElementById('dataForm').onsubmit = function(event) {
         // Determine yValue based on yRadioCheck
         if (yRadioCheck === 'profile') {
           yValue = yItem[yAttribute]; // For 'profile', use the yProfOption value
-        } else { // 'income'
+        } else{ // 'income'
+          console.log('yItem:', yItem);
           yValue = parseInt(yItem[yAttribute], 10); // Use the 'TotalIncome1320' value for 'income'
         }
 
@@ -183,12 +184,13 @@ document.getElementById('dataForm').onsubmit = function(event) {
 
   // Log chartData to verify
     console.log('chartData:', chartData);
-
+    console.log(yAxis + ': ' + yAttribute);
+    console.log(xAxis + ': ' + xAttribute);
     window.myChart = Highcharts.chart('graph-container', {
         chart: {
           type: 'scatter',
           zoomType: 'xy',
-          marginBottom: 5 // Adjust this value as needed
+          marginBottom: 60 // Adjust this value as needed
         },
         credits: {
           enabled: false
@@ -203,13 +205,16 @@ document.getElementById('dataForm').onsubmit = function(event) {
           title: {
             text: xAxis + ': ' + xAttribute,
           },
-          max: xAxisMax // Dynamically set the max value for the xAxis
+          max: xAxisMax, // Dynamically set the max value for the xAxis
+          tickInterval: (xAxisMax === 4 && yAxisMax === 4) ? 0.5 : undefined // Set tickInterval to 1 when both are 'AverageScore', else auto
+
         },
         yAxis: {
           title: {
             text: yAxis + ': ' + yAttribute,
           },
-          max: yAxisMax // Dynamically set the max value for the yAxis
+          max: yAxisMax, // Dynamically set the max value for the yAxis
+          tickInterval: (xAxisMax === 4 && yAxisMax === 4) ? 0.5 : undefined // Set tickInterval to 1 when both are 'AverageScore', else auto
         },
         tooltip: {
           formatter: function() {
@@ -228,10 +233,11 @@ document.getElementById('dataForm').onsubmit = function(event) {
           }
         }]
     });
-
 })
   .catch(error => {
     console.error('Error fetching data:', error);
   });
 }
+
+
 

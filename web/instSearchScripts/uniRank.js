@@ -64,7 +64,7 @@ function displayRankData(specificData,unitOfAssessment) {
                 enabled: false
             },
             title: {
-                text: 'University Overall'
+                text: 'University GPA'
             },
             yAxis: {
                 max: 4,

@@ -251,12 +251,13 @@
 
 .home-section {
   position: relative;
-  background: #d3d3d3;
+  background: #fff;
   height: 100vh;
-  left: 260px;
-  width: calc(100% - 260px);
-  transition: all 0.5s ease;
+  width: 100vw;
+  overflow: hidden; /* Prevents scrolling */
+
 }
+
 
 .sidebar.close ~ .home-section {
   left: 78px;
@@ -303,15 +304,15 @@
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 20px;
+  padding: 2vh;
   box-sizing: border-box;
   overflow: hidden;
   position: relative;
   margin-top: 60px;
   position: absolute;
-  right: 20px;
-  top: 20px;
-  bottom: 20px;
+  right: 2vh;
+  top: 3vh;
+  bottom: 2vh;
   left: 50%;
 }
 
@@ -321,11 +322,16 @@
   border: none;
 }
 
+#homepage-section .component-bubble h3{
+  font-size: 0.8em;
+}
+
 #homepage-section .component-bubble .uni-record {
   display: flex;
   align-items: center;
-  margin-bottom: 1vh;
+  margin-bottom: 0;
   text-align: center;
+  font-size: .8em;
 }
 
 #homepage-section .component-bubble .uni-name {
@@ -396,19 +402,31 @@
   padding: 15px;
   box-sizing: border-box;
 }
+#homepage-section  .component-bubble:nth-child(2),
+#homepage-section  .component-bubble:nth-child(4),
+#homepage-section  .component-bubble:nth-child(6){
+  margin-right: -1vw;
+}
+
+#homepage-section  .component-bubble:nth-child(1),
+#homepage-section  .component-bubble:nth-child(2){
+  height: 28vh;
+  margin-bottom: -1vh;
+}
+
 
 #homepage-section  .component-bubble:nth-child(5),
 #homepage-section  .component-bubble:nth-child(6) {
   margin-bottom: 0;
-  min-height: 30vh;
-  max-height: 32vh;
+  min-height: 28vh;
+  max-height: 30vh;
 }
 
 #homepage-section  .component-bubble:nth-child(3),
 #homepage-section  .component-bubble:nth-child(4) {
-  margin-bottom: 0;
-  max-height: 33vh;
-  min-height: 30vh;
+  margin-bottom: -1vh;
+  max-height: 31vh;
+  min-height: 28vh;
 }
 
 #suggestions-container {
@@ -433,14 +451,28 @@
     background-color: #292841; /* A lighter shade for hover */
 }
 
-.unit-dropdown {
-  margin-left: 1%;
+.inst-dropdown {
+  position: absolute;
+  left: 50%;
   padding: 5px 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
   background-color: white;
   cursor: pointer;
-  width: 20vw;
+  width: 15vw;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.uoa-dropdown {
+  position: absolute;
+  left: 75%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  width: 15vw;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 
