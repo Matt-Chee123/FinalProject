@@ -236,12 +236,15 @@ document.getElementById('dataForm').onsubmit = function(event) {
           tickInterval: (xAxisMax === 4 && yAxisMax === 4) ? 0.5 : undefined // Set tickInterval to 1 when both are 'AverageScore', else auto
         },
         tooltip: {
-          formatter: function() {
-            return '<b>' + this.point.name + '</b><br/>' +
-                   xAxis + ' - ' + xProfOptionText + ': ' + this.point.x + '<br/>' +
-                   yAxis + ' - ' + yProfOptionText + ': ' + this.point.y;
-          }
-        },
+            formatter: function() {
+              let xValueFormatted = xRadioCheck === 'income' ? formatNumberAsCurrency(this.point.x) : this.point.x;
+              let yValueFormatted = yRadioCheck === 'income' ? formatNumberAsCurrency(this.point.y) : this.point.y;
+
+              return '<b>' + this.point.name + '</b><br/>' +
+                     xAxis + ' - ' + xProfOptionText + ': ' + xValueFormatted + '<br/>' +
+                     yAxis + ' - ' + yProfOptionText + ': ' + yValueFormatted;
+            }
+          },
         series: [{
           name: 'Data',
           data: chartData.map(point => {
@@ -263,4 +266,6 @@ function findOptionText(options, value) {
   return option ? option.text : value; // Return the 'text' if found, else return the original 'value'
 }
 
-
+function formatNumberAsCurrency(value) {
+  return '£' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
