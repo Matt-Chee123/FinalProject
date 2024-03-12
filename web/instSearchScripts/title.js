@@ -2,7 +2,7 @@ function displayTitle(institutionName) {
     const titleElement = document.getElementById('title-text');
 
     // If an institution is selected, show its name; otherwise, show 'REF2021'
-    titleElement.textContent = institutionName !== 'Nation' ? institutionName : 'REF2021';
+    titleElement.textContent = institutionName !== 'Nation' ? institutionName : 'REF2021 - Nation Overview';
 }
 document.addEventListener('DOMContentLoaded', () => {
     const institutionDropdown = document.getElementById('institution-dropdown');
@@ -16,5 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Call it once to set the initial state correctly
-    displayTitle("Ref2021");
+    displayTitle("REF2021 - Nation Overview");
 });
