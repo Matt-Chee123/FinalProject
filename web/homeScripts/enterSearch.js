@@ -6,7 +6,7 @@ document.getElementById('UofA').addEventListener('change', function() {
 // Function to fetch all university names
 async function fetchAllUniversityNames(uofaName) {
     try {
-        const response = await fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/uoaUniNames?uofaName=${encodeURIComponent(uofaName)}');
+        const response = await fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/uoaUniNames?uofaName=${encodeURIComponent(uofaName)}`);
         const data = await response.json();
         allUniversityNames = data; // Assuming the API returns an array of names
     } catch (error) {

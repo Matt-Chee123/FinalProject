@@ -33,117 +33,112 @@ function processAndDisplayData(data, specificUniRecord) {
           acc[item.UniversityName] = parseFloat(item.FTEOfSubmittedStaff);
           return acc;
         }, {});
-      const chartData = [];
+      let chartData = [];
 
-    // Iterate over the incomeMapping
+        // Iterate over the incomeMapping
       Object.keys(incomeMapping).forEach(uniName => {
           // Check if the current university in incomeMapping also exists in fteMapping
-          if (fteMapping.hasOwnProperty(uniName)) {
-              const isSpecificUni = uniName === specificUniName;
-              const markerOptions = isSpecificUni ? {
-                  fillColor: 'red', // Highlight color
-                  lineWidth: 2, // Border width
-                  radius: 8 // Marker radius
-              } : {};
+        if (fteMapping.hasOwnProperty(uniName)) {
+            const isSpecificUni = uniName === specificUniName;
+            // Set the zIndex for the specific university to be higher than the others
+            const zIndexValue = isSpecificUni ? 5 : 1;
 
-            // Format the income value with commas
-              const formattedIncome = incomeMapping[uniName].toLocaleString();
+              // Define the marker options, with higher zIndex for the specific university
+            const markerOptions = {
+                radius: 2, // Default radius for all universities
+                zIndex: zIndexValue // Set the zIndex based on whether it's the specific uni or not
+            };
 
-            // Create an object with the FTE, formatted income, and original income data
-              chartData.push({
-                  name: uniName,
-                  x: fteMapping[uniName], // FTE value from fteMapping
-                  y: incomeMapping[uniName], // Original income value from incomeMapping
-                  formattedIncome: formattedIncome, // Formatted income value with commas
-                  marker: markerOptions // Specific marker options for the specific university
-              });
-          }
+            if (isSpecificUni) {
+                  // Apply specific marker styles for the highlighted university
+                markerOptions.fillColor = 'red';
+                markerOptions.lineWidth = 2;
+                markerOptions.radius = 5;
+            }
+
+              // Format the income value with commas
+            const formattedIncome = incomeMapping[uniName].toLocaleString();
+
+              // Create an object with the FTE, formatted income, and original income data
+            chartData.push({
+                name: uniName,
+                x: fteMapping[uniName], // FTE value from fteMapping
+                y: incomeMapping[uniName], // Original income value from incomeMapping
+                formattedIncome: formattedIncome, // Formatted income value with commas
+                marker: markerOptions // Apply marker options
+            });
+        }
+        console.log(chartData);
       });
+          // Display the data using Highcharts
+        Highcharts.chart('fte-income-container', {
+          chart: {
+            type: 'scatter',
+            zoomType: 'xy',
+            spacingBottom: 0
+          },
+          title: {
+            text: 'FTE vs Total Income 2013-2020'
+          },
 
-  // Display the data using Highcharts
-  Highcharts.chart('fte-income-container', {
-    chart: {
-      type: 'scatter',
-      zoomType: 'xy',
-      spacingBottom: 0
-    },
-    title: {
-      text: 'FTE vs Total Income 2013-2020'
-    },
-
-    credits: {
-        enabled: false
-        },
-    xAxis: {
-      title: {
-        enabled: true,
-        text: 'FTE'
-      },
-      startOnTick: true,
-      endOnTick: true,
-      showLastLabel: true
-    },
-    yAxis: {
-      title: {
-        text: 'Total Income'
-      },
-      min: 0,
-      tickInterval: 50000000
-    },
-    legend: {
-      enabled: false,
-      layout: 'vertical',
-      align: 'left',
-      verticalAlign: 'top',
-      x: 100,
-      y: 70,
-      floating: true,
-      backgroundColor: Highcharts.defaultOptions.chart.backgroundColor,
-      borderWidth: 1
-    },
-    plotOptions: {
-      scatter: {
-        marker: {
-          radius: 5,
-          states: {
-            hover: {
-              enabled: true
-            }
-          }
-        },
-        states: {
-          hover: {
-            marker: {
+          credits: {
               enabled: false
+          },
+          xAxis: {
+            title: {
+              enabled: true,
+              text: 'FTE'
+            },
+            startOnTick: true,
+            endOnTick: true,
+            showLastLabel: true
+          },
+          yAxis: {
+            title: {
+              text: 'Total Income'
+            },
+            min: 0,
+            tickInterval: 50000000
+          },
+          legend: {
+            enabled: false
+          },
+          plotOptions: {
+            scatter: {
+              marker: {
+                radius: 4,
+                states: {
+                  hover: {
+                    enabled: true
+                  }
+                }
+              },
+              states: {
+                hover: {
+                  marker: {
+                    enabled: false
+                  }
+                }
+              },
+              tooltip: {
+                  headerFormat: '<b>{series.name}</b><br>',
+                  pointFormat: 'University: <b>{point.name}</b><br>FTE: {point.x:.1f}, Total Income: £{point.formattedIncome}'
+              }
             }
-          }
-        },
-        tooltip: {
-            headerFormat: '<b>{series.name}</b><br>',
-            pointFormat: 'University: <b>{point.name}</b><br>FTE: {point.x:.1f}, Total Income: £{point.formattedIncome}'
-        }
-      }
-    },
-    series: [{
-      type: 'scatter',
-      name: 'FTE vs Total Income',
-      data: chartData,
-      marker: {
-        enabled: false
-      },
-      states: {
-        hover: {
-          lineWidth: 0
-        }
-      },
-      enableMouseTracking: false
-    }, {
-      type: 'scatter',
-      name: 'Observations',
-      data: chartData,
-      marker: {
-        radius: 4
-      }
-    }]
-  });
+          },
+          series: [{
+            type: 'scatter',
+            name: 'Universities',
+            data: chartData,
+            marker: {
+              radius: 2
+            },
+            states: {
+              hover: {
+                lineWidthPlus: 0
+              }
+            },
+            enableMouseTracking: true
+          }]
+        });
 }

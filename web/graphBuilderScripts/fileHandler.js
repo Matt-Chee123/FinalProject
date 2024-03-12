@@ -91,50 +91,40 @@ function updateProfileOptions(containerID, axis) {
   var profile = document.getElementById(axis);
   var container = document.getElementById(containerID);
 
-  // Identify or create the label element for the dropdown
-  var labelId = containerID + 'Label'; // Construct a label ID based on the container ID
-  console.log(labelId);
+  var labelId = containerID + 'Label';
   var label = document.getElementById(labelId);
 
-  // If the label doesn't exist, create it
   if (!label) {
     label = document.createElement('label');
     label.setAttribute('id', labelId);
-    label.setAttribute('for', containerID); // Ensure the 'for' attribute matches the container's ID for accessibility
-    // Place the label before the container or wherever it fits best in your layout
+    label.setAttribute('for', containerID);
     container.parentNode.insertBefore(label, container);
   }
 
-  // Check if a valid profile or income source is selected
   if (profile.value) {
-    // Make the container visible if a valid option is selected
     container.style.display = 'block';
-    // Update the label text to "Attribute to Plot:"
     label.textContent = 'Attribute:';
-    label.style.display = 'block'; // Ensure the label is visible
+    label.style.display = 'block';
 
-    // Clear current options in the container
     container.innerHTML = '';
 
-    // Determine the options based on the selected profile or income source
-    console.log(profile.value);
     var optionsProfile = [
-      'AverageScore',
-      'FTEOfSubmittedStaff',
-      'PercEligibleStaff',
-      'FourStar',
-      'ThreeStar',
-      'TwoStar',
-      'OneStar',
-      'Unclassified'
+      {value: 'AverageScore', text: 'GPA'},
+      {value: 'FTEOfSubmittedStaff', text: 'FTE Of Submitted Staff'},
+      {value: 'PercEligibleStaff', text: '% of Eligible Staff'},
+      {value: 'FourStar', text: '% of Four Star'},
+      {value: 'ThreeStar', text: '% of Three Star'},
+      {value: 'TwoStar', text: '% of Two Star'},
+      {value: 'OneStar', text: '% of One Star'},
+      {value: 'Unclassified', text: '% of Unclassified'}
     ];
 
     var optionsIncome = [
-      'TotalIncome1320',
-      'AverageIncome1320',
-      'AverageIncome1520',
-      'Income201314',
-      'Income201415',
+      {value: 'TotalIncome1320', text: 'Total Income 2013-20'},
+      {value: 'AverageIncome1320', text: 'Average Income 2013-20'},
+      {value: 'AverageIncome1520', text: 'Average Income 2015-20'},
+      {value: 'Income201314', text: 'Income 2013-14'},
+      {value: 'Income201415', text: 'Income 2014-15'},
     ];
 
     var selectedOptions;
@@ -144,7 +134,6 @@ function updateProfileOptions(containerID, axis) {
       selectedOptions = optionsIncome;
     }
 
-    // Add a default "Please select" option
     var defaultOption = document.createElement('option');
     defaultOption.value = "";
     defaultOption.textContent = "Please select...";
@@ -152,19 +141,18 @@ function updateProfileOptions(containerID, axis) {
     defaultOption.selected = true;
     container.appendChild(defaultOption);
 
-    // Populate the container with the new options
-    selectedOptions.forEach(function(optionText) {
-      var option = document.createElement('option');
-      option.value = optionText;
-      option.text = optionText;
-      container.appendChild(option);
+    selectedOptions.forEach(function(option) {
+      var optionElement = document.createElement('option');
+      optionElement.value = option.value;
+      optionElement.text = option.text;
+      container.appendChild(optionElement);
     });
   } else {
-    // Hide the container and the label if no valid profile or income source is selected
     container.style.display = 'none';
-    label.style.display = 'none'; // Hide the label as well
+    label.style.display = 'none';
   }
 }
+
 
 async function fetchIncomeSources(UofA) {
   try {
