@@ -27,25 +27,26 @@ function displayTopThreeFte(data) {
   });
 
   const maxFTE = Math.max(...chartData.map(item => item.y));
-  let yAxisMax = Math.ceil(maxFTE / 20) * 20; // Round up to the nearest 10
+  let yAxisMax = Math.ceil(maxFTE / 10) * 10; // Round up to the nearest 10 for yAxisMax
 
-  // Adjust yAxisMax if needed to ensure it's more than the max y value and adjust for a maximum of 5 ticks
-  const ticks = 5; // Maximum number of ticks
-  let tickInterval = Math.ceil((yAxisMax / ticks) / 20) * 20; // Calculate tick interval, rounding up to the nearest 10
-  console.log('tickInterval:', tickInterval);
-  // Ensure there are always a maximum of 5 ticks and adjust yAxisMax if necessary
-  if (yAxisMax / tickInterval < ticks - 1) {
-    yAxisMax = tickInterval * (ticks - 1);
-  }
+  // Desired number of ticks
+  const ticks = 4;
 
-  // Generate tick positions based on the calculated interval and yAxisMax
+  // Calculate tick interval to distribute ticks evenly across the yAxis
+  let tickInterval = yAxisMax / ticks;
+
+  // If tick interval is not a multiple of 10, round up to the nearest 10
+  tickInterval = Math.ceil(tickInterval / 10) * 10;
+
+  // Generate tick positions based on the calculated interval
   const tickPositions = [];
   for (let i = 0; i <= yAxisMax; i += tickInterval) {
     tickPositions.push(i);
   }
-  if (tickPositions[tickPositions.length - 1] < yAxisMax) { // Ensure the last tick is more than maxFTE
-    tickPositions.push(tickPositions[tickPositions.length - 1] + tickInterval);
-  }
+
+  // If the last tick position is not equal to yAxisMax, adjust the last tick to yAxisMax
+
+
 
   Highcharts.chart('top-FTE-records', {
     chart: {

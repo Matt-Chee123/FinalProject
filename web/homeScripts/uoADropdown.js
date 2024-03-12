@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+
     document.getElementById('institution-dropdown').addEventListener('change', function() {
         const currentUoA = document.getElementById('unit-of-assessment-dropdown').value;
         fetchUnitOfAssessmentNames(this.value, currentUoA);
@@ -20,7 +21,6 @@ function fetchUnitOfAssessmentNames(universityName = 'Nation', currentUoA = 'Com
 function populateUoADropdown(unitOfAssessmentNames, currentUoA = 'Computer Science and Informatics') {
     const dropdown = document.getElementById('unit-of-assessment-dropdown');
     dropdown.length = 0; // Clear existing options
-    dropdown.add(new Option('Select a Unit of Assessment', ''));
 
     let foundCurrentUoA = false;
 

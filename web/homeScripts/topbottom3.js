@@ -16,7 +16,7 @@ function fetchTopAndBottomThree(uofaName = 'Computer Science and Informatics') {
 
 function displayRecords(topThreeData, bottomThreeData) {
   const recordsContainer = document.getElementById('records-container');
-  let content = '<h3>Top 3 Universities</h3>';
+  let content = '<h3>Top 3 Overall GPAs</h3>';
 
   topThreeData.forEach(item => {
     const formattedAverageScore = Number(item.AverageScore).toFixed(2);
@@ -26,7 +26,7 @@ function displayRecords(topThreeData, bottomThreeData) {
       </div>`;
   });
 
-  content += '<h3>Bottom 3 Universities</h3>';
+  content += '<h3>Bottom 3 Overall GPAs</h3>';
 
   bottomThreeData.forEach(item => {
     const formattedAverageScore = Number(item.AverageScore).toFixed(2);
