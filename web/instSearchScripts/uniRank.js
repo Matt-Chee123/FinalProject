@@ -49,7 +49,6 @@ function displayRankData(specificData,unitOfAssessment) {
         };
         const bulletData = filteredOverallData.slice(startIndex, endIndex).map((uni, index) => ({
             y: uni.AverageScore,
-            target: 4, // Fixed target for demonstration
             name: uni.UniversityName,
             rank: startIndex + index + 1
         }));
@@ -58,7 +57,8 @@ function displayRankData(specificData,unitOfAssessment) {
             chart: {
                 type: 'bullet',
                 inverted: true,
-                height: 150
+                height: 150,
+                marginBottom: 52
             },
             legend: {
                 enabled: false
@@ -75,7 +75,14 @@ function displayRankData(specificData,unitOfAssessment) {
                     color: '#e8e8e8',
                     max: 3
                 }],
-                title: null
+                labels: {
+                  style: {
+                     fontSize: '10px'
+                  }
+                },
+                title: {
+                    text: 'GPA'
+                }
             },
             plotOptions: {
                 series: {
@@ -114,13 +121,14 @@ function displayRankData(specificData,unitOfAssessment) {
 
                         return labelHtml;
                     },
+                    step: 1
                 }
             },
             series: [{
                 data: bulletData
             }],
             tooltip: {
-                pointFormat: '<b>{point.y:.2f}</b> (Target: {point.target})<br/>Rank: {point.rank} / ' + totalNumOfUniversities + ' universities<br/>',
+                pointFormat: '<b>{point.y:.2f}</b><br/>Rank: {point.rank} / ' + totalNumOfUniversities + ' universities<br/>',
                 positioner: function (labelWidth, labelHeight, point) {
                     return { x: point.plotX - 50, y: 0 }; // Adjust x and y to place the tooltip where it doesn't overlap
                 }

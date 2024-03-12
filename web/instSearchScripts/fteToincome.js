@@ -89,6 +89,11 @@ function processAndDisplayData(data, specificUniRecord) {
               enabled: true,
               text: 'FTE'
             },
+            labels: {
+              style: {
+                fontSize: '10px'
+              }
+            },
             startOnTick: true,
             endOnTick: true,
             showLastLabel: true
@@ -96,6 +101,11 @@ function processAndDisplayData(data, specificUniRecord) {
           yAxis: {
             title: {
               text: 'Total Income'
+            },
+            labels: {
+              style: {
+                fontSize: '10px'
+              }
             },
             min: 0,
             tickInterval: 50000000

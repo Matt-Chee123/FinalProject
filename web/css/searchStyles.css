@@ -135,13 +135,13 @@
 
 #institution-section .left-components .component-bubble:nth-of-type(1),
 #institution-section .left-components .component-bubble:nth-of-type(2) {
-  max-height: 21vh;
+  height: 23vh;
   margin-bottom: 0;
 }
 
 #institution-section .left-components .component-bubble:nth-of-type(3),
 #institution-section .left-components .component-bubble:nth-of-type(4) {
-  max-height: 33vh; /* Adjust the maximum height as needed */
+  max-height: 25vh; /* Adjust the maximum height as needed */
   min-height: 30vh; /* Adjust the minimum height as needed */
   margin-bottom: 0vh;
 }
@@ -155,7 +155,7 @@
 #institution-section .left-components .component-bubble:nth-of-type(5),
 #institution-section .left-components .component-bubble:nth-of-type(6) {
   grid-column: 1 / -1; /* Make the bubble span all columns */
-  height: clamp(20vh, 30vh, 30vh);
+  height: clamp(20vh, 28vh, 28vh);
 }
 #institution-section .left-components .component-bubble:nth-of-type(6) {
   display: none; /* Hide the fifth bubble */

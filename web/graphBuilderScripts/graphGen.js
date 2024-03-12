@@ -225,12 +225,21 @@ document.getElementById('dataForm').onsubmit = function(event) {
             text: xAxis + ': ' + xProfOptionText,
           },
           max: xAxisMax, // Dynamically set the max value for the xAxis
-          tickInterval: (xAxisMax === 4 && yAxisMax === 4) ? 0.5 : undefined // Set tickInterval to 1 when both are 'AverageScore', else auto
-
+          tickInterval: (xAxisMax === 4 && yAxisMax === 4) ? 0.5 : undefined, // Set tickInterval to 1 when both are 'AverageScore', else auto
+          labels: {
+              style: {
+              fontSize: '10px'
+              }
+          }
         },
         yAxis: {
           title: {
             text: yAxis + ': ' + yProfOptionText,
+          },
+          labels: {
+            style: {
+              fontSize: '10px'
+            }
           },
           max: yAxisMax, // Dynamically set the max value for the yAxis
           tickInterval: (xAxisMax === 4 && yAxisMax === 4) ? 0.5 : undefined // Set tickInterval to 1 when both are 'AverageScore', else auto

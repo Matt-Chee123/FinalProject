@@ -40,7 +40,8 @@ function displayOutputAverages(data) {
 
   Highcharts.chart('outputs-records', {
     chart: {
-      type: 'column'
+      type: 'column',
+      marginBottom: 40
     },
     title: {
       text: 'National Output Profile'
@@ -50,20 +51,25 @@ function displayOutputAverages(data) {
     },
     xAxis: {
       categories: [
-        'World Leading',
-        'Internationally Excellent',
-        'Internationally Recognized',
-        'Nationally Recognized'
+        '4*',
+        '3*',
+        '2*',
+        '1*'
       ],
       labels: {
-        enabled: false // Disables the labels on the x-axis
+        enabled: true
       }
     },
     yAxis: {
       min: 0,
       max: yAxisMax, // Set the dynamically calculated max for the yAxis
       title: {
-        text: 'Average Score'
+        text: '% of Outputs'
+      },
+      labels: {
+        style: {
+           fontSize: '10px'
+        }
       },
       endOnTick: false, // Ensures the axis doesn't extend beyond the max value
       tickInterval: 10 // Sets the interval of the tick marks to 10
@@ -89,10 +95,10 @@ function displayOutputAverages(data) {
     series: [{
       name: 'Average Star Rating',
       data: [
-        { y: avgFourStar, name: 'World Leading' },
-        { y: avgThreeStar, name: 'Internationally Excellent' },
-        { y: avgTwoStar, name: 'Internationally Recognized' },
-        { y: avgOneStar, name: 'Nationally Recognized' }
+        { y: avgFourStar, name: '4*' },
+        { y: avgThreeStar, name: '3*' },
+        { y: avgTwoStar, name: '2*' },
+        { y: avgOneStar, name: '1*' }
       ]
     }]
   });

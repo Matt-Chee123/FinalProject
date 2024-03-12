@@ -15,9 +15,9 @@ function fetch20(unitOfAssessment) {
 
 // This function will be called after the data is fetched
 function display10v10Data(unitOfAssessment) {
+    const option = document.getElementById('10v10Option').value;
     fetch20(unitOfAssessment)
         .then(data => {
-
 
             // Filter for 'Overall' profile type and sort
             const overallData = data.filter(item => item.ProfileType === 'Overall');
@@ -35,110 +35,153 @@ function display10v10Data(unitOfAssessment) {
             const top10Data = data.filter(item => top10Names.includes(item.UniversityName));
             const next10Data = data.filter(item => next10Names.includes(item.UniversityName));
 
-            top10Points = calculateGraphPoints(top10Data);
-            next10Points = calculateGraphPoints(next10Data);
-            console.log('Top 10 Totals:', top10Points);
-            console.log('Next 10 Totals:', next10Points);
+                // Declare these outside to ensure they are accessible
+                let top10 = { chartData: 0 };
+                let next10 = { chartData: 0 };
 
-            Highcharts.chart('10v10container', {
-                chart: {
-                    type: 'bar'
-                },
-                title: {
-                    text: 'Top 10 vs Next 10 Unis' // Optionally remove or set a title
-                },
-                xAxis: [{
-                    categories: ['FTE', 'Doctoral Degrees']
-                }],
-                yAxis: {
-                    min: 0, // Adjust according to your data
-                    tickAmount: 4,
-                    title: {
-                        text: null // Optionally remove or set a title for the yAxis
-                    }
-                },
-                legend: {
-                    reversed: false // Adjust based on preference
-                },
-                plotOptions: {
-                    series: {
+                if (option === 'Doctoral') {
+                    top10 = calculateGraphDoctoral(top10Data);
+                    next10 = calculateGraphDoctoral(next10Data);
+                    tooltipLabel = 'Doctoral Degrees';
+                } else if (option === 'Overall' || option === 'Outputs' || option === 'Impact' || option === 'Environment') {
+                    top10 = calculateAverageScoreByProfileType(top10Data, option);
+                    next10 = calculateAverageScoreByProfileType(next10Data, option);
+                    tooltipLabel = option + ' - Average GPA';
+                } else if (option === 'FTEOfSubmittedStaff') {
+                    top10 = calculateTotalFTE(top10Data);
+                    next10 = calculateTotalFTE(next10Data);
+                    tooltipLabel = 'FTE Of Submitted Staff';
+                } else {
+                    top10 = calculateIncome(top10Data, option);
+                    next10 = calculateIncome(next10Data, option);
 
-                    }
-                },
-                series: [{
-                    name: 'Top 10',
-                    data: [
-                        top10Points.fteOfSubmittedStaffTotal,
-                        top10Points.doctoralDegreesTotal,
-                    ],
-                }, {
-                    name: 'Next 10',
-                    data: [
-                        next10Points.fteOfSubmittedStaffTotal,
-                        next10Points.doctoralDegreesTotal,
-                    ],
-                    color: 'red'
-                }],
-                credits: {
-                    enabled: false
-                },
-                tooltip: {
-                    formatter: function() {
-                        let tooltipText = `${this.series.name}<br/>${this.x}: `;
-                        // Check the category and format the value accordingly
-                        if (this.x === 'FTE') {
-                            tooltipText += `<b>${Highcharts.numberFormat(this.y, 1)}</b>`; // Make the value bold and format with 1 decimal place
-                        } else if (this.x === 'Doctoral Degrees') {
-                            tooltipText += `<b>${Highcharts.numberFormat(this.y, 0)}</b>`; // Make the value bold and round to nearest whole number
-                        }
-                        return tooltipText;
-                    }
-                },
-                legend: {
-                    enabled: false // Adjust based on preference
+                    formattedTop10 = formatCurrency(top10.chartData);
+                    formattedNext10 = formatCurrency(next10.chartData);
+                    tooltipLabel = option === 'TotalIncome1320' ? 'Total Income' : 'Average yearly income';
                 }
-            });
-
-
-        })
-        .catch(error => {
-            console.error('Display error:', error);
+                Highcharts.chart('10v10container', {
+                    chart: {
+                        type: 'bullet',
+                        inverted: true
+                    },
+                    title: {
+                        text: null
+                    },
+                    xAxis: {
+                        categories: ['Top 10', 'Next 10']
+                    },
+                    yAxis: {
+                        title: {
+                            text: tooltipLabel
+                        },
+                        labels: {
+                            style: {
+                                fontSize: '10px'
+                            }
+                        }
+                    },
+                    tooltip: {
+                        formatter: function() {
+                            let tooltipValue = this.y;
+                            if (option !== 'Doctoral' && option !== 'Overall' && option !== 'Outputs' && option !== 'Impact' && option !== 'Environment' && option !== 'FTEOfSubmittedStaff') {
+                                tooltipValue = this.series.name === 'Top 10' ? formattedTop10 : formattedNext10;
+                            }
+                            return `${tooltipLabel}: <b>${tooltipValue}</b>`;
+                        }
+                    },
+                    series: [{
+                        data: [
+                            {y: top10.chartData}, // Use default or specific color for top10
+                            {y: next10.chartData, color: 'red'}  // Use red color for next10
+                        ]
+                    }],
+                    credits: {
+                        enabled: false
+                    },
+                    legend: {
+                        enabled: false
+                    }
+                });
         });
+    }
+function formatCurrency(value) {
+    return '£' + value.toLocaleString('en-UK', { maximumFractionDigits: 0 });
+}
+
+
+function calculateIncome(data, option) {
+    console.log(option);
+    let chartData = 0;
+    filteredData = data.filter(item => item.IncomeSource === 'Total income');
+    console.log(filteredData);
+    filteredData.forEach(item => {
+        chartData += Number(item[option]);
+    });
+
+    console.log(chartData);
+    return {
+        chartData
+    };
+
+}
+function calculateTotalFTE(data) {
+    let chartData = 0;
+
+    filteredData = data.filter(item => item.ProfileType === 'Overall');
+    filteredData.forEach(item => {
+        chartData += Number(item.FTEOfSubmittedStaff);
+    });
+    chartData = parseFloat(chartData.toFixed(0));
+    return {
+        chartData
+    };
 
 }
 
-function calculateGraphPoints(data) {
-    let fteOfSubmittedStaffTotal = 0;
-    let totalIncome1320Total = 0;
-    let doctoralDegreesTotal = 0;
+function calculateGraphDoctoral(data) {
+    let chartData = 0;
 
     data.forEach(item => {
-        // Sum FTEOfSubmittedStaff for "Overall" profile type
-        if (item.ProfileType === 'Overall') {
-            fteOfSubmittedStaffTotal += item.FTEOfSubmittedStaff || 0;
-        }
-
-        // Sum TotalIncome1320 for "Total income" source
-        if (item.IncomeSource === 'Total income') {
-            totalIncome1320Total += item.TotalIncome1320 || 0;
-        }
 
         // Sum DoctoralDegrees from 2013 to 2019 for "Environment" profile type
         if (item.ProfileType === 'Environment') {
-            doctoralDegreesTotal += Number(item.DoctoralDegrees2013) || 0;
-            doctoralDegreesTotal += Number(item.DoctoralDegrees2014) || 0;
-            doctoralDegreesTotal += Number(item.DoctoralDegrees2015) || 0;
-            doctoralDegreesTotal += Number(item.DoctoralDegrees2016) || 0;
-            doctoralDegreesTotal += Number(item.DoctoralDegrees2017) || 0;
-            doctoralDegreesTotal += Number(item.DoctoralDegrees2018) || 0;
-            doctoralDegreesTotal += Number(item.DoctoralDegrees2019) || 0;;
+            chartData += Number(item.DoctoralDegrees2013) || 0;
+            chartData += Number(item.DoctoralDegrees2014) || 0;
+            chartData += Number(item.DoctoralDegrees2015) || 0;
+            chartData += Number(item.DoctoralDegrees2016) || 0;
+            chartData += Number(item.DoctoralDegrees2017) || 0;
+            chartData += Number(item.DoctoralDegrees2018) || 0;
+            chartData += Number(item.DoctoralDegrees2019) || 0;;
         }
     });
-
+    chartData = parseFloat(chartData.toFixed(0));
     return {
-        fteOfSubmittedStaffTotal,
-        totalIncome1320Total,
-        doctoralDegreesTotal
+        chartData
     };
 }
-// Now you can use top10Totals and next10Totals for plotting on a graph
+
+function calculateAverageScoreByProfileType(data, profileType) {
+    // Filter data by the specified ProfileType
+    const filteredData = data.filter(item => item.ProfileType === profileType);
+
+    // Calculate average score for each university
+    let average = 0;
+    let count = 0;
+    filteredData.forEach(item => {
+        average += Number(item.AverageScore);
+        count++;
+    });
+
+    // Calculate the average from the filtered data
+    let chartData = average / count;
+    chartData = parseFloat(chartData.toFixed(2));
+    return {
+    chartData
+    };
+
+}
+
+document.getElementById('10v10Option').addEventListener('change', function() {
+    const selectedUofA = document.getElementById('unit-of-assessment-dropdown').value;
+    display10v10Data(selectedUofA);
+})

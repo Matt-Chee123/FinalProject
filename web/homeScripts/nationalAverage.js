@@ -39,6 +39,7 @@ function displayNationalAverageScore(data) {
   Highcharts.chart('bullet-graph-container', {
     chart: {
       type: 'bullet',
+      marginBottom: 53,
       inverted: true
     },
     title: {
@@ -53,11 +54,22 @@ function displayNationalAverageScore(data) {
         '<span class="hc-cat-title">Outputs</span>',
         '<span class="hc-cat-title">Impact</span>',
         '<span class="hc-cat-title">Environment</span>'
-      ]
+      ],
+      labels: {
+        step: 1,
+      }
     },
     yAxis: {
       gridLineWidth: 0,
-      title: null,
+      labels: {
+        style: {
+            fontSize: '10px'
+        }
+      },
+      title: {
+        text: 'GPA',
+        fontSize: '10px'
+      },
       max: 4, // Set the maximum scale value for the yAxis
       tickPositions: [0, 1, 2, 3, 4] // Define specific tick positions
     },

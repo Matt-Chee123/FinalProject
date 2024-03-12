@@ -75,7 +75,6 @@ function initMap(heatmapData) {
 
   map.addListener('zoom_changed', () => {
     const currentZoom = map.getZoom();
-    console.log('Current zoom:', currentZoom);
 
     // Toggle marker and cluster visibility based on zoom level
     const isVisible = currentZoom >= MIN_ZOOM_LEVEL;
@@ -121,7 +120,6 @@ async function fetchAndRenderHeatmap(uofaName, profile = 'Overall') {
     const universityCoordinates = await fetchUniversityCoordinates();
     const allData = await fetchUoAData(uofaName);
     const overallData = allData.filter(data => data.ProfileType == profile);
-    console.log('change', overallData)
     const heatmapData = overallData.map(record => {
       const uniCoords = universityCoordinates[record.UniversityName];
       return {

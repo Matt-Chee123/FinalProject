@@ -39,8 +39,8 @@
 
 
   <!-- home page html -->
-  <div class="main-container" id="homepage-section">
-    <div class="left-components">
+    <div class="main-container" id="homepage-section">
+      <div class="left-components">
       <div class="component-bubble">
         <div class="bubble-content" id="records-container"></div>
       </div>
@@ -55,7 +55,20 @@
 
       </div>
       <div class="component-bubble">
-        <div class="bubble-content" id="10v10container"></div>
+        <div class="bubble-content">
+        <h3 class="top10vsnext10-title">Top 10 vs Next 10</h3>
+        <select id="10v10Option" class="10v10-dropdown">
+          <option value="Overall">Average Overall GPA</option>
+          <option value="Outputs">Average Outputs GPA</option>
+          <option value="Impact">Average Impact GPA</option>
+          <option value="Environment">Average Environment GPA</option>
+          <option value="FTEOfSubmittedStaff">Total FTE of Submitted Staff</option>
+          <option value="Doctoral" selected >Total Doctoral Degrees</option>
+          <option value="TotalIncome1320">Total Income</option>
+          <option value="AverageIncome1320">Average Income</option>
+        </select>
+        <div class="toptwenty-content" id="10v10container"></div>
+        </div>
       </div>
       <div  class="component-bubble">
         <div class="bubble-content" id="top-sources-container"></div>

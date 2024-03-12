@@ -28,7 +28,8 @@ function displayDoctoralDegreesChart(uniData, averages) {
   // Initialize the Highcharts bar chart
   Highcharts.chart('doctoral-degrees-container', {
     chart: {
-      type: 'column'
+      type: 'column',
+      marginBottom: 50
     },
     title: {
       text: 'Doctoral Degrees Awarded Per Year'
@@ -43,10 +44,23 @@ function displayDoctoralDegreesChart(uniData, averages) {
 
     xAxis: {
       categories: ['2013', '2014', '2015', '2016', '2017', '2018', '2019'],
+      labels: {
+        style: {
+          fontSize: '10px'
+        }
+      },
+      title: {
+        text: 'Year'
+      },
       crosshair: true
     },
     yAxis: {
       min: 0,
+      labels: {
+        style: {
+          fontSize: '10px'
+        }
+      },
       title: {
         text: 'Number of Degrees'
       }

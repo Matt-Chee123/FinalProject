@@ -74,6 +74,11 @@ function processAndDisplayOutputsIncome(data, specificUniRecord) {
             title: {
                 text: 'Total Income (£)'
             },
+            labels: {
+                style: {
+                    fontSize: '10px'
+                }
+            },
             startOnTick: true,
             endOnTick: true,
             showLastLabel: true
@@ -81,6 +86,11 @@ function processAndDisplayOutputsIncome(data, specificUniRecord) {
         yAxis: {
             title: {
                 text: 'Average Research Quality Score'
+            },
+            labels: {
+                style: {
+                    fontSize: '10px'
+                }
             },
             min: 1, // Set the minimum value of y-axis to 1
             max: 4, // Set the maximum value of y-axis to 4

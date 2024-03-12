@@ -36,7 +36,8 @@ function displayIncomeChart(data) {
   // Initialize Highcharts
   Highcharts.chart('income-container', {
     chart: {
-      type: 'spline'
+      type: 'spline',
+      marginBottom: 50
     },
     legend: {
       enabled: false
@@ -48,9 +49,22 @@ function displayIncomeChart(data) {
       enabled: false
     },
     xAxis: {
+      labels: {
+        style: {
+          fontSize: '10px'
+        }
+      },
+      title: {
+        text: 'Year'
+      },
       categories: ['2014', '2015', '2016', '2017', '2018', '2019', '2020']
     },
     yAxis: {
+      labels: {
+        style: {
+          fontSize: '10px'
+        }
+      },
       title: {
         text: 'Income (£)'
       }

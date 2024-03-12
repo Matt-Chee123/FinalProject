@@ -90,7 +90,7 @@ function displayTopFourSources(data) {
   Highcharts.chart('top-sources-container', {
     chart: {
       type: 'column',
-      marginBottom: 5 // Adjust if necessary to fit the chart
+      marginBottom: 55, // Adjust if necessary to fit the chart
     },
     title: {
       text: 'Top 4 Income Sources'
@@ -98,8 +98,11 @@ function displayTopFourSources(data) {
     xAxis: {
       categories: top4Incomes.map(income => income.name),
       labels: {
-        enabled: false // Disables the labels on the x-axis
-      }
+          rotation: -30,
+          style: {
+              fontSize: '10px'
+          }
+        }
     },
     yAxis: {
       min: 0,
@@ -110,6 +113,9 @@ function displayTopFourSources(data) {
       labels: {
         formatter: function() {
           return (this.value / 1000000); // Convert to M for millions
+        },
+        style: {
+          fontSize: '10px'
         }
       }
     },
