@@ -66,7 +66,6 @@ function fetchUnitOfAssessmentNames(universityName, currentUoA, callback) {
 function populateUoADropdown(unitOfAssessmentNames, currentUoA) {
   const dropdown = document.getElementById('unit-of-assessment-dropdown');
   dropdown.length = 0; // Clear existing options
-  dropdown.add(new Option('Select a Unit of Assessment', ''));
   let foundCurrentUoA = false;
 
   unitOfAssessmentNames.forEach(name => {

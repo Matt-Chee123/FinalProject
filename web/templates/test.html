@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <title>Highcharts Map Test</title>
+    <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy0KK1RmrRu9ywyGn6qCCrdKhLGreZ0kY&libraries=visualization&callback=initMap">
+    </script>
+
+
+    <style>
+        #heatmap-container {
+            height: 600px;
+            max-width: 800px;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
-$END$
+
+<div id="map" style="height: 500px; width: 100%;"></div>
+
+<script src="testfunc.js"></script>
+
 </body>
 </html>

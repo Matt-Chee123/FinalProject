@@ -408,6 +408,34 @@ app.get("/items/uniNames", async function(req, res) {
         res.status(500).json({error: 'Could not fetch university names: ' + err.message});
     }
 });
+
+app.get("/items/uoaUniNames", async function(req, res) {
+    const selectedUofA = req.query.uofaName || "Computer Science and Informatics"; // Default value if not provided
+
+    var params = {
+        TableName: tableName,
+        IndexName: 'ProfileType-index', // Use the GSI
+        KeyConditionExpression: "ProfileType = :profileTypeVal",
+        ExpressionAttributeValues: {
+            ":profileTypeVal": "Overall",
+            ":uofaName": selectedUofA,
+
+        },
+        FilterExpression: 'UnitOfAssessmentName = :uofaName', // Correct filter for ProfileType "Outputs"
+    };
+
+    try {
+        // Use QueryCommand to fetch items
+        const data = await ddbDocClient.send(new QueryCommand(params));
+
+        // Extract just the university names and ensure they are unique
+        const uniqueNames = [...new Set(data.Items.map(item => item.UniversityName))];
+
+        res.json(uniqueNames);
+    } catch (err) {
+        res.status(500).json({error: 'Could not fetch university names: ' + err.message});
+    }
+});
 //Uni data
 app.get("/items/university", async function(req, res) {
     const universityName = req.query.UniversityName;

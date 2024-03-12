@@ -5,10 +5,15 @@
   <link rel="stylesheet" href="css/homeStyles.css">
   <link rel="stylesheet" href="css/searchStyles.css">
   <link rel="stylesheet" href="css/graphBuilder.css">
-  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://code.highcharts.com/highcharts.js"></script>
+
   <script src="https://code.highcharts.com/highcharts-more.js"></script>
   <script src="https://code.highcharts.com/modules/bullet.js"></script>
+  <script async
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy0KK1RmrRu9ywyGn6qCCrdKhLGreZ0kY&libraries=visualization&callback=initMap">
+  </script>
+  <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -57,7 +62,16 @@
       </div>
     </div>
     <div class="right-homepage-container">
-      <iframe src="ComputerScienceandInformatics_heatmap.html" frameborder="0" class="heatmap-iframe"></iframe>
+      <div class="title-container">
+      <h3 class="heatmap-title" id="heatmap-title">Heatmap of the UK</h3>
+      <select class="profile-dropdown" id="profile-dropdown">
+        <option value="Overall" default>Overall</option>
+        <option value="Outputs">Outputs</option>
+        <option value="Impact">Impact</option>
+        <option value="Environment">Environment</option>
+      </select>
+        </div>
+      <div class="heatmap-container" id="heatmap-container"></div>
     </div>
   </div>
 
@@ -101,7 +115,7 @@
         <div id="graphStep1" class="bottom-bubble component-bubble">
           <div class="step-label">Step 1:</div>
           <div class="dropdown-container">
-            <i class="text">UofA:</i>
+            <i class="text">UoA:</i>
             <select id="UofA">
               <option value="" disabled selected>Select</option>
               <option value="Computer Science and Informatics">Computer Science</option>
@@ -227,6 +241,8 @@
 <script src="homeScripts/totalIncome.js"></script>
 <script src="homeScripts/Top3fte.js"></script>
 <script src="homeScripts/top10vsnext10.js"></script>
+<script src="homeScripts/universities_coordinates.json"></script>
+
 <!-- inst search bubble scripts -->
 <script src="instSearchScripts/basicScores.js"></script>
 <script src="instSearchScripts/title.js"></script>
@@ -251,5 +267,6 @@
 <script src="homeScripts/uoADropdown.js"></script>
 <script src="instSearchScripts/insDropdownHandler.js"></script>
 
+<script src="homeScripts/heatmap.js" defer></script>
 </body>
 </html>

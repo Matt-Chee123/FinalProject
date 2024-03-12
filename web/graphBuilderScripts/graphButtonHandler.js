@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Revert title text
     titleText.textContent = 'REF2021';
+    document.getElementById('unit-of-assessment-dropdown').value = "Computer Science and Informatics";
+    document.getElementById('institution-dropdown').value = "Nation";
 
     // Hide back button
     backButton.style.display = 'none';
