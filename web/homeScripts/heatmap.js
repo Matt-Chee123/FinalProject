@@ -61,15 +61,47 @@ function initMap(heatmapData) {
   });
 
   // Add marker clustering
-  new MarkerClusterer(map, markers, {
+  const markerCluster = new MarkerClusterer(map, markers, {
     imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
   });
+
+  const MIN_ZOOM_LEVEL = 7; // Adjust this zoom level as needed
+
+  // Initially set all markers' visibility to false
+  // No need to do this since we are handling visibility with the zoom_changed listener
+  // markers.forEach(marker => marker.setVisible(false));
+
+  // Add a zoom changed event listener to the map
+
+  map.addListener('zoom_changed', () => {
+    const currentZoom = map.getZoom();
+    console.log('Current zoom:', currentZoom);
+
+    // Toggle marker and cluster visibility based on zoom level
+    const isVisible = currentZoom >= MIN_ZOOM_LEVEL;
+    markers.forEach(marker => marker.setVisible(isVisible));
+
+    // If the clusters should be invisible at this zoom level, clear them
+    if (!isVisible) {
+      markerCluster.clearMarkers();
+    } else {
+      // Re-add markers to the clusterer when zooming in
+      markerCluster.addMarkers(markers);
+    }
+  });
+  const initialZoom = map.getZoom();
+  if (initialZoom < MIN_ZOOM_LEVEL) {
+    markers.forEach(marker => marker.setVisible(false));
+    markerCluster.clearMarkers();
+  } else {
+    markerCluster.addMarkers(markers);
+  }
 
   // Convert your data to the format expected by Google Maps HeatmapLayer
   const googleHeatmapData = heatmapData.map(item => {
     return {
       location: new google.maps.LatLng(item.lat, item.lon),
-      weight: Math.pow(item.value, 2) // Squaring the value to enhance higher values
+      weight: Math.pow(item.value, 3) // Squaring the value to enhance higher values
     };
   });
   // Create the heatmap layer using your data
@@ -77,7 +109,7 @@ function initMap(heatmapData) {
     data: googleHeatmapData,
     map: map,
     radius: 22, // Adjust the radius as needed
-    maxIntensity: 16 // Adjust the max intensity as needed
+    maxIntensity: 64 // Adjust the max intensity as needed
   });
 
   // Log the heatmap for debugging
