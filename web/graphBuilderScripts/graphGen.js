@@ -1,3 +1,22 @@
+var optionsProfile = [
+  {value: 'AverageScore', text: 'GPA'},
+  {value: 'FTEOfSubmittedStaff', text: 'FTE Of Submitted Staff'},
+  {value: 'PercEligibleStaff', text: '% of Eligible Staff'},
+  {value: 'FourStar', text: '% of Four Star'},
+  {value: 'ThreeStar', text: '% of Three Star'},
+  {value: 'TwoStar', text: '% of Two Star'},
+  {value: 'OneStar', text: '% of One Star'},
+  {value: 'Unclassified', text: '% of Unclassified'}
+];
+
+var optionsIncome = [
+  {value: 'TotalIncome1320', text: 'Total Income 2013-20'},
+  {value: 'AverageIncome1320', text: 'Average Income 2013-20'},
+  {value: 'AverageIncome1520', text: 'Average Income 2015-20'},
+  {value: 'Income201314', text: 'Income 2013-14'},
+  {value: 'Income201415', text: 'Income 2014-15'},
+];
+
 const russellGroupUniversities = new Set([
   "University of Birmingham",
   "University of Bristol",
@@ -183,9 +202,9 @@ document.getElementById('dataForm').onsubmit = function(event) {
     chartData.sort((a, b) => (a.zIndex || 0) - (b.zIndex || 0));
 
   // Log chartData to verify
-    console.log('chartData:', chartData);
-    console.log(yAxis + ': ' + yAttribute);
-    console.log(xAxis + ': ' + xAttribute);
+    const xProfOptionText = findOptionText(xRadioCheck === 'profile' ? optionsProfile : optionsIncome, xProfOption);
+    const yProfOptionText = findOptionText(yRadioCheck === 'profile' ? optionsProfile : optionsIncome, yProfOption);
+
     window.myChart = Highcharts.chart('graph-container', {
         chart: {
           type: 'scatter',
@@ -203,7 +222,7 @@ document.getElementById('dataForm').onsubmit = function(event) {
         },
         xAxis: {
           title: {
-            text: xAxis + ': ' + xAttribute,
+            text: xAxis + ': ' + xProfOptionText,
           },
           max: xAxisMax, // Dynamically set the max value for the xAxis
           tickInterval: (xAxisMax === 4 && yAxisMax === 4) ? 0.5 : undefined // Set tickInterval to 1 when both are 'AverageScore', else auto
@@ -211,7 +230,7 @@ document.getElementById('dataForm').onsubmit = function(event) {
         },
         yAxis: {
           title: {
-            text: yAxis + ': ' + yAttribute,
+            text: yAxis + ': ' + yProfOptionText,
           },
           max: yAxisMax, // Dynamically set the max value for the yAxis
           tickInterval: (xAxisMax === 4 && yAxisMax === 4) ? 0.5 : undefined // Set tickInterval to 1 when both are 'AverageScore', else auto
@@ -219,8 +238,8 @@ document.getElementById('dataForm').onsubmit = function(event) {
         tooltip: {
           formatter: function() {
             return '<b>' + this.point.name + '</b><br/>' +
-                   xAttribute + ': ' + this.point.x + '<br/>' +
-                   yAttribute + ': ' + this.point.y;
+                   xAxis + ' - ' + xProfOptionText + ': ' + this.point.x + '<br/>' +
+                   yAxis + ' - ' + yProfOptionText + ': ' + this.point.y;
           }
         },
         series: [{
@@ -239,5 +258,9 @@ document.getElementById('dataForm').onsubmit = function(event) {
   });
 }
 
+function findOptionText(options, value) {
+  const option = options.find(option => option.value === value);
+  return option ? option.text : value; // Return the 'text' if found, else return the original 'value'
+}
 
 
