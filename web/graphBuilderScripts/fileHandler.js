@@ -1,4 +1,13 @@
-function updateBubbleProfIncX() {
+
+function updateVisibilityY() {
+  var profileSelected = document.getElementById('profileY').checked;
+  var xProfOptions = document.getElementById('yProfOptions');
+
+  // Toggle the display based on whether the "Profile" radio is selected
+  xProfOptions.style.display = profileSelected ? 'block' : 'none';
+}
+
+async function updateBubbleProfIncX() {
   // Making xAxisLabel and xAxis visible
   document.getElementById('graphStep3').style.display = 'none';
   document.getElementById('graphStep4').style.display = 'none';
@@ -24,210 +33,59 @@ function updateBubbleProfIncX() {
   var selectedValue = selectedRadio.value;
   var label = document.getElementById('xAxisLabel');
 
-  if (selectedValue == 'profile') {
-    label.textContent = 'Profile:';
-  } else if (selectedValue == 'income') {
-    label.textContent = 'Income:';
-  }
+  label.textContent = selectedValue === 'profile' ? 'Profile:' : 'Income:';
 
-  var UofA = document.getElementById('UofA').value; // Assuming you have a select element with id 'UofA'
-  console.log(UofA);
+  var UofA = document.getElementById('UofA').value; // Use the value of UofA selection
   var axisOptions = document.getElementById('xAxis');
-
-  // Clear current options in xAxis
-  axisOptions.innerHTML = '';
-
-  // Determine the options based on the selection
+  console.log(axisOptions);
   var optionsBasedOnSelected = [];
-  console.log(selectedRadio.value);
-  if(selectedRadio.value == 'profile') {
+
+  if (selectedValue === 'profile') {
+    // For 'profile', use predefined options
     optionsBasedOnSelected = ['Overall', 'Impact', 'Outputs', 'Environment'];
-  } else if(UofA == 'Computer Science and Informatics') {
-    optionsBasedOnSelected = [
-      'Total income',
-      'BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh',
-      'UK-based charities (open competitive process)',
-      'UK-based charities (other)',
-      'UK central government bodies/local authorities, health and hospital authorities',
-      'UK central government tax credits for research and development expenditure',
-      'UK industry, commerce and public corporations',
-      'UK other sources',
-      'EU government bodies',
-      'EU-based charities (open competitive process)',
-      'EU industry, commerce and public corporations',
-      'EU (excluding UK) other',
-      'Non-EU-based charities (open competitive process)',
-      'Non-EU industry commerce and public corporations',
-      'Non-EU other'
-    ];
-  } else if(UofA == 'Clinical Medicine') {
-    optionsBasedOnSelected = [
-      "BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh",
-      "UK-based charities (open competitive process)",
-      "UK-based charities (other)",
-      "UK central government bodies/local authorities, health and hospital authorities",
-      "Health research funding bodies",
-      "UK central government tax credits for research and development expenditure",
-      "UK industry, commerce and public corporations",
-      "UK other sources",
-      "EU government bodies",
-      "EU-based charities (open competitive process)",
-      "EU industry, commerce and public corporations",
-      "EU (excluding UK) other",
-      "Non-EU-based charities (open competitive process)",
-      "Non-EU industry commerce and public corporations",
-      "Non-EU other",
-      "Total income"
-    ];
-  } else if(UofA == 'Law') {
-    optionsBasedOnSelected = [
-      "BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh",
-      "UK-based charities (open competitive process)",
-      "UK-based charities (other)",
-      "UK central government bodies/local authorities, health and hospital authorities",
-      "UK central government tax credits for research and development expenditure",
-      "UK industry, commerce and public corporations",
-      "UK other sources",
-      "EU government bodies",
-      "EU-based charities (open competitive process)",
-      "EU industry, commerce and public corporations",
-      "EU (excluding UK) other",
-      "Non-EU-based charities (open competitive process)",
-      "Non-EU industry commerce and public corporations",
-      "Non-EU other",
-      "Total income"
-    ];
+    updateAxisOptions(axisOptions, optionsBasedOnSelected, selectedValue);
+  } else {
+    // For 'income', fetch options based on the UofA
+    optionsBasedOnSelected = await fetchIncomeSources(UofA);
+    updateAxisOptions(axisOptions, optionsBasedOnSelected, selectedValue);
   }
-  var placeholderOption = document.createElement('option');
-  placeholderOption.value = "";
-  placeholderOption.text = selectedValue === 'profile' ? 'Pick Profile' : 'Pick Income Source';
-  placeholderOption.disabled = true;
-  placeholderOption.selected = true;
-  axisOptions.appendChild(placeholderOption);
-  console.log(optionsBasedOnSelected);
-  // Add new options
-  optionsBasedOnSelected.forEach(function(optionText) {
-    var option = document.createElement('option');
-    option.value = optionText;
-    option.text = optionText;
-    axisOptions.appendChild(option);
-  });
-}
-function updateVisibilityY() {
-  var profileSelected = document.getElementById('profileY').checked;
-  var xProfOptions = document.getElementById('yProfOptions');
-
-  // Toggle the display based on whether the "Profile" radio is selected
-  xProfOptions.style.display = profileSelected ? 'block' : 'none';
 }
 
-
-function updateBubbleProfIncY() {
-  // Make yAxisLabel and yAxis visible upon selection
+async function updateBubbleProfIncY() {
   document.getElementById('graphStep4').style.display = 'none';
   document.getElementById('yAxisLabel').style.display = 'block';
   document.getElementById('yAxis').style.display = 'block';
-  document.getElementById('yProfOptions').style.display = 'none'; // Assuming there's a yProfOptions similar to xProfOptions
+  document.getElementById('yProfOptions').style.display = 'none';
   if (document.getElementById('yProfOptionsLabel')) {
-      document.getElementById('yProfOptionsLabel').style.display = 'none';
+    document.getElementById('yProfOptionsLabel').style.display = 'none';
   }
 
   var selectedRadio = document.querySelector('input[name="specialOptionGroupY"]:checked');
   var selectedValue = selectedRadio.value;
   var label = document.getElementById('yAxisLabel');
 
-  // Update label text based on the selected radio button
-  if (selectedValue == 'profile') {
-    label.textContent = 'Profile:';
-  } else if (selectedValue == 'income') {
-    label.textContent = 'Income:';
-  }
+  label.textContent = selectedValue === 'profile' ? 'Profile:' : 'Income:';
 
   var UofA = document.getElementById('UofA').value; // Use the value of UofA selection
   var axisOptions = document.getElementById('yAxis');
+  var optionsBasedOnSelected = [];
 
-  // Clear current options in yAxis dropdown
-  axisOptions.innerHTML = '';
-  // Determine the options based on bubble1's selection
-  var optionsBasedOnSelected = []; // You would fill this array based on bubble1's value
-  if(selectedRadio.value == 'profile') {
+  if (selectedValue === 'profile') {
+    // For 'profile', use predefined options
     optionsBasedOnSelected = ['Overall', 'Impact', 'Outputs', 'Environment'];
-  } else if(UofA == 'Computer Science and Informatics') {
-    optionsBasedOnSelected = [
-      'Total income',
-      'BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh',
-      'UK-based charities (open competitive process)',
-      'UK-based charities (other)',
-      'UK central government bodies/local authorities, health and hospital authorities',
-      'UK central government tax credits for research and development expenditure',
-      'UK industry, commerce and public corporations',
-      'UK other sources',
-      'EU government bodies',
-      'EU-based charities (open competitive process)',
-      'EU industry, commerce and public corporations',
-      'EU (excluding UK) other',
-      'Non-EU-based charities (open competitive process)',
-      'Non-EU industry commerce and public corporations',
-      'Non-EU other'
-    ];
-  } else if(UofA == 'Clinical Medicine') {
-    optionsBasedOnSelected = [
-      "BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh",
-      "UK-based charities (open competitive process)",
-      "UK-based charities (other)",
-      "UK central government bodies/local authorities, health and hospital authorities",
-      "Health research funding bodies",
-      "UK central government tax credits for research and development expenditure",
-      "UK industry, commerce and public corporations",
-      "UK other sources",
-      "EU government bodies",
-      "EU-based charities (open competitive process)",
-      "EU industry, commerce and public corporations",
-      "EU (excluding UK) other",
-      "Non-EU-based charities (open competitive process)",
-      "Non-EU industry commerce and public corporations",
-      "Non-EU other",
-      "Total income"
-    ];
-  } else if(UofA == 'Law') {
-    optionsBasedOnSelected = [
-      "BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh",
-      "UK-based charities (open competitive process)",
-      "UK-based charities (other)",
-      "UK central government bodies/local authorities, health and hospital authorities",
-      "UK central government tax credits for research and development expenditure",
-      "UK industry, commerce and public corporations",
-      "UK other sources",
-      "EU government bodies",
-      "EU-based charities (open competitive process)",
-      "EU industry, commerce and public corporations",
-      "EU (excluding UK) other",
-      "Non-EU-based charities (open competitive process)",
-      "Non-EU industry commerce and public corporations",
-      "Non-EU other",
-      "Total income"
-    ];
+    updateAxisOptions(axisOptions, optionsBasedOnSelected, selectedValue);
+  } else {
+    // For 'income', fetch options based on the UofA
+    optionsBasedOnSelected = await fetchIncomeSources(UofA);
+    updateAxisOptions(axisOptions, optionsBasedOnSelected, selectedValue);
   }
-  var placeholderOption = document.createElement('option');
-  placeholderOption.value = "";
-  placeholderOption.text = selectedValue === 'profile' ? 'Pick Profile' : 'Pick Income Source';
-  placeholderOption.disabled = true;
-  placeholderOption.selected = true;
-  axisOptions.appendChild(placeholderOption);
-
-  // Populate dropdown with new options
-  optionsBasedOnSelected.forEach(function(optionText) {
-    var option = document.createElement('option');
-    option.value = optionText;
-    option.text = optionText;
-    axisOptions.appendChild(option);
-  });
 }
 
-// Assuming you have radio buttons similar to those for X axis, with 'specialOptionGroupY' as their name
+// Bind the update function to the change event of radio buttons
 document.querySelectorAll('input[name="specialOptionGroupY"]').forEach(radio => {
   radio.addEventListener('change', updateBubbleProfIncY);
 });
+
 
 function updateProfileOptions(containerID, axis) {
   var profile = document.getElementById(axis);
@@ -306,4 +164,45 @@ function updateProfileOptions(containerID, axis) {
     container.style.display = 'none';
     label.style.display = 'none'; // Hide the label as well
   }
+}
+
+async function fetchIncomeSources(UofA) {
+  try {
+    const response = await fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/allIncomes?uofaName=${encodeURIComponent(UofA)}`);
+    if (response.ok) {
+      const items = await response.json();
+      console.log(items);
+      return [...new Set(items.map(item => item.IncomeSource))]; // Extract and filter unique income sources
+    } else {
+      console.error('Failed to fetch data:', response.statusText);
+      return [];
+    }
+  } catch (error) {
+    console.error('Error fetching income sources:', error);
+    return [];
+  }
+}
+
+function updateAxisOptions(axisOptions, optionsBasedOnSelected, selectedValue) {
+  // Clear current options in yAxis dropdown
+  axisOptions.innerHTML = '';
+  var placeholderOption = document.createElement('option');
+  placeholderOption.value = "";
+  if (selectedValue === 'profile') {
+    placeholderOption.text = "Please select a profile";
+  }
+    else {
+        placeholderOption.text = "Please select an income";
+    }
+  placeholderOption.disabled = true;
+  placeholderOption.selected = true;
+  axisOptions.appendChild(placeholderOption);
+
+  // Populate dropdown with new options
+  optionsBasedOnSelected.forEach(function(optionText) {
+    var option = document.createElement('option');
+    option.value = optionText;
+    option.text = optionText;
+    axisOptions.appendChild(option);
+  });
 }

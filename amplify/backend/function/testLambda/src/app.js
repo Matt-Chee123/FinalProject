@@ -83,6 +83,31 @@ app.get(path, async function(req, res) {
   }
 });
 
+app.get("/items/allIncomes", async function(req, res) {
+  // Retrieve the selected UnitOfAssessmentName from query parameters
+  const selectedUofA = req.query.uofaName || "Computer Science and Informatics"; // Default value if not provided
+
+  var params = {
+      TableName: tableName,
+      IndexName: 'UnitOfAssessmentName-UniversityName-index', // Use your index if applicable
+      KeyConditionExpression: 'UnitOfAssessmentName = :uofaName',
+      ExpressionAttributeValues: {
+          ":uofaName": selectedUofA
+      },
+      FilterExpression: 'attribute_exists(IncomeSource)' // Filter to include only items with IncomeSource
+  };
+
+  try {
+    // Assuming you have a DynamoDB document client already set up as `docClient`
+    const data = await ddbDocClient.send(new QueryCommand(params));
+    res.json(data.Items); // Respond with the queried items
+  } catch (error) {
+    console.error("Unable to query. Error:", JSON.stringify(error, null, 2));
+    res.status(500).send(error); // Send a server error response
+  }
+});
+
+
 app.get("/items/all", async function(req, res) {
     // Retrieve the selected UnitOfAssessmentName from query parameters
     const selectedUofA = req.query.uofaName || "Computer Science and Informatics"; // Default value if not provided
