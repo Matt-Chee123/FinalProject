@@ -130,14 +130,14 @@ function processAndDisplayData(data, specificUniRecord) {
                 }
               },
               tooltip: {
-                  headerFormat: '<b>{series.name}</b><br>',
+                  headerFormat: null,
                   pointFormat: 'University: <b>{point.name}</b><br>FTE: {point.x:.1f}, Total Income: £{point.formattedIncome}'
               }
             }
           },
           series: [{
             type: 'scatter',
-            name: 'Universities',
+            name: null,
             data: chartData,
             marker: {
               radius: 2

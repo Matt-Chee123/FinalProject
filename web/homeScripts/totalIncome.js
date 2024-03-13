@@ -126,7 +126,7 @@ function displayTopFourSources(data) {
         // Format the income value with Highcharts' numberFormat function, including thousands separator
         const incomeValueFormatted = Highcharts.numberFormat(this.y, 0, '.', ',');
         // Construct the tooltip content, using <b> tags for bold text and including "Income:" text
-        return '<b>' + incomeSourceName + '</b><br/>Income: £' + incomeValueFormatted;
+        return '' + incomeSourceName + '<br/>Income: <b>£' + incomeValueFormatted + '</b>'
       }
     },
     plotOptions: {

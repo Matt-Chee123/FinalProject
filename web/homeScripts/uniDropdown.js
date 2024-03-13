@@ -6,11 +6,8 @@ function fetchUniversities() {
     fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/uniNames')
         .then(response => response.json())
         .then(data => {
-            const sortedUniversities = data.sort((a, b) => {
+            const sortedUniversities = data.sort((nameA, nameB) => {
                 // Adjust names for sorting if they start with 'University of'
-                const nameA = adjustUniversityName(a);
-                const nameB = adjustUniversityName(b);
-
                 return nameA.localeCompare(nameB);
             });
             populateUniDropdown(sortedUniversities);

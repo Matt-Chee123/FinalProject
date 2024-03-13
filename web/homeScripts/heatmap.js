@@ -97,18 +97,41 @@ function initMap(heatmapData) {
   }
 
   // Convert your data to the format expected by Google Maps HeatmapLayer
-  const googleHeatmapData = heatmapData.map(item => {
-    return {
-      location: new google.maps.LatLng(item.lat, item.lon),
-      weight: Math.pow(item.value, 3) // Squaring the value to enhance higher values
-    };
-  });
+    const googleHeatmapData = heatmapData.map(item => {
+        // Ensure the weight is positive and emphasize differences in the 3-4 range
+        let weight;
+        if (item.value >= 3) {
+            // Apply a transformation that significantly increases weight for values in the 3-4 range
+            weight = item.value + (item.value - 3) * 10; // This ensures a smooth transition and correct hierarchy
+        } else {
+            // For values below 3, you can either keep them as is or apply a slight increase
+            weight = item.value;
+        }
+        return {
+          location: new google.maps.LatLng(item.lat, item.lon),
+          weight: weight
+        };
+    });
   // Create the heatmap layer using your data
   const heatmap = new google.maps.visualization.HeatmapLayer({
     data: googleHeatmapData,
     map: map,
-    radius: 22, // Adjust the radius as needed
-    maxIntensity: 64 // Adjust the max intensity as needed
+    dissipating: true, // Adjust as needed
+    radius: 30, // Adjust the radius as needed
+    maxIntensity: 14,
+    gradient: [
+        'rgba(0, 255, 255, 0)',        // Transparent for the lowest intensity
+        'rgba(100, 200, 255, 0.1)',    // Very low intensity - for values much lower than 10
+        'rgba(150, 150, 255, 0.2)',    // Low intensity - approaching the 10 mark
+        'rgba(200, 100, 255, 0.3)',    // Lower-mid intensity - around 10 to 11
+        'rgba(255, 100, 200, 0.4)',    // Mid intensity - around 11 to 12
+        'rgba(255, 150, 150, 0.5)',    // Upper-mid intensity - around 12 to 13
+        'rgba(255, 200, 100, 0.6)',    // High intensity - around 13
+        'rgba(255, 250, 50, 0.7)',     // Very high intensity - nearing 14
+        'rgba(255, 150, 0, 0.8)',      // Nearing the highest intensity - just below 14
+        'rgba(255, 50, 0, 0.9)',      // Almost at the highest intensity - slightly below 14
+        'rgba(255, 0, 0, 1)'           // Highest intensity - 14
+    ]
   });
 
   // Log the heatmap for debugging

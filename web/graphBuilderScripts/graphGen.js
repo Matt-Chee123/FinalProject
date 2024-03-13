@@ -181,6 +181,10 @@ document.getElementById('dataForm').onsubmit = function(event) {
 
     let xAxisMax = null;
     let yAxisMax = null;
+    let xAxisMin = null;
+    let yAxisMin = null;
+    let tickInterval = null;
+    let marginBottom = 60;
 
     if (xRadioCheck === 'profile' && xProfOption === 'AverageScore') {
       xAxisMax = 4; // Set the max limit for the xAxis if the condition is met
@@ -205,12 +209,56 @@ document.getElementById('dataForm').onsubmit = function(event) {
     const xProfOptionText = findOptionText(xRadioCheck === 'profile' ? optionsProfile : optionsIncome, xProfOption);
     const yProfOptionText = findOptionText(yRadioCheck === 'profile' ? optionsProfile : optionsIncome, yProfOption);
 
+    const isProfileAndSameParam = xRadioCheck === 'profile' && yRadioCheck === 'profile' && xProfOption === yProfOption;
+    const isIncomeAndSameSource = xRadioCheck === 'income' && yRadioCheck === 'income' && xAxis === yAxis;
+
+    // Determine if the chart should be square based on the conditions
+    const shouldBeSquare = isProfileAndSameParam || isIncomeAndSameSource;
+
+    // Get container dimensions
+    const containerWidth = document.getElementById('graph-container').clientHeight;
+if (isProfileAndSameParam || isIncomeAndSameSource) {
+    let minValue = 0; // Default minValue for income
+    let maxValue; // Will be defined based on condition
+    let tickInterval;
+
+    // Apply specific axis settings for 'AverageScore'
+    if (xProfOption === 'AverageScore' || yProfOption === 'AverageScore') {
+        maxValue = 4; // Max value is explicitly set for 'AverageScore'
+        tickInterval = 1; // A fixed interval makes sense for a scale of 0-4
+    } else if (xRadioCheck === 'income' || yRadioCheck === 'income') {
+        // Specific handling for income data
+        let allValues = [...xAxisFilter.map(item => parseFloat(item[xProfOption])), ...yAxisFilter.map(item => parseFloat(item[yProfOption]))];
+        maxValue = Math.max(...allValues) * 1.1; // Adding a 10% buffer
+        marginBottom = 80;
+        // Round maxValue up to the nearest suitable round number for income data
+        maxValue = Math.ceil(maxValue / 1e6) * 1e6; // Round up to the nearest million
+
+        // Define tickInterval based on the rounded maxValue
+        tickInterval = maxValue / 5; // Example: divide the range into 5 rounded intervals
+    } else {
+        // For other data types, including when profile parameters are the same but not 'AverageScore'
+        let allValues = [...xAxisFilter.map(item => parseFloat(item[xProfOption])), ...yAxisFilter.map(item => parseFloat(item[yProfOption]))];
+        maxValue = Math.max(...allValues) * 1.1; // Adding a 10% buffer
+        // Calculate a generic tick interval
+        tickInterval = Math.ceil((maxValue - minValue) / 5); // Example strategy to aim for about 5 ticks
+    }
+
+    // Adjusted axis settings based on the conditions
+    xAxisMax = maxValue;
+    yAxisMax = maxValue;
+    xAxisMin = minValue; // Ensuring min is set to 0 for income data
+    yAxisMin = minValue;
+    tickInterval = tickInterval; // Apply calculated tick interval
+}
 
     window.myChart = Highcharts.chart('graph-container', {
         chart: {
           type: 'scatter',
           zoomType: 'xy',
-          marginBottom: 60 // Adjust this value as needed
+          marginBottom: marginBottom, // Adjust this value as needed
+          width: shouldBeSquare ? containerWidth : null, // Set height equal to width if params are the same
+
         },
         credits: {
           enabled: false
@@ -225,8 +273,9 @@ document.getElementById('dataForm').onsubmit = function(event) {
           title: {
             text: xAxis + ': ' + xProfOptionText,
           },
-          max: xAxisMax, // Dynamically set the max value for the xAxis
-          tickInterval: (xAxisMax === 4 && yAxisMax === 4) ? 0.5 : undefined, // Set tickInterval to 1 when both are 'AverageScore', else auto
+          max: xAxisMax,
+          min: xAxisMin,// Dynamically set the max value for the xAxis
+          tickInterval: tickInterval, // Set tickInterval to 1 when both are 'AverageScore', else auto
           labels: {
               style: {
               fontSize: '10px'
@@ -242,8 +291,9 @@ document.getElementById('dataForm').onsubmit = function(event) {
               fontSize: '10px'
             }
           },
-          max: yAxisMax, // Dynamically set the max value for the yAxis
-          tickInterval: (xAxisMax === 4 && yAxisMax === 4) ? 0.5 : undefined // Set tickInterval to 1 when both are 'AverageScore', else auto
+          max: yAxisMax,
+          min: yAxisMin, // Dynamically set the max value for the yAxis
+          tickInterval: tickInterval
         },
         tooltip: {
             formatter: function() {

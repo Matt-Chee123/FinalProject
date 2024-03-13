@@ -57,7 +57,7 @@ function display10v10Data(unitOfAssessment) {
 
                     formattedTop10 = formatCurrency(top10.chartData);
                     formattedNext10 = formatCurrency(next10.chartData);
-                    tooltipLabel = option === 'TotalIncome1320' ? 'Total Income' : 'Average yearly income';
+                    tooltipLabel = option === 'TotalIncome1320' ? 'Total Income (£)' : 'Average Yearly Income (£)';
                 }
 
                 let maxValue = Math.max(top10.chartData, next10.chartData); // Assuming this retrieves the max value from your data
@@ -65,7 +65,7 @@ function display10v10Data(unitOfAssessment) {
 
                 if (option === 'Doctoral' || option === 'FTEOfSubmittedStaff') {
                     yAxisMax = Math.ceil(maxValue / 200) * 200; // Find nearest multiple of 200 above maxValue
-                } else if (option === 'Overall' || option === 'Environment') {
+                } else if (option === 'Overall' || option === 'Impact' || option === 'Outputs' ||option === 'Environment') {
                     yAxisMax = 4; // Set max to 4 for these options
                 } else {
                     yAxisMax = undefined; // Let Highcharts determine the max

@@ -55,7 +55,7 @@ function displayTopThreeFte(data) {
 
     },
     title: {
-      text: 'Top 3 Uni FTE'
+      text: 'FTE of the Top 3 Unis'
     },
     credits: {
         enabled: false
@@ -65,7 +65,14 @@ function displayTopThreeFte(data) {
     },
     yAxis: {
       gridLineWidth: 0,
-      title: null,
+      title: {
+        text: 'FTE'
+      },
+      labels: {
+          style: {
+          fontSize: '10px'
+          }
+      },
       max: yAxisMax,
       tickPositions: tickPositions
     },
