@@ -189,9 +189,16 @@ document.getElementById('dataForm').onsubmit = function(event) {
     if (xRadioCheck === 'profile' && xProfOption === 'AverageScore') {
       xAxisMax = 4; // Set the max limit for the xAxis if the condition is met
     }
-
+    else if (xProfOption === 'FourStar' || xProfOption === 'ThreeStar' || xProfOption ==='TwoStar' || xProfOption === 'OneStar' || xProfOption === 'Unclassified' || xProfOption === 'PercEligibleStaff'){
+        xAxisMax = 100; // Set the max limit for the xAxis if the condition is met
+        xAxisMin = 0;
+    }
     if (yRadioCheck === 'profile' && yProfOption === 'AverageScore') {
-      yAxisMax = 4; // Set the max limit for the yAxis if the condition is met
+       yAxisMax = 4; // Set the max limit for the yAxis if the condition is met
+    }
+    else if (yProfOption === 'FourStar' || yProfOption === 'ThreeStar' || yProfOption ==='TwoStar' || yProfOption === 'OneStar' || yProfOption === 'Unclassified' || yProfOption === 'PercEligibleStaff'){
+        yAxisMax = 100; // Set the max limit for the yAxis if the condition is met
+        yAxisMin = 0;
     }
   // Adjust the chartData to include a marker or color change for Russell Group universities
     chartData = chartData.map(point => {
@@ -206,51 +213,63 @@ document.getElementById('dataForm').onsubmit = function(event) {
     chartData.sort((a, b) => (a.zIndex || 0) - (b.zIndex || 0));
 
   // Log chartData to verify
-    const xProfOptionText = findOptionText(xRadioCheck === 'profile' ? optionsProfile : optionsIncome, xProfOption);
-    const yProfOptionText = findOptionText(yRadioCheck === 'profile' ? optionsProfile : optionsIncome, yProfOption);
+        const xProfOptionText = findOptionText(xRadioCheck === 'profile' ? optionsProfile : optionsIncome, xProfOption);
+        const yProfOptionText = findOptionText(yRadioCheck === 'profile' ? optionsProfile : optionsIncome, yProfOption);
 
-    const isProfileAndSameParam = xRadioCheck === 'profile' && yRadioCheck === 'profile' && xProfOption === yProfOption;
-    const isIncomeAndSameSource = xRadioCheck === 'income' && yRadioCheck === 'income' && xAxis === yAxis;
+        const isProfileAndSameParam = xRadioCheck === 'profile' && yRadioCheck === 'profile' && xProfOption === yProfOption;
+        const isIncomeAndSameSource = xRadioCheck === 'income' && yRadioCheck === 'income' && xAxis === yAxis;
 
-    // Determine if the chart should be square based on the conditions
-    const shouldBeSquare = isProfileAndSameParam || isIncomeAndSameSource;
+        // Define the list of specific options that would trigger the chart to be square
+        const percOptionsList = ['PercEligibleStaff', 'FourStar', 'ThreeStar', 'TwoStar', 'OneStar', 'Unclassified'];
+
+        // Check if both xProfOption and yProfOption are in the specificOptionsList
+        const isBothOptionsInList = percOptionsList.includes(xProfOption) && percOptionsList.includes(yProfOption);
+
+        // Update the shouldBeSquare condition to include this new check
+        const shouldBeSquare = isProfileAndSameParam || isIncomeAndSameSource || isBothOptionsInList;
 
     // Get container dimensions
     const containerWidth = document.getElementById('graph-container').clientHeight;
-if (isProfileAndSameParam || isIncomeAndSameSource) {
-    let minValue = 0; // Default minValue for income
-    let maxValue; // Will be defined based on condition
-    let tickInterval;
+    if (isProfileAndSameParam || isIncomeAndSameSource) {
+        let minValue = 0; // Default minValue for income
+        let maxValue; // Will be defined based on condition
+        let tickInterval;
 
-    // Apply specific axis settings for 'AverageScore'
-    if (xProfOption === 'AverageScore' || yProfOption === 'AverageScore') {
-        maxValue = 4; // Max value is explicitly set for 'AverageScore'
-        tickInterval = 1; // A fixed interval makes sense for a scale of 0-4
-    } else if (xRadioCheck === 'income' || yRadioCheck === 'income') {
-        // Specific handling for income data
-        let allValues = [...xAxisFilter.map(item => parseFloat(item[xProfOption])), ...yAxisFilter.map(item => parseFloat(item[yProfOption]))];
-        maxValue = Math.max(...allValues) * 1.1; // Adding a 10% buffer
-        marginBottom = 80;
-        // Round maxValue up to the nearest suitable round number for income data
-        maxValue = Math.ceil(maxValue / 1e6) * 1e6; // Round up to the nearest million
+        // Apply specific axis settings for 'AverageScore'
+        if (xProfOption === 'AverageScore' || yProfOption === 'AverageScore') {
+            maxValue = 4; // Max value is explicitly set for 'AverageScore'
+            tickInterval = 1; // A fixed interval makes sense for a scale of 0-4
+        } else if (xRadioCheck === 'income' || yRadioCheck === 'income') {
+            // Specific handling for income data
+            let allValues = [...xAxisFilter.map(item => parseFloat(item[xProfOption])), ...yAxisFilter.map(item => parseFloat(item[yProfOption]))];
+            maxValue = Math.max(...allValues) * 1.1; // Adding a 10% buffer
+            marginBottom = 80;
+            // Round maxValue up to the nearest suitable round number for income data
+            maxValue = Math.ceil(maxValue / 1e6) * 1e6; // Round up to the nearest million
 
-        // Define tickInterval based on the rounded maxValue
-        tickInterval = maxValue / 5; // Example: divide the range into 5 rounded intervals
-    } else {
-        // For other data types, including when profile parameters are the same but not 'AverageScore'
-        let allValues = [...xAxisFilter.map(item => parseFloat(item[xProfOption])), ...yAxisFilter.map(item => parseFloat(item[yProfOption]))];
-        maxValue = Math.max(...allValues) * 1.1; // Adding a 10% buffer
-        // Calculate a generic tick interval
-        tickInterval = Math.ceil((maxValue - minValue) / 5); // Example strategy to aim for about 5 ticks
+            // Define tickInterval based on the rounded maxValue
+            tickInterval = maxValue / 5; // Example: divide the range into 5 rounded intervals
+        } else if (xProfOption === 'FourStar' || xProfOption === 'ThreeStar' || xProfOption ==='TwoStar' || xProfOption === 'OneStar' || xProfOption === 'Unclassified' || xProfOption === 'PercEligibleStaff'){
+                maxValue = 100; // Max value is explicitly set for star ratings
+                minValue = 0;
+                tickInterval = 20; // A fixed interval makes sense for a scale of 0-100
+        }
+
+        else {
+            // For other data types, including when profile parameters are the same but not 'AverageScore'
+            let allValues = [...xAxisFilter.map(item => parseFloat(item[xProfOption])), ...yAxisFilter.map(item => parseFloat(item[yProfOption]))];
+            maxValue = Math.max(...allValues) * 1.1; // Adding a 10% buffer
+            // Calculate a generic tick interval
+            tickInterval = Math.ceil((maxValue - minValue) / 5); // Example strategy to aim for about 5 ticks
+        }
+
+        // Adjusted axis settings based on the conditions
+        xAxisMax = maxValue;
+        yAxisMax = maxValue;
+        xAxisMin = minValue; // Ensuring min is set to 0 for income data
+        yAxisMin = minValue;
+        tickInterval = tickInterval; // Apply calculated tick interval
     }
-
-    // Adjusted axis settings based on the conditions
-    xAxisMax = maxValue;
-    yAxisMax = maxValue;
-    xAxisMin = minValue; // Ensuring min is set to 0 for income data
-    yAxisMin = minValue;
-    tickInterval = tickInterval; // Apply calculated tick interval
-}
 
     window.myChart = Highcharts.chart('graph-container', {
         chart: {
