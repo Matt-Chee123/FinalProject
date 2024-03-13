@@ -248,14 +248,14 @@
 
 
 .home-section .home-content {
-  height: 60px;
+  height: 8vh;
   display: flex;
   align-items: center;
 }
 
 .home-section .home-content .bx-menu,
 .home-section .home-content .text {
-  color: #11101d;
+  color: #fff;
   font-size: 35px;
 }
 
@@ -279,7 +279,7 @@
   right: 51%;
 }
 .uoa-label{
-  right: 26%;
+  right: 31%;
 }
 
 /* Assuming .home-section .main-container already exists in your CSS and has flex-direction set to column */

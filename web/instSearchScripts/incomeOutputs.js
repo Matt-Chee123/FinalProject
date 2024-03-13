@@ -85,7 +85,7 @@ function processAndDisplayOutputsIncome(data, specificUniRecord) {
         },
         yAxis: {
             title: {
-                text: 'Average Research Quality Score'
+                text: 'Outputs GPA'
             },
             labels: {
                 style: {

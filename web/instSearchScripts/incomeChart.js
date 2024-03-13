@@ -65,6 +65,7 @@ function displayIncomeChart(data) {
           fontSize: '10px'
         }
       },
+      tickAmount: 4,
       title: {
         text: 'Income (£)'
       }

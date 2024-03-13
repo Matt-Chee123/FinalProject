@@ -205,6 +205,7 @@ document.getElementById('dataForm').onsubmit = function(event) {
     const xProfOptionText = findOptionText(xRadioCheck === 'profile' ? optionsProfile : optionsIncome, xProfOption);
     const yProfOptionText = findOptionText(yRadioCheck === 'profile' ? optionsProfile : optionsIncome, yProfOption);
 
+
     window.myChart = Highcharts.chart('graph-container', {
         chart: {
           type: 'scatter',

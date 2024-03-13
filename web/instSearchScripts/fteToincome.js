@@ -68,7 +68,6 @@ function processAndDisplayData(data, specificUniRecord) {
                 marker: markerOptions // Apply marker options
             });
         }
-        console.log(chartData);
       });
           // Display the data using Highcharts
         Highcharts.chart('fte-income-container', {
@@ -100,7 +99,7 @@ function processAndDisplayData(data, specificUniRecord) {
           },
           yAxis: {
             title: {
-              text: 'Total Income'
+              text: 'Total Income (£)',
             },
             labels: {
               style: {
@@ -108,7 +107,7 @@ function processAndDisplayData(data, specificUniRecord) {
               }
             },
             min: 0,
-            tickInterval: 50000000
+            tickAmount: 4
           },
           legend: {
             enabled: false

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const graphBuilderContainer = document.getElementById('graph-section'); // Assuming this is the container for the graph builder
 
   // Elements to hide/show
-  const elementsToHide = [createGraphButton, institutionDropdown, unitOfAssessmentDropdown, institutionLabel, uoaLabel];
+  const elementsToHide = [createGraphButton, institutionDropdown, unitOfAssessmentDropdown];
 
   // Back button (assuming you have an element with the ID 'back-button')
   const backButton = document.getElementById('back-button'); // Make sure to add this button in your HTML
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     elementsToHide.forEach(element => element.style.display = 'block');
 
     // Revert title text
-    titleText.textContent = 'REF2021';
+    titleText.textContent = 'REF2021 - Nation Overview';
     document.getElementById('unit-of-assessment-dropdown').value = "Computer Science and Informatics";
     document.getElementById('institution-dropdown').value = "Nation";
 

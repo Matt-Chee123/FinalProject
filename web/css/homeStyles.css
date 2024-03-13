@@ -251,7 +251,7 @@
 
 .home-section {
   position: relative;
-  background: #fff;
+  background: #222;
   height: 100vh;
   width: 100vw;
   overflow: hidden; /* Prevents scrolling */
@@ -266,7 +266,7 @@
 
 
 .home-section .home-content {
-  height: 60px;
+  height: 8vh;
   display: flex;
   align-items: center;
 }
@@ -459,14 +459,18 @@
 #homepage-section .component-bubble .bubble-content select {
   position: absolute;
   right: 0;
+  margin-right: 1vw;
   top: 0;
+  margin-top: 1vh;
   padding: 5px 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
   background-color: white;
   border: none;
+  font-size: 16px;
   cursor: pointer;
   width: 0vw;
+
 }
 
 
@@ -511,26 +515,60 @@
 
 .inst-dropdown {
   position: absolute;
-  left: 50%;
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: white;
+  left: 54%;
   cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+  text-align: left; /* Align text to the left */
+  padding: 5px 10px;
+  height: 8vh;
   width: 15vw;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  transition: background-color 0.3s ease; /* Define transition on the element itself */
+}
+
+.inst-dropdown:hover {
+  transition: 0.3s ease;
+  background-color: #696969; /* Slightly darker border on hover/focus */
+}
+
+.inst-dropdown option {
+  color: black; /* Text color for the options */
+  background-color: white; /* Background color for the options */
+  font-size: 14px; /* Font size for the options */
 }
 
 .uoa-dropdown {
   position: absolute;
-  left: 75%;
+  right: 11%;
   padding: 5px 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: white;
   cursor: pointer;
-  width: 15vw;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  height: 8vh;
+  width: 20vw;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  transition: background-color 0.3s ease; /* Define transition on the element itself */
+}
+
+.uoa-dropdown:hover {
+  transition: 0.3s ease;
+  background-color: #696969; /* Slightly darker border on hover/focus */
+}
+
+.uoa-dropdown option {
+  color: black; /* Text color for the options */
+  background-color: white; /* Background color for the options */
+  font-size: 14px; /* Font size for the options */
 }
 
 
