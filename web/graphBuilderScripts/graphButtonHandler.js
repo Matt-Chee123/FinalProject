@@ -30,6 +30,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Show the graph builder
     graphBuilderContainer.style.display = 'block';
+    document.getElementById('UofA').selectedIndex = 0;
+    document.getElementById('yAxis').selectedIndex = 0;
+    document.getElementById('xAxis').selectedIndex = 0;
+
+    // Hide options that should not be visible initially
+    document.getElementById('xAxisLabel').style.display = 'none';
+    document.getElementById('xAxis').style.display = 'none';
+    document.getElementById('xProfOptions').style.display = 'none';
+    document.getElementById('xProfOptionsLabel').style.display = 'none';
+
+    document.getElementById('yAxisLabel').style.display = 'none';
+    document.getElementById('yAxis').style.display = 'none';
+    document.getElementById('yProfOptions').style.display = 'none';
+    document.getElementById('yProfOptionsLabel').style.display = 'none';
+
+    // Uncheck any selected radio buttons if necessary
+    document.querySelector('input[name="specialOptionGroupX"]:checked').checked = false;
+    document.querySelector('input[name="specialOptionGroupY"]:checked').checked = false;
+    document.getElementById('graphStep4').style.display = 'none';
+    document.getElementById('graphStep3').style.display = 'none';
+    document.getElementById('graphStep2').style.display = 'none';
   });
 
   // Event listener for the back button
@@ -39,8 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Revert title text
     titleText.textContent = 'REF2021 - Nation Overview';
-    document.getElementById('unit-of-assessment-dropdown').value = "Computer Science and Informatics";
     document.getElementById('institution-dropdown').value = "Nation";
+
+    document.getElementById('unit-of-assessment-dropdown').value = "Computer Science and Informatics";
 
     // Hide back button
     backButton.style.display = 'none';

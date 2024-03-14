@@ -9,6 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
     fetchUnitOfAssessmentNames('Nation', 'Computer Science and Informatics');
 });
 
+document.getElementById('back-button').addEventListener('click', function() {
+    const UoA = 'Computer Science and Informatics';
+    const institution = 'Nation';
+    fetchUnitOfAssessmentNames(institution, UoA);
+});
+
 function fetchUnitOfAssessmentNames(universityName = 'Nation', currentUoA = 'Computer Science and Informatics') {
     fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/university?UniversityName=${encodeURIComponent(universityName)}`)
         .then(response => response.json())
