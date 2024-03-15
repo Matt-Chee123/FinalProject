@@ -1,27 +1,30 @@
 import csv
 
-def get_lowest_universities(csv_file_path, field_of_study, category, bottom_n=3):
-    scores = []
+# The path to your CSV file
+csv_file_path = 'incomeAll.csv'
 
-    with open(csv_file_path, mode='r', encoding='utf-8') as file:
-        reader = csv.reader(file)
-        next(reader)  # Skip header row
-        for row in reader:
-            university = row[1]
-            study_field = row[5]
-            entry_category = row[9]
-            score = float(row[-1])
+# Set the desired Unit of Assessment as a parameter
+desired_unit_of_assessment = "Sociology"
 
-            if study_field == field_of_study and entry_category == category:
-                scores.append((university, score))
+# Counter for records matching the desired Unit of Assessment
+matching_records_count = 0
 
-    # Get bottom N universities based on score
-    lowest_universities = sorted(scores, key=lambda x: x[1], reverse=False)[:bottom_n]
+# Open the CSV file and read its contents
+with open(csv_file_path, mode='r', encoding='utf-8') as file:
+    csv_reader = csv.reader(file)
 
-    return lowest_universities
+    # Skip the header row if your CSV has one
+    next(csv_reader)
 
-# Example usage
-csv_file_path = 'outputOverall.csv'
-lowest_universities = get_lowest_universities(csv_file_path, 'Clinical Medicine', 'Overall', bottom_n=3)
-for university, score in lowest_universities:
-    print(f"{university}: {score}")
+    # Loop through each row in the CSV
+    for row in csv_reader:
+        # Extract the unit of assessment name from the appropriate column
+        unit_of_assessment = row[5]  # Assuming the 5th column contains the UoA
+
+        # Check if the unit of assessment matches the desired one
+        if unit_of_assessment == desired_unit_of_assessment:
+            # Increment the counter for each matching record
+            matching_records_count += 1
+
+# Print the count of records matching the desired Unit of Assessment
+print(f"Number of records for '{desired_unit_of_assessment}': {matching_records_count}")
