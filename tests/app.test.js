@@ -236,7 +236,7 @@ describe('GET /items/overall', () => {
 describe('GET /items/environment', () => {
   it('responds with json containing items with ProfileType "Environment"', async () => {
     const response = await request(app)
-      .get('/items/environment')
+      .get('/items/environment?uoaName=Computer Science and Informatics')
       .expect('Content-Type', /json/)
       .expect(200);
     // ensure correct length
@@ -250,4 +250,425 @@ describe('GET /items/environment', () => {
     });
     expect(count).toBe(90);
   });
+});
+
+describe('GET /items/income', () => {
+  it('responds with json containing income items', async () => {
+    const selectedUofA = 'Computer Science and Informatics'; // selected uoa
+    const response = await request(app)
+      .get(`/items/income?uofaName=${selectedUofA}`)
+      .expect('Content-Type', /json/)
+      .expect(200);
+
+    // assert response json and length correct
+    expect(Array.isArray(response.body)).toBe(true);
+    expect(response.body).toHaveLength(1350);
+    // assert each has a uoa
+    response.body.forEach(item => {
+      expect(item).toHaveProperty('UnitOfAssessmentName', selectedUofA);
+    });
+
+    // assert each is an income
+    response.body.forEach(item => {
+      expect(item).toHaveProperty('IncomeSource');
+    });
+
+  });
+});
+const universityNames = [
+    "Abertay University",
+    "Anglia Ruskin University",
+    "Leeds Trinity University",
+    "Royal Academy of Music",
+    "University of Huddersfield",
+    "Royal Agricultural University",
+    "Roehampton University",
+    "University of Oxford",
+    "University of Lancaster",
+    "University of Keele",
+    "City, University of London",
+    "University of Cambridge",
+    "Oxford Brookes University",
+    "UWE Bristol",
+    "University of Nottingham",
+    "University of Wolverhampton",
+    "University of St Mark & St John",
+    "University of Essex",
+    "Kingston University",
+    "Glasgow School of Art",
+    "Cranfield University",
+    "Hartpury University",
+    "University of Manchester",
+    "University of Warwick",
+    "University College of Osteopathy",
+    "Bishop Grosseteste University",
+    "Liverpool Hope University",
+    "Arts University Bournemouth",
+    "University of Cumbria",
+    "Ravensbourne University",
+    "University of Surrey",
+    "CCCU",
+    "University of Worcester",
+    "Robert Gordon University",
+    "Swansea University",
+    "Institute of Zoology",
+    "University of Salford",
+    "Queen Margaret University",
+    "University of Chichester",
+    "University of Stirling",
+    "Royal Central School of Speech and Drama",
+    "Harper Adams University",
+    "University for the Creative Arts",
+    "Bangor University",
+    "UWS",
+    "Bournemouth University",
+    "University of Edinburgh",
+    "Institute of Cancer Research",
+    "Brunel University",
+    "University of Hertfordshire",
+    "Metanoia Institute",
+    "London Metropolitan University",
+    "University of Derby",
+    "University of Exeter",
+    "Royal Veterinary College",
+    "Leeds Arts University",
+    "Goldsmiths' College",
+    "Edge Hill University",
+    "SRUC",
+    "UWTSD",
+    "University of Southampton",
+    "London Business School",
+    "Royal Holloway",
+    "University of West London",
+    "University of Sussex",
+    "University of Bristol",
+    "University of Brighton",
+    "University of Reading",
+    "University of York",
+    "Buckinghamshire New University",
+    "Cardiff University",
+    "University of Newcastle",
+    "Royal Northern College of Music",
+    "University of Central Lancashire",
+    "Falmouth University",
+    "University of Birmingham",
+    "University of St Andrews",
+    "Open University",
+    "UHI",
+    "University of Plymouth",
+    "University of Chester",
+    "University of Bedfordshire",
+    "Teesside University",
+    "University of Bath",
+    "Leeds Beckett University",
+    "Guildhall School of Music & Drama",
+    "University of Ulster",
+    "Rose Bruford College",
+    "Coventry University",
+    "Wrexham University",
+    "University of Gloucestershire",
+    "University of Liverpool",
+    "Middlesex University",
+    "University of East Anglia",
+    "Sheffield Hallam University",
+    "Manchester Metropolitan University",
+    "University of Hull",
+    "London South Bank University",
+    "University of Northampton",
+    "Queen's University Belfast",
+    "St. George's Hospital Medical School",
+    "University of South Wales",
+    "University of East London",
+    "University of Aberdeen",
+    "University of Sheffield",
+    "Imperial College London",
+    "University of Kent",
+    "King's College London",
+    "University of Winchester",
+    "Aberystwyth University",
+    "University of Leicester",
+    "Nottingham Trent University",
+    "York St John University",
+    "Solent University",
+    "Aston University",
+    "Courtauld Institute of Art",
+    "University of the Arts, London",
+    "St Mary's University",
+    "Liverpool School of Tropical Medicine",
+    "Staffordshire University",
+    "London School of Hygiene and Tropical Medicine",
+    "University of Suffolk",
+    "Cardiff Metropolitan University",
+    "Royal College of Art",
+    "University of Bradford",
+    "University College London",
+    "Newman University",
+    "Birkbeck College",
+    "University of Westminster",
+    "University of Glasgow",
+    "Loughborough University",
+    "Heriot-Watt University",
+    "Trinity Laban",
+    "Bath Spa University",
+    "University of Durham",
+    "Royal Conservatoire of Scotland",
+    "University of Portsmouth",
+    "University of Dundee",
+    "Royal College of Music",
+    "University of Leeds",
+    "Glasgow Caledonian University",
+    "University of Sunderland",
+    "University of Bolton",
+    "Stranmillis University College",
+    "AECC University College",
+    "De Montfort University",
+    "Liverpool John Moores University",
+    "University of Lincoln",
+    "Queen Mary University",
+    "University of Northumbria",
+    "SOAS",
+    "LSE",
+    "Edinburgh Napier University",
+    "University of Greenwich",
+    "Norwich University of the Arts",
+    "University of Strathclyde",
+    "Birmingham City University"
+];
+
+describe('GET /items/uniNames', () => {
+  it('responds with json containing unique university names', async () => {
+    const response = await request(app)
+      .get('/items/uniNames')
+      .expect('Content-Type', /json/)
+      .expect(200);
+
+    // assert resonse is json and correct length
+    expect(Array.isArray(response.body)).toBe(true);
+    expect(response.body).toHaveLength(157);
+    // assert each uni name is correct
+    response.body.forEach(universityName => {
+        expect(universityNames.includes(universityName)).toBe(true);
+    });
+  });
+});
+
+describe('GET /items/uoaUniNames', () => {
+  it('responds with json containing unique university names for the given UnitOfAssessmentName', async () => {
+    const selectedUofA = 'Biological Sciences'; // Example UnitOfAssessmentName
+
+    const response = await request(app)
+      .get(`/items/uoaUniNames?uofaName=${selectedUofA}`)
+      .expect('Content-Type', /json/)
+      .expect(200);
+
+    // assert each is json and correct legth
+    expect(Array.isArray(response.body)).toBe(true);
+    expect(response.body).toHaveLength(44);
+
+    // assert each uni name unique
+    const uniqueNamesCheck = new Set(response.body);
+    expect(uniqueNamesCheck.size).toBe(response.body.length);
+
+    // assert each name name is correct
+    response.body.forEach(universityName => {
+      expect(universityNames.includes(universityName)).toBe(true);
+    });
+  });
+
+  it('responds with default UoA "Computer Science and Informatics" university names when uofaName is not provided', async () => {
+    const response = await request(app)
+      .get('/items/uoaUniNames') // not providing a uoa query parameter so should default to Computer Science and Informatics
+      .expect('Content-Type', /json/)
+      .expect(200);
+
+    // assert response json and of default length (computer science)
+    expect(Array.isArray(response.body)).toBe(true);
+
+    // Optionally check for non-empty response to ensure the API returns data
+    expect(response.body).toHaveLength(90);
+
+    // assert each name unique
+    const uniqueNamesCheck = new Set(response.body);
+    expect(uniqueNamesCheck.size).toBe(response.body.length);
+
+    // assert each uni name is correct
+    response.body.forEach(universityName => {
+      expect(universityNames.includes(universityName)).toBe(true);
+    });
+  });
+});
+
+
+describe('GET /items/university', () => {
+  it('responds with sorted unique unit of assessment names for "University of Example" and ensures they match specified options', async () => {
+    const universityName = 'Bangor University'; // Example University Name
+    const validUnitOfAssessmentNames = [
+      "Allied Health Professions, Dentistry, Nursing and Pharmacy",
+      "English Language and Literature",
+      "Modern Languages and Linguistics",
+      "Sport and Exercise Sciences, Leisure and Tourism",
+      "Earth Systems and Environmental Sciences",
+      "Sociology",
+      "Engineering",
+      "Business and Management Studies",
+      "Psychology, Psychiatry and Neuroscience"
+    ];
+
+    const response = await request(app)
+      .get(`/items/university?UniversityName=${encodeURIComponent(universityName)}`)
+      .expect('Content-Type', /json/)
+      .expect(200);
+
+    // ensure array is json
+    expect(Array.isArray(response.body)).toBe(true);
+
+
+    // ensure array is sorted
+    const isSorted = response.body.every((val, i, arr) => !i || (val >= arr[i - 1]));
+    expect(isSorted).toBe(true);
+
+    // ensure each name is unique
+    const uniqueNamesCheck = new Set(response.body);
+    expect(uniqueNamesCheck.size).toBe(response.body.length);
+
+    // ensure each name is correct
+    response.body.forEach(unitName => {
+      expect(validUnitOfAssessmentNames.includes(unitName)).toBe(true);
+    });
+  });
+
+  it('responds with all unit of assessment names when UniversityName is "Nation"', async () => {
+    const response = await request(app)
+      .get(`/items/university?UniversityName=Nation`)
+      .expect('Content-Type', /json/)
+      .expect(200);
+
+    // assert array is json
+    expect(Array.isArray(response.body)).toBe(true);
+
+    //ensure correct length
+    expect(response.body).toHaveLength(34);
+
+    // assert list is sorted
+    const isSorted = response.body.every((val, i, arr) => !i || (val >= arr[i - 1]));
+    expect(isSorted).toBe(true);
+
+    // assert each response unique
+    const uniqueNamesCheck = new Set(response.body);
+    expect(uniqueNamesCheck.size).toBe(response.body.length);
+
+  });
+});
+
+describe('GET /items/search', () => {
+  it('responds with items for a specific searchTerm and unitOfAssessment', async () => {
+    const searchTerm = 'University of St Andrews';
+    const unitOfAssessment = 'Physics';
+
+    const response = await request(app)
+      .get(`/items/search?query=${encodeURIComponent(searchTerm)}&unitOfAssessment=${encodeURIComponent(unitOfAssessment)}`)
+      .expect('Content-Type', /json/)
+      .expect(200);
+
+    expect(Array.isArray(response.body)).toBe(true);
+    // check length correct
+    expect(response.body).toHaveLength(19);
+    // check each item for correct uoa and search term
+    response.body.forEach(item => {
+      expect(item).toHaveProperty('UniversityName', searchTerm);
+      expect(item).toHaveProperty('UnitOfAssessmentName', unitOfAssessment);
+      });
+  });
+  it('uses default unitOfAssessment when not provided and finds items for searchTerm', async () => {
+    const searchTerm = 'University of Edinburgh';
+    // No unitOfAssessment provided, expecting the default 'Computer Science and Informatics' to be used
+
+    const response = await request(app)
+      .get(`/items/search?query=${encodeURIComponent(searchTerm)}`)
+      .expect('Content-Type', /json/)
+      .expect(200);
+
+    expect(response.body).toHaveLength(19);
+    expect(Array.isArray(response.body)).toBe(true);
+// check each item for correct uoa and search term
+    response.body.forEach(item => {
+      expect(item).toHaveProperty('UniversityName', searchTerm);
+      expect(item).toHaveProperty('UnitOfAssessmentName', 'Computer Science and Informatics');
+    });
+  });
+});
+
+describe('GET /items/unitofassessment', () => {
+  it('responds with items for a specific UnitOfAssessmentName', async () => {
+    const selectedUofA = 'Computer Science and Informatics'; // Example UnitOfAssessmentName
+
+    const response = await request(app)
+      .get(`/items/unitofassessment?uofaName=${encodeURIComponent(selectedUofA)}`)
+      .expect('Content-Type', /json/)
+      .expect(200);
+
+    // assert response contains json data
+    expect(Array.isArray(response.body)).toBe(true);
+
+    // check length of response
+    expect(response.body).toHaveLength(1710);
+    // function to check 2 items deeply for equality
+    const itemsAreEqual = (item1, item2) => {
+      const keys1 = Object.keys(item1);
+      const keys2 = Object.keys(item2);
+      if (keys1.length !== keys2.length) return false;
+
+      for (let key of keys1) {
+        if (item1[key] !== item2[key]) return false;
+      }
+
+      return true;
+    };
+    //check each has the correct uoa
+    response.body.forEach(item => {
+      expect(item).toHaveProperty('UnitOfAssessmentName', selectedUofA);
+    });
+    // verify each item is unique
+    let allItemsAreUnique = true;
+    for (let i = 0; i < response.body.length; i++) {
+      for (let j = i + 1; j < response.body.length; j++) {
+        if (itemsAreEqual(response.body[i], response.body[j])) {
+          allItemsAreUnique = false;
+          break;
+        }
+      }
+      if (!allItemsAreUnique) break;
+    }
+
+    expect(allItemsAreUnique).toBe(true);
+  });
+
+  it('returns an error response for invalid UnitOfAssessmentName', async () => {
+    const invalidUofA = ''; // Example invalid input, adjust according to your validation logic
+
+    const response = await request(app)
+      .get(`/items/unitofassessment?uofaName=${encodeURIComponent(invalidUofA)}`)
+      .expect('Content-Type', /json/)
+      .expect(500); // Assuming your API responds with 500 for errors, adjust as necessary
+
+    // Check for error message structure if your API returns specific error messages
+    expect(response.body).toHaveProperty('error');
+    expect(response.body.error).toContain('Could not query items');
+  });
+
+  // If applicable, add a test case to check for an empty array response when a valid but not existing UnitOfAssessmentName is queried
+  it('responds with an empty array for a non-existing UnitOfAssessmentName', async () => {
+    const nonExistingUofA = 'NonExistingUofA'; // Assuming this UoA does not exist
+
+    const response = await request(app)
+      .get(`/items/unitofassessment?uofaName=${encodeURIComponent(nonExistingUofA)}`)
+      .expect('Content-Type', /json/)
+      .expect(200);
+
+    // Assert the response is an empty array
+    expect(Array.isArray(response.body)).toBe(true);
+    expect(response.body).toHaveLength(0);
+  });
+
+  // Add more tests as needed for other scenarios or edge cases
 });
