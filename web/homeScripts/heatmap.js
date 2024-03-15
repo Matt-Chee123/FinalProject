@@ -1,16 +1,18 @@
+// render heatmap when uoa changes
 document.getElementById('unit-of-assessment-dropdown').addEventListener('change', function() {
   const selectedUoA = this.value;
   const selectedProfile = document.getElementById('profile-dropdown').value;
   fetchAndRenderHeatmap(selectedUoA, selectedProfile);
 });
 
-// Initial render
+// initial heatmap render
 document.addEventListener('DOMContentLoaded', function() {
   const initialUoA = document.getElementById('unit-of-assessment-dropdown').value;
   const initialProfile = document.getElementById('profile-dropdown').value;
   fetchAndRenderHeatmap(initialUoA, initialProfile);
 });
 
+// render heatmap when profile changes
 document.getElementById('profile-dropdown').addEventListener('change', function() {
     const selectedProfile = this.value;
     const selectedUoA = document.getElementById('unit-of-assessment-dropdown').value;
@@ -18,36 +20,37 @@ document.getElementById('profile-dropdown').addEventListener('change', function(
 });
 
 function initMap(heatmapData) {
-  // Assuming all heatmapData items have the same profile,
-  // we can just take the profile from the first item.
+
   const profile = heatmapData[0].profile;
 
-  // Set the title with the profile
+  // set title
   const heatmapTitle = document.getElementById('heatmap-title');
 
   heatmapTitle.textContent = `${profile} GPA Heatmap`;
+
+  //google heatmap configurations
   const map = new google.maps.Map(document.getElementById('heatmap-container'), {
     zoom: 6,
-    center: { lat: 54.3781, lng: -3.4360 }, // Centered in the UK
+    center: { lat: 54.3781, lng: -3.4360 },
     mapTypeId: 'terrain',
-    streetViewControl: false, // Hide Street View control
-    mapTypeControl: false     // Hide Map/Satellite toggle
+    streetViewControl: false,
+    mapTypeControl: false
   });
 
-  // Prepare an array to hold all markers for clustering
+  // arary to hold markers
   const markers = [];
 
-  // Create a single InfoWindow that will be reused
+  // create infor window
   const infoWindow = new google.maps.InfoWindow();
   heatmapData.forEach(item => {
-    // Create a marker for each location
+    // create marker for each location
     const marker = new google.maps.Marker({
       position: new google.maps.LatLng(item.lat, item.lon),
       map: map,
       title: item.name
     });
 
-    // Add a click listener to open the InfoWindow when the marker is clicked
+    // click listener to open info window for each marker
     marker.addListener('click', () => {
       infoWindow.setContent(`<div class="info-window">
                               <h3>${item.name}</h3>
@@ -56,35 +59,29 @@ function initMap(heatmapData) {
       infoWindow.open(map, marker);
     });
 
-    // Push the marker to the array
     markers.push(marker);
   });
 
-  // Add marker clustering
+  // add clustering
   const markerCluster = new MarkerClusterer(map, markers, {
     imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
   });
 
-  const MIN_ZOOM_LEVEL = 7; // Adjust this zoom level as needed
+  const MIN_ZOOM_LEVEL = 7; // min zoom level to see markers (set so initially all markers are hidden)
 
-  // Initially set all markers' visibility to false
-  // No need to do this since we are handling visibility with the zoom_changed listener
-  // markers.forEach(marker => marker.setVisible(false));
-
-  // Add a zoom changed event listener to the map
 
   map.addListener('zoom_changed', () => {
     const currentZoom = map.getZoom();
 
-    // Toggle marker and cluster visibility based on zoom level
+    // show markers if zoom level is greater than or equal to min zoom level
     const isVisible = currentZoom >= MIN_ZOOM_LEVEL;
     markers.forEach(marker => marker.setVisible(isVisible));
 
-    // If the clusters should be invisible at this zoom level, clear them
+    // if not visible, clear the clusterer
     if (!isVisible) {
       markerCluster.clearMarkers();
     } else {
-      // Re-add markers to the clusterer when zooming in
+      // if visible, add the markers to the clusterer
       markerCluster.addMarkers(markers);
     }
   });
@@ -96,15 +93,14 @@ function initMap(heatmapData) {
     markerCluster.addMarkers(markers);
   }
 
-  // Convert your data to the format expected by Google Maps HeatmapLayer
+  // convert data to google heatmap format
     const googleHeatmapData = heatmapData.map(item => {
-        // Ensure the weight is positive and emphasize differences in the 3-4 range
         let weight;
+        //emphasizes weights between 3-4
         if (item.value >= 3) {
-            // Apply a transformation that significantly increases weight for values in the 3-4 range
-            weight = item.value + (item.value - 3) * 10; // This ensures a smooth transition and correct hierarchy
+            weight = item.value + (item.value - 3) * 10;
         } else {
-            // For values below 3, you can either keep them as is or apply a slight increase
+            // keep weight same between 0-3
             weight = item.value;
         }
         return {
@@ -112,34 +108,35 @@ function initMap(heatmapData) {
           weight: weight
         };
     });
-  // Create the heatmap layer using your data
+  // create heatmap layer
   const heatmap = new google.maps.visualization.HeatmapLayer({
     data: googleHeatmapData,
     map: map,
-    dissipating: true, // Adjust as needed
-    radius: 30, // Adjust the radius as needed
+    dissipating: true,
+    radius: 30,
     maxIntensity: 14,
-    gradient: [
-        'rgba(0, 255, 255, 0)',        // Transparent for the lowest intensity
-        'rgba(100, 200, 255, 0.1)',    // Very low intensity - for values much lower than 10
-        'rgba(150, 150, 255, 0.2)',    // Low intensity - approaching the 10 mark
-        'rgba(200, 100, 255, 0.3)',    // Lower-mid intensity - around 10 to 11
-        'rgba(255, 100, 200, 0.4)',    // Mid intensity - around 11 to 12
-        'rgba(255, 150, 150, 0.5)',    // Upper-mid intensity - around 12 to 13
-        'rgba(255, 200, 100, 0.6)',    // High intensity - around 13
-        'rgba(255, 250, 50, 0.7)',     // Very high intensity - nearing 14
-        'rgba(255, 150, 0, 0.8)',      // Nearing the highest intensity - just below 14
-        'rgba(255, 50, 0, 0.9)',      // Almost at the highest intensity - slightly below 14
-        'rgba(255, 0, 0, 1)'           // Highest intensity - 14
+    gradient: [ //gradient of 'heat' on the map
+        'rgba(0, 255, 255, 0)',
+        'rgba(100, 200, 255, 0.1)',
+        'rgba(150, 150, 255, 0.2)',
+        'rgba(200, 100, 255, 0.3)',
+        'rgba(255, 100, 200, 0.4)',
+        'rgba(255, 150, 150, 0.5)',
+        'rgba(255, 200, 100, 0.6)',
+        'rgba(255, 250, 50, 0.7)',
+        'rgba(255, 150, 0, 0.8)',
+        'rgba(255, 50, 0, 0.9)',
+        'rgba(255, 0, 0, 1)'
     ]
   });
 
-  // Log the heatmap for debugging
 }
 
 
+//fetch and render heatmap function
 async function fetchAndRenderHeatmap(uofaName, profile = 'Overall') {
   try {
+  //retrieve uni coords and data and filter for appropriate profile and map data
     const universityCoordinates = await fetchUniversityCoordinates();
     const allData = await fetchUoAData(uofaName);
     const overallData = allData.filter(data => data.ProfileType == profile);
@@ -147,41 +144,37 @@ async function fetchAndRenderHeatmap(uofaName, profile = 'Overall') {
       const uniCoords = universityCoordinates[record.UniversityName];
       return {
         name: record.UniversityName,
-        lat: uniCoords[0],  // Assuming the structure is [longitude, latitude]
+        lat: uniCoords[0],
         lon: uniCoords[1],
         value: record.AverageScore,
         profile: record.ProfileType
       };
     });
-    initMap(heatmapData); // Call initMap with the prepared heatmap data
+    initMap(heatmapData); // call initMap with the prepared heatmap data
   } catch (error) {
     console.error('Failed to render heatmap:', error);
   }
 }
 
+//fetch coords from set json file
+function fetchUniversityCoordinates() {
+    return fetch('homeScripts/universities_coordinates.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        });
+}
 
-
-
-
-
-
-    function fetchUniversityCoordinates() {
-        return fetch('homeScripts/universities_coordinates.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            });
-    }
-
-    function fetchUoAData(uofaName = 'Computer Science and Informatics') {
-        return fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/all?uofaName=${encodeURIComponent(uofaName)}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            });
-    }
+// function fetch data
+function fetchUoAData(uofaName = 'Computer Science and Informatics') {
+    return fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/all?uofaName=${encodeURIComponent(uofaName)}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        });
+}
 

@@ -7,7 +7,7 @@ function fetchUniversities() {
         .then(response => response.json())
         .then(data => {
             const sortedUniversities = data.sort((nameA, nameB) => {
-                // Adjust names for sorting if they start with 'University of'
+                // adjust university namess
                 return nameA.localeCompare(nameB);
             });
             populateUniDropdown(sortedUniversities);
@@ -15,22 +15,23 @@ function fetchUniversities() {
         .catch(error => console.error('Error fetching university names:', error));
 }
 
+//if university name starts with 'University of', remove it
 function adjustUniversityName(name) {
     if (name.startsWith('University of ')) {
-        return name.substring(14); // 'University of ' has 14 characters
+        return name.substring(14);
     }
     return name;
 }
 
 function populateUniDropdown(universities) {
     const dropdown = document.getElementById('institution-dropdown');
-    // Remove existing options (except for the first default option)
+    // remove existing optinos
     for (let i = dropdown.options.length - 1; i > 0; i--) {
         dropdown.remove(i);
     }
-    // Add universities as new options
+    // add unis as options
     universities.forEach(university => {
-        const option = new Option(university, university); // new Option(text, value)
+        const option = new Option(university, university);
         dropdown.add(option);
     });
 }

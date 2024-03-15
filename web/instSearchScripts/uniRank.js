@@ -1,7 +1,7 @@
 function fetchAllOveralls(unitOfAssessment) {
     const encodedUofA = encodeURIComponent(unitOfAssessment);
 
-    return fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/overall?unitOfAssessment=${encodedUofA}`)
+    return fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/overall?uOfA=${encodedUofA}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -19,17 +19,15 @@ function displayRankData(specificData,unitOfAssessment) {
             console.log('No data available');
             return;
         }
-        // Assuming specificData is an array and we're interested in the first item's UnitOfAssessmentName
-        // for demonstration purposes. You might need to adjust this based on your actual data structure.
+        console.log(specificData)
+        // find the specific unit of assessment name
         const specificUnitOfAssessmentName = specificData[0].UnitOfAssessmentName;
 
-        // Filter overallData to only include items with the same UnitOfAssessmentName
+        // filter and sort the overall data
         const filteredOverallData = overallData.filter(item => item.UnitOfAssessmentName === specificUnitOfAssessmentName);
-
-        // Proceed with the rest of your function as before, using filteredOverallData instead of overallData
         filteredOverallData.sort((a, b) => b.AverageScore - a.AverageScore);
 
-        // Assign ranks based on sorted position
+        // assign ranks to the filtered data
         filteredOverallData.forEach((item, index) => {
             item.Rank = index + 1; // Assigning rank starting from 1
         });
@@ -38,7 +36,7 @@ function displayRankData(specificData,unitOfAssessment) {
         const specificUniversity = filteredOverallData.find(item => item.InstitutionID === specificUniRecord.InstitutionID);
         const specificRank = specificUniversity ? specificUniversity.Rank : 'N/A';
 
-        // Calculate indices for two universities above and below the specific one
+        // calculate index for unis above and below the specific uni
         const specificIndex = filteredOverallData.findIndex(item => item.InstitutionID === specificUniRecord.InstitutionID);
         const startIndex = Math.max(0, specificIndex - 1);
         const endIndex = Math.min(filteredOverallData.length, specificIndex + 2);
@@ -52,11 +50,10 @@ function displayRankData(specificData,unitOfAssessment) {
             name: uni.UniversityName,
             rank: startIndex + index + 1
         }));
-
         Highcharts.chart('bullet-chart-container', {
             chart: {
-                type: 'bullet',
-                inverted: true,
+                type: 'bar', // Changed from 'bullet' to 'bar'
+                inverted: true, // Inverts the chart. Consider if this is needed as bar charts are typically horizontal.
                 height: 150,
                 marginBottom: 52
             },
@@ -68,13 +65,6 @@ function displayRankData(specificData,unitOfAssessment) {
             },
             yAxis: {
                 max: 4,
-                gridLineWidth: 0,
-                plotBands: [{
-                    from: 0,
-                    to: 4,
-                    color: '#e8e8e8',
-                    max: 3
-                }],
                 labels: {
                   style: {
                      fontSize: '10px'
@@ -87,10 +77,7 @@ function displayRankData(specificData,unitOfAssessment) {
             plotOptions: {
                 series: {
                     pointPadding: 0.25,
-                    borderWidth: 0,
-                    targetOptions: {
-                        width: '200%'
-                    }
+                    borderWidth: 0
                 }
             },
             credits: {
@@ -105,20 +92,13 @@ function displayRankData(specificData,unitOfAssessment) {
                 labels: {
                     useHTML: true, // Enable HTML to apply styling
                     formatter: function() {
-                        // Extract rank and name
+                        // Your formatter logic remains unchanged
                         const rankAndName = this.value.split('. ');
                         const rank = rankAndName[0];
                         const name = rankAndName[1];
-
-                        // Determine if this label is for the university of interest (e.g., "Oxford")
-                        const isMiddle = parseInt(rank) === specificRank; // specificRank should be a number
-
-                        // Apply monospace font to rank for consistent spacing
+                        const isMiddle = parseInt(rank) === specificRank;
                         const rankHtml = `<span style="font-family: monospace;">${rank}.</span>`;
-
-                        // Construct the full label with rank and name, making the middle university name bold
                         const labelHtml = `${rankHtml} ${isMiddle ? '<b>' + name + '</b>' : name}`;
-
                         return labelHtml;
                     },
                     step: 1
@@ -126,11 +106,14 @@ function displayRankData(specificData,unitOfAssessment) {
             },
             series: [{
                 data: bulletData
+                // Ensure that your data format matches the expected format for a bar chart.
+                // Bullet chart data formats might not directly map to bar charts, depending on how they're structured.
             }],
             tooltip: {
+                // Your tooltip configuration remains unchanged
                 pointFormat: '<b>{point.y:.2f}</b><br/>Rank: {point.rank} / ' + totalNumOfUniversities + ' universities<br/>',
                 positioner: function (labelWidth, labelHeight, point) {
-                    return { x: point.plotX - 50, y: 0 }; // Adjust x and y to place the tooltip where it doesn't overlap
+                    return { x: point.plotX - 50, y: 0 };
                 }
             }
         });

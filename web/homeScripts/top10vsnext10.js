@@ -1,3 +1,4 @@
+//fetch and display 10 vs 10 data
 function fetch20(unitOfAssessment) {
     const encodedUofA = encodeURIComponent(unitOfAssessment);
 
@@ -13,32 +14,31 @@ function fetch20(unitOfAssessment) {
         });
 }
 
-// This function will be called after the data is fetched
 function display10v10Data(unitOfAssessment) {
     const option = document.getElementById('10v10Option').value;
     fetch20(unitOfAssessment)
         .then(data => {
 
-            // Filter for 'Overall' profile type and sort
+            // filter data for overall profile
             const overallData = data.filter(item => item.ProfileType === 'Overall');
             const sortedData = overallData.sort((a, b) => b.AverageScore - a.AverageScore);
 
-            // Get top 10 and next 10 universities
+            // get top 10 and next 10 universities
             const top10Universities = sortedData.slice(0, 10);
             const next10Universities = sortedData.slice(10, 20);
 
-            // Extract university names for further filtering
+            // extract university names
             const top10Names = top10Universities.map(u => u.UniversityName);
             const next10Names = next10Universities.map(u => u.UniversityName);
 
-            // Filter the original dataset for these universities
+            // filter original data for top 10 and next 10
             const top10Data = data.filter(item => top10Names.includes(item.UniversityName));
             const next10Data = data.filter(item => next10Names.includes(item.UniversityName));
 
-                // Declare these outside to ensure they are accessible
+                // declare top10 and next10
                 let top10 = { chartData: 0 };
                 let next10 = { chartData: 0 };
-
+                // calculates data based of an option
                 if (option === 'Doctoral') {
                     top10 = calculateGraphDoctoral(top10Data);
                     next10 = calculateGraphDoctoral(next10Data);
@@ -59,16 +59,16 @@ function display10v10Data(unitOfAssessment) {
                     formattedNext10 = formatCurrency(next10.chartData);
                     tooltipLabel = option === 'TotalIncome1320' ? 'Total Income (£)' : 'Average Yearly Income (£)';
                 }
-
-                let maxValue = Math.max(top10.chartData, next10.chartData); // Assuming this retrieves the max value from your data
+                // set max y axis value
+                let maxValue = Math.max(top10.chartData, next10.chartData);
                 let yAxisMax;
 
                 if (option === 'Doctoral' || option === 'FTEOfSubmittedStaff') {
-                    yAxisMax = Math.ceil(maxValue / 200) * 200; // Find nearest multiple of 200 above maxValue
+                    yAxisMax = Math.ceil(maxValue / 200) * 200; // nearest multiple of 200
                 } else if (option === 'Overall' || option === 'Impact' || option === 'Outputs' ||option === 'Environment') {
-                    yAxisMax = 4; // Set max to 4 for these options
+                    yAxisMax = 4;
                 } else {
-                    yAxisMax = undefined; // Let Highcharts determine the max
+                    yAxisMax = undefined;
                 }
 
                 Highcharts.chart('10v10container', {
@@ -104,8 +104,8 @@ function display10v10Data(unitOfAssessment) {
                     },
                     series: [{
                         data: [
-                            {y: top10.chartData}, // Use default or specific color for top10
-                            {y: next10.chartData, color: 'red'}  // Use red color for next10
+                            {y: top10.chartData},
+                            {y: next10.chartData, color: 'red'}
                         ]
                     }],
                     credits: {
@@ -117,11 +117,14 @@ function display10v10Data(unitOfAssessment) {
                 });
         });
     }
+
+    // currency format function
 function formatCurrency(value) {
     return '£' + value.toLocaleString('en-UK', { maximumFractionDigits: 0 });
 }
 
 
+//caclulate total income
 function calculateIncome(data, option) {
     console.log(option);
     let chartData = 0;
@@ -137,6 +140,8 @@ function calculateIncome(data, option) {
     };
 
 }
+
+//caclulate total FTE
 function calculateTotalFTE(data) {
     let chartData = 0;
 
@@ -151,12 +156,11 @@ function calculateTotalFTE(data) {
 
 }
 
+//calculate doctoral degrees
 function calculateGraphDoctoral(data) {
     let chartData = 0;
 
     data.forEach(item => {
-
-        // Sum DoctoralDegrees from 2013 to 2019 for "Environment" profile type
         if (item.ProfileType === 'Environment') {
             chartData += Number(item.DoctoralDegrees2013) || 0;
             chartData += Number(item.DoctoralDegrees2014) || 0;
@@ -173,11 +177,12 @@ function calculateGraphDoctoral(data) {
     };
 }
 
+//average gpa function
 function calculateAverageScoreByProfileType(data, profileType) {
-    // Filter data by the specified ProfileType
+    // filter by specific profile
     const filteredData = data.filter(item => item.ProfileType === profileType);
 
-    // Calculate average score for each university
+    // retrieve average gpa of each uni
     let average = 0;
     let count = 0;
     filteredData.forEach(item => {
@@ -185,7 +190,7 @@ function calculateAverageScoreByProfileType(data, profileType) {
         count++;
     });
 
-    // Calculate the average from the filtered data
+    // calculate average gpa for the unis
     let chartData = average / count;
     chartData = parseFloat(chartData.toFixed(2));
     return {
@@ -193,7 +198,7 @@ function calculateAverageScoreByProfileType(data, profileType) {
     };
 
 }
-
+// event listener for unit of assessment dropdown
 document.getElementById('10v10Option').addEventListener('change', function() {
     const selectedUofA = document.getElementById('unit-of-assessment-dropdown').value;
     display10v10Data(selectedUofA);

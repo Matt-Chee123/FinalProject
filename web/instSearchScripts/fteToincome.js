@@ -1,11 +1,10 @@
 function fetchFTEIncomeData(specificUniRecord, unitOfAssessmentName) {
-    const overallUrl = `https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/overall?unitOfAssessment=${encodeURIComponent(unitOfAssessmentName)}`;
+    const overallUrl = `https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/overall?uOfA=${encodeURIComponent(unitOfAssessmentName)}`;
     const incomeUrl = `https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/total-income?unitOfAssessment=${encodeURIComponent(unitOfAssessmentName)}`;
 
-    // Fetch data concurrently from both endpoints
     Promise.all([
-        fetch(overallUrl).then(response => response.json()), // Fetch overall data
-        fetch(incomeUrl).then(response => response.json()) // Fetch income data
+        fetch(overallUrl).then(response => response.json()), // fetch overall data
+        fetch(incomeUrl).then(response => response.json()) // fetch income data
     ])
     .then(([overallData, incomeData]) => {
         const combinedData = [...overallData, ...incomeData];
@@ -34,42 +33,42 @@ function processAndDisplayData(data, specificUniRecord) {
           return acc;
         }, {});
       let chartData = [];
-
-        // Iterate over the incomeMapping
+      console.log('incomeMapping', incomeMapping);
+        console.log('fteMapping', fteMapping);
+        console.log('specificUniName', specificUniName);
       Object.keys(incomeMapping).forEach(uniName => {
-          // Check if the current university in incomeMapping also exists in fteMapping
+          // check current uni in income exists in fte
         if (fteMapping.hasOwnProperty(uniName)) {
             const isSpecificUni = uniName === specificUniName;
-            // Set the zIndex for the specific university to be higher than the others
+
             const zIndexValue = isSpecificUni ? 5 : 1;
 
-              // Define the marker options, with higher zIndex for the specific university
+            //define marker options
             const markerOptions = {
-                radius: 2, // Default radius for all universities
-                zIndex: zIndexValue // Set the zIndex based on whether it's the specific uni or not
+                radius: 2,
+                zIndex: zIndexValue
             };
 
             if (isSpecificUni) {
-                  // Apply specific marker styles for the highlighted university
+                  // apply marker for specific uni
                 markerOptions.fillColor = 'red';
                 markerOptions.lineWidth = 2;
                 markerOptions.radius = 5;
             }
 
-              // Format the income value with commas
+              // format income
             const formattedIncome = incomeMapping[uniName].toLocaleString();
 
-              // Create an object with the FTE, formatted income, and original income data
+              // create chart data
             chartData.push({
                 name: uniName,
-                x: fteMapping[uniName], // FTE value from fteMapping
-                y: incomeMapping[uniName], // Original income value from incomeMapping
-                formattedIncome: formattedIncome, // Formatted income value with commas
-                marker: markerOptions // Apply marker options
+                x: fteMapping[uniName],
+                y: incomeMapping[uniName],
+                formattedIncome: formattedIncome,
+                marker: markerOptions
             });
         }
       });
-          // Display the data using Highcharts
         Highcharts.chart('fte-income-container', {
           chart: {
             type: 'scatter',

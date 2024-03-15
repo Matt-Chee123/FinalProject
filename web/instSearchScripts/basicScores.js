@@ -2,30 +2,66 @@ function displaySearchResults(data) {
     const searchResultsContainer = document.getElementById('search-results');
 
     if (data && data.length > 0) {
-        // Define the order of ProfileTypes
-        const order = ['Outputs', 'Impact', 'Environment'];
+        // order and titles of the categories
+        const categories = ['Outputs', 'Impact', 'Environment'];
 
-        // Sort data based on the defined order
-        data.sort((a, b) => {
-            let indexA = order.indexOf(a.ProfileType);
-            let indexB = order.indexOf(b.ProfileType);
-
-            indexA = indexA === -1 ? order.length : indexA;
-            indexB = indexB === -1 ? order.length : indexB;
-
-            return indexA - indexB;
+        // map data to correct format for highcharts
+        const seriesData = categories.map(category => {
+            const item = data.find(d => d.ProfileType === category);
+            return item ? parseFloat(item.AverageScore.toFixed(2)) : 0;
         });
 
-        let content = '<div class="score-card">';
-        content += '<h3>Scores</h3>';
-        content += '<ul class="score-list">';
-        data.forEach(item => {
-            if (item.ProfileType && order.includes(item.ProfileType)) {
-                content += `<ul>${item.ProfileType}: ${item.AverageScore.toFixed(2)}</ul>`;
-            }
+        Highcharts.chart(searchResultsContainer, {
+            chart: {
+                type: 'bar',
+                marginBottom: 50
+            },
+            title: {
+                text: 'Profile Scores'
+            },
+            xAxis: {
+                categories: categories,
+                title: {
+                    text: null
+                },
+                labels: {
+                  step: 1
+                }
+            },
+            yAxis: {
+                min: 0,
+                max: 4, // Max value on the axis is 4
+                title: {
+                    text: 'GPA'
+                },
+                labels: {
+                  style: {
+                     fontSize: '10px'
+                  },
+                  overflow: 'justify'
+                },
+            },
+            tooltip: {
+                pointFormat: 'GPA: <b>{point.y}</b>'
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: false
+                    }
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'GPA',
+                data: seriesData
+            }]
         });
-        content += '</ul></div>';
-        searchResultsContainer.innerHTML = content;
     } else {
         searchResultsContainer.innerHTML = "<p>No results found.</p>";
     }

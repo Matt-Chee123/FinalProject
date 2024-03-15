@@ -1,17 +1,16 @@
 function fetchOutputsandIncome(specificUniRecord, unitOfAssessment) {
-    // Encode the UnitOfAssessment for URL parameters
+
     const encodedUofA = encodeURIComponent(unitOfAssessment);
 
-    // Fetch Outputs
+    // fetch Outputs
     fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/outputs?uofaName=${encodedUofA}`)
       .then(response => response.json())
       .then(outputsData => {
-        // Fetch Income after successfully fetching Outputs
+        // fetch income
         fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/total-income?unitOfAssessment=${encodedUofA}`)
           .then(response => response.json())
+          //comvine data and process
           .then(incomeData => {
-            // Now you have both outputsData and incomeData
-            // You can process or combine these datasets as required
             const combinedData = [...outputsData, ...incomeData];
             processAndDisplayOutputsIncome(combinedData, specificUniRecord);
           })
@@ -22,7 +21,6 @@ function fetchOutputsandIncome(specificUniRecord, unitOfAssessment) {
 
 
 function processAndDisplayOutputsIncome(data, specificUniRecord) {
-    // Assume specificUniRecord is an object with a UniversityName property
     const specificUniversityName = specificUniRecord[0].UniversityName;
 
     const outputsData = data.filter(item => item.ProfileType === 'Outputs');
@@ -40,28 +38,28 @@ function processAndDisplayOutputsIncome(data, specificUniRecord) {
     const scatterData = joinedData.map(record => {
         let markerOptions = {};
 
-        // If this record is the specific university, customize the marker
+        // if record is the specific university, change marker color
         if (record.UniversityName === specificUniversityName) {
             markerOptions = {
-                fillColor: 'red', // or any color that stands out
+                fillColor: 'red',
                 radius: 4,
                 zIndex: 90
             };
         }
 
-        // Format TotalIncome with commas as thousands separators
+        // Format TotalIncome with commas
         const formattedIncome = record.TotalIncome !== null ? record.TotalIncome.toLocaleString() : null;
 
         return {
-            x: record.TotalIncome, // Keep this numeric for accurate chart plotting
+            x: record.TotalIncome,
             y: record.AverageScore,
-            formattedIncome: formattedIncome, // Add formattedIncome as a separate property
+            formattedIncome: formattedIncome,
             name: record.UniversityName,
             marker: markerOptions
         };
     });
 
-    // Now, we have the scatterData ready for plotting with Highcharts.
+
     Highcharts.chart('income-outputs', {
         chart: {
             type: 'scatter',
@@ -92,9 +90,9 @@ function processAndDisplayOutputsIncome(data, specificUniRecord) {
                     fontSize: '10px'
                 }
             },
-            min: 1, // Set the minimum value of y-axis to 1
-            max: 4, // Set the maximum value of y-axis to 4
-            tickInterval: 1 // This ensures that ticks are placed at every integer interval
+            min: 1,
+            max: 4,
+            tickInterval: 1
         },
         plotOptions: {
             scatter: {

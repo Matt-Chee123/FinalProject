@@ -5,7 +5,8 @@
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.533.0",
     "@aws-sdk/lib-dynamodb": "^3.533.0",
-    "aws-amplify": "^6.0.13"
+    "aws-amplify": "^6.0.13",
+    "aws-xray-sdk": "^3.5.4"
   },
   "devDependencies": {
     "aws-sdk-client-mock": "^3.0.1",

@@ -48,10 +48,29 @@
   margin-left: 2vw;
   border: none;
   right: 1vw;
-
+  transition: background-color 0.3s ease; /* Define transition on the element itself */
+}
+.create-graph-btn:hover {
+  background-color: #a0a0a0; /* Darker grey shade on hover */
+}
+.clear-graph-btn {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  align-items: center; /* Centers children vertically in the container */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: space-around; /* Distribute children evenly */
+  padding: 10px;
+  margin-left: 2vw;
+  border: none;
+  right: 5vw;
+  transition: background-color 0.3s ease; /* Define transition on the element itself */
 }
 
-.create-graph-btn:hover {
+.clear-graph-btn:hover {
   background-color: #a0a0a0; /* Darker grey shade on hover */
 }
 

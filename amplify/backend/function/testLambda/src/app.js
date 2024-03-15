@@ -251,7 +251,7 @@ app.get("/items/outputs", async function(req, res) {
 
 //overall endpoint
 app.get("/items/overall", async function(req, res) {
-    const unitOfAssessmentName = req.query.unitOfAssessment || "Computer Science and Informatics";
+    const unitOfAssessmentName = req.query.uOfA || "Computer Science and Informatics";
 
     var params = {
         TableName: tableName,
@@ -276,12 +276,17 @@ app.get("/items/overall", async function(req, res) {
 
 //Environment endpoint
 app.get("/items/environment", async function(req, res) {
+    // Extract UnitOfAssessmentName from query parameters
+    const unitOfAssessmentName = req.query.uofaName || "Computer Science and Informatics";
+
     var params = {
         TableName: tableName,
         IndexName: "ProfileType-index",
         KeyConditionExpression: "ProfileType = :profileTypeValue",
+        FilterExpression: "UnitOfAssessmentName = :uoaName",
         ExpressionAttributeValues: {
-            ":profileTypeValue": "Environment"
+            ":profileTypeValue": "Environment",
+            ":uoaName": unitOfAssessmentName // Use the provided UnitOfAssessmentName for filtering
         }
     };
 
@@ -294,6 +299,7 @@ app.get("/items/environment", async function(req, res) {
         res.status(500).json({error: 'Could not load items: ' + err.message});
     }
 });
+
 
 //total income endpoint
 app.get("/items/total-income", async function(req, res) {
@@ -331,12 +337,12 @@ app.get("/items/total-income", async function(req, res) {
 
 //income endpoint
 app.get("/items/income", async function(req, res) {
-    const selectedUofA = req.query.uofaName || "Computer Science and Informatics"; // Default value if not provided
+    const selectedUofA = req.query.uofaName || "Computer Science and Informatics"; // Default value
     var params = {
         TableName: tableName,
-        IndexName: 'UnitOfAssessmentName-UniversityName-index', // Use your index if applicable
+        IndexName: 'UnitOfAssessmentName-UniversityName-index',
         KeyConditionExpression: 'UnitOfAssessmentName = :uofaName',
-        FilterExpression: 'attribute_not_exists(ProfileType)', // Filter for ProfileType "Overall"
+        FilterExpression: 'attribute_not_exists(ProfileType)', // filter for items without ProfileType
         ExpressionAttributeValues: {
             ":uofaName": selectedUofA
         }
@@ -344,13 +350,10 @@ app.get("/items/income", async function(req, res) {
     try {
         // Specify the list of profile types to exclude
 
-        // Depending on your data structure, you may need to use a QueryCommand if you have an appropriate GSI
         const data = await ddbDocClient.send(new QueryCommand(params));
         let items = data.Items;
 
-        // Filter out items where the ProfileType is in the excluded list
 
-        // Sending the filtered items as the response
         res.json(items);
     } catch (err) {
         // Error handling
@@ -360,7 +363,7 @@ app.get("/items/income", async function(req, res) {
 
 //Random3 endpoint
 app.get("/items/random3", async function(req, res) {
-    const selectedUofA = req.query.uofaName || "Computer Science and Informatics"; // Default value if not provided
+    const selectedUofA = req.query.uofaName || "Computer Science and Informatics"; // default value if not provided
 
     var params = {
         TableName: tableName,
@@ -369,15 +372,14 @@ app.get("/items/random3", async function(req, res) {
         FilterExpression: "ProfileType = :profileTypeValue",
         ExpressionAttributeValues: {
             ":uofaName": selectedUofA,
-            ":profileTypeValue": "Overall" // Assuming 'Overall' is correct
+            ":profileTypeValue": "Overall"
         }
     };
 
     try {
-        const data = await ddbDocClient.send(new QueryCommand(params)); // Assuming QueryCommand is intended
+        const data = await ddbDocClient.send(new QueryCommand(params));
         let items = data.Items;
 
-        // Shuffle and select top 3 items
         const shuffled = items.sort(() => 0.5 - Math.random());
         let selected = shuffled.slice(0, 3);
 
@@ -392,19 +394,18 @@ app.get("/items/uniNames", async function(req, res) {
 
     var params = {
         TableName: tableName,
-        IndexName: 'ProfileType-index', // Use the GSI
+        IndexName: 'ProfileType-index',
         KeyConditionExpression: "ProfileType = :profileTypeVal",
         ExpressionAttributeValues: {
             ":profileTypeVal": "Overall",
         },
-        ProjectionExpression: "UniversityName" // Only get the UniversityName attribute
+        ProjectionExpression: "UniversityName"
     };
 
     try {
-        // Use QueryCommand to fetch items
         const data = await ddbDocClient.send(new QueryCommand(params));
 
-        // Extract just the university names and ensure they are unique
+        // extract just the university names and ensure they are unique
         const uniqueNames = [...new Set(data.Items.map(item => item.UniversityName))];
 
         res.json(uniqueNames);
@@ -418,21 +419,20 @@ app.get("/items/uoaUniNames", async function(req, res) {
 
     var params = {
         TableName: tableName,
-        IndexName: 'ProfileType-index', // Use the GSI
+        IndexName: 'ProfileType-index',
         KeyConditionExpression: "ProfileType = :profileTypeVal",
         ExpressionAttributeValues: {
             ":profileTypeVal": "Overall",
             ":uofaName": selectedUofA,
 
         },
-        FilterExpression: 'UnitOfAssessmentName = :uofaName', // Correct filter for ProfileType "Outputs"
+        FilterExpression: 'UnitOfAssessmentName = :uofaName',
     };
 
     try {
-        // Use QueryCommand to fetch items
         const data = await ddbDocClient.send(new QueryCommand(params));
 
-        // Extract just the university names and ensure they are unique
+        // extract uni names and ensure they are unique
         const uniqueNames = [...new Set(data.Items.map(item => item.UniversityName))];
 
         res.json(uniqueNames);
@@ -446,14 +446,14 @@ app.get("/items/university", async function(req, res) {
 
     var params = {
         TableName: tableName,
-        IndexName: 'ProfileType-index', // Assuming 'ProfileType' is a key attribute in this index
+        IndexName: 'ProfileType-index',
         KeyConditionExpression: "ProfileType = :profileTypeVal",
         ExpressionAttributeValues: {
             ":profileTypeVal": "Overall",
         }
     };
 
-    // Add a filter expression for 'UniversityName' if it's not 'Nation'
+    // Add a filter expression if name not nation
     if (universityName !== "Nation") {
         params.FilterExpression = "UniversityName = :universityName";
         params.ExpressionAttributeValues[":universityName"] = universityName;
@@ -462,7 +462,7 @@ app.get("/items/university", async function(req, res) {
     try {
         const data = await ddbDocClient.send(new QueryCommand(params));
 
-        // Extracting and sorting unit of assessment names. Note that filtering by 'UniversityName' happens after fetching the data.
+        // extracting unique names
         const uniqueUnitOfAssessmentNames = [...new Set(data.Items.map(item => item.UnitOfAssessmentName))].sort();
 
         res.json(uniqueUnitOfAssessmentNames);
@@ -478,12 +478,12 @@ app.get("/items/university", async function(req, res) {
 //SearchInst endpoint
 app.get("/items/search", async function(req, res) {
     const searchTerm = req.query.query;
-    const unitOfAssessment = req.query.unitOfAssessment || "Computer Science and Informatics"; // Default to Computer Science and Informatics
+    const unitOfAssessment = req.query.unitOfAssessment || "Computer Science and Informatics";
 
     var params = {
         TableName: tableName,
-        IndexName: 'UnitOfAssessmentName-UniversityName-index', // Specify the GSI name
-        KeyConditionExpression: 'UniversityName = :searchTerm AND UnitOfAssessmentName = :unitOfAssessment', // Use the partition key of the GSI
+        IndexName: 'UnitOfAssessmentName-UniversityName-index',
+        KeyConditionExpression: 'UniversityName = :searchTerm AND UnitOfAssessmentName = :unitOfAssessment',
         ExpressionAttributeValues: {
             ":searchTerm": searchTerm,
             ":unitOfAssessment": unitOfAssessment
@@ -501,7 +501,7 @@ app.get("/items/search", async function(req, res) {
 
 //UofA endpoint
 app.get("/items/unitofassessment", async function(req, res) {
-    // Retrieve the selected UnitOfAssessmentName from query parameters
+    // get the selected UnitOfAssessmentName from query parameters
     const selectedUofA = req.query.uofaName;
 
     var params = {
@@ -514,7 +514,7 @@ app.get("/items/unitofassessment", async function(req, res) {
     };
 
     try {
-        // Fetching items from DynamoDB using the GSI
+        //  fetch items from DynamoDB using the GSI
         const data = await ddbDocClient.send(new QueryCommand(params));
         res.json(data.Items);
     } catch (err) {

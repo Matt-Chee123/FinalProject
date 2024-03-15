@@ -1,3 +1,4 @@
+//fetch data and call function to display chart
 function fetchOutputsData(uofaName = 'Computer Science and Informatics') {
     fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/outputs?uofaName=${encodeURIComponent(uofaName)}`)
     .then(response => {
@@ -17,11 +18,9 @@ function fetchOutputsData(uofaName = 'Computer Science and Informatics') {
 
 function displayOutputAverages(data) {
   const OutputsContainer = document.getElementById('outputs-records');
-
-  // Initialize sums
   let sumFourStar = 0, sumThreeStar = 0, sumTwoStar = 0, sumOneStar = 0;
 
-  // Accumulate sums for each field
+  // sums for each field
   data.forEach(item => {
     sumFourStar += item.FourStar;
     sumThreeStar += item.ThreeStar;
@@ -29,15 +28,15 @@ function displayOutputAverages(data) {
     sumOneStar += item.OneStar;
   });
 
-  // Calculate averages
+  // calculate averages
   const avgFourStar = Number((sumFourStar / data.length).toFixed(1));
   const avgThreeStar = Number((sumThreeStar / data.length).toFixed(1));
   const avgTwoStar = Number((sumTwoStar / data.length).toFixed(1));
   const avgOneStar = Number((sumOneStar / data.length).toFixed(1));
   const maxAvgValue = Math.max(avgFourStar, avgThreeStar, avgTwoStar, avgOneStar);
-  // Round up to the nearest 10
+  // round up to the nearest 10 for yAxisMax
   const yAxisMax = Math.ceil(maxAvgValue / 10) * 10;
-
+//make the chart
   Highcharts.chart('outputs-records', {
     chart: {
       type: 'column',
@@ -47,7 +46,7 @@ function displayOutputAverages(data) {
       text: 'National Output Profile'
     },
     credits: {
-      enabled: false // Removes the Highcharts link from the chart
+      enabled: false
     },
     xAxis: {
       categories: [
@@ -62,7 +61,7 @@ function displayOutputAverages(data) {
     },
     yAxis: {
       min: 0,
-      max: yAxisMax, // Set the dynamically calculated max for the yAxis
+      max: yAxisMax,
       title: {
         text: '% of Outputs'
       },
@@ -71,8 +70,8 @@ function displayOutputAverages(data) {
            fontSize: '10px'
         }
       },
-      endOnTick: false, // Ensures the axis doesn't extend beyond the max value
-      tickInterval: 10 // Sets the interval of the tick marks to 10
+      endOnTick: false,
+      tickInterval: 10
     },
     tooltip: {
       headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -90,7 +89,7 @@ function displayOutputAverages(data) {
       }
     },
     legend: {
-      enabled: false // Hides the legend
+      enabled: false
     },
     series: [{
       name: 'Average Star Rating',

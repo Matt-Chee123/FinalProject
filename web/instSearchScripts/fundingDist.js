@@ -1,10 +1,11 @@
+//function to retrieve data from the database and display it in a pie chart
 function displayIncomeDist(data) {
-    // Filter out records without 'ProfileType' and where 'IncomeSource' is not 'total income'
+
     let filteredData = data.filter(record =>
         record.ProfileType === undefined && record.IncomeSource !== 'Total income'
     );
 
-    // Prepare the data for the Highcharts pie chart
+    // create piechart data
     let pieChartData = filteredData.map(record => {
         return {
             name: record.IncomeSource,
@@ -13,7 +14,7 @@ function displayIncomeDist(data) {
         };
     });
 
-    // Initialize the Highcharts pie chart
+    // make pie chart
     Highcharts.chart('income-chart-dist', {
         chart: {
             plotBackgroundColor: null,
@@ -29,7 +30,7 @@ function displayIncomeDist(data) {
         },
         tooltip: {
             formatter: function() {
-                return `<b>${this.point.name}</b><br/>Income: £${parseFloat(this.point.totalIncome).toLocaleString()}<br/>Percentage: ${this.point.percentage.toFixed(1)}%`;
+                return `${this.point.name}<br/>Income: <b>£${parseFloat(this.point.totalIncome).toLocaleString()}</b><br/>Percentage: ${this.point.percentage.toFixed(1)}%`;
             }
         },
         accessibility: {

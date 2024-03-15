@@ -1,3 +1,4 @@
+//fetch data and call function
 function fetchAndDisplayNationalAverages(uofaName = 'Computer Science and Informatics') {
   fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/all?uofaName=${encodeURIComponent(uofaName)}`)
   .then(response => {
@@ -18,7 +19,7 @@ function calculateNationalAverageScore(data, profileType) {
   let sumScore = 0;
   let count = 0;
 
-  // Accumulate sum of scores for the specified profile type
+  // sum of scores for the given profile type
   data.forEach(item => {
     if (item.ProfileType === profileType) {
       sumScore += item.AverageScore;
@@ -26,10 +27,10 @@ function calculateNationalAverageScore(data, profileType) {
     }
   });
 
-  // Calculate average score
+  // calculate average score
   return (count > 0) ? (sumScore / count) : 0;
 }
-
+//create a bullet graph to display the national average score
 function displayNationalAverageScore(data) {
   const averageOverallScore = Number(calculateNationalAverageScore(data, 'Overall'));
   const averageOutputsScore = Number(calculateNationalAverageScore(data, 'Outputs'));
@@ -70,29 +71,29 @@ function displayNationalAverageScore(data) {
         text: 'GPA',
         fontSize: '10px'
       },
-      max: 4, // Set the maximum scale value for the yAxis
-      tickPositions: [0, 1, 2, 3, 4] // Define specific tick positions
+      max: 4,
+      tickPositions: [0, 1, 2, 3, 4]
     },
     legend: {
-      enabled: false // This will remove the legend
+      enabled: false
     },
     series: [{
       data: [
         {
           y: averageOverallScore,
-          target: 4 // Your target value for Overall Score
+          target: 4
         },
         {
           y: averageOutputsScore,
-          target: 4 // Your target value for Outputs Score
+          target: 4
         },
         {
           y: averageImpactScore,
-          target: 4 // Your target value for Impact Score
+          target: 4
         },
         {
           y: averageEnvironmentScore,
-          target: 4 // Your target value for Environment Score
+          target: 4
         }
       ]
     }],

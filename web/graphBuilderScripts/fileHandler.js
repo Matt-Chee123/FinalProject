@@ -3,29 +3,33 @@ function updateVisibilityY() {
   var profileSelected = document.getElementById('profileY').checked;
   var xProfOptions = document.getElementById('yProfOptions');
 
-  // Toggle the display based on whether the "Profile" radio is selected
+//toggle display based of profile selected
   xProfOptions.style.display = profileSelected ? 'block' : 'none';
 }
 
 async function updateBubbleProfIncX() {
-  // Making xAxisLabel and xAxis visible
+
+//hide step 3 and 4
   document.getElementById('graphStep3').style.display = 'none';
   document.getElementById('graphStep4').style.display = 'none';
+    // make xAxisLabel and xAxis visible
+
   document.getElementById('xAxisLabel').style.display = 'block';
   document.getElementById('xAxis').style.display = 'block';
   document.getElementById('xProfOptions').style.display = 'none';
   if (document.getElementById('xProfOptionsLabel')) {
       document.getElementById('xProfOptionsLabel').style.display = 'none';
   }
+
+  // uncheck the profile and income radio buttons
   document.getElementById('profileY').checked = false;
   document.getElementById('incomeY').checked = false;
   document.getElementById('yAxisLabel').style.display = 'none';
-  document.getElementById('yAxis').selectedIndex = 0; // Resets to the first option
-  document.getElementById('yAxis').style.display = 'none'; // Hides the dropdown (if you want to hide it initially)
-  // Assuming the first option is your placeholder or default option
-  document.getElementById('yProfOptions').selectedIndex = 0; // Resets to "Profile Options"
-  if (document.getElementById('yProfOptionsLabel')) { // Checks if an option is selected
-     document.getElementById('yProfOptionsLabel').style.display = 'none'; // Makes Step 3 visible
+  document.getElementById('yAxis').selectedIndex = 0;
+  document.getElementById('yAxis').style.display = 'none';
+  document.getElementById('yProfOptions').selectedIndex = 0;
+  if (document.getElementById('yProfOptionsLabel')) {
+     document.getElementById('yProfOptionsLabel').style.display = 'none';
   }
   document.getElementById('yProfOptions').style.display = 'none';
 
@@ -35,17 +39,17 @@ async function updateBubbleProfIncX() {
 
   label.textContent = selectedValue === 'profile' ? 'Profile:' : 'Income:';
 
-  var UofA = document.getElementById('UofA').value; // Use the value of UofA selection
+  var UofA = document.getElementById('UofA').value; // use uoa value selected
   var axisOptions = document.getElementById('xAxis');
   console.log(axisOptions);
   var optionsBasedOnSelected = [];
 
   if (selectedValue === 'profile') {
-    // For 'profile', use predefined options
+    // for profile, predefined options
     optionsBasedOnSelected = ['Overall', 'Impact', 'Outputs', 'Environment'];
     updateAxisOptions(axisOptions, optionsBasedOnSelected, selectedValue);
   } else {
-    // For 'income', fetch options based on the UofA
+    // for income, fetch appropriate income sources
     optionsBasedOnSelected = await fetchIncomeSources(UofA);
     updateAxisOptions(axisOptions, optionsBasedOnSelected, selectedValue);
   }

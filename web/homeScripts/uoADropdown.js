@@ -1,20 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
-
+// fetch uoas for a uni
     document.getElementById('institution-dropdown').addEventListener('change', function() {
         const currentUoA = document.getElementById('unit-of-assessment-dropdown').value;
         fetchUnitOfAssessmentNames(this.value, currentUoA);
     });
 
-    // Pass "Computer Science and Informatics" as the initial UoA to select by default
+    // nation and comp sci are the default values
     fetchUnitOfAssessmentNames('Nation', 'Computer Science and Informatics');
 });
 
+// on back button click, fetch UoAs for "Nation"
 document.getElementById('back-button').addEventListener('click', function() {
     const UoA = 'Computer Science and Informatics';
     const institution = 'Nation';
     fetchUnitOfAssessmentNames(institution, UoA);
 });
 
+//fetch uoas for a uni
 function fetchUnitOfAssessmentNames(universityName = 'Nation', currentUoA = 'Computer Science and Informatics') {
     fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/university?UniversityName=${encodeURIComponent(universityName)}`)
         .then(response => response.json())
@@ -26,10 +28,11 @@ function fetchUnitOfAssessmentNames(universityName = 'Nation', currentUoA = 'Com
 
 function populateUoADropdown(unitOfAssessmentNames, currentUoA = 'Computer Science and Informatics') {
     const dropdown = document.getElementById('unit-of-assessment-dropdown');
-    dropdown.length = 0; // Clear existing options
+    dropdown.length = 0; // clear existing options
 
     let foundCurrentUoA = false;
 
+// populate the dropdown with the fetched UoA names
     unitOfAssessmentNames.forEach(name => {
         const option = new Option(name, name);
         dropdown.add(option);
@@ -40,8 +43,7 @@ function populateUoADropdown(unitOfAssessmentNames, currentUoA = 'Computer Scien
         }
     });
 
-    // This checks if "Computer Science and Informatics" should be selected by default
-    // or if another UoA was previously selected and still exists in the list, it gets selected
+// checks if the current UoA wasn't found, select the first available UoA
     if (!foundCurrentUoA && dropdown.options.length > 1) {
         for (let i = 0; i < dropdown.options.length; i++) {
             if (dropdown.options[i].value === "Computer Science and Informatics") {
@@ -52,7 +54,7 @@ function populateUoADropdown(unitOfAssessmentNames, currentUoA = 'Computer Scien
         }
     }
 
-    // If "Computer Science and Informatics" was not found, select the first option by default
+    // if comp sci not found, pick the first available UoA
     if (!foundCurrentUoA) {
         dropdown.options[1].selected = true;
     }

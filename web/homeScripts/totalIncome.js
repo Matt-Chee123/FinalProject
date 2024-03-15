@@ -1,3 +1,4 @@
+//fetching total income data
 function fetchIncomeData(uofaName = 'Computer Science and Informatics') {
     fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/income?uofaName=${encodeURIComponent(uofaName)}`)
     .then(response => {
@@ -7,27 +8,26 @@ function fetchIncomeData(uofaName = 'Computer Science and Informatics') {
         return response.json();
     })
     .then(data => {
-        displayTopFourSources(data); // Assuming you'll adjust this function to handle the income data
+        displayTopFourSources(data);
     })
     .catch(error => {
         console.error('Fetch error:', error);
     });
 }
 
-
+// calculate sum of income for a specific source
 function calculateSumOfIncome(data, source) {
     let sumIncome = 0;
-  // Accumulate sum of scores for the specified profile type
     data.forEach(item => {
         if (item.IncomeSource === source) {
         sumIncome += item.TotalIncome1320;
         }
     });
-  // Calculate average score
     return sumIncome;
 }
 
 function displayTopFourSources(data) {
+  //specify income sources names
   const topSourcesContainer = document.getElementById('top-sources-records');
   const beisIncome = calculateSumOfIncome(data,'BEIS Research Councils, The Royal Society, British Academy and The Royal Society of Edinburgh');
   const charityOpenIncome = calculateSumOfIncome(data, 'UK-based charities (open competitive process)');
@@ -60,15 +60,15 @@ function displayTopFourSources(data) {
   { name: 'Non-EU industry commerce and public corporations', value: nonEuIndIncome },
   { name: 'Non-EU other', value: nonEuOtherIncome }
   ];
-// Sort the incomes in descending order based on the value
+// sort incomes by value
   incomes.sort((a, b) => b.value - a.value);
-// Get the top 4 highest figures
+// get top 4 incomes
   const top4Incomes = incomes.slice(0, 4);
-// Assuming maxValue is the maximum income value among the top 4 incomes
+  // calculating tick interval
   const maxValue = Math.max(...top4Incomes.map(income => income.value));
-  const tickTarget = 5; // Target number of ticks
-  let tickInterval = Math.ceil(maxValue / tickTarget); // Base tick interval
-// Adjust to a more human-readable value
+  const tickTarget = 5;
+  let tickInterval = Math.ceil(maxValue / tickTarget);
+// make tick interval more standard
   tickInterval = adjustToReadableInterval(tickInterval);
 
   function adjustToReadableInterval(interval) {
@@ -84,13 +84,10 @@ function displayTopFourSources(data) {
       return niceFraction * Math.pow(10, exponent);
 }
 
-// Convert tickInterval back to actual scale if you're working in millions or another scale
-
-
   Highcharts.chart('top-sources-container', {
     chart: {
       type: 'column',
-      marginBottom: 55, // Adjust if necessary to fit the chart
+      marginBottom: 55,
     },
     title: {
       text: 'Top 4 Income Sources'
@@ -109,10 +106,10 @@ function displayTopFourSources(data) {
       title: {
         text: 'Income (£M)'
       },
-      tickInterval: tickInterval, // Use the dynamically calculated tick interval
+      tickInterval: tickInterval,
       labels: {
         formatter: function() {
-          return (this.value / 1000000); // Convert to M for millions
+          return (this.value / 1000000);
         },
         style: {
           fontSize: '10px'
@@ -121,21 +118,18 @@ function displayTopFourSources(data) {
     },
     tooltip: {
       formatter: function() {
-        // Access the name of the income source from the point's category (x-axis category)
         const incomeSourceName = this.point.category;
-        // Format the income value with Highcharts' numberFormat function, including thousands separator
         const incomeValueFormatted = Highcharts.numberFormat(this.y, 0, '.', ',');
-        // Construct the tooltip content, using <b> tags for bold text and including "Income:" text
         return '' + incomeSourceName + '<br/>Income: <b>£' + incomeValueFormatted + '</b>'
       }
     },
     plotOptions: {
       column: {
         dataLabels: {
-          enabled: false // Disable data labels on the columns
+          enabled: false
         },
         marker: {
-          enabled: false // Disable markers
+          enabled: false
         }
       }
     },
@@ -145,7 +139,7 @@ function displayTopFourSources(data) {
     series: [{
       name: 'Income',
       data: top4Incomes.map(income => income.value),
-      showInLegend: false // Ensure that the series is not shown in the legend
+      showInLegend: false
     }]
   });
 }

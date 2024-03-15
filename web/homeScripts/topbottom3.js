@@ -1,3 +1,4 @@
+//fetch top and bottom3 records
 function fetchTopAndBottomThree(uofaName = 'Computer Science and Informatics') {
   const topThreeUrl = `https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/top3?uofaName=${encodeURIComponent(uofaName)}`;
   const bottomThreeUrl = `https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/bottom3?uofaName=${encodeURIComponent(uofaName)}`;
@@ -14,6 +15,7 @@ function fetchTopAndBottomThree(uofaName = 'Computer Science and Informatics') {
   });
 }
 
+// create html to display top and bottom 3 records
 function displayRecords(topThreeData, bottomThreeData) {
   const recordsContainer = document.getElementById('records-container');
   let content = '<h3>Top 3 Overall GPAs</h3>';

@@ -42,13 +42,13 @@ const russellGroupUniversities = new Set([
   "University College London",
   "University of Warwick",
   "University of York"
-]);
+    ]);
 
+    //ensure error message element exists
 function ensureErrorMessageElement() {
   var graphContainer = document.getElementById('graph-container');
   var errorMessageElement = document.getElementById('error-message');
 
-  // If the error message element does not exist, create and append it
   if (!errorMessageElement) {
     errorMessageElement = document.createElement('div');
     errorMessageElement.setAttribute('id', 'error-message');
@@ -62,10 +62,11 @@ function ensureErrorMessageElement() {
 }
 
 document.getElementById('dataForm').onsubmit = function(event) {
-  event.preventDefault(); // Prevent the default form submission behavior
+  //destroy chart if it exists
+  event.preventDefault();
   if (window.myChart && window.myChart.destroy) {
       window.myChart.destroy();
-      window.myChart = undefined; // Or null
+      window.myChart = undefined;
   }
 
 
@@ -92,17 +93,17 @@ document.getElementById('dataForm').onsubmit = function(event) {
     errorMessage = 'Please complete the Y axis selections.';
   }
 
-  // If there's an error message, display it and exit the function
+  // if error message exists, display it and return
   if (errorMessage) {
     document.getElementById('error-message').textContent = errorMessage;
-    document.getElementById('error-message').style.display = 'block'; // Show the error message
-    return; // Exit the function to prevent further execution
+    document.getElementById('error-message').style.display = 'block';
+    return;
   }
 
   fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/UoA?uofaName=${encodeURIComponent(uofA)}`)
   .then(response => response.json())
   .then(data => {
-    console.log('Data:', data);
+    // filter data based on x and y axis
     if (xRadioCheck == 'profile') {
       var xAxisFilter = data.filter(item => item.ProfileType === xAxis);
     }
@@ -115,9 +116,9 @@ document.getElementById('dataForm').onsubmit = function(event) {
     } else if (yRadioCheck == 'income') {
         var yAxisFilter = data.filter(item => item.IncomeSource === yAxis);
     }
-    console.log('X axis filter:', xAxisFilter);
-    console.log('Y axis filter:', yAxisFilter);
 
+
+// calculate total doctoral degrees
     function calculateTotalDoctoralDegrees(record) {
 
       let total = 0;
@@ -126,21 +127,18 @@ document.getElementById('dataForm').onsubmit = function(event) {
       }
       return total;
     }
+
+  // highlight specific university function
     function highlightUniversity(uniName) {
-      // Assuming chartData is already prepared and contains all universities
       chartData = chartData.map(point => {
         if (point.name.toLowerCase() === uniName.toLowerCase()) {
-          // Highlight this point by changing its color and setting its zIndex
-          // Setting color to 'red' and zIndex to a high value to ensure it appears in front
-          return { ...point, color: 'red', zIndex: 100 }; // Adjust zIndex value as needed
+          return { ...point, color: 'red', zIndex: 100 };
         }
-        // Optionally, adjust other points to ensure they do not overlap the highlighted one
-        // by setting their zIndex to a lower value than the highlighted point's zIndex.
-        return point; // Ensure other points have a lower zIndex
+        return point;
       });
     }
 
-  // Extract the attributes to be plotted
+  // extract attributes to be plotted
     var xAttribute = xProfOption;
     var yAttribute = yProfOption;
 
@@ -148,32 +146,32 @@ document.getElementById('dataForm').onsubmit = function(event) {
     var uniNameToHighlight = document.getElementById('uniToHighlight').value;
 
     xAxisFilter.forEach((item) => {
-      // Find the corresponding item in yAxisFilter by matching the UniversityName
+     //find item using Uni name
       const yItem = yAxisFilter.find(y => y.UniversityName === item.UniversityName);
       if (yItem) {
-        // Initialize xValue and yValue
+
         let xValue, yValue;
 
-        // Determine xValue based on xRadioCheck
+        // determine xValue based on xRadioCheck
         if (xRadioCheck === 'profile') {
-          xValue = item[xAttribute]; // For 'profile', use the xProfOption value
+          xValue = item[xAttribute];
         } else { // 'income'
-          xValue = parseInt(item[xAttribute], 10); // Use the 'TotalIncome1320' value for 'income'
+          xValue = parseInt(item[xAttribute], 10);
         }
 
-        // Determine yValue based on yRadioCheck
+        // determine yValue based on yRadioCheck
         if (yRadioCheck === 'profile') {
-          yValue = yItem[yAttribute]; // For 'profile', use the yProfOption value
+          yValue = yItem[yAttribute];
         } else{ // 'income'
           console.log('yItem:', yItem);
-          yValue = parseInt(yItem[yAttribute], 10); // Use the 'TotalIncome1320' value for 'income'
+          yValue = parseInt(yItem[yAttribute], 10);
         }
 
-        // Add the combined data to chartData
+        // add combined data to chartData
         chartData.push({
           x: xValue,
           y: yValue,
-          name: item.UniversityName // Use the university name as the point name
+          name: item.UniversityName
         });
       }
     });
@@ -186,25 +184,25 @@ document.getElementById('dataForm').onsubmit = function(event) {
     let tickInterval = null;
     let marginBottom = 60;
 
+// set initial max and min values for axis
     if (xRadioCheck === 'profile' && xProfOption === 'AverageScore') {
-      xAxisMax = 4; // Set the max limit for the xAxis if the condition is met
+      xAxisMax = 4;
     }
     else if (xProfOption === 'FourStar' || xProfOption === 'ThreeStar' || xProfOption ==='TwoStar' || xProfOption === 'OneStar' || xProfOption === 'Unclassified' || xProfOption === 'PercEligibleStaff'){
-        xAxisMax = 100; // Set the max limit for the xAxis if the condition is met
+        xAxisMax = 100;
         xAxisMin = 0;
     }
     if (yRadioCheck === 'profile' && yProfOption === 'AverageScore') {
-       yAxisMax = 4; // Set the max limit for the yAxis if the condition is met
+       yAxisMax = 4;
     }
     else if (yProfOption === 'FourStar' || yProfOption === 'ThreeStar' || yProfOption ==='TwoStar' || yProfOption === 'OneStar' || yProfOption === 'Unclassified' || yProfOption === 'PercEligibleStaff'){
-        yAxisMax = 100; // Set the max limit for the yAxis if the condition is met
+        yAxisMax = 100;
         yAxisMin = 0;
     }
-  // Adjust the chartData to include a marker or color change for Russell Group universities
+  // russel group highlight
     chartData = chartData.map(point => {
       if (russellGroupUniversities.has(point.name)) {
-      // Example of highlighting: change the marker symbol or color
-      // This is just one way to highlight; adjust according to your needs
+
         return highlightRussell ? { ...point, color: 'green', zIndex: 10 } : point;
       }
       return point;
@@ -212,71 +210,70 @@ document.getElementById('dataForm').onsubmit = function(event) {
     highlightUniversity(uniNameToHighlight);
     chartData.sort((a, b) => (a.zIndex || 0) - (b.zIndex || 0));
 
-  // Log chartData to verify
         const xProfOptionText = findOptionText(xRadioCheck === 'profile' ? optionsProfile : optionsIncome, xProfOption);
         const yProfOptionText = findOptionText(yRadioCheck === 'profile' ? optionsProfile : optionsIncome, yProfOption);
 
         const isProfileAndSameParam = xRadioCheck === 'profile' && yRadioCheck === 'profile' && xProfOption === yProfOption;
         const isIncomeAndSameSource = xRadioCheck === 'income' && yRadioCheck === 'income' && xAxis === yAxis;
 
-        // Define the list of specific options that would trigger the chart to be square
+        // define list of options for percentage based data
         const percOptionsList = ['PercEligibleStaff', 'FourStar', 'ThreeStar', 'TwoStar', 'OneStar', 'Unclassified'];
 
-        // Check if both xProfOption and yProfOption are in the specificOptionsList
+        // check if both options are in the list
         const isBothOptionsInList = percOptionsList.includes(xProfOption) && percOptionsList.includes(yProfOption);
-
-        // Update the shouldBeSquare condition to include this new check
+// check if the chart should be square
         const shouldBeSquare = isProfileAndSameParam || isIncomeAndSameSource || isBothOptionsInList;
 
-    // Get container dimensions
+    // get container width
     const containerWidth = document.getElementById('graph-container').clientHeight;
+
+    //
     if (isProfileAndSameParam || isIncomeAndSameSource) {
-        let minValue = 0; // Default minValue for income
-        let maxValue; // Will be defined based on condition
+        let minValue = 0;
+        let maxValue;
         let tickInterval;
 
-        // Apply specific axis settings for 'AverageScore'
+        // apply specific settings when GPA picked
         if (xProfOption === 'AverageScore' || yProfOption === 'AverageScore') {
-            maxValue = 4; // Max value is explicitly set for 'AverageScore'
-            tickInterval = 1; // A fixed interval makes sense for a scale of 0-4
+            maxValue = 4; // max value as is 0-4
+            tickInterval = 1; // fixed interval as 0-4
         } else if (xRadioCheck === 'income' || yRadioCheck === 'income') {
-            // Specific handling for income data
+            // handle income data
             let allValues = [...xAxisFilter.map(item => parseFloat(item[xProfOption])), ...yAxisFilter.map(item => parseFloat(item[yProfOption]))];
-            maxValue = Math.max(...allValues) * 1.1; // Adding a 10% buffer
+            maxValue = Math.max(...allValues) * 1.1; // 10% buffer to axis max
             marginBottom = 80;
-            // Round maxValue up to the nearest suitable round number for income data
-            maxValue = Math.ceil(maxValue / 1e6) * 1e6; // Round up to the nearest million
+            maxValue = Math.ceil(maxValue / 1e6) * 1e6; // round to nearest million
 
-            // Define tickInterval based on the rounded maxValue
-            tickInterval = maxValue / 5; // Example: divide the range into 5 rounded intervals
+            // tick interval based off rounded max value
+            tickInterval = maxValue / 5;
         } else if (xProfOption === 'FourStar' || xProfOption === 'ThreeStar' || xProfOption ==='TwoStar' || xProfOption === 'OneStar' || xProfOption === 'Unclassified' || xProfOption === 'PercEligibleStaff'){
-                maxValue = 100; // Max value is explicitly set for star ratings
+                maxValue = 100; // max value as is % based
                 minValue = 0;
-                tickInterval = 20; // A fixed interval makes sense for a scale of 0-100
+                tickInterval = 20; // fixed interval as 0-100
         }
 
         else {
-            // For other data types, including when profile parameters are the same but not 'AverageScore'
+            // for other data types where axis same attribute
             let allValues = [...xAxisFilter.map(item => parseFloat(item[xProfOption])), ...yAxisFilter.map(item => parseFloat(item[yProfOption]))];
-            maxValue = Math.max(...allValues) * 1.1; // Adding a 10% buffer
-            // Calculate a generic tick interval
-            tickInterval = Math.ceil((maxValue - minValue) / 5); // Example strategy to aim for about 5 ticks
+            maxValue = Math.max(...allValues) * 1.1; // 10% buffer to axis max
+            // calculate tickinterval to aim for 5 ticks
+            tickInterval = Math.ceil((maxValue - minValue) / 5);
         }
 
-        // Adjusted axis settings based on the conditions
+        // adjusted axis settings based on the conditions
         xAxisMax = maxValue;
         yAxisMax = maxValue;
-        xAxisMin = minValue; // Ensuring min is set to 0 for income data
+        xAxisMin = minValue;
         yAxisMin = minValue;
-        tickInterval = tickInterval; // Apply calculated tick interval
+        tickInterval = tickInterval;
     }
 
     window.myChart = Highcharts.chart('graph-container', {
         chart: {
           type: 'scatter',
           zoomType: 'xy',
-          marginBottom: marginBottom, // Adjust this value as needed
-          width: shouldBeSquare ? containerWidth : null, // Set height equal to width if params are the same
+          marginBottom: marginBottom, // dynamically adjust margin
+          width: shouldBeSquare ? containerWidth : null, // set heigh = width if same params so graph square
 
         },
         credits: {
@@ -293,8 +290,8 @@ document.getElementById('dataForm').onsubmit = function(event) {
             text: xAxis + ': ' + xProfOptionText,
           },
           max: xAxisMax,
-          min: xAxisMin,// Dynamically set the max value for the xAxis
-          tickInterval: tickInterval, // Set tickInterval to 1 when both are 'AverageScore', else auto
+          min: xAxisMin,// dynamically set max and min
+          tickInterval: tickInterval, // dynamically set interval tick
           labels: {
               style: {
               fontSize: '10px'
@@ -311,7 +308,7 @@ document.getElementById('dataForm').onsubmit = function(event) {
             }
           },
           max: yAxisMax,
-          min: yAxisMin, // Dynamically set the max value for the yAxis
+          min: yAxisMin, // dynamically set max and min
           tickInterval: tickInterval
         },
         tooltip: {
@@ -330,7 +327,7 @@ document.getElementById('dataForm').onsubmit = function(event) {
             return point;
           }),
           marker: {
-            radius: 3 // Adjust this value to make the points smaller or larger
+            radius: 3
           }
         }]
     });
@@ -340,9 +337,10 @@ document.getElementById('dataForm').onsubmit = function(event) {
   });
 }
 
+// find text of option based of value
 function findOptionText(options, value) {
   const option = options.find(option => option.value === value);
-  return option ? option.text : value; // Return the 'text' if found, else return the original 'value'
+  return option ? option.text : value;
 }
 
 function formatNumberAsCurrency(value) {

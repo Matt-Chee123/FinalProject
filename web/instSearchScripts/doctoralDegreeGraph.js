@@ -1,9 +1,13 @@
 function displayDoctoralDegreesChart(uniData, averages) {
 
-  const relevantData = uniData.find(item => item.ProfileType.includes("Environment"));
+  relevantDataArray = uniData.filter(item => item.ProfileType === "Environment");
 
-  let uniDegreeData = {
-    name: relevantData.UniversityName, // Replace with actual property if different
+//filtering returns array so return first item to get the relevant data
+  let relevantData = relevantDataArray[0];
+
+  // Data for the selected university
+  let uniDegreeData = relevantData ? {
+    name: relevantData.UniversityName,
     data: [
       parseInt(relevantData.DoctoralDegrees2013, 10),
       parseInt(relevantData.DoctoralDegrees2014, 10),
@@ -13,19 +17,18 @@ function displayDoctoralDegreesChart(uniData, averages) {
       parseInt(relevantData.DoctoralDegrees2018, 10),
       parseInt(relevantData.DoctoralDegrees2019, 10)
     ]
-  };
+  } : null;
 
-  // Prepare the series data for the bar chart
+  // series data for bar chart
   let seriesData = [
     uniDegreeData,
     {
       name: 'National Average',
       data: averages,
-      color: '#FF0000' // Different color for averages
+      color: '#FF0000' // red color for averages
     }
   ];
 
-  // Initialize the Highcharts bar chart
   Highcharts.chart('doctoral-degrees-container', {
     chart: {
       type: 'column',
@@ -55,6 +58,15 @@ function displayDoctoralDegreesChart(uniData, averages) {
       crosshair: true
     },
     yAxis: {
+      tickPositioner: function () {
+        const max = this.dataMax; //ensure 3 ticks and starts from 0
+        const roundedMax = Math.ceil(max / 10) * 10;
+
+        const min = 0;
+        const interval = roundedMax / 2;
+
+        return [min, min + interval, roundedMax];
+      },
       min: 0,
       labels: {
         style: {
@@ -83,8 +95,10 @@ function displayDoctoralDegreesChart(uniData, averages) {
   });
 }
 
+// Fetch the data for the selected university and the national averages
 function fetchEnvironmentAverages(unitOfAssessment) {
-  return fetch('https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/environment')
+  const url = `https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/environment?unitOfAssessmentName=${encodeURIComponent(unitOfAssessment)}`;
+  return fetch(url)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -94,19 +108,18 @@ function fetchEnvironmentAverages(unitOfAssessment) {
     .then(data => {
       let sumDegrees = {};
       let countDegrees = {};
-      const filteredData = data.filter(item => item.UnitOfAssessmentName === unitOfAssessment);
 
-      // Calculate the sum and count for each year to find the average later
-      filteredData.forEach(record => {
+      // calcaulte sum for each year
+      data.forEach(record => {
         for (let year = 2013; year <= 2019; year++) {
           const degrees = parseInt(record[`DoctoralDegrees${year}`], 10) || 0;
-          if (degrees > 0) { // Only count years with data
+          if (degrees > 0) {
             sumDegrees[year] = (sumDegrees[year] || 0) + degrees;
             countDegrees[year] = (countDegrees[year] || 0) + 1;
           }
         }
       });
-      // Compute the average for each year
+      // calcualte the average degrees for each year
       let averageDegreesPerYear = [];
       for (let year = 2013; year <= 2019; year++) {
         averageDegreesPerYear.push(
@@ -117,6 +130,6 @@ function fetchEnvironmentAverages(unitOfAssessment) {
     })
     .catch(error => {
       console.error('Error fetching environment data:', error);
-      return []; // Return an empty array if there was an error
+      return []; //return empty array if error
     });
 }

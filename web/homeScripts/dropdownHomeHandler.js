@@ -1,19 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const institutionDropdown = document.getElementById('institution-dropdown'); // Assuming you have this dropdown
+    const institutionDropdown = document.getElementById('institution-dropdown');
     const unitOfAssessmentDropdown = document.getElementById('unit-of-assessment-dropdown');
-    const heatmapIframe = document.querySelector('.heatmap-iframe'); // Select the iframe element
 
-    // Function to execute when "Nation" is selected
+    // function to execute when nation is selected
     function executeForNation() {
-        // Check if "Nation" is the selected option
         if (institutionDropdown.value === 'Nation') {
             const selectedUofA = unitOfAssessmentDropdown.value;
             console.log('Nation selected, executing operations for unit of assessment:', selectedUofA);
-            const formattedUofA = encodeURIComponent(selectedUofA.replace(/\s+/g, '')) + '_heatmap.html';
-            // Set the iframe src here if needed, uncomment the next line if the heatmap should change based on UofA
-            // heatmapIframe.src = 'path/to/heatmap/directory/' + formattedUofA;
 
-            // Call your functions here
+            // call component functions
             fetchTopAndBottomThree(selectedUofA);
             fetchTopThreeFte(selectedUofA);
             fetchIncomeData(selectedUofA);
@@ -22,15 +17,12 @@ document.addEventListener('DOMContentLoaded', function() {
             display10v10Data(selectedUofA);
         }
     }
+    //function to handle nation uoa changes
     function handleUoAChange() {
-        const selectedUofA = unitOfAssessmentDropdown.value; // Use the value of the option
+        const selectedUofA = unitOfAssessmentDropdown.value;
         if (institutionDropdown.value === 'Nation') {
-            console.log('Selected unit of assessment:', selectedUofA);
-            const formattedUofA = encodeURIComponent(selectedUofA.replace(/\s+/g, '')) + '_heatmap.html';
-            // Set the iframe src here if needed
-            // heatmapIframe.src = 'path/to/heatmap/directory/' + formattedUofA;
 
-            // Call your functions here
+            // call component functions
             fetchTopAndBottomThree(selectedUofA);
             fetchTopThreeFte(selectedUofA);
             fetchIncomeData(selectedUofA);
@@ -41,12 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    // Listen for changes in the UoA dropdown
+    // listen for uoa dropdown change
     unitOfAssessmentDropdown.addEventListener('change', handleUoAChange);
 
-    // Listen for changes in the institution dropdown to re-execute operations if "Nation" is selected again
+//listen for inst dropdown change
     institutionDropdown.addEventListener('change', executeForNation);
-
-    // Since "Nation" is the default, execute operations on page load
+    //execute on load as natio is default
     executeForNation();
 });

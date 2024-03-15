@@ -1,3 +1,4 @@
+//function to fetch the top 3 universities with the highest FTE of submitted staff
 function fetchTopThreeFte(uofaName = 'Computer Science and Informatics') {
   fetch(`https://cgqfvktdhb.execute-api.eu-north-1.amazonaws.com/main/items/top3?uofaName=${encodeURIComponent(uofaName)}`)
     .then(response => {
@@ -16,37 +17,33 @@ function fetchTopThreeFte(uofaName = 'Computer Science and Informatics') {
 
 
 function displayTopThreeFte(data) {
-  // Assuming the data is an array of objects with UniversityName and FTEOfSubmittedStaff
+  // create chart data
   const chartData = data.map(item => {
     return {
-      fullName: item.UniversityName, // Full name for tooltip
-      name: item.UniversityName.replace(/^University of /, ''), // Modify name for category display
+      fullName: item.UniversityName,
+      name: item.UniversityName.replace(/^University of /, ''),
       y: parseFloat(item.FTEOfSubmittedStaff.toFixed(1)),
       percEligible: parseFloat(item.PercEligibleStaff)
     };
   });
 
   const maxFTE = Math.max(...chartData.map(item => item.y));
-  let yAxisMax = Math.ceil(maxFTE / 10) * 10; // Round up to the nearest 10 for yAxisMax
+  let yAxisMax = Math.ceil(maxFTE / 10) * 10; // axis max rounded up to nearest 10
 
-  // Desired number of ticks
+  // specify 4 ticks
   const ticks = 4;
 
-  // Calculate tick interval to distribute ticks evenly across the yAxis
+  // distribute ticks evenly
   let tickInterval = yAxisMax / ticks;
 
-  // If tick interval is not a multiple of 10, round up to the nearest 10
+  // if tick interval not multiple of 10, round up to the nearest 10
   tickInterval = Math.ceil(tickInterval / 10) * 10;
 
-  // Generate tick positions based on the calculated interval
+  //calculate tick positionso that the ticks are evenly distributed
   const tickPositions = [];
   for (let i = 0; i <= yAxisMax; i += tickInterval) {
     tickPositions.push(i);
   }
-
-  // If the last tick position is not equal to yAxisMax, adjust the last tick to yAxisMax
-
-
 
   Highcharts.chart('top-FTE-records', {
     chart: {
@@ -85,9 +82,8 @@ function displayTopThreeFte(data) {
     tooltip: {
       useHTML: true,
       formatter: function() {
-        const point = this.point; // Get the current point
-        const fullName = point.fullName; // Access the full university name stored in point
-    // Construct the tooltip content
+        const point = this.point;
+        const fullName = point.fullName;
         return `${fullName}<br/>FTE of Submitted Staff: <b>${point.y}</b><br/>% Eligible: <b>${point.percEligible}%</b>`;
       }
     }

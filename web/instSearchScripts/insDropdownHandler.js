@@ -1,4 +1,5 @@
-// Declare the manageSectionsDisplay function outside of the DOMContentLoaded event listener
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const institutionDropdown = document.getElementById('institution-dropdown');
   const unitOfAssessmentDropdown = document.getElementById('unit-of-assessment-dropdown');
@@ -11,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectedUniversity = institutionDropdown.value;
   // Only proceed if the selected university is not "Nation"
     if (selectedUniversity !== 'Nation') {
-      console.log("selected university",selectedUniversity);
       manageSectionsDisplay(selectedUniversity);
       fetchUnitOfAssessmentNames(selectedUniversity, unitOfAssessmentDropdown.value, () => {
         const newSelectedUoA = unitOfAssessmentDropdown.value;
@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 function manageSectionsDisplay(selectedUniversity) {
-  console.log("section display");
   const homepageSection = document.getElementById('homepage-section');
   const institutionSection = document.getElementById('institution-section');
   if (selectedUniversity === 'Nation') {
@@ -46,8 +45,6 @@ function handleUoAChange() {
   // Proceed only if the selected university is not "Nation"
   if (selectedUniversity !== 'Nation') {
     const newSelectedUoA = document.getElementById('unit-of-assessment-dropdown').value;
-    console.log("selected university",selectedUniversity);
-    console.log("New UoA selected:", newSelectedUoA);
     // Fetch and display results for the newly selected UoA
     fetchAndDisplayResults(selectedUniversity, newSelectedUoA);
   }
@@ -90,8 +87,6 @@ function fetchAndDisplayResults(universityName, unitOfAssessment) {
       return response.json();
     })
     .then(data => {
-      console.log('Fetched search results:', data);
-      console.log('Selected UoA:', unitOfAssessment);
       displaySearchResults(data);
       displayIncomeChart(data);
       displayIncomeDist(data);
