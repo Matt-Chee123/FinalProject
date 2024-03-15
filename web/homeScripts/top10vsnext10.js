@@ -34,7 +34,8 @@ function display10v10Data(unitOfAssessment) {
             // filter original data for top 10 and next 10
             const top10Data = data.filter(item => top10Names.includes(item.UniversityName));
             const next10Data = data.filter(item => next10Names.includes(item.UniversityName));
-
+            let formattedTop10;
+            let formattedNext10;
                 // declare top10 and next10
                 let top10 = { chartData: 0 };
                 let next10 = { chartData: 0 };
@@ -54,7 +55,6 @@ function display10v10Data(unitOfAssessment) {
                 } else {
                     top10 = calculateIncome(top10Data, option);
                     next10 = calculateIncome(next10Data, option);
-
                     formattedTop10 = formatCurrency(top10.chartData);
                     formattedNext10 = formatCurrency(next10.chartData);
                     tooltipLabel = option === 'TotalIncome1320' ? 'Total Income (£)' : 'Average Yearly Income (£)';
@@ -97,7 +97,7 @@ function display10v10Data(unitOfAssessment) {
                         formatter: function() {
                             let tooltipValue = this.y;
                             if (option !== 'Doctoral' && option !== 'Overall' && option !== 'Outputs' && option !== 'Impact' && option !== 'Environment' && option !== 'FTEOfSubmittedStaff') {
-                                tooltipValue = this.series.name === 'Top 10' ? formattedTop10 : formattedNext10;
+                                tooltipValue = this.point.index === 0 ? formattedTop10 : formattedNext10;
                             }
                             return `${tooltipLabel}: <b>${tooltipValue}</b>`;
                         }
@@ -126,15 +126,12 @@ function formatCurrency(value) {
 
 //caclulate total income
 function calculateIncome(data, option) {
-    console.log(option);
     let chartData = 0;
     filteredData = data.filter(item => item.IncomeSource === 'Total income');
-    console.log(filteredData);
     filteredData.forEach(item => {
         chartData += Number(item[option]);
     });
 
-    console.log(chartData);
     return {
         chartData
     };

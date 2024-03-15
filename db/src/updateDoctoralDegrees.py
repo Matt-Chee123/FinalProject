@@ -1,18 +1,14 @@
 import boto3
 import csv
 
-# Initialize a DynamoDB resource
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('projDbNew')
 
-# Open your CSV file with the new data
 with open('../data/doctoralAll.csv', 'r') as csvfile:
     csvreader = csv.DictReader(csvfile)
 
-    # Iterate over each row in the CSV
     for row in csvreader:
         try:
-            # Construct the update expression and attribute values
             update_expression = 'SET DoctoralDegrees2013 = :dd2013, DoctoralDegrees2014 = :dd2014, DoctoralDegrees2015 = :dd2015, DoctoralDegrees2016 = :dd2016, DoctoralDegrees2017 = :dd2017, DoctoralDegrees2018 = :dd2018, DoctoralDegrees2019 = :dd2019'
             expression_attribute_values = {
                 ':dd2013': row['Number of doctoral degrees awarded in academic year 2013'],
@@ -24,16 +20,14 @@ with open('../data/doctoralAll.csv', 'r') as csvfile:
                 ':dd2019': row['Number of doctoral degrees awarded in academic year 2019']
             }
 
-            # Update the item in DynamoDB based on the Institution UKPRN code
             response = table.update_item(
                 Key={
-                    'InstitutionID': row['Institution UKPRN code'] + "#Environment",  # Partition key
-                    'UofANumber': int(row['Unit of assessment number'])  # Sort key
-                },
+                    'InstitutionID': row['Institution UKPRN code'] + "#Environment",
+                    'UofANumber': int(row['Unit of assessment number'])
+                },  # Sort key
                 UpdateExpression=update_expression,
                 ExpressionAttributeValues=expression_attribute_values
             )
         except Exception as e:
-            # Print out the error and the record that caused it
             print(f"Error updating item: {e}")
             print(f"Problematic record: {row}")

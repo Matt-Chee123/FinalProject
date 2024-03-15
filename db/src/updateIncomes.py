@@ -2,29 +2,24 @@ import boto3
 from decimal import Decimal
 import json
 
-# Initialize DynamoDB resource
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('projDbNew')
 
-# Initialize SQS client
 sqs = boto3.client('sqs')
-queue_url = 'https://sqs.eu-north-1.amazonaws.com/742600926264/projQueue'  # Replace with your actual queue URL
+queue_url = 'https://sqs.eu-north-1.amazonaws.com/742600926264/projQueue'
 
 while True:
-    # Receive messages from SQS queue
     messages = sqs.receive_message(
         QueueUrl=queue_url,
-        MaxNumberOfMessages=10,  # Adjust as needed
-        WaitTimeSeconds=20  # Use long polling
+        MaxNumberOfMessages=10,
+        WaitTimeSeconds=20
     )
 
     if 'Messages' in messages:
         for message in messages['Messages']:
-            # Process the message
-            print("Raw message body:", message['Body'])  # Add this line for debugging
+            print("Raw message body:", message['Body'])
             row = json.loads(message['Body'])
             try:
-                # Construct primary key and update expression
                 primary_key = {
                     'InstitutionID': row['Institution UKPRN code'] + "#" + row['Income source'],
                     'UofANumber': int(row['Unit of assessment number'])
@@ -60,7 +55,6 @@ while True:
                     ':totalIncome1320': Decimal(row['Total income for academic years 2013-14 to 2019-20'].replace(',', '')) if row['Total income for academic years 2013-14 to 2019-20'] else Decimal('0'),
                 }
 
-                # Update the item in DynamoDB
                 response = table.update_item(
                     Key=primary_key,
                     UpdateExpression=update_expression,
